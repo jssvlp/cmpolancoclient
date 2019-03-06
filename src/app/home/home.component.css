@@ -1,0 +1,11 @@
+.table.no-border tr td, .table.no-border tr th {
+    border-width: 0;
+  }
+  
+  caption {
+    font-size: 16pt;
+  }
+  .jumbotron {
+    padding: 5px inherit;
+  }
+  body { padding-top: 70px; }
