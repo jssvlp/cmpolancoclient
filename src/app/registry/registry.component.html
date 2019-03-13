@@ -16,39 +16,46 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Registro</h5>
-                <form class="form-signin">
-                  <label for="inputUserame">Nombre de usuario</label>
+                <form  #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-signin">
+                  <label for="inputUserame">Nombres</label>
                   <div class="form-label-group">
-                    <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                    <input type="text" id="NombreUsuario"  name="NombreUsuario"  class="form-control" placeholder="Username" ngModel required autofocus>
                   </div>
+
+                  <label for="inputUserame">Apellidos</label>
+                  <div class="form-label-group">
+                    <input type="text" id="inputLastnames" name="ApellidosUsuario"  class="form-control" placeholder="Apellidos" ngModel required autofocus>
+                  </div>
+
+                  
 
                   <label for="inputEmail">Email</label>
                   <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                    <input type="email" id="inputEmail" name="CorreoUsuario"  class="form-control"  placeholder="Correo electrónico" ngModel required>
                     <!-- <label for="inputEmail">Email address</label> -->
                   </div>
   
                   <label for="inputPassword">Contraseña</label>
                   <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" id="inputPassword" name="Contraseña"  class="form-control" placeholder="Password" ngModel required>
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
 
                   <label for="inputConfirmPassword">Confirmar contraseña</label>
                   <div class="form-label-group">
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password"  required>
                     <!-- <label for="inputConfirmPassword">Confirm password</label> -->
                   </div>
 
                   <label for="inputFechaDeNacimiento">Fecha de Nacimiento</label>
                   <div class="form-label-group">
-                    <input type="date" id="inputFechaDeNacimiento" class="form-control" required>
+                    <input type="date" id="FechaNacimiento" name="FechaNacimiento" class="form-control"ngModel required>
                     <!-- <label for="inputConfirmPassword">Confirm password</label> -->
                   </div>
     
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >Register</button>
                   <!-- <a class="d-block text-center mt-2 small" href="#">Sign In</a> -->
-                
+                  
                 </form>
               </div>
             </div>

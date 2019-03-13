@@ -16,15 +16,15 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Log in</h5>
-                <form class="form-login">
+                <form  #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-login">
                   <label for="inputUserame">Nombre de usuario</label>
                   <div class="form-label-group">
-                    <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                    <input type="text" id="email" name="email"class="form-control" placeholder="Username" ngModel required autofocus>
                   </div>
   
                   <label for="inputPassword">Contraseña</label>
                   <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" ngModel required>
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
     
