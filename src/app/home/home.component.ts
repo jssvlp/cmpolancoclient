@@ -1,33 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-declare var Jquery: any;
-declare var $:any;
-
+import { AuthService } from  '../services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user: any
+  constructor(private  authService:  AuthService ) { }
 
-  constructor() { }
-
-  ngOnInit() {
-    $('.carousel').carousel({
-      interval: 6000,
-      pause: "false"
-    });
-
-    // $(document).ready(function(){
-    //   $('.navbar-light .navbar-nav .nav-link').each(function(index, elemento){
-    //     $(this).css({
-    //       'top': '-200px'
-    //     });
-    //     $(this).animate({
-    //       top:'0'
-    //     }, 2000 + (index * 500));
-    //   });
-    // });
-  
+  async ngOnInit() {
+    this.user = await this.authService.isLogged().displayName
+    console.log(this.user.displayName);
     
   }
 

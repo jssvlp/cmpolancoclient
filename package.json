@@ -16,6 +16,7 @@
     "@angular/common": "~7.0.0",
     "@angular/compiler": "~7.0.0",
     "@angular/core": "~7.0.0",
+    "@angular/fire": "^5.1.2",
     "@angular/forms": "~7.0.0",
     "@angular/http": "~7.0.0",
     "@angular/material": "^7.3.3",
@@ -25,12 +26,17 @@
     "ajv-keywords": "file:node_modules/ajv-keywords",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "firebase": "^5.8.6",
     "glyphicons": "^0.2.0",
     "i": "^0.3.6",
     "jquery": "file:node_modules/jquery",
     "material-design-icons": "^3.0.1",
     "material-design-kit": "^1.0.2",
+<<<<<<< HEAD
     "npm": "^6.9.0",
+=======
+    "ngx-toastr": "^9.2.0",
+>>>>>>> 5346cb304002d3b9e5214dbede1a8cd8e50dc6fb
     "rxjs": "~6.3.3",
     "webpack-icons-installer": "^2.0.0",
     "zone.js": "~0.8.26"
