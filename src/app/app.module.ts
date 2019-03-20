@@ -10,6 +10,8 @@ import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { ForoComponent } from './foro/foro.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { SservicioComponent } from './sservicio/sservicio.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ForoComponent } from './foro/foro.component';
     LoginComponent,
     BlogComponent,
     ForoComponent,
+    PerfilComponent,
+    SservicioComponent,
   ],
   imports: [
     BrowserModule,
