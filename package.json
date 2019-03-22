@@ -32,11 +32,8 @@
     "jquery": "file:node_modules/jquery",
     "material-design-icons": "^3.0.1",
     "material-design-kit": "^1.0.2",
-<<<<<<< HEAD
     "npm": "^6.9.0",
-=======
     "ngx-toastr": "^9.2.0",
->>>>>>> 5346cb304002d3b9e5214dbede1a8cd8e50dc6fb
     "rxjs": "~6.3.3",
     "webpack-icons-installer": "^2.0.0",
     "zone.js": "~0.8.26"

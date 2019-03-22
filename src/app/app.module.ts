@@ -11,10 +11,6 @@ import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { ForoComponent } from './foro/foro.component';
-<<<<<<< HEAD
-import { PerfilComponent } from './perfil/perfil.component';
-import { SservicioComponent } from './sservicio/sservicio.component';
-=======
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,9 +24,10 @@ import {UserModel  } from "./model/User.model";
 
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { ProyectoModel } from './model/Proyecto.model';
+import { ProyectoService } from './services/proyecto.service';
 
 
->>>>>>> 5346cb304002d3b9e5214dbede1a8cd8e50dc6fb
 
 @NgModule({
   declarations: [
@@ -40,15 +37,7 @@ import { CommonModule } from '@angular/common';
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    ForoComponent,
-<<<<<<< HEAD
-    PerfilComponent,
-    SservicioComponent,
-=======
-    
-    
-
->>>>>>> 5346cb304002d3b9e5214dbede1a8cd8e50dc6fb
+    ForoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +52,7 @@ import { CommonModule } from '@angular/common';
     
     ToastrModule.forRoot() 
   ],
-  providers: [AuthService,UserApiService, UserModel],
+  providers: [AuthService,UserApiService, UserModel, ProyectoModel,ProyectoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
