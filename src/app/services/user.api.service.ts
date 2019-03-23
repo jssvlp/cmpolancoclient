@@ -35,6 +35,12 @@ export class UserApiService {
         .pipe(tap((nuevoUsuario: UserModel) => catchError(this.handleError<UserModel>('addUser'))
         ));
       }
+      getUser(id: number): Observable<UserModel> {
+        const url = `${apiUrl}/${id}`;
+        return this.http.get<UserModel>(url).pipe(
+          tap(_ => catchError(this.handleError<UserModel>(`getUser id=${id}`))
+        ));
+      }
 }
 
 

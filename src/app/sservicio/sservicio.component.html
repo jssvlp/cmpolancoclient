@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>Solicitud de Servicio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -18,14 +18,13 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Solicitar Servicios</h5>
-                <form class="form-servicio">
+                <form [formGroup]="requestForm" class="form-servicio">
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputServicios">Servicios</label>
-                          <select id="inputServicios" class="form-control">
-                            <option selected>Seleccionar</option>
-                            <option>...</option>
+                          <select formControlName="servicioID" id="inputServicios" class="form-control">
+                            <option *ngFor="let s of servicios" value="{{s.servicioID}}">{{s.nombreServicio}}</option>
                           </select>
                         </div>
                       </div>
@@ -33,7 +32,13 @@
               
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Comentario</label>
-                        <textarea class="form-control" id="comentario" rows="3"></textarea>
+                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Fecha deseada para la reunion</label>
+                      <div class="info">Nota: Es posible que esta no sea la fecha de reunion, pero sera tomada en cuenta la hora de pautar la cita.</div>
+                      <input formControlName="fechaSolicitada" type="date" class="form-control">
                     </div>
               
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Solicitar servicio</button>

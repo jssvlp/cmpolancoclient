@@ -26,6 +26,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { ProyectoModel } from './model/Proyecto.model';
 import { ProyectoService } from './services/proyecto.service';
+import { SolicitudModel } from './model/Solicitud.model';
+import { SolicitudService } from './services/solicitud.service';
+import { ServicioModel } from './model/Servicio.model';
+import { ServiciosService } from './services/servicios.service';
 
 
 
@@ -52,7 +56,7 @@ import { ProyectoService } from './services/proyecto.service';
     
     ToastrModule.forRoot() 
   ],
-  providers: [AuthService,UserApiService, UserModel, ProyectoModel,ProyectoService],
+  providers: [AuthService,UserApiService, UserModel, ProyectoModel,ProyectoService,SolicitudModel,SolicitudService,ServicioModel,ServiciosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

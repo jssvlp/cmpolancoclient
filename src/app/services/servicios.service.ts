@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ProyectoModel } from '../model/Proyecto.model';
-import { Observable, of } from 'rxjs';
 
+import { Observable, of } from 'rxjs';
+import { ServicioModel } from '../model/Servicio.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/proyectos";
-
+const apiUrl = "http://localhost:61756/api/Servicios";
 @Injectable({
   providedIn: 'root'
 })
-export class ProyectoService {
-  formData : ProyectoModel;
+export class ServiciosService {
 
+formData : ServicioModel;
   constructor(private http: HttpClient) { }
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -29,17 +29,21 @@ export class ProyectoService {
     };
   }
 
-  getProjects (): Observable<ProyectoModel[]> {
-    return this.http.get<ProyectoModel[]>(apiUrl)
+  getServicios (): Observable<ServicioModel[]> {
+    return this.http.get<ServicioModel[]>(apiUrl)
       .pipe(
-        tap(heroes => catchError(this.handleError('getProjects', []))
+        tap(heroes => catchError(this.handleError('getServices', []))
       ));
   }
 
-  getProject(id: number): Observable<ProyectoModel> {
+  getServicio(id: number): Observable<ServicioModel> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<ProyectoModel>(url).pipe(
-      tap(_ => catchError(this.handleError<ProyectoModel>(`getProject id=${id}`))
+    return this.http.get<ServicioModel>(url).pipe(
+      tap(_ => catchError(this.handleError<ServicioModel>(`getService id=${id}`))
     ));
   }
+
+
 }
+
+
