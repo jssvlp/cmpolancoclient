@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SolicitudModel } from '../model/Solicitud.model';
-import { ServicioModel } from '../model/Servicio.model';
-import { SolicitudService } from '../services/solicitud.service';
-import { ServiciosService } from '../services/servicios.service';
+import { SolicitudModel } from '../../model/Solicitud.model';
+import { ServicioModel } from '../../model/Servicio.model';
+import { SolicitudService } from '../../services/solicitud.service';
+import { ServiciosService } from '../../services/servicios.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
