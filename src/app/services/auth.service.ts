@@ -30,25 +30,14 @@ export  class  AuthService {
     isLogged(){
         return this.afAuth.auth.currentUser;    
     }
-    async Login(userInfo: any){
-         try {
-            console.log(userInfo);
-          
-            const userFirebase =  await  this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña)
-            
-           
-            this.loginApi(userInfo)
-                .subscribe(
-                    user =>this.setUser(user));
-           
-            if(userFirebase.user.emailVerified){
-                this.router.navigate(['/home'])
-            }
-            else
-            {
-                alert('Su usuario no esta verificado, revise su bandeja de entrada')
-                this.logout();
-            }
+     Login(userInfo: any){
+         try {          
+            const userFirebase =    this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña)
+            const url_api= "http://localhost:61756/api/usuarios/login"
+            return this.Http
+                       .post(url_api,userInfo, {headers: this.Headers})
+                       .pipe(data => data);
+
          } catch (e) {
              alert("Error al crear el usuario:"  +  e);
              console.log(e);
@@ -56,22 +45,20 @@ export  class  AuthService {
     
     }
 
-    loginApi(user: any){
-        const url_api= "http://localhost:61756/api/usuarios/login"
-        return this.Http
-            .post(url_api,user, {headers: this.Headers})
-            .pipe(data => data);
-       
-        //console.log();
-    }
     
-    async logout(){
-        await this.afAuth.auth.signOut();
-        let accesToken = localStorage.getItem("tnk");
-        const url_api= `http://localhost:61756/api/usuarios/logout?acces_token=${accesToken}`;
+     logout(){
+        this.afAuth.auth.signOut();
+        let accesToken = localStorage.getItem("tkn");
+        const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
+        console.log('*******URL:',url_api);
         localStorage.removeItem("tkn");
         localStorage.removeItem("currentUser");
-        this.router.navigate(['/home'])
+
+        return this.Http.post(
+            url_api,{headers : this.Headers}
+        ).pipe(data => data);
+       
+        //this.router.navigate(['/home'])
         //this.router.navigate(['admin/login']);
     }
 
@@ -107,8 +94,6 @@ export  class  AuthService {
         //Insert in ApI
         return this.Http.post(url_api,userInfo,{headers : this.Headers}
         ).pipe(map(data => data));
-        
-
     }
 
     async Register(userInfo: any){
