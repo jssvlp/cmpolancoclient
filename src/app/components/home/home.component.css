@@ -15,14 +15,7 @@ font-family: 'Open Sans', sans-serif;
 
 }
 
-/* Cambiar el color de las letras */
-.navbar-nav li a {
-  color: white;
-}
 
-.navbar-light .navbar-nav .nav-link:hover {
-color:#17a2b8;
-}
 
 h5 {
 display: inline-block;
@@ -122,13 +115,8 @@ margin: auto;
 overflow: hidden;
 }
 
-.contenedorh{
-position: relative;
-}
 
-header{
-width: 100%;
-}
+
 
 /* OJO */
 ul{
@@ -137,9 +125,6 @@ ul{
 
 }
 
-.contenedorh .navbar-light .navbar-nav .nav-link{
-position: relative;
-}
 
 
 /* Segunda section */

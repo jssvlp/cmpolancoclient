@@ -5,4 +5,5 @@ export class UserModel {
     FechaNacimiento: Date;
     Contraseña: string;
     AdminAcces: boolean;
+    FireBaseCode: string;
   }

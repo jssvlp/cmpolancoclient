@@ -3,8 +3,8 @@ import { auth } from  'firebase/app';
 import { AngularFireAuth } from  "@angular/fire/auth";
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { UserModel } from "../model/User.model";
-import { AuthService } from  '../services/auth.service';
+import { UserModel } from "../../model/User.model";
+import { AuthService } from  '../../services/auth.service';
 @Component({
   selector: 'app-registry',
   templateUrl: './registry.component.html',

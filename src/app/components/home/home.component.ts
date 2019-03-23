@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from  '../services/auth.service';
-import { ProyectoModel } from '../model/Proyecto.model';
-import { ProyectoService} from '../services/proyecto.service';
+import { AuthService } from  '../../services/auth.service';
+import { ProyectoModel } from '../../model/Proyecto.model';
+import { ProyectoService} from '../../services/proyecto.service';
 
 @Component({
   selector: 'app-home',
@@ -22,9 +22,7 @@ export class HomeComponent implements OnInit {
       console.log(err);
     });
     
-    this.user = await this.authService.isLogged().displayName
-    console.log(this.user.displayName);
-    
+  
   }
 
 }
