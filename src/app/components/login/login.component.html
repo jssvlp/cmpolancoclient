@@ -16,7 +16,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Log in</h5>
-                <form  #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-login">
+                <form  #form="ngForm" (ngSubmit)="onLogin(form)" class="form-login">
                   <label for="inputUserame">Correo</label>
                   <div class="form-label-group">
                     <input type="text" id="email" name="CorreoUsuario"class="form-control" placeholder="Username" ngModel required autofocus>
