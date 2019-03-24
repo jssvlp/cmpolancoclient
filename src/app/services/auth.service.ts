@@ -62,7 +62,7 @@ export  class  AuthService {
         //this.router.navigate(['admin/login']);
     }
 
-    setUser(user): void{
+    setUser(user:any): void{
       
         let user_string = JSON.stringify(user);
         localStorage.setItem("currentUser", user_string);

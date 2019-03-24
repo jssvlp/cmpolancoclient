@@ -32,6 +32,8 @@ import { ServicioModel } from '../model/Servicio.model';
 import { ServiciosService } from '../services/servicios.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
+import { SservicioComponent } from './sservicio/sservicio.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { AuthService } from '../services/auth.service';
     LoginComponent,
     BlogComponent,
     ForoComponent,
-    NavbarComponent
+    NavbarComponent,
+    SservicioComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

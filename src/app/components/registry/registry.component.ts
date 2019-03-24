@@ -20,7 +20,6 @@ export class RegistryComponent implements OnInit {
   }
 
   onSubmit(form : NgForm) {
-    console.log(form);
     this.authService.Register(form.value);
   } 
 
