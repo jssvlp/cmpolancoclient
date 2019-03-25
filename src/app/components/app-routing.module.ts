@@ -9,15 +9,17 @@ import { ForoComponent } from './foro/foro.component';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
+import { AuthGuard } from "../guards/auth.guard";
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'registry', component: RegistryComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'foro', component: ForoComponent},
-  {path: 'solicitud', component:SservicioComponent},
-  {path: 'perfil', component:PerfilComponent},
+  {path: 'blog', component: BlogComponent, canActivate:[AuthGuard]},
+  {path: 'foro', component: ForoComponent,canActivate:[AuthGuard]},
+  {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
+  {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
