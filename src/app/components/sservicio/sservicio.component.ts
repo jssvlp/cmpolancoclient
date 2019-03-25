@@ -5,6 +5,8 @@ import { SolicitudService } from '../../services/solicitud.service';
 import { ServiciosService } from '../../services/servicios.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserModel } from 'src/app/model/User.model';
 
 @Component({
   selector: 'app-sservicio',
@@ -14,16 +16,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SservicioComponent implements OnInit {
   servicios: ServicioModel[]=[];
   requestForm: FormGroup;
+  user: UserModel;
 
   constructor(private formBuilder: FormBuilder, private solApi:SolicitudService, 
-    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute) { }
+    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
+    this.user = this.authService.getCurrentUser();
     this.requestForm = this.formBuilder.group({
-      fechaSolicitud:[''],
+      fechaSolicitud:new Date().getDay(),
       fechaSolicitada: [''],
       comentario:[''],
-      servicioID:['']
+      servicioID:[''],
+      usuarioID: this.user.UsuarioID
     });
 
     return this.serApi.getServicios()

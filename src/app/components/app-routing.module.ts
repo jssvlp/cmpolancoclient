@@ -6,14 +6,20 @@ import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { ForoComponent } from './foro/foro.component';
+import { SservicioComponent } from './sservicio/sservicio.component';
+import { PerfilComponent } from './perfil/perfil.component';
+
+import { AuthGuard } from "../guards/auth.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'registry', component: RegistryComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'foro', component: ForoComponent},
+  {path: 'blog', component: BlogComponent, canActivate:[AuthGuard]},
+  {path: 'foro', component: ForoComponent,canActivate:[AuthGuard]},
+  {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
+  {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
