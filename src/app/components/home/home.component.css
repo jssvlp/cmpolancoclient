@@ -143,7 +143,7 @@ left: 30px;
 }
 
 #herramientas{
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 
 
@@ -188,8 +188,8 @@ left: 30px;
       }
 
       #foro{
-        margin-bottom: 250px;
-        padding-bottom: 250px;
+        margin-bottom: 200px;
+        padding-bottom: 200px;
 
       }
       .main .Contenedor2 article h3{
@@ -310,4 +310,98 @@ ul, ol {
   opacity: 0;
   visibility: hidden;
   transition: .22s ease;
+}
+
+/* Media queries */
+
+@media screen and (max-width:800px){
+  .main .Contenedor .foto{
+    width: 100%;
+    position: relative;
+    }
+    .main .Contenedor article{
+      position: relative;
+      width: 100%;
+      top:-50px;
+      transform: translate(0px,0);
+      left: 2px;
+
+    }
+
+    #sobrenosotros{
+      margin-bottom: -150px;
+      padding-bottom: -150px;
+
+    }
+
+
+    .main .Contenedor2 .foto{
+      width: 100%;
+      position: relative;
+     }
+
+     .main .Contenedor2 article{
+      position: relative;
+      width: 100%;
+      top:-50px;
+      transform: translate(0px,0);
+      left: 2px;
+      
+
+    }
+
+    #foro{
+      margin-bottom: 100px;
+      padding-bottom: 100px;
+
+    }
+      
+    .main .Contenedor3 .foto{
+      width: 100%;
+      position: relative;
+      }
+
+      .main .Contenedor3 article{
+        position: relative;
+        width: 100%;
+        top:-50px;
+        transform: translate(0px,0);
+        left: 2px;
+  
+      }
+
+      #blog{
+        margin-bottom: 100px;
+        padding-bottom: 100px;
+  
+      }
+
+      #foro{
+        padding: 30px;
+      }
+
+      #sobrenosotros{
+        padding: 30px;
+      }
+      #herramientas{
+        padding: 30px;
+      }
+
+      #blog{
+        padding: 30px;
+      }
+
+
+      #carouselExampleIndicators img{
+        
+        height: 24rem;
+
+      }
+      
+
+
+  
+  
+      
+  
 }
