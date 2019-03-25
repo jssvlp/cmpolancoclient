@@ -26,9 +26,25 @@
               <li class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
                 <a class="btn btn-info" aria-expanded="false" routerLink="/login" routerLinkActive="">Inicia sesión</a>
               </li>
-              <li class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
+              <li *ngIf="" class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
                   <a class="btn btn-info" style="margin-left:5px"aria-expanded="false" (click)="onLogout()" routerLinkActive="#">Logout</a>
-                </li>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
+                    <div class="img-rounded profile-img"></div>
+                    User Name <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">Settings</a>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <a href="#">Log out</a>
+                    </li>
+                </ul>
+            </li>
               <div class="nav-item" style="margin-left:15px"></div>
               <li class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
                 <a class="btn btn-warning" aria-expanded="false" routerLink="/registry" routerLinkActive="active">Registrarse</a>
