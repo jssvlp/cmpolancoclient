@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { SolicitudModel } from '../model/Solicitud.model';
+import { ServicioSolicitudModel } from '../model/ServicioSolicitud.model';
 
 
 const httpOptions = {
@@ -40,5 +41,11 @@ export class SolicitudService {
     ));
   }
 
+  addServicioSolicitud(solicitud: ServicioSolicitudModel){
+    var t = `${apiUrl}/${'ServicioSolicitud'}`;
+    return this.http.post<ServicioSolicitudModel>(t, solicitud,httpOptions)
+    .pipe(tap((nuevoRequest: ServicioSolicitudModel) => catchError(this.handleError<ServicioSolicitudModel>('addRequest'))
+    ));
+  }
 
 }

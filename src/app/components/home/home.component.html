@@ -76,7 +76,7 @@
     
   
   <!----------------------------------------------------------------------------------->
-                              <!--       herramientas      -->
+                              <!--       servicios      -->
   <!----------------------------------------------------------------------------------->
   
   <section class="row featurette" id="herramientas">
@@ -87,31 +87,17 @@
           <h2 class="Titulo">Servicios</h2>
       </div>
     </div>
-  
-    <div class='row'>
-        <div class="col-md-4 herramientas">
-            <img src="assets/house.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-            <h3 class="Primera_linea">Supervisión</h3>
-            <p>Mantente informado de cada detalle de la obra y sus avances con nuestro equipo altamente profesional en el ámbito de supervición de proyectos de construcción.</p>
+    
+    <div *ngFor="let s of servicio">
+        <div class='row'> 
+          <div class="col-md-4 herramientas">
+            <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
+            <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
+            <p>{{s.descripcionServicio}}.</p>
             <p><a class="btn btn-info" href="#" role="button">Ver más</a></p>
-        </div>  
-        
-        <div class="col-md-4 herramientas">
-            <img src="assets/crane.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-            <h3 class="Primera_linea">Ejecución</h3>
-            <p>Siéntete conforme y confiado con nosotros a la hora de ejecutar tú proyecto de construcción civil y haz realidad tú sueño.</p>
-            <p><a class="btn btn-info" href="#" role="button">Ver más</a></p>
-        </div> 
-           
-  
-        <div class="col-md-4 herramientas">
-            <img src="assets/sketch.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-            <h3 class="Primera_linea">Diseño</h3>
-            <p>Ven y forma parte de nuestro equipo altamente profesional para el diseño de tu proyecto de construccón civil.</p>
-            <p><a class="btn btn-info" href="#" role="button">Ver más</a></p>
-        </div>    
+          </div> 
+      </div>
     </div>
-  
   
   </div> 
   </section>

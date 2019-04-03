@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { database } from 'firebase';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  data: any[]=[]
+  constructor(private authSer: AuthService) { }
 
   ngOnInit() {
+    this.data = this.authSer.getCurrentUser(); 
+    console.log(this.authSer.getCurrentUser());
   }
 
 }

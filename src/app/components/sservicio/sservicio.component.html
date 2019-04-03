@@ -18,12 +18,12 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Solicitar Servicios</h5>
-                <form [formGroup]="requestForm" class="form-servicio">
+                <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="form-servicio">
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                           <label for="inputServicios">Servicios</label>
-                          <select formControlName="servicioID" id="inputServicios" class="form-control">
+                          <select formControlName="servicioID" id="inputServicios" class="form-control" (click)="getServicio($event.target.value)">
                             <option *ngFor="let s of servicios" value="{{s.servicioID}}">{{s.nombreServicio}}</option>
                           </select>
                         </div>

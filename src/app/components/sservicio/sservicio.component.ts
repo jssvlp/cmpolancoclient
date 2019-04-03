@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserModel } from 'src/app/model/User.model';
+import { ServicioSolicitudModel } from 'src/app/model/ServicioSolicitud.model';
+
 
 @Component({
   selector: 'app-sservicio',
@@ -17,6 +19,7 @@ export class SservicioComponent implements OnInit {
   servicios: ServicioModel[]=[];
   requestForm: FormGroup;
   user: UserModel;
+  data: ServicioSolicitudModel = new ServicioSolicitudModel();
 
   constructor(private formBuilder: FormBuilder, private solApi:SolicitudService, 
     private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService) { }
@@ -27,9 +30,11 @@ export class SservicioComponent implements OnInit {
       fechaSolicitud:new Date().getDay(),
       fechaSolicitada: [''],
       comentario:[''],
-      servicioID:[''],
-      usuarioID: this.user.UsuarioID
+      servicioID: [''],
+      usuarioID: this.user.usuarioID
     });
+
+  
 
     return this.serApi.getServicios()
       .subscribe(res => {
@@ -44,7 +49,19 @@ export class SservicioComponent implements OnInit {
   onSubmit(){
     this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
       this.router.navigate(['']);
+      this.data.solicitudID= res.solicitudID;
+      console.log(this.data.solicitudID);
+      this.data.estadoID = 2;
+      this.solApi.addServicioSolicitud(this.data).subscribe(res =>{
+
+      })
     });
+
+  }
+
+  getServicio(id: number){
+    this.data.servicioID = id;
+    
   }
 
 }

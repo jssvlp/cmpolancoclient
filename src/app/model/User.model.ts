@@ -1,10 +1,13 @@
+import { SolicitudModel } from "./Solicitud.model";
+
 export class UserModel {
-    UsuarioID:number;
-    NombreUsuario: string;
-    ApellidosUsuario: string;
-    CorreoUsuario: string;
-    FechaNacimiento: Date;
-    Contraseña: string;
-    AdminAcces: boolean;
-    FireBaseCode: string;
+    usuarioID:number;
+    nombreUsuario: string;
+    apellidosUsuario: string;
+    correoUsuario: string;
+    fechaNacimiento: Date;
+    contraseña: string;
+    adminAcces: boolean;
+    fireBaseCode: string;
+    solicitud: SolicitudModel;
   }
