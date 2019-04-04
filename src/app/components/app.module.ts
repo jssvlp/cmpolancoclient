@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { AuthGuard } from "../guards/auth.guard";
-
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistryComponent } from './registry/registry.component';
@@ -14,10 +12,7 @@ import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -34,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -60,7 +56,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot() 
+    ToastrModule.forRoot(),
+    NgxPaginationModule 
   ],
   providers: [AuthService, UserModel, ProyectoModel,ProyectoService,SolicitudModel,SolicitudService,ServicioModel,ServiciosService],
   bootstrap: [AppComponent]
