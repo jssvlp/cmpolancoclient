@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -60,7 +60,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot() 
+    NgbModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [AuthService, UserModel, ProyectoModel,ProyectoService,SolicitudModel,SolicitudService,ServicioModel,ServiciosService],
   bootstrap: [AppComponent]

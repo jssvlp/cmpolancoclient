@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.1.1",
     "ajv-keywords": "file:node_modules/ajv-keywords",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
@@ -32,8 +33,8 @@
     "jquery": "file:node_modules/jquery",
     "material-design-icons": "^3.0.1",
     "material-design-kit": "^1.0.2",
-    "npm": "^6.9.0",
     "ngx-toastr": "^9.2.0",
+    "npm": "^6.9.0",
     "rxjs": "~6.3.3",
     "webpack-icons-installer": "^2.0.0",
     "zone.js": "~0.8.26"

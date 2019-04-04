@@ -1,158 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<header>
+  <app-navbar></app-navbar>
+</header>
 <body>
-        <!-- SUB Banner -->
-        <div class="profile-bnr sub-bnr user-profile-bnr">
-            <div class="position-center-center">
-                <div class="container">
-                <h2>Nuestro Blog</h2>
-                </div>
-            </div>
-        </div>
-        <!-- Page Content -->
+  <div class="container">
+    <section class="banner-section"></section>
+  </div>
+  <div class="row">
+    <!-- SUB Banner -->
+    <div class="col-lg-12 col-md-12 col-sm-12 post-title-block">
         <div class="container">
-      
-          <div class="row">
-      
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
-      
-              <h1 class="my-4">Encabezado de página
-                <small>Texto secundario</small>
-              </h1>
-      
-              <!-- Blog Post -->
-              <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                <div class="card-body">
-                  <h2 class="card-title">Publicar Título</h2>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                  <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-                </div>
-                <div class="card-footer text-muted">
-                  Publicado en Marzo 5, 2019 por
-                  <a href="#">BRICK</a>
-                </div>
-              </div>
-      
-              <!-- Blog Post -->
-              <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                <div class="card-body">
-                  <h2 class="card-title">Publicar Título</h2>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                  <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Publicado en Marzo 5, 2019 por
-                  <a href="#">BRICK</a>
-                </div>
-              </div>
-      
-              <!-- Blog Post -->
-              <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                <div class="card-body">
-                  <h2 class="card-title">Publicar Título</h2>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                  <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Publicado en Marzo 5, 2019 por
-                  <a href="#">BRICK</a>
-                </div>
-              </div>
-      
-              <!-- Pagination -->
-              <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
-                  <a class="page-link" href="#">&larr; Más viejo</a>
-                </li>
-                <li class="page-item disabled">
-                  <a class="page-link" href="#">Más nuevo &rarr;</a>
-                </li>
-              </ul>
-      
+          <div class="d-flex flex-row-reverse">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Buscar...">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
-      
-            <!-- Sidebar Widgets Column -->
-            <div class="col-md-4">
-      
-              <!-- Search Widget -->
-              <div class="card my-4">
-                <h5 class="card-header">Buscar</h5>
-                <div class="card-body">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="button">Ir!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-      
-              <!-- Categories Widget -->
-              <div class="card my-4">
-                <h5 class="card-header">Categorias</h5>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <ul class="list-unstyled mb-0">
-                        <li>
-                          <a href="#">Sector inmobiliario</a>
-                        </li>
-                        <li>
-                          <a href="#">Sector ...</a>
-                        </li>
-                        <li>
-                          <a href="#">Sector ...</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-6">
-                      <ul class="list-unstyled mb-0">
-                        <li>
-                          <a href="#">Sector ...</a>
-                        </li>
-                        <li>
-                          <a href="#">Sector ...</a>
-                        </li>
-                        <li>
-                          <a href="#">Sector ...</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-              <!-- Side Widget -->
-              <div class="card my-4">
-                <h5 class="card-header">Widget Lateral</h5>
-                <div class="card-body">
-                    Puedes poner lo que quieras dentro de estos widgets laterales. ¡Son fáciles de usar y cuentan con los nuevos contenedores de tarjetas Bootstrap 4!
-                </div>
-              </div>
-      
-            </div>
-      
           </div>
-          <!-- /.row -->
-      
         </div>
-        <!-- /.container -->
-      
-        <!-- Footer -->
-        <footer class="py-5 bg-dark">
-          <div class="container">
-            <p class="m-0 text-center text-white">© 2019 Constructora Mejia Polanco, Inc.</p>
+      <h1 class="text-center">Nuestro Blog</h1>
+      <ul class="list-inline text-center">
+          <li>Ing. Franklyn Mejía</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <!--<h1 class="my-4">Encabezado de página
+          <small>Texto secundario</small>
+        </h1>-->
+
+        <!-- Blog Post -->
+        <div class="card mb-4 shadow">
+          <div class="inner">
+            <img class="card-img-top" src="assets/Webp.net-resizeimage (1).jpg" alt="Card image cap">
           </div>
-          <!-- /.container -->
-        </footer>
-      
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-      
-      </body>
+          <div class="card-body text-center">
+            <h2 class="card-title">Publicar Título</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Publicado en Marzo 5, 2019 por
+            <a href="#">BRICK</a>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+        <div class="card mb-4 shadow">
+          <div class="inner">
+            <img class="card-img-top" src="assets/Webp.net-resizeimage (2).jpg" alt="Card image cap">
+          </div>
+          <div class="card-body text-center">
+            <h2 class="card-title">Publicar Título</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis! Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis! Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+              Publicado en Marzo 5, 2019 por
+            <a href="#">BRICK</a>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+        <div class="card mb-4 shadow">
+          <div class="inner">
+            <img class="card-img-top" src="assets/Webp.net-resizeimage.jpg" alt="Card image cap">
+          </div>
+          <div class="card-body text-center">
+            <h2 class="card-title">Publicar Título</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+              Publicado en Marzo 5, 2019 por
+            <a href="#">BRICK</a>
+          </div>
+        </div>
+
+        <!-- Blog Post -->
+        <div class="card mb-4 shadow">
+          <div class="inner">
+            <img class="card-img-top" src="assets/student-849825__340.jpg" alt="Card image cap">
+          </div>
+          <div class="card-body text-center">
+            <h2 class="card-title">Publicar Título</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+              Publicado en Marzo 23, 2019 por
+            <a href="#">BRICK</a>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="...">
+          <ul class="pagination justify-content-center mb-4">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Anterior</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a><span class="sr-only">(current)</span></li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Siguiente</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+
+        <!-- Search Widget
+        <div class="card my-4">
+          <h5 class="card-header">Buscar</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar por...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button" style="margin-left: 7.5px">Ir!</button>
+              </span>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Side Widget -->
+        <!-- Search Widget -->
+        <div class="col-md-4 margin-top: 50px">
+        <div class="card my-4" id="AgregarPost">
+          <h5 class="card-header">Agregar un nuevo post</h5>
+          <div class="card-body">
+            <button class="btn btn-secondary" type="button" (click)="ver(agregar, agregarPost)">Agregar post</button>
+          </div>
+        </div>
+        <ng-template #agregarPost>
+          <div class="modal-header">
+            <h4 class="modal-title">Nuevo post</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Insertar Título">
+              <textarea class="form-control" id="post" rows="3" style="margin-top: 25px;" placeholder="Agregar contenido"></textarea>
+              <label for="exampleFormControlFile1" style="margin-top: 15px;">Adjuntar imagen</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button">Agregar</button>
+          </div>
+        </ng-template>
+        <!-- Categories Widget
+        <div class="card my-4">
+          <h5 class="card-header">Categorias</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Sector inmobiliario</a>
+                  </li>
+                  <li>
+                    <a href="#">Sector ...</a>
+                  </li>
+                  <li>
+                    <a href="#">Sector ...</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Sector ...</a>
+                  </li>
+                  <li>
+                    <a href="#">Sector ...</a>
+                  </li>
+                  <li>
+                    <a href="#">Sector ...</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+</body>
+  <!-- Footer -->
+  <footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;">
+      <div class="container">
+        <div class="row row-30">
+          <div class="col-md-4 col-xl-5">
+            <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+              <p>Contáctenos y le responderemos dentro de las 24 horas.</p>
+              <!-- Rights-->
+              <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Constructora Mejia Polanco, Inc.</span><span>. </span><span>All Rights Reserved.</span></p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5>Contactos</h5>
+            <dl class="contact-list">
+              <dt>Dirección:</dt>
+              <dd>Santo Domingo, RD</dd>
+            </dl>
+            <dl class="contact-list">
+              <dt>Correo:</dt>
+              <dd><a href="mailto:#">constructoramejiapolanco@hotmail.com</a></dd>
+            </dl>
+            <dl class="contact-list">
+              <dt>Telefono:</dt>
+              <dd> <a href="tel:#">(809) 530-7149</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters social-container">
+        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>
+            <img src="assets/facebook.png" alt="Generic placeholder image" alt="Generic placeholder image" >
+        </span></a></div>
+        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span>
+          <img src="assets/instagram.png" alt="Generic placeholder image" alt="Generic placeholder image" >
+        </a></div>
+        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>
+            <img src="assets/twitter.png" alt="Generic placeholder image" alt="Generic placeholder image" >
+        </span></a></div>
+        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>
+            <img src="assets/linkedin.png" alt="Generic placeholder image" alt="Generic placeholder image" >
+        </span></a></div>
+      </div>
+    </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </html>
