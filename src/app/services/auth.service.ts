@@ -5,8 +5,9 @@ import { UserModel } from '../model/User.model';
 import { ToastrService } from 'ngx-toastr';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 import {isNullOrUndefined} from 'util';
+import { Observable, of } from 'rxjs';
 
 
 
@@ -120,10 +121,29 @@ export  class  AuthService {
          }
     }
 
-   
+    
 
+    getUser(id: number){
+    const url = `${"http://localhost:61756/api/usuarios"}/${id}`;
+    return this.Http.get<UserModel>(url).pipe(
+      tap(_ => catchError(this.handleError<UserModel>(`getUser id=${id}`))
+    ));
+
+    }
+
+   
+    private handleError<T> (operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+      
+          // TODO: send the error to remote logging infrastructure
+          console.error(error); // log to console instead
+      
+          // Let the app keep running by returning an empty result.
+          return of(result as T);
+        };
     
 }
 
 
 
+}

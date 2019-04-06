@@ -1,10 +1,9 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { AuthGuard } from "../guards/auth.guard";
-
+import { AuthGuard } from '../guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistryComponent } from './registry/registry.component';
@@ -14,15 +13,14 @@ import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
-import { UserModel  } from "../model/User.model";
+import { UserModel } from '../model/User.model';
 import { ToastrModule } from 'ngx-toastr';
 import { ProyectoModel } from '../model/Proyecto.model';
 import { ProyectoService } from '../services/proyecto.service';
@@ -51,6 +49,7 @@ import { PerfilComponent } from './perfil/perfil.component';
   ],
   imports: [
     BrowserModule,
+// tslint:disable-next-line: deprecation
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
@@ -60,10 +59,12 @@ import { PerfilComponent } from './perfil/perfil.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+// tslint:disable-next-line: deprecation
     NgbModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel,ProyectoService,SolicitudModel,SolicitudService,ServicioModel,ServiciosService],
+  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,11 @@
+import { ServicioModel } from "./Servicio.model";
+import { SolicitudModel } from "./Solicitud.model";
+import { EstadoModel } from "./Estado.model";
+
 export class ServicioSolicitudModel {
 
-    servicioID: number
-    solicitudID:number
-    estadoID:number
+    servicio: ServicioModel
+    solicitud: SolicitudModel
+    estado: EstadoModel
     
   }

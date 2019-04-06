@@ -74,19 +74,20 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Proyecto</th>
-                                        <th scope="col">Fecha de terminacion</th>
-                                        <th scope="col">Direccion</th>
+                                        <th scope="col">Servicio</th>
+                                        <th scope="col">Fecha de solicitud</th>
+                                        <th scope="col">Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- <tr *ngFor="let d of data | paginate: { itemsPerPage: 1, currentPage: p } ; let i = index">
+                                    <tr *ngFor="let s of solicitud | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
                                         <th scope="row">{{i + 1}}</th>
-                                        <td>Ejemplo 1</td>
-                                        <td>Ejemplo 1</td>
-                                        <td>Ejemplo 1</td>
-                                    </tr> -->
+                                        <td>{{s.servicioSolicituds[0].servicio.nombreServicio}}</td>
+                                        <td>{{s.fechaSol}}</td>
+                                        <td>{{s.servicioSolicituds[0].estado.estadoNombre}}</td>
+                                    </tr> 
                                 </tbody>
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
                         </table>
                   </div>
               </div>

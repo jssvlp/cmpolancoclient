@@ -49,9 +49,9 @@ export class SservicioComponent implements OnInit {
   onSubmit(){
     this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
       this.router.navigate(['']);
-      this.data.solicitudID= res.solicitudID;
-      console.log(this.data.solicitudID);
-      this.data.estadoID = 2;
+      this.data.solicitud.solicitudID= res.solicitudID;
+      console.log(this.data.solicitud.solicitudID);
+      this.data.estado.estadoID = 2;
       this.solApi.addServicioSolicitud(this.data).subscribe(res =>{
 
       })
@@ -60,7 +60,7 @@ export class SservicioComponent implements OnInit {
   }
 
   getServicio(id: number){
-    this.data.servicioID = id;
+    this.data.servicio.servicioID = id;
     
   }
 
