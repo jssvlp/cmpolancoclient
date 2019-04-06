@@ -77,14 +77,18 @@
                                         <th scope="col">Servicio</th>
                                         <th scope="col">Fecha de solicitud</th>
                                         <th scope="col">Estado</th>
+                                        <th scope="col">Fecha de la visita</th>
+                                        <th scope="col">Hora de la visita</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let s of solicitud | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
                                         <th scope="row">{{i + 1}}</th>
                                         <td>{{s.servicioSolicituds[0].servicio.nombreServicio}}</td>
-                                        <td>{{s.fechaSol}}</td>
+                                        <td>{{s.fechaSol | date:'dd-MM-yyyy'}}</td>
                                         <td>{{s.servicioSolicituds[0].estado.estadoNombre}}</td>
+                                        <td>{{s.visitaAgendadas[0].hora_Inicio | date:'dd-MM-yyyy'}}</td>
+                                        <td>{{s.visitaAgendadas[0].hora_Inicio | date:"HH:mm"}} - {{s.visitaAgendadas[0].hora_Fin | date:"HH:mm aa"}} </td>
                                     </tr> 
                                 </tbody>
                                 <pagination-controls (pageChange)="p = $event"></pagination-controls>

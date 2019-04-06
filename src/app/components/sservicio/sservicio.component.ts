@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserModel } from 'src/app/model/User.model';
 import { ServicioSolicitudModel } from 'src/app/model/ServicioSolicitud.model';
+import { EntidadModel } from 'src/app/model/Entidad.model';
+import {formatDate} from '@angular/common';
 
 
 @Component({
@@ -19,21 +21,20 @@ export class SservicioComponent implements OnInit {
   servicios: ServicioModel[]=[];
   requestForm: FormGroup;
   user: UserModel;
-  data: ServicioSolicitudModel = new ServicioSolicitudModel();
-
+  data: EntidadModel = new EntidadModel();
   constructor(private formBuilder: FormBuilder, private solApi:SolicitudService, 
-    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService) { }
+    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService) {
+     }
 
   ngOnInit() {
     this.user = this.authService.getCurrentUser();
     this.requestForm = this.formBuilder.group({
-      fechaSolicitud:new Date().getDay(),
-      fechaSolicitada: [''],
+      fechaServSol:formatDate(new Date(), 'yyyy/MM/dd', 'en'),
+      fechaSol: [''],
       comentario:[''],
       servicioID: [''],
       usuarioID: this.user.usuarioID
     });
-
   
 
     return this.serApi.getServicios()
@@ -49,18 +50,18 @@ export class SservicioComponent implements OnInit {
   onSubmit(){
     this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
       this.router.navigate(['']);
-      this.data.solicitud.solicitudID= res.solicitudID;
-      console.log(this.data.solicitud.solicitudID);
-      this.data.estado.estadoID = 2;
+      this.data.solicitudID = res.solicitudID;
+      this.data.estadoID = 2;
       this.solApi.addServicioSolicitud(this.data).subscribe(res =>{
-
       })
+     
     });
 
   }
 
   getServicio(id: number){
-    this.data.servicio.servicioID = id;
+    this.data.servicioID = Number(id);
+    console.log(this.data);
     
   }
 

@@ -30,6 +30,8 @@ import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import 'flatpickr/dist/flatpickr.css';
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
+    FlatpickrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
