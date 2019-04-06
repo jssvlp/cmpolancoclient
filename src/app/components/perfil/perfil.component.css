@@ -1,3 +1,6 @@
+*{
+  background: '\assets\white-waves.png';
+}
 body{
   padding: 120px;
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -37,32 +40,13 @@ body{
   font-size: 15px;
   background: #212529b8;
 }
-.profile-img .file input {
-  position: absolute;
-  opacity: 0;
-  right: 0;
-  top: 0;
-}
 .profile-head h5{
   color: #333;
 }
 .profile-head h6{
   color: #0062cc;
 }
-.profile-edit-btn{
-  border: none;
-  border-radius: 1.5rem;
-  width: 70%;
-  padding: 2%;
-  font-weight: 600;
-  color: #6c757d;
-  cursor: pointer;
-}
-.proile-rating{
-  font-size: 12px;
-  color: #818182;
-  margin-top: 5%;
-}
+
 .proile-rating span{
   color: #495057;
   font-size: 15px;
@@ -118,3 +102,8 @@ body{
   margin-bottom: 15px; 
 }
 
+
+#espa{
+
+  top: -80px;
+}
