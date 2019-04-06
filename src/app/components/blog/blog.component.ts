@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-blog',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
+  agregar: any;
+  
+  constructor(private modalService: NgbModal) { }
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  ver(agregar: any, modal) {
+    this.agregar = agregar;
+    this.modalService.open(modal);
   }
 
 }
