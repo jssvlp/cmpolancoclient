@@ -32,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { VisitaComponent } from './visita/visita.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     ForoComponent,
     NavbarComponent,
     SservicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    VisitaComponent
   ],
   imports: [
     BrowserModule,

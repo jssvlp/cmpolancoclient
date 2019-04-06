@@ -1,0 +1,72 @@
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-proyecto flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                   <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Nueva visita</h5>
+                  <form [formGroup]="addForm" (ngSubmit)="OnSubmit()" class="form-proyecto" autocomplete="off">
+  
+                      <div class="form-row">
+                          <div class="form-group">
+                              <label>Fecha de inicio</label>
+                              <input formControlName="hora_Inicio" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                              [convertModelValue]="true"
+                              [enableTime]="true"
+                              dateFormat="Y-m-dTH:i"
+                              altFormat="F j, Y H:i"
+                              placeholder="Not set"  require/>
+                          </div>
+                      </div>
+
+                      <div class="form-row">
+                          <div class="form-group">
+                              <label>Fecha fin</label>
+                              <input formControlName="hora_Fin" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                              [convertModelValue]="true"
+                              [enableTime]="true"
+                              dateFormat="Y-m-dTH:i"
+                              altFormat="F j, Y H:i"
+                              placeholder="Not set" required/>        
+                          </div>
+                      </div>
+
+                      <div class="form-row">
+                          <div class="form-group">
+                              <label>Motivo</label>
+                              <select formControlName="motivo" (change)="Select($event)" class="form-control" required>
+                              <option value="solicitud">Solicitud</option>
+                              <option value="proyecto">Proyecto</option>
+                              <option value="otros">Otros</option>
+                             </select>
+                          </div>
+                      </div>
+                      <div *ngIf = "value == 'solicitud'">
+                          <label>Seleccione la solicitud</label>
+                          <select formControlName="solicitudID" class="form-control" required>
+                          <option value="solicitud">Solicitud</option>
+                          </select>
+                      </div>
+                      <div *ngIf = "value == 'proyecto'">
+                        <label>Seleccione el proyecto</label>
+                        <select formControlName="proyectoID" class="form-control" required>
+                        <option value="solicitud">Proyecto</option>
+                      </div>
+                      
+                      <div class="form-row">
+                          <div class="form-group">
+                              <label>Descripcion</label>
+                              <input formControlName="descripcion" type="text" class="form-control"  required/>
+                          </div>
+                        </div>    
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Guardar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
