@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -35,6 +34,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { BlogboxComponent } from './blogbox/blogbox.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+import { VisitaComponent } from './visita/visita.component';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
     PerfilComponent,
     BlogboxComponent,
     AddpostComponent,
-    BlogboxmasComponent
+    BlogboxmasComponent,
+    VisitaComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
+    FlatpickrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

@@ -4,6 +4,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { SolicitudModel } from '../model/Solicitud.model';
 import { ServicioSolicitudModel } from '../model/ServicioSolicitud.model';
+import { EntidadModel } from '../model/Entidad.model';
 
 
 const httpOptions = {
@@ -37,14 +38,15 @@ export class SolicitudService {
 
   addSolicitud(solicitud: SolicitudModel){
     return this.http.post<SolicitudModel>(apiUrl,solicitud,httpOptions)
-    .pipe(tap((nuevoRequest: SolicitudModel) => catchError(this.handleError<SolicitudModel>('addRequest'))
+    .pipe(tap((nuevoRequest: SolicitudModel) => console.log(solicitud),
+    catchError(this.handleError<SolicitudModel>('addRequest'))
     ));
   }
 
-  addServicioSolicitud(solicitud: ServicioSolicitudModel){
+  addServicioSolicitud(solicitud: EntidadModel){
     var t = `${apiUrl}/${'ServicioSolicitud'}`;
-    return this.http.post<ServicioSolicitudModel>(t, solicitud,httpOptions)
-    .pipe(tap((nuevoRequest: ServicioSolicitudModel) => catchError(this.handleError<ServicioSolicitudModel>('addRequest'))
+    return this.http.post<EntidadModel>(t, solicitud,httpOptions)
+    .pipe(tap((nuevoRequest: EntidadModel) => catchError(this.handleError<EntidadModel>('addRequest'))
     ));
   }
 

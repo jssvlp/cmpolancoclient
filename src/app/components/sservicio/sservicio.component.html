@@ -38,7 +38,12 @@
                     <div class="form-group">
                       <label>Fecha deseada para la reunion</label>
                       <div class="info">Nota: Es posible que esta no sea la fecha de reunion, pero sera tomada en cuenta la hora de pautar la cita.</div>
-                      <input formControlName="fechaSolicitada" type="date" class="form-control">
+                      <input formControlName="fechaSol" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                      [convertModelValue]="true"
+                      [enableTime]="true"
+                      dateFormat="Y-m-dTH:i"
+                      altFormat="F j, Y H:i"
+                      placeholder="Not set" >
                     </div>
               
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Solicitar servicio</button>

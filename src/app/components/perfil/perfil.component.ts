@@ -21,6 +21,7 @@ export class PerfilComponent implements OnInit {
     this.authSer.getUser(this.authSer.getCurrentUser().usuarioID).subscribe(res => {
       this.data = res;
       this.solicitud = this.data.solicitud;
+      console.log(this.data);
     });
     
   }
