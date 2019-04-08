@@ -2,7 +2,7 @@
 .card-text li{font-size:20px; color: #fff;}
 .image-block{float:left; width:100%; margin-bottom:10px;}
 
-.card-text p {
+.card-text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

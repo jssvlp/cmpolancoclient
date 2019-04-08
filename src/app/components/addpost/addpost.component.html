@@ -1,0 +1,25 @@
+<div class="card my-4" id="AgregarPost">
+  <h5 class="card-header">Agregar un nuevo post</h5>
+  <div class="card-body">
+    <button class="btn btn-secondary" type="button" (click)="ver(agregar, agregarPost)">Agregar post</button>
+  </div>
+</div>
+<ng-template #agregarPost>
+    <form>
+    <div class="modal-header">
+      <h4 class="modal-title">Nuevo post</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Insertar Título">
+        <textarea class="form-control" id="post" rows="3" style="margin-top: 25px;" placeholder="Agregar contenido"></textarea>
+        <label for="exampleFormControlFile1" style="margin-top: 15px;">Adjuntar imagen</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" type="button">Descartar</button>
+        <button class="btn btn-secondary" type="button">Agregar</button>
+    </div>
+  </form>
+</ng-template>

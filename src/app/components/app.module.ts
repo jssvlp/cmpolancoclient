@@ -32,6 +32,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { BlogboxComponent } from './blogbox/blogbox.component';
+import { AddpostComponent } from './addpost/addpost.component';
+import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { PerfilComponent } from './perfil/perfil.component';
     ForoComponent,
     NavbarComponent,
     SservicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    BlogboxComponent,
+    AddpostComponent,
+    BlogboxmasComponent
   ],
   imports: [
     BrowserModule,

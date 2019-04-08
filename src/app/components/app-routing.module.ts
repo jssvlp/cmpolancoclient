@@ -1,3 +1,5 @@
+import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
+import { AddpostComponent } from './addpost/addpost.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -5,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
+import { BlogboxComponent } from './blogbox/blogbox.component';
 import { ForoComponent } from './foro/foro.component';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path: 'registry', component: RegistryComponent},
   {path: 'login', component: LoginComponent},
   {path: 'blog', component: BlogComponent},
+  {path: 'blogbox', component: BlogboxComponent},
+  {path: 'addpost', component: AddpostComponent},
+  {path: 'blogmas', component: BlogboxmasComponent},
   {path: 'foro', component: ForoComponent,canActivate:[AuthGuard]},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
