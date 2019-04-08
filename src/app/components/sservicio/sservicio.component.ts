@@ -29,7 +29,7 @@ export class SservicioComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.getCurrentUser();
     this.requestForm = this.formBuilder.group({
-      fechaServSol:formatDate(new Date(), 'yyyy/MM/dd', 'en'),
+      fechaServSol:formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en'),
       fechaSol: [''],
       comentario:[''],
       servicioID: [''],
@@ -48,6 +48,7 @@ export class SservicioComponent implements OnInit {
   }
 
   onSubmit(){
+    this.requestForm.controls['fechaSol'].setValue(formatDate(this.requestForm.get('fechaSol').value, 'yyyy/MM/dd HH:mm:ss', 'en'));
     this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
       this.router.navigate(['']);
       this.data.solicitudID = res.solicitudID;
@@ -61,8 +62,6 @@ export class SservicioComponent implements OnInit {
 
   getServicio(id: number){
     this.data.servicioID = Number(id);
-    console.log(this.data);
-    
   }
 
 }

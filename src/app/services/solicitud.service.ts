@@ -38,7 +38,8 @@ export class SolicitudService {
 
   addSolicitud(solicitud: SolicitudModel){
     return this.http.post<SolicitudModel>(apiUrl,solicitud,httpOptions)
-    .pipe(tap((nuevoRequest: SolicitudModel) => catchError(this.handleError<SolicitudModel>('addRequest'))
+    .pipe(tap((nuevoRequest: SolicitudModel) => console.log(solicitud),
+    catchError(this.handleError<SolicitudModel>('addRequest'))
     ));
   }
 
