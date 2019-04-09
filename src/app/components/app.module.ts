@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
-import { ForoComponent } from './foro/foro.component';
+//import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -33,7 +33,7 @@ import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { BlogboxComponent } from './blogbox/blogbox.component';
 import { AddpostComponent } from './addpost/addpost.component';
-import { BlogboxmasComponent } from './blogbox/blogboxmas/blogboxmas.component';
+import { BlogboxmasComponent } from './blogboxmas/blogboxmas.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
@@ -47,7 +47,7 @@ import { VisitaComponent } from './visita/visita.component';
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    ForoComponent,
+    //ForoComponent,
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
