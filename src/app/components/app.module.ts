@@ -31,12 +31,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { BlogboxComponent } from './blogbox/blogbox.component';
 import { AddpostComponent } from './addpost/addpost.component';
 import { BlogboxmasComponent } from './blogboxmas/blogboxmas.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
+import { BlogcardComponent } from './blogcard/blogcard.component';
 
 
 @NgModule({
@@ -51,10 +51,11 @@ import { VisitaComponent } from './visita/visita.component';
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
-    BlogboxComponent,
+    BlogcardComponent,
     AddpostComponent,
     BlogboxmasComponent,
-    VisitaComponent
+    VisitaComponent,
+    BlogcardComponent
   ],
   imports: [
     BrowserModule,
