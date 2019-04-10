@@ -37,8 +37,12 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const routes=[
+  {
+  path:'item', component:HomeComponent
+}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +68,9 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
     HttpClientModule,
     AppRoutingModule,
     FlatpickrModule.forRoot(),
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -79,3 +86,4 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

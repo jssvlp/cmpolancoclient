@@ -123,6 +123,7 @@ ul{
 .main #herramientas {
 padding-top: 300px;
 left: 30px;
+display: inline-block;
 }
 
 .main #herramientas .Titulo {
@@ -144,6 +145,7 @@ left: 30px;
 
 #herramientas{
   margin-bottom: 100px;
+  display: block; 
 }
 
 
