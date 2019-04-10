@@ -3,13 +3,14 @@ import { SolicitudModel } from '../../model/Solicitud.model';
 import { ServicioModel } from '../../model/Servicio.model';
 import { SolicitudService } from '../../services/solicitud.service';
 import { ServiciosService } from '../../services/servicios.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserModel } from 'src/app/model/User.model';
 import { ServicioSolicitudModel } from 'src/app/model/ServicioSolicitud.model';
 import { EntidadModel } from 'src/app/model/Entidad.model';
 import {formatDate} from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class SservicioComponent implements OnInit {
   user: UserModel;
   data: EntidadModel = new EntidadModel();
   constructor(private formBuilder: FormBuilder, private solApi:SolicitudService, 
-    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService) {
+    private serApi:ServiciosService,private router: Router,public actRoute: ActivatedRoute, private authService: AuthService, private toastr: ToastrService) {
      }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class SservicioComponent implements OnInit {
     this.requestForm = this.formBuilder.group({
       fechaServSol:formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en'),
       fechaSol: [''],
-      comentario:[''],
+      comentario:['', [Validators.required]],
       servicioID: [''],
       usuarioID: this.user.usuarioID
     });
@@ -48,15 +49,20 @@ export class SservicioComponent implements OnInit {
   }
 
   onSubmit(){
-    this.requestForm.controls['fechaSol'].setValue(formatDate(this.requestForm.get('fechaSol').value, 'yyyy/MM/dd HH:mm:ss', 'en'));
-    this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
-      this.router.navigate(['']);
-      this.data.solicitudID = res.solicitudID;
-      this.data.estadoID = 2;
-      this.solApi.addServicioSolicitud(this.data).subscribe(res =>{
-      })
-     
-    });
+    if(this.requestForm.get("tituloEntrada").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.requestForm.controls['fechaSol'].setValue(formatDate(this.requestForm.get('fechaSol').value, 'yyyy/MM/dd HH:mm:ss', 'en'));
+      this.solApi.addSolicitud(this.requestForm.value).subscribe(res =>{
+        this.router.navigate(['']);
+        this.data.solicitudID = res.solicitudID;
+        this.data.estadoID = 2;
+        this.solApi.addServicioSolicitud(this.data).subscribe(res =>{
+        })
+      
+      });
+    }
 
   }
 

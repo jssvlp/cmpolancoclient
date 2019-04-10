@@ -32,7 +32,15 @@
               
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Comentario</label>
-                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3"></textarea>
+                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3" minlength="5" maxlength="500"></textarea>
+                        <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.required">
+                              El campo es requerido
+                          </div>
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
+                              El campo requiere mas de 5 caracteres  
+                          </div>
+                      </div>
                     </div>
 
                     <div class="form-group">
