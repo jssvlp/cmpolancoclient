@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
-import { ForoComponent } from './foro/foro.component';
+//import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -31,11 +31,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from '../services/auth.service';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { AddpostComponent } from './addpost/addpost.component';
+import { BlogboxmasComponent } from './blogboxmas/blogboxmas.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
+import { BlogcardComponent } from './blogcard/blogcard.component';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const routes=[
+  {
+  path:'item', component:HomeComponent
+}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,11 +51,15 @@ import { VisitaComponent } from './visita/visita.component';
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    ForoComponent,
+    //ForoComponent,
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
-    VisitaComponent
+    BlogcardComponent,
+    AddpostComponent,
+    BlogboxmasComponent,
+    VisitaComponent,
+    BlogcardComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +68,9 @@ import { VisitaComponent } from './visita/visita.component';
     HttpClientModule,
     AppRoutingModule,
     FlatpickrModule.forRoot(),
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -72,3 +86,4 @@ import { VisitaComponent } from './visita/visita.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

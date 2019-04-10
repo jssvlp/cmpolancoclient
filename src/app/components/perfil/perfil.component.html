@@ -1,3 +1,6 @@
+<header>
+    <app-navbar></app-navbar>
+</header>
 <div class="container emp-profile">
         <form method="post">
             <div class="row">
@@ -42,7 +45,7 @@
                                     <label>Nombre</label>
                                 </div>
                                 <div class="col-md-6">
-                                  <p><label>{{data.nombreUsuario}}</label></p> 
+                                  <p><label>{{data?.nombreUsuario}}</label></p> 
                                 </div>
                             </div>
                             <div class="row">
@@ -50,7 +53,7 @@
                                     <label>Apellido</label>
                                 </div>
                                 <div class="col-md-6">
-                                  <p><label>{{data.apellidosUsuario}}</label></p>
+                                  <p><label>{{data?.apellidosUsuario}}</label></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -58,7 +61,7 @@
                                     <label>Correo</label>
                                 </div>
                                 <div class="col-md-6">
-                                  <p><label>{{data.correoUsuario}}</label></p>
+                                  <p><label>{{data?.correoUsuario}}</label></p>
                                 </div>
                             </div>
                         </div>
@@ -78,11 +81,11 @@
                                         <tbody>                                            
                                             <tr *ngFor="let s of solicitud | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
                                                 <th scope="row">{{i + 1}}</th>
-                                                <td>{{s.servicioSolicituds[0].servicio.nombreServicio}}</td>
-                                                <td>{{s.fechaSol | date:'dd-MM-yyyy'}}</td>
-                                                <td>{{s.servicioSolicituds[0].estado.estadoNombre}}</td>
-                                                <td>{{s.visitaAgendadas[0].hora_Inicio | date:'dd-MM-yyyy'}}</td>
-                                                <td>{{s.visitaAgendadas[0].hora_Inicio| date:"HH:mm"}} - {{s.visitaAgendadas[0].hora_Fin | date:"HH:mm aa"}} </td>
+                                                <td>{{s?.servicioSolicituds[0]?.servicio?.nombreServicio}}</td>
+                                                <td>{{s?.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                                                <td>{{s?.servicioSolicituds[0]?.estado?.estadoNombre}}</td>
+                                                <td *ngIf = "s.servicioSolicituds[0].estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio | date:'dd-MM-yyyy'}}</td>
+                                                <td *ngIf = "s.servicioSolicituds[0].estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio| date:"HH:mm"}} - {{s?.visitaAgendadas[0]?.hora_Fin | date:"HH:mm aa"}} </td>
                                             </tr>
                                             <pagination-controls (pageChange)="p = $event"></pagination-controls> 
                                         </tbody>
@@ -94,3 +97,4 @@
                 </div>
             </form>           
         </div>
+        

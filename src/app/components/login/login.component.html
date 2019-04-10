@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <header>
+        <!-- This is a navbar component, now you can user navbar on any other component :) -->
+        <app-navbar></app-navbar>
+      </header>
+
     <div class="container">
         <div class="row">
           <div class="col-lg-10 col-xl-9 mx-auto">
@@ -15,7 +20,7 @@
                  <!-- Background image for card set in CSS! -->
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center">Log in</h5>
+                <h5 class="card-title text-center">Iniciar Sesión</h5>
                 <form  #form="ngForm" (ngSubmit)="onLogin(form)" class="form-login">
                   <label for="inputUserame">Correo</label>
                   <div class="form-label-group">
@@ -28,7 +33,7 @@
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
     
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log In</button>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
                   <!-- <a class="d-block text-center mt-2 small" href="#">Sign In</a> -->
                   <a href="#">Olvide mi contraseña</a><br>
                 </form>

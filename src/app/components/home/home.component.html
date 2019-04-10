@@ -87,40 +87,22 @@
           <h2 class="Titulo">Servicios</h2>
       </div>
     </div>
+
     
-    <div *ngFor="let s of servicio">
-        <div class='row'> 
-          <div class="col-md-4 herramientas">
+    <div class='row'>
+        <div *ngFor="let s of servicio">
+        <div class="col-md-4 herramientas">
             <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
-            <p>{{s.descripcionServicio}}.</p>
+            <p>{{s.descripcionServicio}}</p>
             <p><a class="btn btn-info" href="#" role="button">Ver más</a></p>
-          </div> 
-      </div>
-    </div>
-  
-  </div> 
-  </section>
-  
-  <!-- -------------------------------------------------------------------------------
-                                 <--  FORO   -->
-  <!----------------------------------------------------------------------------------->
-  
-  <section class="row featurette" id="foro">
-  <div class="Contenedor2">
-      <div class="foto">
-        <img src="assets/escribiendo-computadora.jpg" alt="projects">
-      </div>
-      <article>
-      <h3>Nuestro foro</h3>
-      <p>Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD. </p>
-      <div class="col-lg-4 text-center">
-        <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
-      </div>
-      </article>
-    </div>
-    
-  </section>
+        </div>
+         </div>
+        </div>
+
+
+</div> 
+</section>
   
   <!-- -------------------------------------------------------------------------------
                                  <--  BLOG   -->
@@ -135,7 +117,7 @@
             <h3>Nuesto blog</h3>
             <p>Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana. </p>
             <div class="col-lg-4 text-center">
-              <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
+              <p><a class="btn btn-info" href="blog" role="button">Acceder</a></p>
             </div>
             </article>
           </div>
@@ -193,3 +175,8 @@
         </span></a></div>
       </div>
     </footer>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=18099655307&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>

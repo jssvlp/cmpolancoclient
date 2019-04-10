@@ -24,103 +24,13 @@
             </div>
         </div>
     </div>
-    <div class="container-no-gutter" style="height: 740px">
-      <div class="card">
-        <video class="video-fluid" src="assets/smoke.mp4" autoplay muted></video>
-        <h1>
-          <span>I</span>
-          <span>n</span>
-          <span>g</span>
-          <span>.</span>
-          <span>M</span>
-          <span>e</span>
-          <span>j</span>
-          <span>í</span>
-          <span>a</span>
-          <span>P</span>
-          <span>o</span>
-          <span>l</span>
-          <span>a</span>
-          <span>n</span>
-          <span>c</span>
-          <span>o</span>
-        </h1>
-      </div>
-    </div>
+    
   <!-- Page Content -->
   <div class="container">
     <div class="row">
       <!-- Blog Entries Column -->
       <div class="col-md-8">
-
-        <!--<h1 class="my-4">Encabezado de página
-          <small>Texto secundario</small>
-        </h1>-->
-
-        <!-- Blog Post -->
-        <div class="card mb-4 shadow">
-          <div class="inner">
-            <img class="card-img-top" src="assets/Webp.net-resizeimage (1).jpg" alt="Card image cap">
-          </div>
-          <div class="card-body text-center">
-            <h2 class="card-title">Publicar Título</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Publicado en Marzo 5, 2019 por
-            <a href="#">BRICK</a>
-          </div>
-        </div>
-
-        <!-- Blog Post -->
-        <div class="card mb-4 shadow">
-          <div class="inner">
-            <img class="card-img-top" src="assets/Webp.net-resizeimage (2).jpg" alt="Card image cap">
-          </div>
-          <div class="card-body text-center">
-            <h2 class="card-title">Publicar Título</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis! Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis! Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-              Publicado en Marzo 5, 2019 por
-            <a href="#">BRICK</a>
-          </div>
-        </div>
-
-        <!-- Blog Post -->
-        <div class="card mb-4 shadow">
-          <div class="inner">
-            <img class="card-img-top" src="assets/Webp.net-resizeimage.jpg" alt="Card image cap">
-          </div>
-          <div class="card-body text-center">
-            <h2 class="card-title">Publicar Título</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-              Publicado en Marzo 5, 2019 por
-            <a href="#">BRICK</a>
-          </div>
-        </div>
-
-        <!-- Blog Post -->
-        <div class="card mb-4 shadow">
-          <div class="inner">
-            <img class="card-img-top" src="assets/student-849825__340.jpg" alt="Card image cap">
-          </div>
-          <div class="card-body text-center">
-            <h2 class="card-title">Publicar Título</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Leer más » &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-              Publicado en Marzo 23, 2019 por
-            <a href="#">BRICK</a>
-          </div>
-        </div>
-
+        <app-blogcard ></app-blogcard>
         <!-- Pagination -->
         <nav aria-label="...">
           <ul class="pagination justify-content-center mb-4">
@@ -138,88 +48,14 @@
             </li>
           </ul>
         </nav>
-
       </div>
-
-      <!-- Sidebar Widgets Column -->
-
-        <!-- Search Widget
-        <div class="card my-4">
-          <h5 class="card-header">Buscar</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar por...">
-              <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button" style="margin-left: 7.5px">Ir!</button>
-              </span>
-            </div>
-          </div>
-        </div>-->
-
         <!-- Side Widget -->
         <!-- Search Widget -->
         <div class="col-md-4 margin-top: 50px">
-        <div class="card my-4" id="AgregarPost">
-          <h5 class="card-header">Agregar un nuevo post</h5>
-          <div class="card-body">
-            <button class="btn btn-secondary" type="button" (click)="ver(agregar, agregarPost)">Agregar post</button>
-          </div>
-        </div>
-        <ng-template #agregarPost>
-          <div class="modal-header">
-            <h4 class="modal-title">Nuevo post</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Insertar Título">
-              <textarea class="form-control" id="post" rows="3" style="margin-top: 25px;" placeholder="Agregar contenido"></textarea>
-              <label for="exampleFormControlFile1" style="margin-top: 15px;">Adjuntar imagen</label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-          </div>
-          <div class="modal-footer">
-              <button class="btn btn-secondary" type="button">Agregar</button>
-          </div>
-        </ng-template>
-        <!-- Categories Widget
-        <div class="card my-4">
-          <h5 class="card-header">Categorias</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Sector inmobiliario</a>
-                  </li>
-                  <li>
-                    <a href="#">Sector ...</a>
-                  </li>
-                  <li>
-                    <a href="#">Sector ...</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Sector ...</a>
-                  </li>
-                  <li>
-                    <a href="#">Sector ...</a>
-                  </li>
-                  <li>
-                    <a href="#">Sector ...</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>-->
+        <app-addpost></app-addpost>
       </div>
-
     </div>
     <!-- /.row -->
-
   </div>
   <!-- /.container -->
 </body>
