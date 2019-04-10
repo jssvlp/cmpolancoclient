@@ -4,6 +4,7 @@ import { ProyectoModel } from '../../model/Proyecto.model';
 import { ProyectoService} from '../../services/proyecto.service';
 import { ServicioModel } from 'src/app/model/Servicio.model';
 import { ServiciosService } from 'src/app/services/servicios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   data : ProyectoModel[]=[]
   servicio : ServicioModel[]=[]
 
-  constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService ) { }
+  constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router ) { }
 
   async ngOnInit() {
     this.proyectoService.getProjects()
@@ -33,6 +34,12 @@ export class HomeComponent implements OnInit {
     });
     
   
+  }
+
+  solicitud(s: ServicioModel){
+    window.localStorage.removeItem("SID");
+    window.localStorage.setItem("SID", String(s.servicioID));
+    this.router.navigate(['solicitud']);
   }
 
 }

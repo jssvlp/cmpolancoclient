@@ -22,17 +22,23 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                          <label for="inputServicios">Servicios</label>
-                          <select formControlName="servicioID" id="inputServicios" class="form-control" (click)="getServicio($event.target.value)">
-                            <option *ngFor="let s of servicios" value="{{s.servicioID}}">{{s.nombreServicio}}</option>
-                          </select>
+                          <label for="inputServicios">Servicio</label>
+                          <input formControlName="nombreServicio" id="inputServicios" class="form-control" disabled/>
                         </div>
                       </div>
 
               
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Comentario</label>
-                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3"></textarea>
+                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3" minlength="5" maxlength="500"></textarea>
+                        <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.required">
+                              El campo es requerido
+                          </div>
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
+                              El campo requiere mas de 5 caracteres  
+                          </div>
+                      </div>
                     </div>
 
                     <div class="form-group">
