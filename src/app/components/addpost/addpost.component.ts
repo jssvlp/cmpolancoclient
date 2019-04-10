@@ -31,8 +31,6 @@ export class AddpostComponent implements OnInit {
       usuarioID: this.user.usuarioID,
       timestampBlog: formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en')
     });
-
-    console.log(this.user)
   }
 
   ver(agregar: any, modal) {
