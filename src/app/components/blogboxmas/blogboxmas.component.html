@@ -17,12 +17,12 @@
         <img class="card-img-top" src="assets/Webp.net-resizeimage (1).jpg" alt="Card image cap">
       </div>
       <div class="card-body text-center">
-        <h2 class="card-title">Publicar Título</h2>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+        <h2 class="card-title">{{post.tituloEntrada}}</h2>
+        <p class="card-text">{{post.textoEntrada}}</p>
       </div>
       <div class="card-footer text-muted">
-        Publicado en Marzo 5, 2019 por
-        <a routerLink="/home">BRICK</a>
+        Publicado en Marzo {{post.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
+        <a routerLink="/home">{{p.usuario.nombreUsuario}} {{p.usuario.apellidosUsuario}}</a>
       </div>
     </div>
   </content>

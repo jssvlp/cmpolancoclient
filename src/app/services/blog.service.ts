@@ -7,14 +7,14 @@ import { Observable, of } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/blogs";
+const apiUrl = "http://localhost:61756/api/blog";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BlogService {
-  formData : BlogModel;
+  list: BlogModel [];
 
   constructor(private http: HttpClient) { }
 
@@ -42,4 +42,38 @@ export class BlogService {
       tap(_ => catchError(this.handleError<BlogModel>(`getBlog id=${id}`))
     ));
   }
+
+  sendFormData(formData: any){
+    var t = `${apiUrl}/${'SaveFile'}`;
+    this.http.post(t, formData).subscribe((val) => {
+    });
+  }
+
+  refreshList(){
+    this.http.get(apiUrl)
+    .toPromise().then(res => this.list = res as BlogModel[]);
+  }
+
+  addPost(post: BlogModel){
+    return this.http.post<BlogModel>(apiUrl,post,httpOptions)
+    .pipe(tap((nuevoPost: BlogModel) => catchError(this.handleError<BlogModel>('addPost'))
+    ));
+  }
+
+  deletePost (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deletePost'))
+    );
+    }
+
+    updatePost (blog: BlogModel): Observable<BlogModel> {
+      return this.http.put<BlogModel>(apiUrl +"/"+ blog.blogID,blog, httpOptions)
+        .pipe(
+          catchError(this.handleError('updateBlog', blog))
+        );
+    }
+  
+
 }

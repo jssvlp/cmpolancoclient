@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.proyectoService.getProjects()
     .subscribe(res =>{
       this.data = res;
-      console.log(this.data);
     }, err => {
       console.log(err);
     });
@@ -29,7 +28,6 @@ export class HomeComponent implements OnInit {
     this.apiSer.getServicios()
     .subscribe(res =>{
       this.servicio = res;
-      console.log(this.servicio);
     }, err => {
       console.log(err);
     });
