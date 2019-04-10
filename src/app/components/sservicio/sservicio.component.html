@@ -22,10 +22,8 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                          <label for="inputServicios">Servicios</label>
-                          <select formControlName="servicioID" id="inputServicios" class="form-control" (click)="getServicio($event.target.value)">
-                            <option *ngFor="let s of servicios" value="{{s.servicioID}}">{{s.nombreServicio}}</option>
-                          </select>
+                          <label for="inputServicios">Servicio</label>
+                          <input formControlName="nombreServicio" id="inputServicios" class="form-control" disabled/>
                         </div>
                       </div>
 

@@ -94,7 +94,7 @@
             <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
             <p>{{s.descripcionServicio}}.</p>
-            <p><a class="btn btn-info" href="#" role="button">Ver más</a></p>
+            <p><a class="btn btn-info" (click)="solicitud(s)" role="button">Ver más</a></p>
           </div> 
       </div>
     </div>
@@ -135,7 +135,7 @@
             <h3>Nuesto blog</h3>
             <p>Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana. </p>
             <div class="col-lg-4 text-center">
-              <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
+              <p><a class="btn btn-info" href="blog" role="button">Acceder</a></p>
             </div>
             </article>
           </div>
