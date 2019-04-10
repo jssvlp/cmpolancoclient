@@ -1,25 +1,46 @@
-<div class="card my-4" id="AgregarPost">
+<div *ngIf="user.roleId === 1" class="card my-4" id="AgregarPost">
   <h5 class="card-header">Agregar un nuevo post</h5>
   <div class="card-body">
     <button class="btn btn-secondary" type="button" (click)="ver(agregar, agregarPost)">Agregar post</button>
   </div>
 </div>
 <ng-template #agregarPost>
-    <form>
+    <form [formGroup] = "addForm" (ngSubmit)="onSubmit()">
     <div class="modal-header">
       <h4 class="modal-title">Nuevo post</h4>
     </div>
     <div class="modal-body">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Insertar Título">
-        <textarea class="form-control" id="post" rows="3" style="margin-top: 25px;" placeholder="Agregar contenido"></textarea>
+        
+        <input formControlName="tituloEntrada" type="text" class="form-control" placeholder="Insertar Título" minlength="5" maxlength="20" required>
+        <div *ngIf="addForm.controls['tituloEntrada'].errors && addForm.controls['tituloEntrada'].touched" class="validation-error">
+            <div [hidden] = "!addForm.controls['tituloEntrada'].errors.required">
+                El campo es requerido
+            </div>
+            <div [hidden] = "!addForm.controls['tituloEntrada'].errors.minlength">
+                El campo requiere mas de 5 caracteres  
+            </div>
+            <div [hidden] = "!addForm.controls['tituloEntrada'].errors.maxlength">
+                El nombre debe tener menos de 20 caracteres  
+            </div>
+        </div>
+        <textarea formControlName="textoEntrada" class="form-control" id="post" rows="3" style="margin-top: 25px;" placeholder="Agregar contenido" minlength="5"></textarea>
+        <div *ngIf="addForm.controls['textoEntrada'].errors && addForm.controls['textoEntrada'].touched" class="validation-error">
+            <div [hidden] = "!addForm.controls['textoEntrada'].errors.required">
+                El campo es requerido
+            </div>
+            <div [hidden] = "!addForm.controls['textoEntrada'].errors.minlength">
+                El campo requiere mas de 5 caracteres  
+            </div>
+        </div>
         <label for="exampleFormControlFile1" style="margin-top: 15px;">Adjuntar imagen</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type="file" class="form-control-file" id="exampleFormControlFile1">
+
       </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-secondary" type="button">Descartar</button>
-        <button class="btn btn-secondary" type="button">Agregar</button>
+        <button [disabled]="addForm.invalid" class="btn btn-secondary" type="submit">Agregar</button>
     </div>
   </form>
 </ng-template>

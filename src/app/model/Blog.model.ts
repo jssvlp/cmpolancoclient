@@ -1,8 +1,11 @@
+import { UserModel } from "./User.model";
+
 export class BlogModel {
-  estadoID: number
+  blogID: number
   tituloEntrada: string
   textoEntrada: string
   imgUrl: string
+  usuario: UserModel
   usuarioID: number
   timestampBlog: Date
 }
