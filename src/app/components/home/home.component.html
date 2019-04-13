@@ -90,12 +90,12 @@
 
     
     <div class='row'>
-        <div *ngFor="let s of servicio">
-        <div class="col-md-4 herramientas">
+        <div *ngFor="let s of servicio" style="margin-left:200px;">
+        <div class="col-md-4 herramientas text-center">
             <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
             <p>{{s.descripcionServicio}}</p>
-            <p><a class="btn btn-info" (click)="solicitud(s)" role="button">Ver más</a></p>
+            <p><a class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</a></p>
         </div>
          </div>
         </div>
