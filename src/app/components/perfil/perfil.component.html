@@ -84,8 +84,8 @@
                                                 <td>{{s?.servicioSolicituds[0]?.servicio?.nombreServicio}}</td>
                                                 <td>{{s?.fechaServSol | date:'dd-MM-yyyy'}}</td>
                                                 <td>{{s?.servicioSolicituds[0]?.estado?.estadoNombre}}</td>
-                                                <td *ngIf = "s.servicioSolicituds[0].estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio | date:'dd-MM-yyyy'}}</td>
-                                                <td *ngIf = "s.servicioSolicituds[0].estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio| date:"HH:mm"}} - {{s?.visitaAgendadas[0]?.hora_Fin | date:"HH:mm aa"}} </td>
+                                                <td *ngIf = "s.servicioSolicituds[0]?.estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio | date:'dd-MM-yyyy'}}</td>
+                                                <td *ngIf = "s.servicioSolicituds[0]?.estado.estadoNombre != 'Pendiente'">{{s?.visitaAgendadas[0]?.hora_Inicio| date:"HH:mm"}} - {{s?.visitaAgendadas[0]?.hora_Fin | date:"HH:mm aa"}} </td>
                                             </tr>
                                             <pagination-controls (pageChange)="p = $event"></pagination-controls> 
                                         </tbody>

@@ -11,16 +11,23 @@ import { AuthService } from  '../../services/auth.service';
   styleUrls: ['./registry.component.css']
 })
 export class RegistryComponent implements OnInit {
+  form: FormGroup;
  
-  constructor(private  authService:  AuthService,  private user: UserModel){ }
+  constructor(private  authService:  AuthService,  private user: UserModel, private formBuilder: FormBuilder){ }
 
   ngOnInit() {
-
+    this.form = this.formBuilder.group({
+      nombreUsuario:["",[Validators.required]],
+      apellidosUsuario: ["",[Validators.required]],
+      correoUsuario: ["",[Validators.required]],
+      Contraseña:["", [Validators.required]],
+      confirmPassword:[""]
+    })
  
   }
 
-  onSubmit(form : NgForm) {
-    this.authService.Register(form.value);
+  onSubmit() {
+    this.authService.Register(this.form.value);
   } 
 
  
