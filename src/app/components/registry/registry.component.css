@@ -102,3 +102,10 @@ body {
     color: #777;
   }
   
+  div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+
+}

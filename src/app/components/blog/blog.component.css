@@ -225,3 +225,11 @@ ul, ol {
   visibility: hidden;
   transition: .22s ease;
 }
+
+div.validation-error{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+
+}

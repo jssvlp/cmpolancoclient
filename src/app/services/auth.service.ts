@@ -34,6 +34,7 @@ export  class  AuthService {
      Login(userInfo: any){
          try {          
             const userFirebase = this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña);
+            console.log(userFirebase);
             const url_api= "http://localhost:61756/api/usuarios/login";
             return this.Http
                        .post(url_api,userInfo, {headers: this.Headers})
