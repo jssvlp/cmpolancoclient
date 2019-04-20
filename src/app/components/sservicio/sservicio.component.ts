@@ -62,6 +62,9 @@ export class SservicioComponent implements OnInit {
     if(this.requestForm.get("comentario").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
+    else if(this.requestForm.get("fechaSol").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
     else{
       this.requestForm.controls['fechaSol'].setValue(formatDate(this.requestForm.get('fechaSol').value, 'yyyy/MM/dd HH:mm:ss', 'en'));
       this.requestForm.controls['servicioID'].setValue(this.servicios.servicioID);

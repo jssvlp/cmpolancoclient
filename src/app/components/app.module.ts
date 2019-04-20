@@ -38,6 +38,7 @@ import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
 
 const routes=[
   {
@@ -59,7 +60,8 @@ const routes=[
     AddpostComponent,
     BlogboxmasComponent,
     VisitaComponent,
-    BlogcardComponent
+    BlogcardComponent,
+    DetalleSolicitudComponent
   ],
   imports: [
     BrowserModule,

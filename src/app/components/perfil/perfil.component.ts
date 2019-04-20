@@ -26,4 +26,8 @@ export class PerfilComponent implements OnInit {
     
   }
 
+  detalle(s : SolicitudModel){
+    
+  }
+
 }
