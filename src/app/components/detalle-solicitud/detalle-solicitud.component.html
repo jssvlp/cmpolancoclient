@@ -1,3 +1,71 @@
-<p>
-  detalle-solicitud works!
-</p>
+<header>
+  <app-navbar></app-navbar>
+</header>
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-solicitud flex-row my-5">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Descripción de la Solicitud</h5>
+                  Solicitante<br>
+                  <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
+                  <br>
+                  Servicio Solicitado
+                  <br>
+                  <label>{{data?.servicio?.nombreServicio}}</label>
+                  <br>
+                  Fecha en la que se realizó la Solicitud
+                  <br>
+                  <label>{{data?.solicitud?.fechaServSol | date:'dd/MM/yyyy'}}</label>
+                  <br>
+                  Comentario
+                  <br>
+                  <label>{{data?.solicitud?.comentario}}</label>
+                  <br>
+                  Fecha y hora de reunión propuesta por el cliente
+                  <br>
+                  <label>{{data?.solicitud?.fechaSol | date:"dd/MM/yyyy HH:mm aa"}}</label>
+                  <br>
+                  Estado
+                  <br>
+                  <label>{{data?.estado.estadoNombre}}</label>
+                  <br>
+                  <div *ngIf="data?.estado.estadoID === 2">
+                    <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+                  </div>
+                  <div *ngIf="data?.estado.estadoID === 1">
+                    <h2> Cancelar solicitud</h2>
+                    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+                      <label>Motivo</label>
+                      <select formControlName="motivo" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                        <option value="" selected="selected"></option>
+                        <option value="Error">Solicito el servicio por error</option>
+                        <option value="Retraso">El tiempo de respuesta al servicio es demaciado</option>
+                        <option value="Arrepentimiento">Ya no quiere realizar el servicio con nosotros</option>
+                        <option value="Falta de informacion">No se llego a ningun acuerdo</option>
+                        <option value="Precio">Precio muy elevado</option>
+                        <option value="Mal servicio">Mal servicio</option>
+                    </select>
+                    <div *ngIf="requestForm.controls['motivo'].errors && requestForm.controls['motivo'].touched" class="validation-error">El campo es requerido</div>
+                    <br>
+                    <label>Comentario adicional</label>
+                    <textarea formControlName="comentario" class="form-control" aria-placeholder="Escriba un comentario aqui" minlength="5" maxlength="500"></textarea>
+                    <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
+                      <div [hidden] = "!requestForm.controls['comentario'].errors.required">
+                          El campo es requerido
+                      </div>
+                      <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
+                          El campo requiere mas de 5 caracteres  
+                      </div>
+                  </div>
+                    <br>
+                    <button type="submit" class="btn btn-danger">Enviar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>

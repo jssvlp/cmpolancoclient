@@ -5,7 +5,10 @@ import { EstadoModel } from "./Estado.model";
 export class ServicioSolicitudModel {
 
     servicio: ServicioModel
+    servicioID: number
     solicitud: SolicitudModel
+    solicitudID:number
     estado: EstadoModel
+    estadoID:number
     
   }

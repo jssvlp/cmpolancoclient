@@ -39,6 +39,8 @@ import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
+import { PeticionService } from '../services/peticion.service';
+import { FooterComponent } from './footer/footer.component';
 
 const routes=[
   {
@@ -61,7 +63,8 @@ const routes=[
     BlogboxmasComponent,
     VisitaComponent,
     BlogcardComponent,
-    DetalleSolicitudComponent
+    DetalleSolicitudComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,7 @@ const routes=[
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService],
+  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
