@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SolicitudService } from 'src/app/services/solicitud.service';
-import { SolicitudModel } from 'src/app/model/Solicitud.model';
 import { ServicioSolicitudModel } from 'src/app/model/ServicioSolicitud.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServicioModel } from 'src/app/model/Servicio.model';
 import { PeticionService } from 'src/app/services/peticion.service';
 import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common';

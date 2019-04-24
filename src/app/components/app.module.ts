@@ -41,6 +41,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
 import { PeticionService } from '../services/peticion.service';
 import { FooterComponent } from './footer/footer.component';
+import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
 
 const routes=[
   {
@@ -64,7 +65,8 @@ const routes=[
     VisitaComponent,
     BlogcardComponent,
     DetalleSolicitudComponent,
-    FooterComponent
+    FooterComponent,
+    DetalleProyectoComponent
   ],
   imports: [
     BrowserModule,
