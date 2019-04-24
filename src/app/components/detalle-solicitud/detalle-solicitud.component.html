@@ -35,33 +35,80 @@
                     <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
                   </div>
                   <div *ngIf="data?.estado.estadoID === 1">
-                    <h2> Cancelar solicitud</h2>
-                    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
-                      <label>Motivo</label>
-                      <select formControlName="motivo" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
-                        <option value="" selected="selected"></option>
-                        <option value="Error">Solicito el servicio por error</option>
-                        <option value="Retraso">El tiempo de respuesta al servicio es demaciado</option>
-                        <option value="Arrepentimiento">Ya no quiere realizar el servicio con nosotros</option>
-                        <option value="Falta de informacion">No se llego a ningun acuerdo</option>
-                        <option value="Precio">Precio muy elevado</option>
-                        <option value="Mal servicio">Mal servicio</option>
-                    </select>
-                    <div *ngIf="requestForm.controls['motivo'].errors && requestForm.controls['motivo'].touched" class="validation-error">El campo es requerido</div>
-                    <br>
-                    <label>Comentario adicional</label>
-                    <textarea formControlName="comentario" class="form-control" aria-placeholder="Escriba un comentario aqui" minlength="5" maxlength="500"></textarea>
-                    <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
-                      <div [hidden] = "!requestForm.controls['comentario'].errors.required">
-                          El campo es requerido
+
+                      <label>Seleccione la accion que desea realizar</label>
+                      <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                          <option value="" selected="selected"></option>
+                          <option value="Cancelar solicitud">Cancelar solicitud</option>
+                          <option value="Solicitar una visita">Solicitar visita</option>
+                      </select>
+                      <div *ngIf = "value == 'Cancelar solicitud'">
+                        <h2> Cancelar solicitud</h2>
+                        <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+                          <label>Motivo</label>
+                          <select formControlName="motivo" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                            <option value="" selected="selected"></option>
+                            <option value="Error">Solicito el servicio por error</option>
+                            <option value="Retraso">El tiempo de respuesta al servicio es demaciado</option>
+                            <option value="Arrepentimiento">Ya no quiere realizar el servicio con nosotros</option>
+                            <option value="Falta de informacion">No se llego a ningun acuerdo</option>
+                            <option value="Precio">Precio muy elevado</option>
+                            <option value="Mal servicio">Mal servicio</option>
+                        </select>
+                        <div *ngIf="requestForm.controls['motivo'].errors && requestForm.controls['motivo'].touched" class="validation-error">El campo es requerido</div>
+                        <br>
+                        <label>Comentario adicional</label>
+                        <textarea formControlName="comentario" class="form-control" aria-placeholder="Escriba un comentario aqui" minlength="5" maxlength="500"></textarea>
+                        <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.required">
+                              El campo es requerido
+                          </div>
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
+                              El campo requiere mas de 5 caracteres  
+                          </div>
                       </div>
-                      <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
-                          El campo requiere mas de 5 caracteres  
-                      </div>
+                        <br>
+                        <button type="submit" class="btn btn-danger">Enviar</button>
+                        </form>
                   </div>
-                    <br>
-                    <button type="submit" class="btn btn-danger">Enviar</button>
+                  <div *ngIf = "value == 'Solicitar una visita'">
+                    <h2>Solicitar visita</h2>
+                    <form [formGroup]="visitaForm" (ngSubmit)="onSubmit1()">
+                        <label>Motivo</label>
+                        <select formControlName="motivo" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                          <option value="" selected="selected"></option>
+                          <option value="Dar seguiminto">Dar seguimiento al servicio</option>
+                          <option value="Obtener alguna informacion">Necesidad de informacion sobre el servicio</option>
+                          <option value="Otros">Otros</option>
+                      </select>
+                      <div *ngIf="visitaForm.controls['motivo'].errors && visitaForm.controls['motivo'].touched" class="validation-error">El campo es requerido</div>
+                      <br>
+                      <label>Comentario adicional</label>
+                      <textarea formControlName="comentario" class="form-control" aria-placeholder="Escriba un comentario aqui" minlength="5" maxlength="500"></textarea>
+                      <div *ngIf="visitaForm.controls['comentario'].errors && visitaForm.controls['comentario'].touched" class="validation-error">
+                        <div [hidden] = "!visitaForm.controls['comentario'].errors.required">
+                            El campo es requerido
+                        </div>
+                        <div [hidden] = "!visitaForm.controls['comentario'].errors.minlength">
+                            El campo requiere mas de 5 caracteres  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha y hora deseada para la reunion</label>
+                        <div class="validation-error">Nota: Es posible que esta no sea la fecha de reunion, pero sera tomada en cuenta la hora de pautar la cita.</div>
+                        <input formControlName="fechaSolicitada" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                        [convertModelValue]="true"
+                        [enableTime]="true"
+                        dateFormat="Y-m-dTH:i"
+                        altFormat="F j, Y H:i"
+                        placeholder="Seleccione una fecha" 
+                        minDate = "today" 
+                        required>
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-danger">Enviar</button>
                     </form>
+                  </div>
                   </div>
                 </div>
               </div>
