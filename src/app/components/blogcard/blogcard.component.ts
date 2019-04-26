@@ -23,7 +23,7 @@ export class BlogcardComponent implements OnInit {
   verMas(p: BlogModel){
     window.localStorage.removeItem("blogID");
     window.localStorage.setItem("blogID", String(p.blogID));
-    this.router.navigate(['blogInfo']);
+    this.router.navigate(['/blogInfo']);
   }
 
 }

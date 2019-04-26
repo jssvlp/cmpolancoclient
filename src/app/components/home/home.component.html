@@ -30,7 +30,7 @@
     <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 0 && 'active'}}">
       <img height="800" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
       <div class="carousel-caption d-none d-md-block">
-        <a href="descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
+        <a routerLink="/descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
           <h2><p class="withetext">{{d.direccion}}</p></h2>
         </div>
       <div class="carousel-caption d-md-block">
@@ -64,7 +64,6 @@
       <p>Nuestra empresa se inicia en el año 2005, proporcionándole diversos servicios de la construcción a la comunidad local, como edificaciones de viviendas de uno y dos niveles. Años más tarde la empresa crece y entra a la competencia de hacer residenciales, construyendo edificios de 4 y 5 niveles. Fue fundada por el Ing. </p>
       <p> Franklyn Mejía, actual Presidente de la misma, quien se esfuerza por seguir creciendo y servir en el mercado de la construcción a la República Dominicana.</p>
       <div class="col-lg-4 text-center">
-        <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
       </div>
       </article>
   
@@ -118,7 +117,7 @@
             <h3>Nuesto blog</h3>
             <p>Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana. </p>
             <div class="col-lg-4 text-center">
-              <p><a class="btn btn-info" href="blog" role="button">Acceder</a></p>
+              <p><a class="btn btn-info" routerLink="/blog" role="button">Acceder</a></p>
             </div>
             </article>
           </div>

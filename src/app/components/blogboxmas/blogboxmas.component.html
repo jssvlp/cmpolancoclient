@@ -14,16 +14,16 @@
   <content>
     <div class="card mb-4 shadow">
       <div class="inner">
-        <img class="card-img-top" src="../../../../assets/Blog/{{post.imgURL}}" alt="Card image cap">
+        <img class="card-img-top" src="../../../../assets/Blog/{{post?.imgURL}}" alt="Card image cap">
       </div>
       <div class="card-body text-center">
-        <h2 class="card-title">{{post.tituloEntrada}}</h2>
-        <p class="card-text">{{post.textoEntrada}}</p>
+        <h2 class="card-title">{{post?.tituloEntrada}}</h2>
+        <p class="card-text">{{post?.textoEntrada}}</p>
       </div>
-      <button *ngIf="user.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
+      <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
       <div class="card-footer text-muted">
-        Publicado en Marzo {{post.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
-        <a routerLink="/home">{{post.usuario.nombreUsuario}} {{post.usuario.apellidosUsuario}}</a>
+        Publicado en Marzo {{post?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
+        <a routerLink="/home">{{post?.usuario?.nombreUsuario}} {{post?.usuario?.apellidosUsuario}}</a>
       </div>
     </div>
   </content>

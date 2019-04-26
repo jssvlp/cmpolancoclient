@@ -1,6 +1,6 @@
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, HostListener } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -92,5 +92,6 @@ const routes=[
   providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
 
