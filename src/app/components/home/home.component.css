@@ -426,3 +426,7 @@ ul, ol {
       
   
 }
+
+#servislide .container-fluid{
+  margin-left: 100px;
+}
