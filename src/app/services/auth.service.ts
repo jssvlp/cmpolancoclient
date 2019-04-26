@@ -109,13 +109,18 @@ export  class  AuthService {
             
             this.sendActivationCode(this.afAuth.auth.currentUser);
             userInfo.FireBaseCode = userUpdate.uid;
-            console.log(userInfo);
+            //console.log(userInfo);
             
             this.RegisterOnApi(userInfo)
              .subscribe(user => {
-                console.log(user);
+                //console.log(user);
+                if(user == null){
+                    this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
+                }
+                else {
+                    this.router.navigate(['/home'])
+                }
               });;
-            this.router.navigate(['/home'])
          } catch (e) {
              alert("Error al crear el usuario:"  +  e);
              console.log(e);
