@@ -42,6 +42,7 @@ import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detal
 import { PeticionService } from '../services/peticion.service';
 import { FooterComponent } from './footer/footer.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes=[
   {
@@ -89,7 +90,7 @@ const routes=[
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService],
+  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
