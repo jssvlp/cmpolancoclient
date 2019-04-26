@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { map, tap, catchError } from 'rxjs/operators';
 import {isNullOrUndefined} from 'util';
 import { Observable, of } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -15,7 +16,8 @@ import { Observable, of } from 'rxjs';
     providedIn: 'root' 
 })
 export  class  AuthService {
-    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel) {}
+    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel,
+        private cookieService: CookieService) {}
     Headers: HttpHeaders = new HttpHeaders({
         "Content-Type" : "application/json"
     });
@@ -50,11 +52,14 @@ export  class  AuthService {
     
      logout(){
         this.afAuth.auth.signOut();
-        let accesToken = localStorage.getItem("tkn");
+        //let accesToken = localStorage.getItem("tkn");
+        let accesToken = this.cookieService.get("tkn");
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
-        console.log('*******URL:',url_api);
-        localStorage.removeItem("tkn");
-        localStorage.removeItem("currentUser");
+        //console.log('*******URL:',url_api);
+        //localStorage.removeItem("tkn");
+        this.cookieService.delete("tkn")
+        //localStorage.removeItem("currentUser");
+        this.cookieService.delete("currentUser")
 
         return this.Http.post(
             url_api,{headers : this.Headers}
@@ -65,20 +70,26 @@ export  class  AuthService {
     }
 
     setUser(user:any): void{
-      
+        var date = new Date();
+        date.setTime(date.getTime() + (600 * 1000));
         let user_string = JSON.stringify(user);
-        localStorage.setItem("currentUser", user_string);
+        //localStorage.setItem("currentUser", user_string);
+        this.cookieService.set('currentUser', user_string,date);
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
-        localStorage.setItem("tkn", token);
+        //localStorage.setItem("tkn", token);
+        var date = new Date();
+        date.setTime(date.getTime() + (600 * 1000));
+        this.cookieService.set('tkn', token, date);
     }
 
     getCurrentUser()
     {
-        let user_string = localStorage.getItem("currentUser");
-        if(!isNullOrUndefined(user_string)){
+        //let user_string = localStorage.getItem("currentUser");
+        if(this.cookieService.check("currentUser")){//!isNullOrUndefined(user_string)){
+            let user_string = this.cookieService.get("currentUser");
             let user = JSON.parse(user_string);
             return user;
         }
@@ -88,7 +99,8 @@ export  class  AuthService {
     }
 
     getToken(){
-        return localStorage.getItem("tkn").toString();
+        //return localStorage.getItem("tkn").toString();
+        return this.cookieService.get("tkn").toString();
     }
 
     RegisterOnApi(userInfo: any){

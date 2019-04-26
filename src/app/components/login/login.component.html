@@ -11,6 +11,7 @@
   <!-- This is a navbar component, now you can user navbar on any other component :) -->
   <app-navbar></app-navbar>
 </header>
+<br>
 
 <body>
     <div class="container">
@@ -22,24 +23,40 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Iniciar Sesión</h5>
-                <form  #form="ngForm" (ngSubmit)="onLogin(form)" class="form-login">
+                <form  [formGroup]="requestForm" (ngSubmit)="onLogin()" class="form-login">
 
                   <div class="form-row">
                       <div class="form-group">
                   <label for="inputUserame">Correo</label>
-                    <input type="text" id="email" name="CorreoUsuario"class="form-control" placeholder="Correo" ngModel required autofocus>
+                    <input formControlName="CorreoUsuario" type="text" id="email" name="CorreoUsuario"class="form-control" placeholder="Correo"  minlength="10" maxlength="100" required autofocus>
+                    <div *ngIf="requestForm.controls['CorreoUsuario'].errors && requestForm.controls['CorreoUsuario'].touched" class="validation-error">
+                      <div [hidden] = "!requestForm.controls['CorreoUsuario'].errors.required">
+                          El campo es requerido
+                      </div>
+                      <div [hidden] = "!requestForm.controls['CorreoUsuario'].errors.minlength">
+                          El campo requiere mas de 10 caracteres  
+                      </div>
+                  </div>
                   </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">  
                   <label for="inputPassword">Contraseña</label>
-                    <input type="password" id="password" name="Contraseña" class="form-control" placeholder="Contraseña" ngModel required>
+                    <input formControlName="Contraseña" type="password" id="password" name="Contraseña" class="form-control" placeholder="Contraseña" minlength="7" ngModel required>
+                    <div *ngIf="requestForm.controls['Contraseña'].errors && requestForm.controls['Contraseña'].touched" class="validation-error">
+                      <div [hidden] = "!requestForm.controls['Contraseña'].errors.required">
+                          El campo es requerido
+                      </div>
+                      <div [hidden] = "!requestForm.controls['Contraseña'].errors.minlength">
+                          El campo requiere mas de 7 caracteres  
+                      </div>
+                  </div>
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
                 </div>
     
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="requestForm.invalid" type="submit">Iniciar Sesión</button>
                   <!-- <a class="d-block text-center mt-2 small" href="#">Sign In</a> -->
                   <a href="#">Olvide mi contraseña</a><br>
                 </form>

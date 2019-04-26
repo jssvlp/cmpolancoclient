@@ -32,7 +32,7 @@ export class BlogboxmasComponent implements OnInit {
  eliminar(id: number){
   if(confirm('¿Esta seguro que desea eliminar este post')){
     this.apiBlog.deletePost(id).subscribe(res => {
-      this.router.navigate(['blog']);
+      this.router.navigate(['/blog']);
     })
   }
 }
