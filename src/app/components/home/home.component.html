@@ -26,9 +26,17 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <!-- Wrapper for slides -->
+
   <div class="carousel-inner">
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 0 && 'active'}}">
-      <img height="800" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
+      <div class="carousel-item active" id="fotoca">
+          <img height="775" src="assets/construccion.jpg" class="d-block w-100" alt="projects">
+          <div class="carousel-caption d-md-block">
+            <h5>First Image</h5>
+          </div>
+        </div>
+
+    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
+      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
       <div class="carousel-caption d-none d-md-block">
         <a routerLink="/descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
           <h2><p class="withetext">{{d.direccion}}</p></h2>

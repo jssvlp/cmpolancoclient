@@ -5,6 +5,7 @@ import { ProyectoService} from '../../services/proyecto.service';
 import { ServicioModel } from 'src/app/model/Servicio.model';
 import { ServiciosService } from 'src/app/services/servicios.service';
 import { Router } from '@angular/router';
+declare var $:any;
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,18 @@ export class HomeComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+    $(document).ready(function(){
+      $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll >800) {
+          $("#navbarSupportedContent").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+        }
+        else{
+          $("#navbarSupportedContent").css("background" , "transparent");
+
+        }
+      })
+    })
     
   
   }
