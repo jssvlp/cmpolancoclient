@@ -34,7 +34,7 @@ export  class  AuthService {
         return this.afAuth.auth.currentUser;    
     }
      Login(userInfo: any){
-         try {          
+         try {         
             const userFirebase = this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña);
             console.log(userFirebase);
             const url_api= "http://localhost:61756/api/usuarios/login";

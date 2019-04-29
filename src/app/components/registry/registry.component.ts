@@ -17,16 +17,18 @@ export class RegistryComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      nombreUsuario:["",[Validators.required]],
-      apellidosUsuario: ["",[Validators.required]],
-      correoUsuario: ["",[Validators.required]],
+      NombreUsuario:["",[Validators.required]],
+      ApellidosUsuario: ["",[Validators.required]],
+      CorreoUsuario: ["",[Validators.required]],
       Contraseña:["", [Validators.required]],
+      fechaNacimiento:[""],
       confirmPassword:[""]
     })
  
   }
 
   onSubmit() {
+    console.log(this.form.value)
     this.authService.Register(this.form.value);
   } 
 

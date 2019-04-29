@@ -23,7 +23,7 @@ export class AddpostComponent implements OnInit {
   ngOnInit() {
 
     this.user = this.authService.getCurrentUser()
-
+    console.log(this.user);
     this.addForm = this.FormBuilder.group({
       tituloEntrada:['', [Validators.required]],
       textoEntrada:['',[Validators.required]],

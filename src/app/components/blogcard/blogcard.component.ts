@@ -16,7 +16,6 @@ export class BlogcardComponent implements OnInit {
   ngOnInit() {
     this.apiBlog.getBlogs().subscribe(res => {
       this.post = res;
-      console.log(res);
     })
   }
 

@@ -18,9 +18,10 @@
       </div>
       <div class="card-body text-center">
         <h2 class="card-title">{{post?.tituloEntrada}}</h2>
-        <p class="card-text">{{post?.textoEntrada}}</p>
+        <p class="card-text" >{{post?.textoEntrada}}</p>
       </div>
       <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
+      <a *ngIf="user?.roleId === 1"  href="editar-port/{{post.blogID}}" class="btn btn-danger">Editar Post</a>
       <div class="card-footer text-muted">
         Publicado en Marzo {{post?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
         <a routerLink="/home">{{post?.usuario?.nombreUsuario}} {{post?.usuario?.apellidosUsuario}}</a>
@@ -33,7 +34,7 @@
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
-        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+        <div class="pr-xl-4"><a class="brand" href="index.html"></a>
           <p>Contáctenos y le responderemos dentro de las 24 horas.</p>
           <!-- Rights-->
           <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Constructora Mejia Polanco, Inc.</span><span>. </span><span>All Rights Reserved.</span></p>
@@ -47,11 +48,11 @@
         </dl>
         <dl class="contact-list">
           <dt>Correo:</dt>
-          <dd><a href="mailto:#">constructoramejiapolanco@hotmail.com</a></dd>
+          <dd><a href="mailto:constructoramejiapolanco@hotmail.com">constructoramejiapolanco@hotmail.com</a></dd>
         </dl>
         <dl class="contact-list">
           <dt>Telefono:</dt>
-          <dd> <a href="tel:#">(809) 530-7149</a>
+          <dd> <a href="tel:(+1809) 530-7149">(809) 530-7149</a>
           </dd>
         </dl>
       </div>
