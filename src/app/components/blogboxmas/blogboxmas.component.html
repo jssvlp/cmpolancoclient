@@ -21,7 +21,7 @@
         <p class="card-text" >{{post?.textoEntrada}}</p>
       </div>
       <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
-      <a *ngIf="user?.roleId === 1"  href="editar-port/{{post.blogID}}" class="btn btn-danger">Editar Post</a>
+      <a *ngIf="user?.roleId === 1"  href="http://localhost:4500/editar-post/{{post.blogID}}" class="btn btn-danger">Editar Post</a>
       <div class="card-footer text-muted">
         Publicado en Marzo {{post?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
         <a routerLink="/home">{{post?.usuario?.nombreUsuario}} {{post?.usuario?.apellidosUsuario}}</a>
