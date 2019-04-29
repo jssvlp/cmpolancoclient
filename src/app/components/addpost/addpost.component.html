@@ -1,7 +1,7 @@
 <div *ngIf="user?.roleId === 1" class="card my-4" id="AgregarPost">
   <h5 class="card-header">Agregar un nuevo post</h5>
   <div class="card-body">
-    <a class="btn btn-secondary" href="http://localhost:4500/Agregar%20Post">Agregar post</a>
+    <button type="button" class="btn btn-secondary" (click) = "add()">Agregar post</button>
   </div>
 </div>
 <!--ng-template #agregarPost>

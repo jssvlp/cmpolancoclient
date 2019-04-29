@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService) { }
   NombreUsuario: string;
   logged: boolean;
+  roleID: number;
   ngOnInit() {
     let currentUser = this.authService.getCurrentUser();
     
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
     else{
       this.logged = true;
       this.NombreUsuario = currentUser['nombreUsuario'];
+      this.roleID = currentUser['roleId']
+  
 
       
     }
@@ -35,6 +38,10 @@ export class NavbarComponent implements OnInit {
         });
   }
 
+  administrar(){
+    this.authService.change();
+    return "http://localhost:4500"
+  }
   onLogin(){
 
   }

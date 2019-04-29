@@ -43,6 +43,7 @@
                     <li><a href=""><i class="  "></i> Soporte</a></li>
                     <li class="divider"></li>
                     <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
+                    <li *ngIf="roleID == 1"><a href="{{administrar()}}">Administrar</a></li>
                 </ul>
             </li>
               <div class="nav-item" style="margin-left:15px"></div>

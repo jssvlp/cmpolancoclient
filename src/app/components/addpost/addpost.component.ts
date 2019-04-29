@@ -21,16 +21,7 @@ export class AddpostComponent implements OnInit {
   constructor(private modalService: NgbModal, private FormBuilder: FormBuilder, private authService: AuthService, private apiBlog: BlogService, private toastr: ToastrService) { }
 
   ngOnInit() {
-
-    this.user = this.authService.getCurrentUser()
-    console.log(this.user);
-    this.addForm = this.FormBuilder.group({
-      tituloEntrada:['', [Validators.required]],
-      textoEntrada:['',[Validators.required]],
-      imgURL:['',[Validators.required]],
-      usuarioID: this.user.usuarioID,
-      timestampBlog: formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en')
-    });
+    this.user = this.authService.getCurrentUser();
   }
 
   ver(agregar: any, modal) {
@@ -38,24 +29,8 @@ export class AddpostComponent implements OnInit {
     this.modalService.open(modal);
   }
 
-  saveFileRequest(files : FileList){
-    this.fileTo = files.item(0);
-  }
-  onSubmit(){
-    if(this.addForm.get("tituloEntrada").value.trim().length === 0){
-      this.toastr.warning('Campo vacio','Registro.Fallido');
-    }
-    else if(this.addForm.get("textoEntrada").value.trim().length === 0){
-      this.toastr.warning('Campo vacio','Registro.Fallido');
-    }
-    else{
-      this.apiBlog.addPost(this.addForm.value).subscribe(res=> {
-        let formData = new FormData(); 
-        formData.append(this.fileTo.name, this.fileTo);
-        formData.append('fileName',this.fileTo.name);
-        this.apiBlog.sendFormData(formData);
-        this.apiBlog.refreshList();
-      })
-    }
+ add(){
+   this.authService.change();
+    window.location.href="http://localhost:4500/Agregar Post"
   }
 }

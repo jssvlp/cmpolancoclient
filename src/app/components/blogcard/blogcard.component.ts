@@ -12,6 +12,7 @@ export class BlogcardComponent implements OnInit {
 
   post: BlogModel[] =[]
   constructor(private apiBlog: BlogService, private router: Router) { }
+  filterPost = "";
 
   ngOnInit() {
     this.apiBlog.getBlogs().subscribe(res => {
