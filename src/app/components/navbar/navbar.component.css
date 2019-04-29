@@ -29,4 +29,17 @@ header{
     .contenedorh .navbar-light .navbar-nav .nav-link{
         position: relative;
         }
+
+/* Media queries */
+
+@media screen and (max-width:800px){
+  nav{
+    background: black;
+  }
+  #navbarSupportedContent{
+    background: black;
+
+
+  }
+}
         

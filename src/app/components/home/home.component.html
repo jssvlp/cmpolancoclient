@@ -26,9 +26,18 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <!-- Wrapper for slides -->
+
   <div class="carousel-inner">
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 0 && 'active'}}">
-      <img height="800" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
+      <div class="carousel-item active" id="fotoca">
+          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
+          <div class="carousel-caption d-md-block" id="tituloscar">
+            <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
+            <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
+          </div>
+        </div>
+
+    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
+      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
       <div class="carousel-caption d-none d-md-block">
         <a routerLink="/descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
           <h2><p class="withetext">{{d.direccion}}</p></h2>
@@ -90,7 +99,7 @@
     <div class='row'>
         <div *ngFor="let s of servicio" style="margin-left:200px;">
         <div class="col-md-4 herramientas text-center">
-            <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
+            <img src="../../../../assets/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
             <p>{{s.descripcionServicio}}</p>
             <p><a class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</a></p>
@@ -101,6 +110,27 @@
 
 </div> 
 </section>
+
+<!-- -------------------------------------------------------------------------------
+                               <--  FORO   -->
+<!----------------------------------------------------------------------------------->
+
+<section class="row featurette" id="foro">
+  <div class="Contenedor2">
+      <div class="foto">
+        <img src="assets/escribiendo-computadora.jpg" alt="projects">
+      </div>
+      <article>
+      <h3>Nuestro foro</h3>
+      <p>Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD. </p>
+      <div class="col-lg-4 text-center">
+        <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
+      </div>
+      </article>
+    </div>
+    
+  </section>
+
 
 
   
@@ -124,7 +154,6 @@
   
     </section>
   
-    <section class="contacto" id="contacto"></section>
   </section>
   
   <!----------------------------------------------------------------------------------->
