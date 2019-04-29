@@ -82,6 +82,8 @@ box-shadow: 0px 0px 15px rgba(0, 0, 0, .35) */
 font-size: 40px;
 font-weight: 300;
 margin-bottom: 40px;
+
+
 }
 
 .main .Contenedor article p{
@@ -108,16 +110,6 @@ overflow: hidden;
 
 
 
-
-/* OJO */
-ul{
-/* width:100%; */
-/* text-align: right; */
-
-}
-
-
-
 /* Segunda section */
 
 .main #herramientas {
@@ -126,13 +118,10 @@ left: 30px;
 display: inline-block;
 }
 
-.main #herramientas .Titulo {
-  text-align: center;
-  }
-  
 /* Herramientas*/
 #herramientas .Titulo{
   text-align: center;
+  margin-left: 400px;
   font-weight: 300;
   font-size: 52px;
   color:#000;
@@ -146,6 +135,12 @@ display: inline-block;
 #herramientas{
   margin-bottom: 100px;
   display: block; 
+}
+
+#imageher{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
 }
 
 
@@ -333,6 +328,27 @@ ul, ol {
 	margin-top:16px;
 }
 
+/* Esilos del carousel */
+
+#tituloscar{
+  padding-bottom: 300px;
+  /* font-family: poppins; */
+}
+
+#tituloscar h2{
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#tituloscar h3{
+  font-size: 30px;
+}
+
+#tituloscar h2 span{
+  color: #edbb00;
+}
+
 /* Media queries */
 
 @media screen and (max-width:800px){
@@ -418,6 +434,31 @@ ul, ol {
         height: 24rem;
 
       }
+
+      /* Esilos del carousel */
+
+#tituloscar{
+  padding-bottom: 50px;
+  /* font-family: poppins; */
+}
+
+#tituloscar h2{
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation-name: bounceInLeft;
+  animation-delay: 1s;
+  
+}
+
+#tituloscar h3{
+  font-size: 20px;
+}
+
+#tituloscar h2 span{
+  color: #edbb00;
+}
+
   
   
       

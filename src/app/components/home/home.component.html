@@ -29,9 +29,10 @@
 
   <div class="carousel-inner">
       <div class="carousel-item active" id="fotoca">
-          <img height="775" src="assets/construccion.jpg" class="d-block w-100" alt="projects">
-          <div class="carousel-caption d-md-block">
-            <h5>First Image</h5>
+          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
+          <div class="carousel-caption d-md-block" id="tituloscar">
+            <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
+            <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
           </div>
         </div>
 
@@ -98,7 +99,7 @@
     <div class='row'>
         <div *ngFor="let s of servicio" style="margin-left:200px;">
         <div class="col-md-4 herramientas text-center">
-            <img src="../../../../assets/Servicio/{{s.imgURL}}" alt="Generic placeholder image" alt="Generic placeholder image" >
+            <img src="../../../../assets/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
             <p>{{s.descripcionServicio}}</p>
             <p><a class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</a></p>
