@@ -52,17 +52,14 @@ export  class  AuthService {
     
      logout(){
         this.afAuth.auth.signOut();
-        //let accesToken = localStorage.getItem("tkn");
-        let accesToken = this.cookieService.get("tkn");
+        let accesToken = sessionStorage.getItem("tkn");
+        //let accesToken = this.cookieService.get("tkn")
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
-        //console.log('*******URL:',url_api);
-        //localStorage.removeItem("tkn");
-        //this.cookieService.delete("tkn")
-        //localStorage.removeItem("currentUser");
-        //this.cookieService.delete("currentUser")
+        //this.cookieService.deleteAll();
         sessionStorage.removeItem("tkn");
         sessionStorage.removeItem("currentUser");
-
+        //localStorage.removeItem("currentUser");
+        //localStorage.removeItem("tkn");
         return this.Http.post(
             url_api,{headers : this.Headers}
         ).pipe(data => data);
@@ -72,29 +69,39 @@ export  class  AuthService {
     }
 
     setUser(user:any): void{
-        //var date = new Date();
-       // date.setTime(date.getTime() + (600 * 1000));
-        let user_string = JSON.stringify(user);
-        //localStorage.setItem("currentUser", user_string);
-        //this.cookieService.set('currentUser', user_string,date);
-        sessionStorage.setItem('currentUser', user_string)
+        let user_string = JSON.stringify(user);  
+        //Con cookies
+        /*
+            this.cookieService.set('currentUser', user_string);
+        */ 
+        
+        sessionStorage.setItem('currentUser', user_string);
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
-        //localStorage.setItem("tkn", token);
-        //var date = new Date();
-        //date.setTime(date.getTime() + (600 * 1000));
-        //this.cookieService.set('tkn', token, date);
-        sessionStorage.setItem('tkn', token)
+        //Con cookies
+        /*
+            this.cookieService.set('tkn', token);
+        */ 
+        sessionStorage.setItem('tkn', token);
     }
 
     getCurrentUser()
     {
-        //let user_string = localStorage.getItem("currentUser");
+        //Con cookies
+        /*
+            let user_string = this.cookieService.get("currentUser");
+            if(!isNullOrUndefined(user_string) && user_string != ""){
+            let user = JSON.parse(user_string);
+            return user;
+        }
+        else{
+            return null;
+        }
+        */
         let user_string = sessionStorage.getItem("currentUser");
         if(!isNullOrUndefined(user_string)){
-            //let user_string = this.cookieService.get("currentUser");
             let user_string = sessionStorage.getItem("currentUser");
             let user = JSON.parse(user_string);
             return user;
@@ -105,24 +112,27 @@ export  class  AuthService {
     }
 
     getToken(){
-        //return localStorage.getItem("tkn").toString();
-        //return this.cookieService.get("tkn").toString();
+        //Con cookies
+        /* 
+            this.cookieService.get("tkn").toString();
+        */
         return sessionStorage.getItem("tkn").toString();
     }
     change(){
-        let user_string = sessionStorage.getItem("currentUser");
-        this.cookieService.set("currentUser", user_string);
-        let tkn = sessionStorage.getItem("tkn");
-        this.cookieService.set("tkn",tkn);
+        let user = this.getCurrentUser();
+        let user_string = JSON.stringify(user);
+        let tkn = this.getToken();
+        localStorage.setItem("currentUser", user_string);
+        localStorage.setItem("tkn", tkn);
     }
 
-    set(){
-        let user_string = this.cookieService.get("currentUser");
-        sessionStorage.setItem("currentUser", user_string);
-        let tkn = this.cookieService.get("tkn");
-        sessionStorage.setItem("tkn",tkn);
-        this.cookieService.delete("currentUser");
-        this.cookieService.delete("tkn");
+   set(){
+        let user = localStorage.getItem("currentUser");
+        let tkn = localStorage.getItem("tkn");
+        sessionStorage.setItem("currentUser", user)
+        sessionStorage.setItem("tkn", tkn)
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("tkn");
     }
 
     RegisterOnApi(userInfo: any){
