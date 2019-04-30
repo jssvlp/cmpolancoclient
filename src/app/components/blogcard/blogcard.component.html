@@ -1,5 +1,5 @@
   <!-- Blog Post -->
-  <div *ngFor="let p of post" class="card mb-4 shadow">
+  <div *ngFor="let p of post | filtro:filterPost " class="card mb-4 shadow">
     <div class="inner">
       <img class="card-img-top" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
     </div>

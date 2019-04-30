@@ -14,8 +14,9 @@
             <img class="card-img" src="https://static.pexels.com/photos/373912/pexels-photo-373912.jpeg" alt="Card image" style="height: 380px">
             <div class="card-img-overlay d-flex flex-row-reverse">
                 <div class="searchbar" style="position: absolute">
-                  <input class="search_input" type="text" name="" placeholder="Buscar...">
-                  <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                  <input class="search_input" type="text" name="filterPost" placeholder="Buscar..." 
+                  [(ngModel)] = "filterPost">
+                  <a class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="my-auto mx-auto text-center">
                     <h4 class="card-title" style="color: white; font-size: 85px; font-weight: bold; text-transform: capitalize">Nuestro Blog</h4>
@@ -30,9 +31,24 @@
     <div class="row">
       <!-- Blog Entries Column -->
       <div class="col-md-8">
-        <app-blogcard ></app-blogcard>
+          <div *ngFor="let p of post | filtro:filterPost | paginate: { itemsPerPage: 4, currentPage: p } " class="card mb-4 shadow">
+              <div class="inner">
+                <img class="card-img-top" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
+              </div>
+              <div class="card-body text-center">
+                <h2 class="card-title">{{p?.tituloEntrada}}</h2>
+                <p class="card-text">{{p?.textoEntrada}}</p>
+                <a (click) = "verMas(p)" class="btn btn-primary">Leer más » &rarr;</a>
+              </div>
+              <div class="card-footer text-muted">
+                Publicado en {{p?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
+                <a routerLink="/home">{{p?.usuario?.nombreUsuario}} {{p?.usuario?.apellidosUsuario}}</a>
+              </div>
+            </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!--<app-blogcard ></app-blogcard> -->
         <!-- Pagination -->
-        <nav aria-label="...">
+        <!-- <nav aria-label="...">
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1">Anterior</a>
@@ -47,7 +63,7 @@
               <a class="page-link" href="#">Siguiente</a>
             </li>
           </ul>
-        </nav>
+        </nav>-->
       </div>
         <!-- Side Widget -->
         <!-- Search Widget -->

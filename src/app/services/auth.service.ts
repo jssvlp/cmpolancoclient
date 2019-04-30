@@ -57,9 +57,11 @@ export  class  AuthService {
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
         //console.log('*******URL:',url_api);
         //localStorage.removeItem("tkn");
-        this.cookieService.delete("tkn")
+        //this.cookieService.delete("tkn")
         //localStorage.removeItem("currentUser");
-        this.cookieService.delete("currentUser")
+        //this.cookieService.delete("currentUser")
+        sessionStorage.removeItem("tkn");
+        sessionStorage.removeItem("currentUser");
 
         return this.Http.post(
             url_api,{headers : this.Headers}
@@ -70,26 +72,30 @@ export  class  AuthService {
     }
 
     setUser(user:any): void{
-        var date = new Date();
-        date.setTime(date.getTime() + (600 * 1000));
+        //var date = new Date();
+       // date.setTime(date.getTime() + (600 * 1000));
         let user_string = JSON.stringify(user);
         //localStorage.setItem("currentUser", user_string);
-        this.cookieService.set('currentUser', user_string,date);
+        //this.cookieService.set('currentUser', user_string,date);
+        sessionStorage.setItem('currentUser', user_string)
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
         //localStorage.setItem("tkn", token);
-        var date = new Date();
-        date.setTime(date.getTime() + (600 * 1000));
-        this.cookieService.set('tkn', token, date);
+        //var date = new Date();
+        //date.setTime(date.getTime() + (600 * 1000));
+        //this.cookieService.set('tkn', token, date);
+        sessionStorage.setItem('tkn', token)
     }
 
     getCurrentUser()
     {
         //let user_string = localStorage.getItem("currentUser");
-        if(this.cookieService.check("currentUser")){//!isNullOrUndefined(user_string)){
-            let user_string = this.cookieService.get("currentUser");
+        let user_string = sessionStorage.getItem("currentUser");
+        if(!isNullOrUndefined(user_string)){
+            //let user_string = this.cookieService.get("currentUser");
+            let user_string = sessionStorage.getItem("currentUser");
             let user = JSON.parse(user_string);
             return user;
         }
@@ -100,7 +106,23 @@ export  class  AuthService {
 
     getToken(){
         //return localStorage.getItem("tkn").toString();
-        return this.cookieService.get("tkn").toString();
+        //return this.cookieService.get("tkn").toString();
+        return sessionStorage.getItem("tkn").toString();
+    }
+    change(){
+        let user_string = sessionStorage.getItem("currentUser");
+        this.cookieService.set("currentUser", user_string);
+        let tkn = sessionStorage.getItem("tkn");
+        this.cookieService.set("tkn",tkn);
+    }
+
+    set(){
+        let user_string = this.cookieService.get("currentUser");
+        sessionStorage.setItem("currentUser", user_string);
+        let tkn = this.cookieService.get("tkn");
+        sessionStorage.setItem("tkn",tkn);
+        this.cookieService.delete("currentUser");
+        this.cookieService.delete("tkn");
     }
 
     RegisterOnApi(userInfo: any){

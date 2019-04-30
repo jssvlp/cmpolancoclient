@@ -37,4 +37,9 @@ export class BlogboxmasComponent implements OnInit {
   }
 }
 
+editar(id: number){
+  this.authService.change();
+  window.location.href="http://localhost:4500/editar-post/{{id}}"
+}
+
 }
