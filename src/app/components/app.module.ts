@@ -43,6 +43,7 @@ import { PeticionService } from '../services/peticion.service';
 import { FooterComponent } from './footer/footer.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
 import { CookieService } from 'ngx-cookie-service';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 const routes=[
   {
@@ -67,7 +68,8 @@ const routes=[
     BlogcardComponent,
     DetalleSolicitudComponent,
     FooterComponent,
-    DetalleProyectoComponent
+    DetalleProyectoComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,

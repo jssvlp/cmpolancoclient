@@ -1,15 +1,19 @@
   <!-- Blog Post -->
-  <div *ngFor="let p of post" class="card mb-4 shadow">
+  <div *ngFor="let p of post | filtro:filterPost " class="card mb-4 shadow">
     <div class="inner">
       <img class="card-img-top" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
     </div>
     <div class="card-body text-center">
-      <h2 class="card-title">{{p.tituloEntrada}}</h2>
+      <!-- <h2 class="card-title">{{p.tituloEntrada}}</h2>
       <p class="card-text">{{p.textoEntrada}}</p>
-      <button (click) = "verMas(p)" class="btn btn-info">Leer más </button>
+      <button (click) = "verMas(p)" class="btn btn-info">Leer más </button> -->
+
+      <h2 class="card-title">{{p?.tituloEntrada}}</h2>
+      <p class="card-text">{{p?.textoEntrada}}</p>
+      <a (click) = "verMas(p)" class="btn btn-primary">Leer más » &rarr;</a>
     </div>
     <div class="card-footer text-muted">
-      Publicado en {{p.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
-      <a routerLink="/home">{{p.usuario.nombreUsuario}} {{p.usuario.apellidosUsuario}}</a>
+      Publicado en {{p?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
+      <a routerLink="/home">{{p?.usuario?.nombreUsuario}} {{p?.usuario?.apellidosUsuario}}</a>
     </div>
   </div>

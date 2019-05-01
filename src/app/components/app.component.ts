@@ -10,8 +10,8 @@ import { UserModel } from '../model/User.model';
 export class AppComponent {
   title = 'Frontend';
   constructor(private autApi: AuthService){
-
   }
+
 
   unloadHandler() {
   }

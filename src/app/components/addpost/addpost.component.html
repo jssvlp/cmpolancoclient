@@ -1,10 +1,10 @@
-<div *ngIf="user.roleId === 1" class="card my-4" id="AgregarPost">
+<div *ngIf="user?.roleId === 1" class="card my-4" id="AgregarPost">
   <h5 class="card-header">Agregar un nuevo post</h5>
   <div class="card-body">
-    <button class="btn btn-secondary" type="button" (click)="ver(agregar, agregarPost)">Agregar post</button>
+    <button type="button" class="btn btn-secondary" (click) = "add()">Agregar post</button>
   </div>
 </div>
-<ng-template #agregarPost>
+<!--ng-template #agregarPost>
     <form [formGroup] = "addForm" (ngSubmit)="onSubmit()">
     <div class="modal-header">
       <h4 class="modal-title">Nuevo post</h4>
@@ -35,7 +35,7 @@
         </div>
         <label for="exampleFormControlFile1" style="margin-top: 15px;">Adjuntar imagen</label>
         <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type="file" class="form-control-file" id="exampleFormControlFile1">
-
+          (click)="ver(agregar, agregarPost)"
       </div>
     </div>
     <div class="modal-footer">
@@ -43,4 +43,4 @@
         <button [disabled]="addForm.invalid" class="btn btn-secondary" type="button">Agregar</button>
     </div>
   </form>
-</ng-template>
+</ng-template>-->
