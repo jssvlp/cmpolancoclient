@@ -118,14 +118,16 @@ left: 30px;
 display: inline-block;
 }
 
+
 /* Herramientas*/
 #herramientas .Titulo{
   text-align: center;
-  margin-left: 400px;
+  margin-left: 150px;
   font-weight: 300;
   font-size: 52px;
   color:#000;
   margin-bottom: 70px;
+  position: relative;
 } 
 
 #herramientas .herramientas{
@@ -352,6 +354,8 @@ ul, ol {
 /* Media queries */
 
 @media screen and (max-width:800px){
+
+
   .main .Contenedor .foto{
     width: 100%;
     position: relative;
@@ -459,8 +463,30 @@ ul, ol {
   color: #edbb00;
 }
 
-  
-  
-      
-  
+}
+
+
+#imaca{
+  filter: blur(6px);
+}
+
+/* Carousel imagenes */
+#direccionca{
+  margin-bottom: 150px;
+}
+
+#direccionca h3 {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+
+#direccionca h3 span {
+  color:#edbb00;
+}
+
+#btca {
+
+  background-color: #edbb00;
+  border-color: #edbb00;
 }

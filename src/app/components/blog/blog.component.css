@@ -233,3 +233,35 @@ div.validation-error{
   color: #dc3545;
 
 }
+
+/* Blog foto */
+.container-no-gutter{
+  padding-bottom: 490px;
+   
+}
+
+.container-no-gutter .card img{
+  width: 100%;
+   
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #17a2b8;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+#tituloblog span{
+  color: #edbb00;
+}
