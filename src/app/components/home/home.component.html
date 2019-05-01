@@ -37,7 +37,7 @@
       </div>
       
 
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
+    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == data.length && 'active'}}" id="fotoca">
       <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca">
       <div class="carousel-caption d-none d-md-block" id="direccionca">
         <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
