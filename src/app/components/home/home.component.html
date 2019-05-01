@@ -37,16 +37,6 @@
       </div>
       
 
-<<<<<<< HEAD
-      <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
-        <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
-        <div class="carousel-caption d-none d-md-block">
-          <a routerLink="/descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
-            <h2><p class="withetext">{{d.direccion}}</p></h2>
-          </div>
-        <div class="carousel-caption d-md-block">
-        </div>
-=======
     <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
       <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca">
       <div class="carousel-caption d-none d-md-block" id="direccionca">
@@ -56,25 +46,16 @@
         <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
       </div>
       <div class="carousel-caption d-md-block">
->>>>>>> a5f3b28c00b6b4fa597c81f8f93a02c94b5ff35d
       </div>
   </div>
     </div>
 </div>
   <!-- Controls -->
-<<<<<<< HEAD
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-=======
 <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="sr-only">Previous</span>
 </a>
   <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
->>>>>>> a5f3b28c00b6b4fa597c81f8f93a02c94b5ff35d
 <span class="carousel-control-next-icon" aria-hidden="true"></span>
 <span class="sr-only">Next</span>
 </a>
