@@ -38,10 +38,10 @@ export class NavbarComponent implements OnInit {
         });
   }
 
-  administrar(){
+  /*administrar(){
     this.authService.change();
-    return "http://localhost:4500"
-  }
+    return "http://localhost:4500/"
+  }*/
   onLogin(){
 
   }
