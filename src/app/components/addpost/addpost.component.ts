@@ -30,7 +30,7 @@ export class AddpostComponent implements OnInit {
   }
 
  add(){
-   this.authService.change();
+    //this.authService.change();
     window.location.href="http://localhost:4500/Agregar Post"
   }
 }

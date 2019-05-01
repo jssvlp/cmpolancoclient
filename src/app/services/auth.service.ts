@@ -52,12 +52,12 @@ export  class  AuthService {
     
      logout(){
         this.afAuth.auth.signOut();
-        let accesToken = sessionStorage.getItem("tkn");
-        //let accesToken = this.cookieService.get("tkn")
+        //let accesToken = sessionStorage.getItem("tkn");
+        let accesToken = this.cookieService.get("tkn")
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
-        //this.cookieService.deleteAll();
-        sessionStorage.removeItem("tkn");
-        sessionStorage.removeItem("currentUser");
+        this.cookieService.deleteAll();
+        //sessionStorage.removeItem("tkn");
+        //sessionStorage.removeItem("currentUser");
         //localStorage.removeItem("currentUser");
         //localStorage.removeItem("tkn");
         return this.Http.post(
@@ -71,26 +71,26 @@ export  class  AuthService {
     setUser(user:any): void{
         let user_string = JSON.stringify(user);  
         //Con cookies
-        /*
-            this.cookieService.set('currentUser', user_string);
-        */ 
         
-        sessionStorage.setItem('currentUser', user_string);
+        this.cookieService.set('currentUser', user_string);
+         
+        
+        //sessionStorage.setItem('currentUser', user_string);
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
         //Con cookies
-        /*
-            this.cookieService.set('tkn', token);
-        */ 
-        sessionStorage.setItem('tkn', token);
+        
+        this.cookieService.set('tkn', token);
+        
+        //sessionStorage.setItem('tkn', token);
     }
 
     getCurrentUser()
     {
         //Con cookies
-        /*
+        
             let user_string = this.cookieService.get("currentUser");
             if(!isNullOrUndefined(user_string) && user_string != ""){
             let user = JSON.parse(user_string);
@@ -99,8 +99,8 @@ export  class  AuthService {
         else{
             return null;
         }
-        */
-        let user_string = sessionStorage.getItem("currentUser");
+        
+        /*let user_string = sessionStorage.getItem("currentUser");
         if(!isNullOrUndefined(user_string)){
             let user_string = sessionStorage.getItem("currentUser");
             let user = JSON.parse(user_string);
@@ -108,17 +108,17 @@ export  class  AuthService {
         }
         else{
             return null;
-        }
+        }*/
     }
 
     getToken(){
         //Con cookies
-        /* 
-            this.cookieService.get("tkn").toString();
-        */
-        return sessionStorage.getItem("tkn").toString();
+        
+        return this.cookieService.get("tkn").toString();
+        
+        //return sessionStorage.getItem("tkn").toString();
     }
-    change(){
+    /*change(){
         let user = this.getCurrentUser();
         let user_string = JSON.stringify(user);
         let tkn = this.getToken();
@@ -133,7 +133,7 @@ export  class  AuthService {
         sessionStorage.setItem("tkn", tkn)
         localStorage.removeItem("currentUser");
         localStorage.removeItem("tkn");
-    }
+    }*/
 
     RegisterOnApi(userInfo: any){
         const url_api = "http://localhost:61756/api/usuarios";
