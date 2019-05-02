@@ -27,6 +27,7 @@ export class BlogboxmasComponent implements OnInit {
 
     this.apiBlog.getBlog(Number(userID)).subscribe(res => {
       this.post = res;
+      console.log(this.post);
     })
   }
  eliminar(id: number){

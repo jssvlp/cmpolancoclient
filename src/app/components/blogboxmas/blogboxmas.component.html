@@ -18,8 +18,9 @@
       </div>
       <div class="card-body text-center">
         <h2 class="card-title">{{post?.tituloEntrada}}</h2>
-        <p class="card-text" >{{post?.textoEntrada}}</p>
+        <p [innerHTML]="post?.textoEntrada" class="card-text"></p>
       </div>
+      <br>
       <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
       <button *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" type="button" class="btn btn-danger">Editar Post</button>
       <div class="card-footer text-muted">
