@@ -8,8 +8,8 @@
       <p class="card-text">{{p.textoEntrada}}</p>
       <button (click) = "verMas(p)" class="btn btn-info">Leer más </button> -->
 
-      <h2 class="card-title">{{p?.tituloEntrada}}</h2>
-      <p class="card-text">{{p?.textoEntrada}}</p>
+      <h2 class="card-title">{{p?.tituloEntrada}}</h2> 
+      <p [innerHTML]="p?.textoEntrada" class="card-text"></p>
       <a (click) = "verMas(p)" class="btn btn-primary">Leer más » &rarr;</a>
     </div>
     <div class="card-footer text-muted">

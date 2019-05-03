@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     this.proyectoService.getProjects()
     .subscribe(res =>{
       this.data = res;
-      console.log(this.data.length);
     }, err => {
       console.log(err);
     });

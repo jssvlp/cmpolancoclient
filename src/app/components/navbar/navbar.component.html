@@ -42,7 +42,7 @@
                     <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
                     <li><a href=""><i class="  "></i> Soporte</a></li>
                     <li class="divider"></li>
-                    <li><a href="http://localhost:4500/">Administrar</a></li>
+                    <li *ngIf = "roleID == 1"><a href="http://localhost:4500/">Administrar</a></li>
                     <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
                 </ul>
             </li>
