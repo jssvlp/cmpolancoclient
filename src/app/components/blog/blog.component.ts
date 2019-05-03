@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'src/app/services/blog.service';
 import { BlogModel } from 'src/app/model/Blog.model';
 import { Router } from '@angular/router';
-
+declare var $:any;
 
 
 @Component({
@@ -22,6 +22,19 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.apiBlog.getBlogs().subscribe(res => {
       this.post = res;
+    })
+
+    $(document).ready(function(){
+      $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll >10) {
+          $("#navbarSupportedContent").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+        }
+        else{
+          $("#navbarSupportedContent").css("background" , "transparent");
+
+        }
+      })
     })
   }
 

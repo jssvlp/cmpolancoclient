@@ -5,6 +5,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 
 import { UserModel } from "../../model/User.model";
 import { AuthService } from  '../../services/auth.service';
+declare var $:any;
 @Component({
   selector: 'app-registry',
   templateUrl: './registry.component.html',
@@ -23,6 +24,19 @@ export class RegistryComponent implements OnInit {
       Contraseña:["", [Validators.required]],
       fechaNacimiento:[""],
       confirmPassword:[""]
+    })
+
+    $(document).ready(function(){
+      $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll >10) {
+          $("#navbarSupportedContent").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+        }
+        else{
+          $("#navbarSupportedContent").css("background" , "transparent");
+
+        }
+      })
     })
  
   }

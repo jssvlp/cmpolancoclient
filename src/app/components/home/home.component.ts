@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
-        if (scroll >800) {
+        if (scroll >30) {
           $("#navbarSupportedContent").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
         }
         else{
