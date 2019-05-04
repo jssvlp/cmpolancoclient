@@ -13,6 +13,8 @@ import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 import { AuthGuard } from "../guards/auth.guard";
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,6 +28,8 @@ const routes: Routes = [
   {path: 'foro', component: ForoComponent},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
+  {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
+  {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

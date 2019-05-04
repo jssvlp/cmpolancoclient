@@ -1,6 +1,7 @@
 body {
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
+    padding-bottom: 0px;
   }
   .card-signin {
     border: 0;
@@ -12,14 +13,14 @@ body {
   .card-signin .card-title {
     margin-bottom: 25px;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 35px;
     
   }
   
   .card-signin .card-img-left {
     width: 50%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('http://images.arq.com.mx/eyecatcher/590590/21168.jpg');
+    background: scroll center url('/assets/architecture.jpg');
     background-size: cover;
   }
   
@@ -37,8 +38,22 @@ body {
     letter-spacing: .1rem;
     font-weight: bold;
     padding: 1rem;
+    margin-left: 45px;
+    margin-top:20px;
     transition: all 0.2s;
+    width: 250px;
+    top: 20px;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
   }
+  .form-row .form-control{
+    width: 300px;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
   
   .form-label-group {
     position: relative;
@@ -102,3 +117,14 @@ body {
     color: #777;
   }
   
+  div.validation-error{
+    width: 100%;
+    /* margin-top: .25rem; */
+    font-size: 80%;
+    color: #dc3545;
+
+}
+header {
+  background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  padding: 20px;
+}

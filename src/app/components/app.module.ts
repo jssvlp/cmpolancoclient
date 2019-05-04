@@ -1,6 +1,6 @@
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, HostListener } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -37,8 +37,18 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
+import { RouterModule, Routes } from '@angular/router';
+import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
+import { PeticionService } from '../services/peticion.service';
+import { FooterComponent } from './footer/footer.component';
+import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { CookieService } from 'ngx-cookie-service';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
-
+const routes=[
+  {
+  path:'item', component:HomeComponent
+}]
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +65,11 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
     AddpostComponent,
     BlogboxmasComponent,
     VisitaComponent,
-    BlogcardComponent
+    BlogcardComponent,
+    DetalleSolicitudComponent,
+    FooterComponent,
+    DetalleProyectoComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,
@@ -64,6 +78,9 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
     HttpClientModule,
     AppRoutingModule,
     FlatpickrModule.forRoot(),
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -75,7 +92,9 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService],
+  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService, CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
+

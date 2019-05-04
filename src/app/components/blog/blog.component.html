@@ -11,50 +11,44 @@
 <body>
     <div class="container-no-gutter" style="height: 380px">
         <div class="card">
-            <img class="card-img" src="https://static.pexels.com/photos/373912/pexels-photo-373912.jpeg" alt="Card image" style="height: 380px">
+            <img class="card-img" src="assets/sky.jpg" alt="Card image" style="height: 380px">
             <div class="card-img-overlay d-flex flex-row-reverse">
                 <div class="searchbar" style="position: absolute">
-                  <input class="search_input" type="text" name="" placeholder="Buscar...">
-                  <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                  <input class="search_input" type="text" name="filterPost" placeholder="Buscar..." 
+                  [(ngModel)] = "filterPost">
+                  <a class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="my-auto mx-auto text-center">
-                    <h4 class="card-title" style="color: white; font-size: 85px; font-weight: bold; text-transform: capitalize">Nuestro Blog</h4>
-                    <h6 class="text" style="color: white; font-size:20px">Ing. Franklyn Mejía</h6>
+                    <h4 id="tituloblog" class="card-title" style="color: white; font-size: 85px; font-weight: bold; text-transform: capitalize">Nuestro   <span >Blog</span></h4>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-no-gutter" style="height: 740px">
-      <div class="card">
-        <video class="video-fluid" src="assets/smoke.mp4" autoplay muted></video>
-        <h1>
-          <span>I</span>
-          <span>n</span>
-          <span>g</span>
-          <span>.</span>
-          <span>M</span>
-          <span>e</span>
-          <span>j</span>
-          <span>í</span>
-          <span>a</span>
-          <span>P</span>
-          <span>o</span>
-          <span>l</span>
-          <span>a</span>
-          <span>n</span>
-          <span>c</span>
-          <span>o</span>
-        </h1>
-      </div>
-    </div>
+  
+    
   <!-- Page Content -->
   <div class="container">
     <div class="row">
       <!-- Blog Entries Column -->
       <div class="col-md-8">
-        <app-blogcard></app-blogcard>
+          <div *ngFor="let p of post | filtro:filterPost | paginate: { itemsPerPage: 4, currentPage: p } " class="card mb-4 shadow">
+              <div class="inner">
+                <img class="card-img-top" height="450px" width="450px" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
+              </div>
+              <div class="card-body text-center">
+                <h2 class="card-title">{{p?.tituloEntrada}}</h2>
+                <p [innerHTML]="p?.textoEntrada" class="card-text"></p>
+                <button (click) = "verMas(p)"  type="button" class="btn btn-info">Leer más</button>
+              </div>
+              <div class="card-footer text-muted">
+                Publicado en {{p?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
+                <a routerLink="/home">{{p?.usuario?.nombreUsuario}} {{p?.usuario?.apellidosUsuario}}</a>
+              </div>
+            </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!--<app-blogcard ></app-blogcard> -->
         <!-- Pagination -->
-        <nav aria-label="...">
+        <!-- <nav aria-label="...">
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1">Anterior</a>
@@ -69,7 +63,7 @@
               <a class="page-link" href="#">Siguiente</a>
             </li>
           </ul>
-        </nav>
+        </nav>-->
       </div>
         <!-- Side Widget -->
         <!-- Search Widget -->
@@ -82,48 +76,9 @@
   <!-- /.container -->
 </body>
   <!-- Footer -->
-  <footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;">
-      <div class="container">
-        <div class="row row-30">
-          <div class="col-md-4 col-xl-5">
-            <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
-              <p>Contáctenos y le responderemos dentro de las 24 horas.</p>
-              <!-- Rights-->
-              <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Constructora Mejia Polanco, Inc.</span><span>. </span><span>All Rights Reserved.</span></p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <h5>Contactos</h5>
-            <dl class="contact-list">
-              <dt>Dirección:</dt>
-              <dd>Santo Domingo, RD</dd>
-            </dl>
-            <dl class="contact-list">
-              <dt>Correo:</dt>
-              <dd><a href="mailto:#">constructoramejiapolanco@hotmail.com</a></dd>
-            </dl>
-            <dl class="contact-list">
-              <dt>Telefono:</dt>
-              <dd> <a href="tel:#">(809) 530-7149</a>
-              </dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-      <div class="row no-gutters social-container">
-        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>
-            <img src="assets/facebook.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-        </span></a></div>
-        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span>
-          <img src="assets/instagram.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-        </a></div>
-        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>
-            <img src="assets/twitter.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-        </span></a></div>
-        <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>
-            <img src="assets/linkedin.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-        </span></a></div>
-      </div>
+  <footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;" id="contacto">
+    <app-footer></app-footer>
+
     </footer>
 
   <!-- Bootstrap core JavaScript -->

@@ -3,13 +3,12 @@
     --input-padding-y: .75rem;
   }
    */
-   .card-body{
-    height: 450px;
-   }
 
    body {
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
+    margin-top: -19px;
+    padding-bottom: 68px;
   }
   .card-login {
     border: 0;
@@ -28,12 +27,13 @@
   .card-login .card-img-left {
     width: 50%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('http://images.arq.com.mx/eyecatcher/590590/21168.jpg');
+    background: scroll center url('/assets/pasillo.jpg');
     background-size: cover;
   }
   
   .card-login .card-body {
-    padding: 2rem;
+    width: 500px; 
+    height:550px;
   }
   
   .form-login {
@@ -46,9 +46,18 @@
     letter-spacing: .1rem;
     font-weight: bold;
     padding: 1rem;
+    margin-left: 55px;
+    margin-top:40px;
     transition: all 0.2s;
+    width: 250px;
+    top: 20px;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
   }
-  
+  .btn-primary {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
   .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -69,7 +78,7 @@
     top: 0;
     left: 0;
     display: block;
-    width: 100%;
+    width:80%;
     margin-bottom: 0;
     /* Override default `<label>` margin */
     line-height: 1.5;
@@ -100,7 +109,7 @@
   }
   
   .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-top: 20px;
     padding-bottom: calc(var(--input-padding-y) / 3);
   }
   
@@ -111,8 +120,35 @@
     color: #777;
   }
 
+  .form-row .form-control{
+    width: 300px;
+  }
+  .form-row{
+      position: relative;
+      left: 40px;
+      bottom: -20px;
+  }
+
   a{
     display: block;
     text-align: center;
     padding-top: 30px;
+    margin-left:  -50px;
   }
+
+  div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+  
+  }
+
+  header {
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+    padding: 20px;
+}
+
+#menu{
+  width: 100px;
+}

@@ -37,14 +37,22 @@
   
   .form-servicio .btn {
     font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
-    top: 25px;
+      border-radius: 5rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+      padding: 1rem;
+      margin-left: 55px;
+      transition: all 0.2s;
+      width: 250px;
+      top: 20px;
+      background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
   }
-  
+  .btn-primary {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
+
   .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -130,4 +138,21 @@
     font-size: 80%;
     color: #dc3545;
 
+}
+
+div.validation-error{
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+
+}
+
+header {
+  background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  padding: 20px;
+}
+body {
+  margin-top: -10px;
+  padding-bottom: 0px;
 }

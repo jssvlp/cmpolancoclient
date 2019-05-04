@@ -1,0 +1,54 @@
+<header>
+    <app-navbar></app-navbar>
+  </header>
+  <br>
+  <body>
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-solicitud flex-row my-5">
+                <div class="card-body">
+                  <h5 class="card-title text-center" id="titulo">{{data?.nombreProyecto}}</h5>
+                  <br>
+                  <img height="800" src="../../../../assets/Recursos/{{data.imgURL}}"  class="d-block w-100" alt="projects">
+                  <br>
+                  Fecha de termino
+                  <br>
+                  <label>{{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</label>
+                  <br>
+                  Direccion
+                  <br>
+                  <label>{{data?.ubicacion?.nombreUbicacion}}</label> 
+                  <br>
+                  <label>{{data?.ubicacion?.ciudad}}</label>
+                  <br>
+                  <div *ngIf ="data?.inmuebles.length != 0">
+                  <h5>Inmuebles</h5>
+                  <div *ngFor = "let d of data?.inmuebles">
+                    <br>
+                    <label>{{d.nombreInmueble}}</label>
+                    <br>
+                    <label>Precio</label>
+                    <br>
+                    <label>{{d.precio}}$</label>
+                    <br>
+                    <label>{{d.descripcionInmueble}}</label>
+                    <br>
+                    <h5>Caracteristicas</h5>
+                    <div *ngFor = "let x of d?.caracteristicasInmuebles">
+                      <br>
+                      <label>{{x.caracteristica?.carNombre}}</label>
+                      <br>
+                      <label>{{x.caracteristica?.carDescripcion}}</label>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf ="data?.inmuebles.length == 0 ">
+                  <h5>Este proyecto no tiene ningun inmueble registrado.</h5>
+                </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </body>
