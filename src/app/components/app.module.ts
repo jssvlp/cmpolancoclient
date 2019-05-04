@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
-//import { ForoComponent } from './foro/foro.component';
+import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -47,7 +47,7 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    //ForoComponent,
+    ForoComponent,
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
