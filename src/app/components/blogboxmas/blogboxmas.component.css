@@ -50,3 +50,8 @@ ul, ol {
   visibility: hidden;
   transition: .22s ease;
 }
+
+header {
+  background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  padding: 20px;
+}
