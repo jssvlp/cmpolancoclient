@@ -4,6 +4,10 @@
       <img class="card-img-top" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
     </div>
     <div class="card-body text-center">
+      <!-- <h2 class="card-title">{{p.tituloEntrada}}</h2>
+      <p class="card-text">{{p.textoEntrada}}</p>
+      <button (click) = "verMas(p)" class="btn btn-info">Leer más </button> -->
+
       <h2 class="card-title">{{p?.tituloEntrada}}</h2>
       <p class="card-text">{{p?.textoEntrada}}</p>
       <a (click) = "verMas(p)" class="btn btn-primary">Leer más » &rarr;</a>

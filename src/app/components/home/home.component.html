@@ -18,7 +18,7 @@
 
 
 
-<div id="carousel" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -27,32 +27,35 @@
   </ol>
   <!-- Wrapper for slides -->
 
-  <div class="carousel-inner">
+    <div class="carousel-inner">
       <div class="carousel-item active" id="fotoca">
           <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
           <div class="carousel-caption d-md-block" id="tituloscar">
             <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
             <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
-          </div>
         </div>
+      </div>
+      
 
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 1 && 'active'}}" id="fotoca">
-      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
-      <div class="carousel-caption d-none d-md-block">
-        <a routerLink="/descripcion-proyecto/{{d.proyectoID}}"> <h1 class="withetext">{{d.nombreProyecto}}</h1></a>
-          <h2><p class="withetext">{{d.direccion}}</p></h2>
-        </div>
+    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == data.length && 'active'}}" id="fotoca">
+      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca">
+      <div class="carousel-caption d-none d-md-block" id="direccionca">
+        <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
+        <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d.nombreProyecto}}</h1>
+        <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d.direccion}}</p></h2>
+        <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
+      </div>
       <div class="carousel-caption d-md-block">
       </div>
-    </div>
-    </div>
   </div>
+    </div>
+</div>
   <!-- Controls -->
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="sr-only">Previous</span>
 </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
 <span class="carousel-control-next-icon" aria-hidden="true"></span>
 <span class="sr-only">Next</span>
 </a>
@@ -97,16 +100,13 @@
 
     
     <div class='row'>
-        <div *ngFor="let s of servicio" style="margin-left:200px;">
-        <div class="col-md-4 herramientas text-center">
+        <div *ngFor="let s of servicio"  class="col-md-4 herramientas text-center" id="serb">
             <img src="../../../../assets/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
             <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
             <p>{{s.descripcionServicio}}</p>
-            <p><a class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</a></p>
+            <p><button class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</button ></p>
         </div>
          </div>
-        </div>
-
 
 </div> 
 </section>

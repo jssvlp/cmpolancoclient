@@ -22,6 +22,7 @@
                   <br>
                   <label>{{data?.ubicacion?.ciudad}}</label>
                   <br>
+                  <div *ngIf ="data?.inmuebles.length != 0">
                   <h5>Inmuebles</h5>
                   <div *ngFor = "let d of data?.inmuebles">
                     <br>
@@ -41,6 +42,10 @@
                       <label>{{x.caracteristica?.carDescripcion}}</label>
                     </div>
                   </div>
+                </div>
+                <div *ngIf ="data?.inmuebles.length == 0 ">
+                  <h5>Este proyecto no tiene ningun inmueble registrado.</h5>
+                </div>
                   </div>
                   </div>
                 </div>

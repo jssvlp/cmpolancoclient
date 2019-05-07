@@ -11,8 +11,20 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router){}
   canActivate(){
+    //Con cookies
     
     if(this.authService.getCurrentUser()){
+      return true;
+    }
+    else{
+      
+      this.router.navigate(['/login']);
+      return false;
+    }
+       
+    
+
+    /*if(this.authService.getCurrentUser()){
       return true;
     }
     else{
@@ -25,7 +37,7 @@ export class AuthGuard implements CanActivate {
       return false;
       }
       
-    }
+    }*/
   }
    
 }
