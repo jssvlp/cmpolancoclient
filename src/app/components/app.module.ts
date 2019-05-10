@@ -44,6 +44,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
 import { CookieService } from 'ngx-cookie-service';
 import { FiltroPipe } from './pipes/filtro.pipe';
+import { ForoComponent } from './foro/foro.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const routes=[
   {
@@ -57,7 +59,7 @@ const routes=[
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    //ForoComponent,
+    ForoComponent,
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
@@ -69,7 +71,9 @@ const routes=[
     DetalleSolicitudComponent,
     FooterComponent,
     DetalleProyectoComponent,
-    FiltroPipe
+    FiltroPipe,
+    ForoComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

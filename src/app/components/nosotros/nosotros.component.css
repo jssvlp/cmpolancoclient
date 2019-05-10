@@ -1,0 +1,43 @@
+header {
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+    padding: 20px;
+}
+
+body{
+    width: 80%;
+    margin: auto;
+    
+
+}
+
+.todo{
+    
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.nosotros{
+    background-image: url(src\assets\architecture-2179243_1280.jpg);
+    height: 400px;
+    
+
+
+}
+
+h2{
+    text-align: center;
+    padding-top: 290px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    margin: center;
+    color:rgba(255, 255, 255, 0.801);
+}
+h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    margin: center;
+    color:rgba(255, 255, 255, 0.801);
+}
+

@@ -14,14 +14,15 @@
   <content>
     <div class="card mb-4 shadow">
       <div class="inner">
-        <img class="card-img-top" src="../../../../assets/Blog/{{post?.imgURL}}" alt="Card image cap">
+        <img class="card-img-top" height="650px" src="../../../../assets/Blog/{{post?.imgURL}}" alt="Card image cap">
       </div>
       <div class="card-body text-center">
         <h2 class="card-title">{{post?.tituloEntrada}}</h2>
-        <p class="card-text" >{{post?.textoEntrada}}</p>
+        <p [innerHTML]="post?.textoEntrada" class="card-text"></p>
       </div>
-      <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger">Eliminar Post</button>
-      <button *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" type="button" class="btn btn-danger">Editar Post</button>
+      <br>
+      <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger" id="btn">Eliminar Post</button>
+      <button *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" type="button" class="btn btn-danger" id="btn">Editar Post</button>
       <div class="card-footer text-muted">
         Publicado en Marzo {{post?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
         <a routerLink="/home">{{post?.usuario?.nombreUsuario}} {{post?.usuario?.apellidosUsuario}}</a>
@@ -30,49 +31,10 @@
   </content>
 </body>
 <!-- Footer -->
-<footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;">
-  <div class="container">
-    <div class="row row-30">
-      <div class="col-md-4 col-xl-5">
-        <div class="pr-xl-4"><a class="brand" href="index.html"></a>
-          <p>Contáctenos y le responderemos dentro de las 24 horas.</p>
-          <!-- Rights-->
-          <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>Constructora Mejia Polanco, Inc.</span><span>. </span><span>All Rights Reserved.</span></p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <h5>Contactos</h5>
-        <dl class="contact-list">
-          <dt>Dirección:</dt>
-          <dd>Santo Domingo, RD</dd>
-        </dl>
-        <dl class="contact-list">
-          <dt>Correo:</dt>
-          <dd><a href="mailto:constructoramejiapolanco@hotmail.com">constructoramejiapolanco@hotmail.com</a></dd>
-        </dl>
-        <dl class="contact-list">
-          <dt>Telefono:</dt>
-          <dd> <a href="tel:(+1809) 530-7149">(809) 530-7149</a>
-          </dd>
-        </dl>
-      </div>
-    </div>
-  </div>
-  <div class="row no-gutters social-container">
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>
-        <img src="assets/facebook.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-    </span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span>
-      <img src="assets/instagram.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-    </a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>
-        <img src="assets/twitter.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-    </span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>
-        <img src="assets/linkedin.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-    </span></a></div>
-  </div>
-</footer>
+<footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;" id="contacto">
+  <app-footer></app-footer>
+
+  </footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

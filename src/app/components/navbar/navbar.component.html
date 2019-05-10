@@ -1,5 +1,5 @@
 <div class="contenedorh">
-  <nav id="menu" class="navbar navbar-expand-lg navbar-light fixed-top" style=" font-family: Georgia, 'Times New Roman', serif;">
+  <nav id="menu" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container-fluid">
           <div class="row" style="margin-left:3px">
               <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -12,13 +12,13 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-carousel"  href="home#carousel">Página Principal</a>
+                    <a class="nav-link" id="nav-carousel"  href="home#fotoca">Página Principal</a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">Sobre Nosotros</a>
                   </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">Solicitar servicios</a>
-              </li>
-              <li class="nav-item " >
-                <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">Sobre Nosotros</a>
+                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">Solicitar Servicios</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link"id="nav-foro" href="home#foro">Foro</a>
@@ -42,7 +42,7 @@
                     <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
                     <li><a href=""><i class="  "></i> Soporte</a></li>
                     <li class="divider"></li>
-                    <li><a href="http://localhost:4500/">Administrar</a></li>
+                    <li *ngIf = "roleID == 1"><a href="http://localhost:4500/">Administrar</a></li>
                     <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
                 </ul>
             </li>

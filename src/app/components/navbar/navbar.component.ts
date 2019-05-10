@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     else{
       this.logged = true;
       this.NombreUsuario = currentUser['nombreUsuario'];
-      this.roleID = currentUser['roleId']
+      this.roleID = currentUser['roleId'];
   
 
       

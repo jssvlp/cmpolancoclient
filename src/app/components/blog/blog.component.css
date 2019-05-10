@@ -11,7 +11,8 @@
 margin-bottom: auto;
 margin-top: auto;
 height: 60px;
-background-color: #fd0000;
+background-color: #edbb00;
+color: white;
 border-radius: 50px;
 padding: 10px;
 }
@@ -29,13 +30,13 @@ transition: width 0.4s linear;
 .searchbar:hover > .search_input{
 padding: 0 10px;
 width: 255px;
-caret-color:red;
+caret-color:#edbb00;
 transition: width 0.4s linear;
 }
 
 .searchbar:hover > .search_icon{
 background: white;
-color: #e74c3c;
+color: #edbb00;
 }
 
 .search_icon{
@@ -265,3 +266,4 @@ div.validation-error{
 #tituloblog span{
   color: #edbb00;
 }
+
