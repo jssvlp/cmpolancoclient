@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { UserModel } from '../model/User.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend';
+  constructor(private autApi: AuthService){
+  }
+
+
+  unloadHandler() {
+  }
+
+  beforeUnloadHander() {
+    this.autApi.logout().subscribe(res =>{
+
+    })
+  }
+
 }

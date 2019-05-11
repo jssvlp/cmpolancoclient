@@ -8,11 +8,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
-//import { ForoComponent } from './foro/foro.component';
+import { ForoComponent } from './foro/foro.component';
 import { SservicioComponent } from './sservicio/sservicio.component';
 import { PerfilComponent } from './perfil/perfil.component';
 
 import { AuthGuard } from "../guards/auth.guard";
+import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
+import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -23,9 +26,12 @@ const routes: Routes = [
   {path: 'blogcard', component: BlogcardComponent},
   {path: 'addpost', component: AddpostComponent},
   {path: 'blogInfo', component: BlogboxmasComponent},
-  //{path: 'foro', component: ForoComponent},
+  {path: 'foro', component: ForoComponent},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
+  {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
+  {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
+  {path: 'nosotros', component: NosotrosComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

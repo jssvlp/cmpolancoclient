@@ -29,7 +29,7 @@ export class ProyectoService {
     };
   }
 
-  getProjects (): Observable<ProyectoModel[]> {
+  getProjects(): Observable<ProyectoModel[]> {
     return this.http.get<ProyectoModel[]>(apiUrl)
       .pipe(
         tap(heroes => catchError(this.handleError('getProjects', []))

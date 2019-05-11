@@ -36,6 +36,13 @@ export class SolicitudService {
     ));
   }
 
+  getServSol(id: number): Observable<ServicioSolicitudModel>{
+    const url = `${apiUrl}/${'ServicioSolicitud/'+id}`;
+    return this.http.get<ServicioSolicitudModel>(url)
+    .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
+    ));
+  }
+
   addSolicitud(solicitud: SolicitudModel){
     return this.http.post<SolicitudModel>(apiUrl,solicitud,httpOptions)
     .pipe(tap((nuevoRequest: SolicitudModel) => console.log(solicitud),
@@ -49,5 +56,14 @@ export class SolicitudService {
     .pipe(tap((nuevoRequest: EntidadModel) => catchError(this.handleError<EntidadModel>('addRequest'))
     ));
   }
+
+  updateServSol(ServicioSolicitud: ServicioSolicitudModel){
+    const url = `${apiUrl}/${'ServicioSolicitud'}`;
+    return this.http.put<ServicioSolicitudModel>(url +"/"+ ServicioSolicitud.solicitud.solicitudID,ServicioSolicitud, httpOptions)
+        .pipe(
+          catchError(this.handleError('updateServSol', ServicioSolicitud))
+        );
+  }
+
 
 }

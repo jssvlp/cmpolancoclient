@@ -27,14 +27,20 @@ export class BlogboxmasComponent implements OnInit {
 
     this.apiBlog.getBlog(Number(userID)).subscribe(res => {
       this.post = res;
+      console.log(this.post);
     })
   }
  eliminar(id: number){
   if(confirm('¿Esta seguro que desea eliminar este post')){
     this.apiBlog.deletePost(id).subscribe(res => {
-      this.router.navigate(['blog']);
+      this.router.navigate(['/blog']);
     })
   }
+}
+
+editar(id: number){
+  //this.authService.change();
+  window.location.href="http://localhost:4500/editar-post/{{id}}"
 }
 
 }

@@ -41,6 +41,10 @@ z-index: 0;
 /* padding-top: 4%; */
 }
 
+#sobrenosotros p{
+  text-align: justify;
+}
+
 #sobrenosotros .foto img{
 vertical-align: top;
 /* height: 20%; */
@@ -82,6 +86,8 @@ box-shadow: 0px 0px 15px rgba(0, 0, 0, .35) */
 font-size: 40px;
 font-weight: 300;
 margin-bottom: 40px;
+
+
 }
 
 .main .Contenedor article p{
@@ -108,35 +114,25 @@ overflow: hidden;
 
 
 
-
-/* OJO */
-ul{
-/* width:100%; */
-/* text-align: right; */
-
-}
-
-
-
 /* Segunda section */
 
 .main #herramientas {
 padding-top: 300px;
+margin-left: 30px;
 left: 30px;
 display: inline-block;
 }
 
-.main #herramientas .Titulo {
-  text-align: center;
-  }
-  
+
 /* Herramientas*/
 #herramientas .Titulo{
   text-align: center;
+  margin-left: 10px;
   font-weight: 300;
   font-size: 52px;
   color:#000;
   margin-bottom: 70px;
+  position: relative;
 } 
 
 #herramientas .herramientas{
@@ -146,6 +142,12 @@ display: inline-block;
 #herramientas{
   margin-bottom: 100px;
   display: block; 
+}
+
+#imageher{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
 }
 
 
@@ -194,6 +196,9 @@ display: inline-block;
         padding-bottom: 200px;
 
       }
+      #foro p{
+        text-align: justify;
+      }
       .main .Contenedor2 article h3{
         font-size: 40px;
         font-weight: 300;
@@ -211,6 +216,10 @@ display: inline-block;
         overflow: visible;
         position: relative;
         bottom: -100px;
+        }
+
+        #blog p{
+          text-align: justify;
         }
       
         .main .Contenedor3 .foto{
@@ -333,9 +342,32 @@ ul, ol {
 	margin-top:16px;
 }
 
+/* Esilos del carousel */
+
+#tituloscar{
+  padding-bottom: 300px;
+  /* font-family: poppins; */
+}
+
+#tituloscar h2{
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#tituloscar h3{
+  font-size: 30px;
+}
+
+#tituloscar h2 span{
+  color: #edbb00;
+}
+
 /* Media queries */
 
 @media screen and (max-width:800px){
+
+
   .main .Contenedor .foto{
     width: 100%;
     position: relative;
@@ -400,6 +432,7 @@ ul, ol {
       #foro{
         padding: 30px;
       }
+      
 
       #sobrenosotros{
         padding: 30px;
@@ -418,11 +451,67 @@ ul, ol {
         height: 24rem;
 
       }
-      
+
+      /* Esilos del carousel */
+
+#tituloscar{
+  padding-bottom: 50px;
+  /* font-family: poppins; */
+}
+
+#tituloscar h2{
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation-name: bounceInLeft;
+  animation-delay: 1s;
+  
+}
+
+#tituloscar h3{
+  font-size: 20px;
+}
+
+#tituloscar h2 span{
+  color: #edbb00;
+}
+
+}
+
+/* 
+#imaca{
+  filter: blur(6px);
+} */
+
+/* Carousel imagenes */
+#direccionca{
+  margin-bottom: 150px;
+}
+
+#direccionca h3 {
+  font-size: 55px;
+  font-weight: bold;
+}
 
 
-  
-  
-      
-  
+#direccionca h3 span {
+  color:#edbb00;
+}
+
+#btca {
+
+  background-color: #edbb00;
+  border-color: #edbb00;
+}
+
+#imaca {
+  -webkit-filter: brightness(20%);
+   filter:brightness(40%);
+
+}
+
+#fotoca {
+  -webkit-filter: brightness(20%);
+   filter:brightness(80%);
+
 }

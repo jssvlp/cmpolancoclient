@@ -12,18 +12,18 @@ export class BlogcardComponent implements OnInit {
 
   post: BlogModel[] =[]
   constructor(private apiBlog: BlogService, private router: Router) { }
+  filterPost = "";
 
   ngOnInit() {
     this.apiBlog.getBlogs().subscribe(res => {
       this.post = res;
-      console.log(res);
     })
   }
 
   verMas(p: BlogModel){
     window.localStorage.removeItem("blogID");
     window.localStorage.setItem("blogID", String(p.blogID));
-    this.router.navigate(['blogInfo']);
+    this.router.navigate(['/blogInfo']);
   }
 
 }

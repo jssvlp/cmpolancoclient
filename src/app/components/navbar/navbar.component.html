@@ -1,35 +1,37 @@
 <div class="contenedorh">
-  <nav id="menu" class="navbar navbar-expand-lg navbar-light fixed-top" style=" font-family: Georgia, 'Times New Roman', serif;" style="background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%); ">
+  <nav id="menu" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container-fluid">
           <div class="row" style="margin-left:3px">
               <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           </div>
+          <!-- <a class="navbar-brand" href="#">Constructora Mejia Polanco</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+        
           <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" id="nav-solicitarservicios" href="home">Home</a>
+                    <a class="nav-link" id="nav-carousel"  href="home#''">Página Principal</a>
+                  </li>
+                  <li class="nav-item " >
+                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">Sobre Nosotros</a>
                   </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">Solicitar servicios</a>
+                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">Solicitar Servicios</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-herramientas" href="">Herramientas</a>
-              </li>
-              <li class="nav-item " >
-                <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">Sobre Nosotros</a>
+                <a class="nav-link"id="nav-foro" href="home#foro">Foro</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link"id="nav-foro" href="#foro">Foro</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" id="nav-blog" href="#blog">Blog</a>
+                <a class="nav-link" id="nav-blog" href="home#blog">Blog</a>
               </li>
               <li class="nav-item ">
                 <a class="nav-link" id="nav-contacto" href="home#contacto">Contacto</a>
               </li>
             </ul>
-            <ul class="navbar-nav">
-              <li *ngIf="!logged" class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
+            <ul class="navbar-nav" style="margin-right: 10px"   >
+              <li *ngIf="!logged" class="nav-item">
                 <a class="btn btn-info" aria-expanded="false" routerLink="/login" routerLinkActive="">Inicia sesión</a>
               </li>
              <!--  <li class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
@@ -37,14 +39,15 @@
               </li> -->
               <li *ngIf="logged" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="perfil"><i class=""></i> Perfil</a></li>
+                    <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
                     <li><a href=""><i class="  "></i> Soporte</a></li>
                     <li class="divider"></li>
-                    <li><a href="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
+                    <li *ngIf = "roleID == 1"><a href="http://localhost:4500/">Administrar</a></li>
+                    <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
                 </ul>
             </li>
-              <div class="nav-item" style="margin-left:15px"></div>
-              <li *ngIf="!logged" class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
+              <div class="nav-item" style="margin-left:10px"></div>
+              <li *ngIf="!logged" class="nav-item"  >
                 <a class="btn btn-warning" aria-expanded="false" routerLink="/registry" routerLinkActive="active">Registrarse</a>
               </li>
             </ul>

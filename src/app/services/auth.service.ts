@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { map, tap, catchError } from 'rxjs/operators';
 import {isNullOrUndefined} from 'util';
 import { Observable, of } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -15,7 +16,8 @@ import { Observable, of } from 'rxjs';
     providedIn: 'root' 
 })
 export  class  AuthService {
-    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel) {}
+    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel,
+        private cookieService: CookieService) {}
     Headers: HttpHeaders = new HttpHeaders({
         "Content-Type" : "application/json"
     });
@@ -32,7 +34,7 @@ export  class  AuthService {
         return this.afAuth.auth.currentUser;    
     }
      Login(userInfo: any){
-         try {          
+         try {         
             const userFirebase = this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña);
             console.log(userFirebase);
             const url_api= "http://localhost:61756/api/usuarios/login";
@@ -50,12 +52,14 @@ export  class  AuthService {
     
      logout(){
         this.afAuth.auth.signOut();
-        let accesToken = localStorage.getItem("tkn");
+        //let accesToken = sessionStorage.getItem("tkn");
+        let accesToken = this.cookieService.get("tkn")
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
-        console.log('*******URL:',url_api);
-        localStorage.removeItem("tkn");
-        localStorage.removeItem("currentUser");
-
+        this.cookieService.deleteAll();
+        //sessionStorage.removeItem("tkn");
+        //sessionStorage.removeItem("currentUser");
+        //localStorage.removeItem("currentUser");
+        //localStorage.removeItem("tkn");
         return this.Http.post(
             url_api,{headers : this.Headers}
         ).pipe(data => data);
@@ -65,31 +69,71 @@ export  class  AuthService {
     }
 
     setUser(user:any): void{
-      
-        let user_string = JSON.stringify(user);
-        localStorage.setItem("currentUser", user_string);
+        let user_string = JSON.stringify(user);  
+        //Con cookies
+        
+        this.cookieService.set('currentUser', user_string);
+         
+        
+        //sessionStorage.setItem('currentUser', user_string);
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
-        localStorage.setItem("tkn", token);
+        //Con cookies
+        
+        this.cookieService.set('tkn', token);
+        
+        //sessionStorage.setItem('tkn', token);
     }
 
     getCurrentUser()
     {
-        let user_string = localStorage.getItem("currentUser");
-        if(!isNullOrUndefined(user_string)){
+        //Con cookies
+        
+            let user_string = this.cookieService.get("currentUser");
+            if(!isNullOrUndefined(user_string) && user_string != ""){
             let user = JSON.parse(user_string);
             return user;
         }
         else{
             return null;
         }
+        
+        /*let user_string = sessionStorage.getItem("currentUser");
+        if(!isNullOrUndefined(user_string)){
+            let user_string = sessionStorage.getItem("currentUser");
+            let user = JSON.parse(user_string);
+            return user;
+        }
+        else{
+            return null;
+        }*/
     }
 
     getToken(){
-        return localStorage.getItem("tkn").toString();
+        //Con cookies
+        
+        return this.cookieService.get("tkn").toString();
+        
+        //return sessionStorage.getItem("tkn").toString();
     }
+    /*change(){
+        let user = this.getCurrentUser();
+        let user_string = JSON.stringify(user);
+        let tkn = this.getToken();
+        localStorage.setItem("currentUser", user_string);
+        localStorage.setItem("tkn", tkn);
+    }
+
+   set(){
+        let user = localStorage.getItem("currentUser");
+        let tkn = localStorage.getItem("tkn");
+        sessionStorage.setItem("currentUser", user)
+        sessionStorage.setItem("tkn", tkn)
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("tkn");
+    }*/
 
     RegisterOnApi(userInfo: any){
         const url_api = "http://localhost:61756/api/usuarios";
@@ -109,13 +153,18 @@ export  class  AuthService {
             
             this.sendActivationCode(this.afAuth.auth.currentUser);
             userInfo.FireBaseCode = userUpdate.uid;
-            console.log(userInfo);
+            //console.log(userInfo);
             
             this.RegisterOnApi(userInfo)
              .subscribe(user => {
-                console.log(user);
+                //console.log(user);
+                if(user == null){
+                    this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
+                }
+                else {
+                    this.router.navigate(['/home'])
+                }
               });;
-            this.router.navigate(['/home'])
          } catch (e) {
              alert("Error al crear el usuario:"  +  e);
              console.log(e);

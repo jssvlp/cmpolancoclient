@@ -1,6 +1,6 @@
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, HostListener } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -9,7 +9,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
-//import { ForoComponent } from './foro/foro.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
@@ -40,6 +39,15 @@ import { BlogcardComponent } from './blogcard/blogcard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
+import { PeticionService } from '../services/peticion.service';
+import { FooterComponent } from './footer/footer.component';
+import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { CookieService } from 'ngx-cookie-service';
+import { FiltroPipe } from './pipes/filtro.pipe';
+import { ForoComponent } from './foro/foro.component';
+import { CaracteristicaService } from '../services/caracteristica.service';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const routes=[
   {
@@ -53,7 +61,7 @@ const routes=[
     RegistryComponent,
     LoginComponent,
     BlogComponent,
-    //ForoComponent,
+    ForoComponent,
     NavbarComponent,
     SservicioComponent,
     PerfilComponent,
@@ -62,7 +70,13 @@ const routes=[
     BlogboxmasComponent,
     VisitaComponent,
     BlogcardComponent,
-    MapComponent
+    MapComponent,
+    DetalleSolicitudComponent,
+    FooterComponent,
+    DetalleProyectoComponent,
+    FiltroPipe,
+    ForoComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,
@@ -89,8 +103,9 @@ const routes=[
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService],
+  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService, CookieService, CaracteristicaService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
 
