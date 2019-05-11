@@ -38,6 +38,8 @@ import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 const routes=[
   {
@@ -59,7 +61,8 @@ const routes=[
     AddpostComponent,
     BlogboxmasComponent,
     VisitaComponent,
-    BlogcardComponent
+    BlogcardComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,10 @@ const routes=[
     HttpClientModule,
     AppRoutingModule,
     FlatpickrModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
+      libraries: ['places']
+    }),
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
     }),
