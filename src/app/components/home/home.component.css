@@ -41,6 +41,10 @@ z-index: 0;
 /* padding-top: 4%; */
 }
 
+#sobrenosotros p{
+  text-align: justify;
+}
+
 #sobrenosotros .foto img{
 vertical-align: top;
 /* height: 20%; */
@@ -192,6 +196,9 @@ display: inline-block;
         padding-bottom: 200px;
 
       }
+      #foro p{
+        text-align: justify;
+      }
       .main .Contenedor2 article h3{
         font-size: 40px;
         font-weight: 300;
@@ -209,6 +216,10 @@ display: inline-block;
         overflow: visible;
         position: relative;
         bottom: -100px;
+        }
+
+        #blog p{
+          text-align: justify;
         }
       
         .main .Contenedor3 .foto{
@@ -421,6 +432,7 @@ ul, ol {
       #foro{
         padding: 30px;
       }
+      
 
       #sobrenosotros{
         padding: 30px;
