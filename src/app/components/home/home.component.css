@@ -490,3 +490,15 @@ ul, ol {
   background-color: #edbb00;
   border-color: #edbb00;
 }
+
+#imaca {
+  -webkit-filter: brightness(20%);
+   filter:brightness(40%);
+
+}
+
+#fotoca {
+  -webkit-filter: brightness(20%);
+   filter:brightness(80%);
+
+}
