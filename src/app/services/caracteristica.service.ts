@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ProyectoModel } from '../model/Proyecto.model';
 import { Observable, of } from 'rxjs';
-
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/proyectos";
+const apiUrl = "http://localhost:61756/api/caracteristicas";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProyectoService {
-  formData : ProyectoModel;
+export class CaracteristicaService {
 
   constructor(private http: HttpClient) { }
 
@@ -29,17 +26,10 @@ export class ProyectoService {
     };
   }
 
-  getProjects(): Observable<ProyectoModel[]> {
-    return this.http.get<ProyectoModel[]>(apiUrl)
-      .pipe(
-        tap(heroes => catchError(this.handleError('getProjects', []))
+  getCarProyecto(id: number): Observable <any>{
+    const url = `${apiUrl}/${"GetByProyecto/" + id}`; 
+    return this.http.get<any>(url).pipe(
+      tap(_ => catchError(this.handleError<any>(`getProjectCar id=${id}`))
       ));
-  }
-
-  getProject(id: number): Observable<ProyectoModel> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.get<ProyectoModel>(url).pipe(
-      tap(_ => catchError(this.handleError<ProyectoModel>(`getProject id=${id}`))
-    ));
   }
 }
