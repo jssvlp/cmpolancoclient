@@ -37,6 +37,8 @@ import 'flatpickr/dist/flatpickr.css';
 import { VisitaComponent } from './visita/visita.component';
 import { BlogcardComponent } from './blogcard/blogcard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
 import { DetalleSolicitudComponent } from '../components/detalle-solicitud/detalle-solicitud.component';
 import { PeticionService } from '../services/peticion.service';
 import { FooterComponent } from './footer/footer.component';
@@ -68,6 +70,7 @@ const routes=[
     BlogboxmasComponent,
     VisitaComponent,
     BlogcardComponent,
+    MapComponent,
     DetalleSolicitudComponent,
     FooterComponent,
     DetalleProyectoComponent,
@@ -82,6 +85,10 @@ const routes=[
     HttpClientModule,
     AppRoutingModule,
     FlatpickrModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
+      libraries: ['places']
+    }),
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
     }),
