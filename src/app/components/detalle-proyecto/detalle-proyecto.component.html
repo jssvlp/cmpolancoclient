@@ -18,6 +18,10 @@
                   <br>
                   Dirección
                   <br>
+                  <br>
+                  Ubicación
+                  <app-map    [latitude]="latitude" [longitude]="longitude"></app-map>
+
                   <div *ngIf = "distribucion?.length > 0">
                       <br>
                     <label>Distribución</label>

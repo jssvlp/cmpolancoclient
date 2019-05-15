@@ -1,17 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input, NgZone } from '@angular/core';
+import {} from "googlemaps";
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  public zoom: number;
 
-  lat: number = 18.449569;
-  lng: number = -69.967256;
-  constructor() { }
 
+  constructor() {
+    }
+  @Input() public latitude: any;
+  @Input() public longitude: number;
+    
+  @Input()
+  public customTitle: string;
+    
   ngOnInit() {
+    this.zoom = 8;
   }
+
+  
+
 
 }
