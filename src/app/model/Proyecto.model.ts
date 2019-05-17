@@ -8,4 +8,6 @@ export class ProyectoModel {
     imgURL: string;
     ubicacionID: number;
     inmueble:InmuebleModel;
+    latitude: number;
+    longitude: number;
   }

@@ -27,7 +27,7 @@
   </ol>
   <!-- Wrapper for slides -->
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" id="''" >
       <div class="carousel-item active" id="fotoca">
           <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
           <div class="carousel-caption d-md-block" id="tituloscar">
@@ -38,7 +38,7 @@
       
 
     <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == data.length && 'active'}}" id="fotoca">
-      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca">
+      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
       <div class="carousel-caption d-none d-md-block" id="direccionca">
         <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
         <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d.nombreProyecto}}</h1>
@@ -125,7 +125,7 @@
       <h3>Nuestro foro</h3>
       <p>Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD. </p>
       <div class="col-lg-4 text-center">
-        <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
+        <p><a class="btn btn-info" routerLink="/foro" role="button">Acceder</a></p>
       </div>
       </article>
     </div>
@@ -168,6 +168,6 @@
     </footer>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=18099655307&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  latitude:number = 18.449742;
+  longitude:number = -69.967246;
 
   constructor() { }
 
