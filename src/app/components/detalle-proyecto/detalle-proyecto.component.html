@@ -12,16 +12,18 @@
                   <br>
                   <img height="800" src="../../../../assets/Recursos/{{data?.imgURL}}"  class="d-block w-100" alt="projects">
                   <br>
-                  Fecha de termino
+                  Fecha de termino:
                   <br>
-                  <label>{{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</label>
+                  <label><strong>{{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</strong></label>
                   <br>
-                  Dirección
+                  Dirección: 
+                  <br>
+                  <strong>{{data?.direccion}}</strong>
                   <br>
                   <br>
-                  Ubicación
+                  Ubicación:  
                   <app-map    [latitude]="latitude" [longitude]="longitude"></app-map>
-
+                  <br>
                   <div *ngIf = "distribucion?.length > 0">
                       <br>
                     <label>Distribución</label>

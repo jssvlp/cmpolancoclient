@@ -11,16 +11,22 @@ export class MapComponent implements OnInit {
 
   constructor() {
     }
-  @Input() public latitude: any;
+  @Input() public latitude: number;
   @Input() public longitude: number;
     
   @Input()
   public customTitle: string;
     
   ngOnInit() {
-    this.zoom = 8;
+    this.zoom = 14;
   }
-
+  ngOnChanges(){
+   
+    this.latitude = parseFloat(localStorage.getItem('latitude'));
+    this.longitude = parseFloat(localStorage.getItem('longitude'));
+    console.log('latitude :', localStorage.getItem('latitude'));
+    console.log('longitude :', localStorage.getItem('longitude'));
+  }
   
 
 
