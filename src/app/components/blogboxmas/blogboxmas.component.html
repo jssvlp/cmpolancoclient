@@ -18,11 +18,16 @@
       </div>
       <div class="card-body text-center">
         <h2 class="card-title">{{post?.tituloEntrada}}</h2>
+        <li class="dropdown drop"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="post"><a *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" >Editar</a> </li>
+                    <li class="post"> <a *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" >Eliminar</a></li>
+                </ul>
+        </li>
+        <br>
         <p [innerHTML]="post?.textoEntrada" class="card-text"></p>
       </div>
       <br>
-      <button *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" type="button" class="btn btn-danger" id="btn">Eliminar Post</button>
-      <button *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" type="button" class="btn btn-danger" id="btn">Editar Post</button>
       <div class="card-footer text-muted">
         Publicado en Marzo {{post?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
         <a routerLink="/home">{{post?.usuario?.nombreUsuario}} {{post?.usuario?.apellidosUsuario}}</a>
