@@ -32,6 +32,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.8.6",
     "flatpickr": "^4.5.7",
+    "font-awesome": "^4.7.0",
     "glyphicons": "^0.2.0",
     "i": "^0.3.6",
     "jquery": "^3.3.1",

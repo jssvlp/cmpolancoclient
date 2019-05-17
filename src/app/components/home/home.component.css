@@ -519,3 +519,14 @@ ul, ol {
    filter:brightness(80%);
 
 }
+
+#icono{
+  margin-right: 600px;
+  position: fixed;
+}
+
+#arrow{
+  position: relative;
+  margin-left: 1340px;
+  margin-top: -199px;
+}
