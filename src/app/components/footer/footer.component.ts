@@ -12,6 +12,11 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(this.latitude != undefined || this.latitude != null)
+      {
+        localStorage.setItem('latitude', this.latitude.toString());
+        localStorage.setItem('longitude', this.longitude.toString());
+      } 
   }
 
 }
