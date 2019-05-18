@@ -1,0 +1,41 @@
+header {
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+    padding: 20px;
+}
+
+body{
+    width: 80%;
+    margin: auto;
+    
+
+}
+
+.todo{
+    
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    margin-bottom: -50px;
+}
+
+.nosotros{
+    background-image: url(src\assets\chat.jpg);
+    height: 550px;
+
+}
+
+h2{
+    text-align: center;
+    padding-top: 290px;
+    font-weight: bold;
+    margin: center;
+    color:white;
+    font-size: 70px;
+}
+
+ h2 span{
+    color: #edbb00;
+  }
+
+  button{
+    color: #edbb00;
+
+  }
