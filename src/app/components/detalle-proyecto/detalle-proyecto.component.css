@@ -4,5 +4,64 @@ header {
   }
 
   #titulo{
-    font-size: 40px;
+    font-size: 70px;
   }
+
+  #card{
+    border: 0;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  body {
+    background: #007bff;
+    background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196));
+    margin-top: -24px;
+  }
+
+label{
+    margin-left: 300px;
+    margin-top: 30px;
+  }
+
+#ame{
+  margin-left: 0;
+  font-size: 20px;
+  font-weight: bold; 
+
+}
+
+#ecar{
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+#caracteristicas #titulo{
+  padding-top: 20px;
+}
+
+#seguridad #titulo{
+  padding-top: 20px;
+}
+#distribucion #titulo{
+  padding-top: 20px;
+}
+
+#otros #titulo{
+  padding-top: 20px;
+}
+
+
+
+#general #titulo{
+  padding-top: 20px;
+}
+
+#desapart #titulo{
+  padding-top: 20px;
+}
+
+#inmuebles h5{
+  padding-top: 20px;
+}

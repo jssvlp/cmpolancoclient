@@ -20,15 +20,27 @@ export class DetalleProyectoComponent implements OnInit {
   descripcionG: CaracteristicaModel[];
   descripcionA: CaracteristicaModel[];
   otros:CaracteristicaModel[];
+  latitude:number;
+  longitude:number;
+
 
   constructor(private proApi: ProyectoService, private actvRoute: ActivatedRoute, private carApi: CaracteristicaService ) { }
 
   ngOnInit() {
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
 
-    this.proApi.getProject(this.ID).subscribe(res =>{
-      this.data = res;      
+      this.proApi.getProject(this.ID).subscribe(res =>{
+      this.data = res;  
+      this.latitude = res.latitude;
+      this.longitude = res.longitude;
+      if(this.latitude != undefined || this.latitude != null)
+      {
+        localStorage.setItem('latitude', this.latitude.toString());
+        localStorage.setItem('longitude', this.longitude.toString());
+      } 
+     
     })
+
 
     this.carApi.getCarProyecto(this.ID).subscribe(res =>{
       this.amenidades = res.amenidades;
@@ -37,6 +49,7 @@ export class DetalleProyectoComponent implements OnInit {
       this.distribucion = res.distribucion;
       this.otros = res.otros;
       this.seguridad = res.seguridad;
+      
     })
 
 
