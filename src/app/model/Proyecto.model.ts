@@ -6,6 +6,5 @@ export class ProyectoModel {
     fechaTerminacion: Date;
     direccion: string;
     imgURL: string;
-    ubicacionID: number;
     inmueble:InmuebleModel;
   }
