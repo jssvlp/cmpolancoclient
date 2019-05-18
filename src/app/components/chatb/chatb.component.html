@@ -1,0 +1,76 @@
+<header>
+  <app-navbar></app-navbar>
+</header>
+<div class="todo">
+<body>
+<div class="nosotros">
+  <h2 class="animated bounceInLeft" style="animation-duration: 1.5s;"><span>¡Consulta</span> nuestros<span> canales</span> de  contacto!</h2>
+</div>
+
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Chat
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Comunicate con la empresa a través del chat de 
+
+        <a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank"> WhatsApp.</a>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Teléfono y Dirección
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+          <dl class="contact-list">
+              <dt>Telefono:</dt>
+              <dd> <a href="tel:#" id="telefono">(809) 530-7149</a>
+              </dd>
+            </dl>
+
+
+          <dl class="contact-list">
+              <app-map [latitude]="latitude" [longitude]="longitude"></app-map>
+            </dl>
+
+            
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Redes Sociales
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <ul>
+          <li>Twitter </li> 
+          <li>Facebook</li>
+          <li>Instagram </li> 
+          <li>LinkedList</li>   
+</ul>
+      </div>
+    </div>
+  </div>
+   
+</div>
+</body>
+</div>
