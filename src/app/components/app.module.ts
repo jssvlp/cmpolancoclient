@@ -48,6 +48,7 @@ import { FiltroPipe } from './pipes/filtro.pipe';
 import { ForoComponent } from './foro/foro.component';
 import { CaracteristicaService } from '../services/caracteristica.service';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 const routes=[
   {
@@ -76,7 +77,8 @@ const routes=[
     DetalleProyectoComponent,
     FiltroPipe,
     ForoComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule,
