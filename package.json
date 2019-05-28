@@ -32,6 +32,7 @@
     "core-js": "^2.5.4",
     "firebase": "^5.8.6",
     "flatpickr": "^4.5.7",
+    "font-awesome": "^4.7.0",
     "glyphicons": "^0.2.0",
     "i": "^0.3.6",
     "jquery": "^3.3.1",
@@ -47,7 +48,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.13.5",
+    "@angular-devkit/build-angular": "^0.13.9",
     "@angular/cli": "~7.0.6",
     "@angular/compiler-cli": "^7.2.8",
     "@angular/language-service": "~7.0.0",

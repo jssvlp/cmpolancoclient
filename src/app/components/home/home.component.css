@@ -135,6 +135,11 @@ display: inline-block;
   position: relative;
 } 
 
+#serb p{
+  text-align: center;
+  font-size: 15px;
+}
+
 #herramientas .herramientas{
   text-align: center;
 }
@@ -212,6 +217,8 @@ display: inline-block;
 
         #serb{
           margin-top:30px;
+ 
+
         }
 
       /* Blog */
@@ -518,4 +525,15 @@ ul, ol {
   -webkit-filter: brightness(20%);
    filter:brightness(80%);
 
+}
+
+#icono{
+  margin-right: 600px;
+  position: fixed;
+}
+
+#arrow{
+  position: relative;
+  margin-left: 1340px;
+  margin-top: -199px;
 }

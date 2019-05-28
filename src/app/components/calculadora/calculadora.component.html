@@ -17,8 +17,8 @@
                        
        
                            
-                                   <label for="tentacles">Edad del Solicitante</label>
-                                   <select class="form-control" class="form-control" aria-placeholder="Seleccione su edad">
+                                   <!-- <label for="tentacles">Edad del Solicitante</label>
+                                   <select [(ngModel)]="edad" class="form-control" class="form-control" aria-placeholder="Seleccione su edad">
                                       <option value="18">18</option>
                                       <option value="19">19</option>
                                       <option value="20">20</option>
@@ -76,18 +76,18 @@
                                       <option value="72">72</option>
                                       <option value="73">73</option>
                                    </select> 
-                                   <hr>
+                                   <hr> -->
                                
      
                           
-                                 <label>Tipo de Propiedad  </label>
+                                 <!-- <label>Tipo de Propiedad  </label>
                                  <select  class="form-control" aria-placeholder="Seleccione una opcion" required>
                                    <option value="" selected="selected"></option>
                                    <option value="1">Casa</option>
                                    <option value="2">Apartamento</option>
                                    <option value="3">Solar </option>
                                    <option value="4">Local Comercial</option>
-                               </select>
+                               </select> -->
                                
      
 <!--                       
@@ -108,8 +108,11 @@
                              <!-- <label>Valor de la Propieadad</label>
                              <input  id="valor" type="text" class="form-control" minlength="5" maxlength="11"  required/> -->
                             
-                       
-     
+                             <label>Moneda</label>
+                                 <select [(ngModel)]="moneda" class="form-control" required>
+                                     <option value="DOP"> $(RD) Peso Dominicano</option>
+                                     <option value="USD"> $(US) Dolar</option>
+                                 </select>
      
                            <label>Monto del Préstamo</label>
                            <input [(ngModel)]="monto"  type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
@@ -123,7 +126,7 @@
      
      
                        <label for="tentacles">Plazo en años</label>
-                       <select [(ngModel)]="tiempo" aria-placeholder="Seleccione el plazo" class="form-control"> 
+                       <select  [(ngModel)]="tiempo" aria-placeholder="Seleccione el plazo" class="form-control"> 
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -158,13 +161,6 @@
                        </select>
      
      
-                         
-     
-                                 <label>Moneda</label>
-                                 <select  class="form-control" required>
-                                     <option value="DOP"> $(RD) Peso Dominicano</option>
-                                     <option value="USD"> $(US) Dolar</option>
-                                 </select>
                                  
                       
                            
@@ -180,7 +176,7 @@
                      </button>
                      <hr>
              <div class="calculo">
-                 <div > <p class="cuota">Cuota Mensual:</p> <p class="resultado">{{result}}</p></div>
+                 <div > <p class="cuota"> Su Cuota Mensual a pagar es de:</p> <p class="resultado">{{result}}</p></div>
              </div>
 
                  <!-- <p>Result2 : {{result2}}</p>          -->
