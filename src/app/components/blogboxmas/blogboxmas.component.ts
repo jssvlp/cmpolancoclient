@@ -27,7 +27,6 @@ export class BlogboxmasComponent implements OnInit {
 
     this.apiBlog.getBlog(Number(userID)).subscribe(res => {
       this.post = res;
-      console.log(this.post);
     })
   }
  eliminar(id: number){
@@ -39,8 +38,7 @@ export class BlogboxmasComponent implements OnInit {
 }
 
 editar(id: number){
-  //this.authService.change();
-  window.location.href="http://localhost:4500/editar-post/{{id}}"
+  window.location.href="http://localhost:4500/editar-post/"+id;
 }
 
 }

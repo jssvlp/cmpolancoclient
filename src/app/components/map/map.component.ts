@@ -24,8 +24,8 @@ export class MapComponent implements OnInit {
    
     this.latitude = parseFloat(localStorage.getItem('latitude'));
     this.longitude = parseFloat(localStorage.getItem('longitude'));
-    console.log('latitude :', localStorage.getItem('latitude'));
-    console.log('longitude :', localStorage.getItem('longitude'));
+    //console.log('latitude :', localStorage.getItem('latitude'));
+    //console.log('longitude :', localStorage.getItem('longitude'));
   }
   
 
