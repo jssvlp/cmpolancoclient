@@ -21,7 +21,6 @@ export class MapComponent implements OnInit {
     this.zoom = 14;
   }
   ngOnChanges(){
-   
     this.latitude = parseFloat(localStorage.getItem('latitude'));
     this.longitude = parseFloat(localStorage.getItem('longitude'));
     console.log('latitude :', localStorage.getItem('latitude'));
