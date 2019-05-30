@@ -16,6 +16,8 @@ import { AuthGuard } from "../guards/auth.guard";
 import { DetalleSolicitudComponent } from './detalle-solicitud/detalle-solicitud.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { TopicForoComponent } from './topic-foro/topic-foro.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -27,11 +29,13 @@ const routes: Routes = [
   {path: 'addpost', component: AddpostComponent},
   {path: 'blogInfo', component: BlogboxmasComponent},
   {path: 'foro', component: ForoComponent},
+  {path: 'newtopic', component: TopicForoComponent},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
   {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
   {path: 'nosotros', component: NosotrosComponent},
+  {path: 'calculadora', component: CalculadoraComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

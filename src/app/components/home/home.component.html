@@ -36,20 +36,20 @@
         </div>
       </div>
       
+      <div *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}}" id="fotoca">
+        <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
+        <div class="carousel-caption d-none d-md-block" id="direccionca">
+          <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
+          <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d.nombreProyecto}}</h1>
+          <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d.direccion}}</p></h2>
+          <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
+        </div>
+        <div class="carousel-caption d-md-block">
+        </div>
+      </div>
 
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == data.length && 'active'}}" id="fotoca">
-      <img height="775" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
-      <div class="carousel-caption d-none d-md-block" id="direccionca">
-        <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
-        <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d.nombreProyecto}}</h1>
-        <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d.direccion}}</p></h2>
-        <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
-      </div>
-      <div class="carousel-caption d-md-block">
-      </div>
-  </div>
     </div>
-    <img class="animated swing infinite" src="assets/down-arrow.png" id="arrow" alt="Generic placeholder image" alt="Generic placeholder image" > 
+    <img class="animated bounce infinite" src="assets/back.png" id="arrow" alt="Generic placeholder image" alt="Generic placeholder image" > 
 </div>
   <!-- Controls -->
 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -48,7 +48,10 @@ import { FiltroPipe } from './pipes/filtro.pipe';
 import { ForoComponent } from './foro/foro.component';
 import { CaracteristicaService } from '../services/caracteristica.service';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ChatbComponent } from './chatb/chatb.component';
+import { PostForoComponent } from './post-foro/post-foro.component';
+import { TopicForoComponent } from './topic-foro/topic-foro.component';
 
 const routes=[
   {
@@ -78,7 +81,10 @@ const routes=[
     FiltroPipe,
     ForoComponent,
     NosotrosComponent,
-    ChatbComponent
+    CalculadoraComponent,
+    ChatbComponent,
+    PostForoComponent,
+    TopicForoComponent
   ],
   imports: [
     BrowserModule,
