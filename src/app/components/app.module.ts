@@ -55,6 +55,7 @@ import { TopicForoComponent } from './topic-foro/topic-foro.component';
 import {NgxMaskModule} from 'ngx-mask';
 
 
+import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 
 const routes=[
   {
@@ -87,7 +88,8 @@ const routes=[
     CalculadoraComponent,
     ChatbComponent,
     PostForoComponent,
-    TopicForoComponent
+    TopicForoComponent,
+    DetalleForoComponent
   ],
   imports: [
     BrowserModule,

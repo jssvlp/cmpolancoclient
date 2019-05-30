@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaModel } from 'src/app/model/categoria.model';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-foro',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForoComponent implements OnInit {
 
-  constructor() { }
+  data: CategoriaModel[]=[];
+
+  constructor(public ctgApi:CategoriaService) { }
 
   ngOnInit() {
+    this.ctgApi.getTemas().subscribe(res =>{
+      this.data = res; 
+    })
   }
 
 }
