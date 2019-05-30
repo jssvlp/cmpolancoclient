@@ -11,16 +11,16 @@
             <h5>Contactos</h5>
             <dl class="contact-list">
               <dt>Dirección:</dt>
-              <dd>Santo Domingo, RD</dd>
+              <dd>{{ getGenericDataByKey('direccion-empresa')}}</dd>
               <app-map [latitude]="latitude" [longitude]="longitude"></app-map>
             </dl>
             <dl class="contact-list">
               <dt>Correo:</dt>
-              <dd><a href="mailto:#" id="email">constructoramejiapolanco@hotmail.com</a></dd>
+              <dd><a href="mailto:#" id="email">{{ getGenericDataByKey('correo-electronico')}}</a></dd>
             </dl>
             <dl class="contact-list">
               <dt>Telefono:</dt>
-              <dd> <a href="tel:#" id="telefono">(809) 530-7149</a>
+              <dd> <a href="tel:#" id="telefono">{{ getGenericDataByKey('telefono-primario')}}</a>
               </dd>
             </dl>
           </div>
