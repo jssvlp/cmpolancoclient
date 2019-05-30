@@ -110,18 +110,18 @@
                             
                              <label>Moneda</label>
                                  <select [(ngModel)]="moneda" class="form-control" required>
-                                     <option value="DOP"> $(RD) Peso Dominicano</option>
-                                     <option value="USD"> $(US) Dolar</option>
+                                     <option value="DOP"> $ DOP</option>
+                                     <option value="USD"> $ US</option>
                                  </select>
      
                            <label>Monto del Préstamo</label>
-                           <input [(ngModel)]="monto"  type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
+                           <input [(ngModel)]="monto" mask="comma_separator.2" type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
                           
      
      
      
                          <label>Tasa</label>
-                         <input [(ngModel)]="tasa" type="text" class="form-control" minlength="1" maxlength="5"  required/>
+                         <input [(ngModel)]="tasa" type="text" mask="percent" sufix="%" class="form-control" minlength="1" maxlength="5"  required/>
      
      
      
