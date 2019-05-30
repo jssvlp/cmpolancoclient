@@ -52,6 +52,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ChatbComponent } from './chatb/chatb.component';
 import { PostForoComponent } from './post-foro/post-foro.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
+import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 
 const routes=[
   {
@@ -84,7 +85,8 @@ const routes=[
     CalculadoraComponent,
     ChatbComponent,
     PostForoComponent,
-    TopicForoComponent
+    TopicForoComponent,
+    DetalleForoComponent
   ],
   imports: [
     BrowserModule,

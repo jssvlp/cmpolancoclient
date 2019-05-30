@@ -18,6 +18,7 @@ import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.co
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
+import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
+  {path: 'topic', component: DetalleForoComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
