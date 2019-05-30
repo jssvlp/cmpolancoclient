@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-calculadora',
   templateUrl: './calculadora.component.html',
@@ -29,16 +30,19 @@ export class CalculadoraComponent implements OnInit {
     this.numerador = (Math.pow(1 + this.tasa2, this.tiempo2)) * this.tasa2 
     this.denominador = (Math.pow(1 + this.tasa2, this.tiempo2)) - 1
     if (this.moneda=="DOP") {  
-    this.result = Math.round((this.numerador/ this.denominador) * this.monto) + '$RD' ;
+    this.result = ('RD$ ') + new Intl.NumberFormat().format(Math.round(((this.numerador/ this.denominador) * this.monto) * 100)/100);
     }
     else{
-      this.result = Math.round((this.numerador/ this.denominador) * this.monto) + '$US' ;
+      this.result = ('US$ ') + new Intl.NumberFormat().format(Math.round(((this.numerador/ this.denominador) * this.monto) * 100)/100);
     }
   }
+
+  
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
