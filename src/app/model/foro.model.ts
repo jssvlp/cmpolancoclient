@@ -1,4 +1,5 @@
 import { UserModel } from "./User.model";
+import { ComentarioModel } from "./comentario.model";
 
 export class ForoModel{
 
@@ -11,4 +12,5 @@ export class ForoModel{
      usuarioID: number
      usuario: UserModel
      temaID: number
+     cometariosForos: ComentarioModel[]
     }

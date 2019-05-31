@@ -15,6 +15,7 @@ export class ForoComponent implements OnInit {
   data: CategoriaModel[]=[];
   ID: any;
   post: ForoModel[] = [];
+  filterPost = "";
   constructor(public ctgApi:CategoriaService, private actvRoute: ActivatedRoute, private foroApi: ForoService) { }
 
   ngOnInit() {
@@ -25,10 +26,17 @@ export class ForoComponent implements OnInit {
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
     if(this.ID != null){
       this.foroApi.getPostsT(this.ID).subscribe(res =>{
+        this.post = [];
         this.post = res;
       })
     }
 
+  }
+
+  categoria(id: number){
+    this.foroApi.getPostsT(id).subscribe(res =>{
+      this.post = res;
+    })
   }
 
 }

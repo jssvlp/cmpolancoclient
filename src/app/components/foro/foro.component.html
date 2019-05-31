@@ -30,7 +30,7 @@
                     <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
                         <div class="wrap">
                             <form action="#" method="post" class="form">
-                                <div class="pull-left txt"><input type="text" class="form-control" placeholder="Search Topics"></div>
+                                <div class="pull-left txt"><input type="text" class="form-control" name="filterPost" placeholder="Search Topics" [(ngModel)] = "filterPost"></div>
                                 <div class="pull-right"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
                                 <div class="clearfix"></div>
                             </form>
@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8">
                         <!-- POST -->
-                        <div *ngFor = "let p of post | paginate: { itemsPerPage: 5, currentPage: p }" class="post">
+                        <div *ngFor = "let p of post | filtroF:filterPost | paginate: { itemsPerPage: 5, currentPage: p }" class="post">
                             <div class="wrap-ut pull-left">
                                 <div class="userinfo pull-left">
                                     <div class="avatar">
@@ -88,16 +88,15 @@
                                     </div>
                                 </div>
                                 <div class="posttext pull-left">
-                                    <h2><a href="topic/{{p.publicacionID}}">{{p?.tituloPublicacion}}</a></h2>
+                                    <h2><a routerLink="/topic/{{p.publicacionID}}" >{{p?.tituloPublicacion}}</a></h2>
                                     <p>Decirle a Raymond que haga lo mismo que hizo con el blog</p>
                                 </div>
-                                <div class="clearfix">{{p?.timeStampForo}}</div>
+                                <div class="clearfix">{{p?.timeStampForo | date:"dd/MM/yyyy HH:mm aa"}}</div>
                             </div>
                          
                             <div class="clearfix"> Publicado por {{p?.usuario.nombreUsuario}} {{p?.usuario.apellidosUsuario}}</div>
-                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
                         </div><!-- POST -->
-
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
                         
 
@@ -110,7 +109,7 @@
                             <div class="divline"></div>
                             <div class="blocktxt">
                                 <ul *ngFor = "let d of data" class="cats">
-                                    <li><a routerLink="/foro/{{d.temaID}}">{{d?.nombreTema}}</a></li>
+                                    <li><a routerLink="/foro/{{d.temaID}}" (click) = "categoria(d.temaID)">{{d?.nombreTema}}</a></li>
                                 </ul>
                             </div>
                         </div>

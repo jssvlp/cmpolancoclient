@@ -29,6 +29,7 @@ const routes: Routes = [
   {path: 'blogcard', component: BlogcardComponent},
   {path: 'addpost', component: AddpostComponent},
   {path: 'blogInfo', component: BlogboxmasComponent},
+  {path: 'foro', component: ForoComponent},
   {path: 'foro/: id', component: ForoComponent},
   {path: 'newtopic', component: TopicForoComponent},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},

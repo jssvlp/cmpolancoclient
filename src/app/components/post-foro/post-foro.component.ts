@@ -47,13 +47,14 @@ export class PostForoComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.addForm.get(" tituloPublicacion").value.trim().length === 0){
+    if(this.addForm.get("tituloPublicacion").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else if(this.addForm.get("textoPublicacion").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
+      console.log(this.addForm.value);
       this.foroApi.addPost(this.addForm.value).subscribe(res=> {
 
         if(this.fileTo != null){

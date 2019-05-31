@@ -2,21 +2,22 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ForoModel } from '../model/foro.model';
+import { ComentarioModel } from '../model/comentario.model';
 
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/PublicacionForo";
+const apiUrl = "http://localhost:61756/api/ComentariosForo";
+
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ForoService {
+export class ComentarioService {
 
   constructor(private http: HttpClient) { }
-
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -29,26 +30,17 @@ export class ForoService {
     };
   }
 
-  getPosts (): Observable<ForoModel[]> {
-    return this.http.get<ForoModel[]>(apiUrl)
+  getComments (): Observable<ComentarioModel[]> {
+    return this.http.get<ComentarioModel[]>(apiUrl)
       .pipe(
         tap(heroes => catchError(this.handleError('getPost', [])))
       );
   }
 
-
-  getPostsT (id: number): Observable<ForoModel[]> {
-    const url = `${apiUrl}/${'GetTemas/'+id}`;
-    return this.http.get<ForoModel[]>(url)
-      .pipe(
-        tap(heroes => catchError(this.handleError('getPost', [])))
-      );
-  }
-
-  getPost(id: number): Observable<ForoModel> {
+  getComment(id: number): Observable<ComentarioModel> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<ForoModel>(url).pipe(
-      tap(_ => catchError(this.handleError<ForoModel>(`getPost id=${id}`))
+    return this.http.get<ComentarioModel>(url).pipe(
+      tap(_ => catchError(this.handleError<ComentarioModel>(`getPost id=${id}`))
     ));
   }
 
@@ -58,26 +50,27 @@ export class ForoService {
     });
   }
 
-  addPost(post: ForoModel){
-    return this.http.post<ForoModel>(apiUrl,post,httpOptions)
-    .pipe(tap((nuevoRequest: ForoModel) =>
-    catchError(this.handleError<ForoModel>('addPost'))
+  addComment(comment: ComentarioModel){
+    return this.http.post<ComentarioModel>(apiUrl,comment,httpOptions)
+    .pipe(tap((nuevoRequest: ComentarioModel) =>
+    catchError(this.handleError<ComentarioModel>('addComment'))
     ));
   }
 
-  updatePost(post: ForoModel){
-    return this.http.put<ForoModel>(apiUrl +"/"+ post.publicacionID,post, httpOptions)
+  updateComment(comment: ComentarioModel){
+    return this.http.put<ComentarioModel>(apiUrl +"/"+ comment.comentarioID,comment, httpOptions)
         .pipe(
-          catchError(this.handleError('updatePost', post))
+          catchError(this.handleError('updateComment', comment))
         );
   }
 
-  deletePost (id: number): Observable<{}> {
+  deleteComment (id: number): Observable<{}> {
     const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
     return this.http.delete(url, httpOptions)
     .pipe(
-    catchError(this.handleError('deletePost'))
+    catchError(this.handleError('deleteComment'))
     );
     }
-  
+
+
 }
