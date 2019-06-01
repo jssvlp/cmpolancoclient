@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
                                 <form action="03_new_topic.html" method="post" class="form">
-                                    <a class="btn btn-warning" id="butforo"   role="button">Foro</a>
+                                    <a routerLink="/foro/{{ID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
                                 </form>
                             </div>
      
@@ -65,21 +65,18 @@
  
 
                                         <div class="icons">
-                                            <img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <!--<img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <h2>10 Kids Unaware of Their Halloween Costume</h2>
-                                        <p>Today, we're looking at three particularly interesting stories. Pinterest added a new location-based feature on Wednesday that uses Place Pins as a way to map out vacations and favorite areas. Southwest Airlines is providing Wi-Fi access from gate to gate for $8 per day through an onboard hotspot. And in an effort to ramp up its user base, Google Wallet is offering a debit card that can take out cash from.</p>
+                                        <h2>{{titulo}}</h2>
+                                        <p>{{post}}</p>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>                              
                                 <div class="postinfobot">
 
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:30am</div>
-
- 
-
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{fecha | date:"dd/MM/yyyy HH:mm aa"}}  <i class=""></i>Publicado por:{{autor}}</div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div><!-- POST -->
@@ -109,80 +106,45 @@
                             </div> -->
 
                             <!-- POST -->
-                            <div class="post" id="foro">
+                            <div *ngFor ="let c of comentarios" class="post" id="foro">
                                 <div class="topwrap">
                                     <div class="userinfo pull-left">
  
 
                                         <div class="icons">
-                                            <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                            <!--<img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
                                         </div>
                                     </div>
                                     <div class="posttext pull-left">
-                                        <p>Typography helps you engage your audience and establish a distinct, unique personality on your website. Knowing how to use fonts to build character in your design is a powerful skill, and exploring the history and use of typefaces, as well as typogra...</p>
+                                        <p>{{c?.textoComentario}}</p>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>                              
                                 <div class="postinfobot">
 
                
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:45am</div>
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
  
 
                                     <div class="clearfix"></div>
                                 </div>
                             </div><!-- POST -->
 
-
-
                             <!-- POST -->
                             <div class="post">
-                                <div class="topwrap">
-                                    <div class="userinfo pull-left">
- 
-
-                                        <div class="icons">
-                                            <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="posttext pull-left">
-
-                                        <blockquote>
-                                            <span class="original">Original Posted by - theguy_21:</span>
-                                            Did you see that Dove ad pop up in your Facebook feed this year? How about the Geico camel one? 
-                                        </blockquote>
-                                        <p>Toronto Mayor Rob Ford does not have a bigger fan than "Anchorman's" Ron Burgundy. In fact, Burgundy wants Ford to be re-elected so much, that he agreed to sing the campaign song Brien. The tune in question ...</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>                              
-                                <div class="postinfobot">
-
- 
-  
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : 20 Nov @ 9:50am</div>
-   
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div><!-- POST -->
-
-
-
-                            <!-- POST -->
-                            <div class="post">
-                                <form action="#" class="form" method="post">
+                                <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
                                     <div class="topwrap">
                                         <div class="userinfo pull-left">
  
 
                                             <div class="icons">
-                                                <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />
+                                                <!-- <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
                                             </div>
                                         </div>
                                         <div class="posttext pull-left">
                                             <div class="textwraper">
                                                 <div class="postreply">Post a Reply</div>
-                                                <textarea name="reply" id="reply" placeholder="Type your message here"></textarea>
+                                                <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Type your message here"></textarea>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -199,7 +161,7 @@
 
                                         <div class="pull-right postreply">
                                 
-                                            <div class="pull-left"><button type="submit" class="btn btn-primary">Post Reply</button></div>
+                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
                                             <div class="clearfix"></div>
                                         </div>
 
@@ -215,7 +177,7 @@
  
 
                             <!-- -->
-                            <div class="sidebarblock">
+                            <!--<div class="sidebarblock">
                                 <h3>My Active Threads</h3>
                                 <div class="divline"></div>
                                 <div class="blocktxt">
@@ -237,7 +199,7 @@
                                 <div class="blocktxt">
                                     <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
                                 </div>
-                            </div>
+                            </div>-->
 
 
                         </div>

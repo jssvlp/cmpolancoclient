@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'addpost', component: AddpostComponent},
   {path: 'blogInfo', component: BlogboxmasComponent},
   {path: 'foro', component: ForoComponent},
+  {path: 'foro/: id', component: ForoComponent},
   {path: 'newtopic', component: TopicForoComponent},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
@@ -37,7 +38,7 @@ const routes: Routes = [
   {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
-  {path: 'topic', component: DetalleForoComponent},
+  {path: 'topic/: id', component: DetalleForoComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

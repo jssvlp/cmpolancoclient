@@ -85,14 +85,8 @@
                             <h3>Categories</h3>
                             <div class="divline"></div>
                             <div class="blocktxt">
-                                <ul class="cats">
-                                    <li><a href="#">Trading for Money  </a></li>
-                                    <li><a href="#">Vault Keys Giveway  </a></li>
-                                    <li><a href="#">Misc Guns Locations  </a></li>
-                                    <li><a href="#">Looking for Players  </a></li>
-                                    <li><a href="#">Stupid Bugs &amp; Solves  </a></li>
-                                    <li><a href="#">Video &amp; Audio Drivers  </a></li>
-                                    <li><a href="#">2K Official Forums </a></li>
+                                <ul  *ngFor = "let d of data" class="cats">
+                                    <li><a href="#">{{d?.nombreTema}}</a></li>
                                 </ul>
                             </div>
                         </div>

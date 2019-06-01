@@ -56,6 +56,7 @@ import {NgxMaskModule} from 'ngx-mask';
 
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
+import { FiltroFPipe } from './pipes/filtro-f.pipe';
 
 const routes=[
   {
@@ -89,7 +90,8 @@ const routes=[
     ChatbComponent,
     PostForoComponent,
     TopicForoComponent,
-    DetalleForoComponent
+    DetalleForoComponent,
+    FiltroFPipe
   ],
   imports: [
     BrowserModule,
