@@ -2,17 +2,7 @@
 <!-- POST -->
  <div class="post">
     <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  class="form newtopic" method="post">
-        <div class="topwrap">
-            <div class="userinfo pull-left">
-                <div class="avatar">
-                   <!-- <img src="images/avatar4.jpg" alt="" />-->
-              
-                </div>
-
-                <div class="icons">
-                   <!-- <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
-                </div>
-            </div>
+        <div class="topwrap" id="topwrap">
             <div class="posttext pull-left">
 
                 <div>
@@ -39,7 +29,7 @@
                     </div>
                     <div *ngIf="addForm.controls['temaID'].errors && addForm.controls['temaID'].touched" class="validation-error">Este campo es requerido</div>
                     <div class="col-lg-6 col-md-6">
-                        <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" accept="image/*">
+                        <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" accept="image/*" id="imagen">
                         <img width="40px" height="40px" src="assets/Forum/camara-de-fotos.png" alt=""  />
                     </div>
                 </div>
