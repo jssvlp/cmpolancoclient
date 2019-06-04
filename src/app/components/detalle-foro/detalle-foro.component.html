@@ -53,7 +53,7 @@
 
 
 
-            <section class="content">
+            <section class="content"  id="contenedor">
  
 
                 <div class="container">
@@ -66,9 +66,7 @@
                                     <div class="userinfo pull-left">
  
 
-                                        <div class="icons">
-                                            <!--<img src="images/icon1.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
-                                        </div>
+                              
                                     </div>
                                     <div class="posttext pull-left">
                                         <h2>{{titulo}}</h2>
@@ -214,14 +212,8 @@
                             <div *ngIf = "usuarioID > 0" class="post">
                                 <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
                                     <div class="topwrap">
-                                        <div class="userinfo pull-left">
- 
-
-                                            <div class="icons">
-                                                <!-- <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
-                                            </div>
-                                        </div>
-                                        <div class="posttext pull-left">
+                            
+                                        <div class="posttext pull-left" id="pull-left">
                                             <div class="textwraper">
                                                 <div class="postreply">Post a Reply</div>
                                                 <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Type your message here"></textarea>
@@ -288,35 +280,27 @@
                 </div>
 
 
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                       
-                        </div>
-                    </div>
-                </div>
-
+ 
             </section>
 
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 logo "><a href="#"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
-                        <div class="col-lg-8 col-xs-9 col-sm-5 ">Copyrights 2014, websitename.com</div>
-                        <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent">
-                            <ul class="socialicons">
-                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-cloud"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            </ul>
-                        </div>
+      <footer>
+            <div class="container" id="footforo">
+                <div class="row">
+                    <div class="col-lg-1 col-xs-3 col-sm-2 logo " id="logofooter"><a href="#"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
+                    <div class="col-lg-8 col-xs-9 col-sm-5 " id="correofooter">Copyrights 2019, constructoramejiapolanco.com</div>
+                    <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent" id="socialfooter">
+                        <ul class="socialicons">
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cloud"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
         </div>
 
         <!-- get jQuery from the google apis -->

@@ -3517,4 +3517,55 @@ body {
   #butforo{
     color:white;
   }
+
+
+
+
+
+
+
+
+
+  footer {
+ 
+    margin-top: -20px;
+    padding-bottom: 0px;
+    
+  }
+
+  #logofooter{
+ 
+    padding-bottom: -1000px;
+
+  }
+
+  #correofooter{
+ 
+    padding-bottom: -1000px;
+  }
+
+  #socialfooter{
+ 
+    padding-bottom: -1000px;
+  }
+
+  #contenedor{
+    position: relative;
+    padding-bottom: 290px;
+  }
+
+
+
+.headernav{
+  margin-top: -20px;
+}
+
+.container{
+  margin-top:20px;
+}
   
+
+#pull-left{
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
