@@ -16,6 +16,7 @@ import { ComentarioService } from 'src/app/services/comentario.service';
   styleUrls: ['./detalle-foro.component.css']
 })
 export class DetalleForoComponent implements OnInit {
+
   ID:any
   data: ForoModel;
   titulo: string = "";
@@ -29,11 +30,24 @@ export class DetalleForoComponent implements OnInit {
   temaID: number;
   editcomment: ComentarioModel = new ComentarioModel();
   idcomentario: number;
+  idpost: number;
+  postForm: FormGroup;
+  usuarioID: number;
+  userRole: number;
+
   constructor(private actvRoute: ActivatedRoute, private foroApi: ForoService, private formBuilder: FormBuilder, private authApi: AuthService,private toastr: ToastrService,
     private commentApi: ComentarioService, private router: Router) { }
 
   ngOnInit() {
     this.user = this.authApi.getCurrentUser();
+    if(this.user == null){
+      this.usuarioID = -1
+      this.userRole = 0
+    }
+    else{
+      this.usuarioID = this.user.usuarioID;
+      this.userRole = this.user.roleId;
+    }
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
     if(this.ID != null){
       this.foroApi.getPost(this.ID).subscribe(res => {
@@ -49,11 +63,23 @@ export class DetalleForoComponent implements OnInit {
   
     this.addForm = this.formBuilder.group({
       textoComentario:['', [Validators.required]],
-      usuarioID: this.user.usuarioID,
+      usuarioID: this.usuarioID,
       publicacionID: this.ID,
       timeStampComment: formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en'),
       urlImagen:[''] 
     });
+
+    this.postForm = this.formBuilder.group({
+      publicacionID: this.ID,
+      tituloPublicacion: [''],
+      textoPublicacion:['',[Validators.required]],
+      timeStampForo: formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en'),
+      archivado: false,
+      urlImagen:[''],
+      usuarioID: [''],
+      temaID: ['']
+
+    })
   }
 
   onSubmit(){
@@ -120,6 +146,30 @@ export class DetalleForoComponent implements OnInit {
     })
 
   }
+}
+
+onEditP(){
+
+  if(this.postForm.get("textoPublicacion").value.trim().length === 0){
+    this.toastr.warning('Campo vacio');
+  }
+
+  else{
+    
+    this.postForm.controls["tituloPublicacion"].setValue(this.titulo);
+    this.postForm.controls["usuarioID"].setValue(this.usuarioID);
+    this.postForm.controls["temaID"].setValue(this.temaID);
+    this.foroApi.updatePost(this.postForm.value).subscribe(res => {
+      this.idpost = null;
+      this.refrescar();
+    })
+  }
+
+}
+
+changeNo(){
+  this.idpost = this.ID;
+  this.postForm.controls["textoPublicacion"].setValue(this.post);
 }
 
 }

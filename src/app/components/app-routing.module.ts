@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'blogInfo', component: BlogboxmasComponent},
   {path: 'foro', component: ForoComponent},
   {path: 'foro/: id', component: ForoComponent},
-  {path: 'newtopic', component: TopicForoComponent},
+  {path: 'newtopic', component: TopicForoComponent,canActivate:[AuthGuard]},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
