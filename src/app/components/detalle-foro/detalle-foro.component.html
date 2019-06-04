@@ -28,13 +28,14 @@
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
                                 <form action="03_new_topic.html" method="post" class="form">
-                                    <a routerLink="/foro/{{ID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
+                                    <a routerLink="/foro/{{temaID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
+                                    <button *ngIf="user.usuarioID == userpostID || user.roleId == 1" class="btn btn-danger" (click) = "eliminar()">Eliminar post</button>
                                 </form>
                             </div>
      
 
                             <div class="avatar pull-left dropdown">
-                                <a data-toggle="dropdown" href="#"><img src="images/avatar.jpg" alt="" /></a> <b class="caret"></b>
+                                <a data-toggle="dropdown" href="#"> </a> <b class="caret"></b>
                     
                                 <ul class="dropdown-menu" role="menu">
                                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
@@ -107,6 +108,7 @@
 
                             <!-- POST -->
                             <div *ngFor ="let c of comentarios" class="post" id="foro">
+                                <div *ngIf= "idcomentario != c.comentarioID">
                                 <div class="topwrap">
                                     <div class="userinfo pull-left">
  
@@ -122,12 +124,55 @@
                                 </div>                              
                                 <div class="postinfobot">
 
-               
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                    <button *ngIf="user.usuarioID == c.usuarioID" (click)="editar(c)" >Editar</button>
+                                    <button *ngIf="user.usuarioID == c.usuarioID || user.roleId == 1" (click)="eliminarC(c.comentarioID)">Eliminar</button>
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
  
 
                                     <div class="clearfix"></div>
                                 </div>
+                            </div>
+                             <!-- Edit comentario -->
+                            <div *ngIf="idcomentario == c.comentarioID" class="post">
+                                    <form [formGroup]="addForm" (ngSubmit)="onEdit()" class="form" method="post">
+                                        <div class="topwrap">
+                                            <div class="userinfo pull-left">
+     
+    
+                                                <div class="icons">
+                                                    <!-- <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
+                                                </div>
+                                            </div>
+                                            <div class="posttext pull-left">
+                                                <div class="textwraper">
+                                                    <div class="postreply">Editar el Comentario</div>
+                                                    <textarea formControlName="textoComentario"  >{{c?.textoComentario}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>                              
+                                        <div class="postinfobot">
+    
+                                            <!-- <div class="notechbox pull-left">
+                                                <input type="checkbox" name="note" id="note" class="form-control" />
+                                            </div>
+    
+                                            <div class="pull-left">
+                                                <label for="note"> Email me when some one post a reply</label>
+                                            </div> -->
+    
+                                            <div class="pull-right postreply">
+                                    
+                                                <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+    
+    
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+
                             </div><!-- POST -->
 
                             <!-- POST -->

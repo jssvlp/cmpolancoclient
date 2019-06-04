@@ -10,4 +10,5 @@ export class UserModel {
     adminAcces: boolean;
     fireBaseCode: string;
     solicitud: SolicitudModel;
+    roleId: number;
   }
