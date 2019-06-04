@@ -3545,3 +3545,49 @@ body {
 .headernav{
   margin-top: -20px;
 }
+
+#pull-left{
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#npost{
+  position: relative;
+  top: 110px;
+  right: 617px; 
+  font-weight: bold;
+  color: #000;
+
+}
+
+#nombrepost{
+  position: relative;
+  top: 90px;
+  right: 519px;
+  font-weight: bold; 
+  color: #000;
+
+
+}
+
+#fechapost{
+  position: relative;
+  top: 92px;
+  right: -110px;
+  font-weight: bold; 
+  color: #000;
+
+}
+
+#tituloPublicacion{
+  font-size: 25px;
+  font-weight: bold; 
+  color: #000;
+}
+
+#titulocategoria{
+  font-size: 18px;
+  font-weight: bold; 
+  color: #000;
+  
+}

@@ -67,23 +67,15 @@
                         <!-- POST -->
                         <div *ngFor = "let p of post | filtroF:filterPost | paginate: { itemsPerPage: 5, currentPage: p }" class="post">
                             <div class="wrap-ut pull-left">
-                                <div class="userinfo pull-left">
-                                    <div class="avatar">
-                                       <!--   <img src="" alt="" />-->
-                                    </div>
-
-                                    <div class="icons">
-                                         
-                                    </div>
-                                </div>
-                                <div class="posttext pull-left">
-                                    <h2><a routerLink="/topic/{{p.publicacionID}}" >{{p?.tituloPublicacion}}</a></h2>
+                               
+                                <div class="posttext pull-left" id="pull-left">
+                                    <h2><a routerLink="/topic/{{p.publicacionID}}" id="tituloPublicacion" >{{p?.tituloPublicacion}}</a></h2>
                                     <p>Decirle a Raymond que haga lo mismo que hizo con el blog</p>
                                 </div>
-                                <div class="clearfix">{{p?.timeStampForo | date:"dd/MM/yyyy HH:mm aa"}}</div>
+                                <div class="clearfix" id="fechapost">{{p?.timeStampForo | date:"dd/MM/yyyy HH:mm aa"}}</div>
                             </div>
-                         
-                            <div class="clearfix"> Publicado por {{p?.usuario.nombreUsuario}} {{p?.usuario.apellidosUsuario}}</div>
+                            <div id="npost"> Publicado por </div>
+                            <div class="clearfix" id="nombrepost"> {{p?.usuario.nombreUsuario}} {{p?.usuario.apellidosUsuario}}</div>
                         </div><!-- POST -->
                         <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
@@ -94,7 +86,7 @@
 
                         <!-- -->
                         <div class="sidebarblock">
-                            <h3>Categories</h3>
+                            <h3 id="titulocategoria">Categorías</h3>
                             <div class="divline"></div>
                             <div class="blocktxt">
                                 <ul *ngFor = "let d of data" class="cats">
