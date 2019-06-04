@@ -3510,3 +3510,38 @@ body {
   #butforo{
     color:white;
   }
+
+
+  footer {
+ 
+    margin-top: -20px;
+    padding-bottom: 0px;
+    
+  }
+
+  #logofooter{
+ 
+    padding-bottom: -1000px;
+
+  }
+
+  #correofooter{
+ 
+    padding-bottom: -1000px;
+  }
+
+  #socialfooter{
+ 
+    padding-bottom: -1000px;
+  }
+
+  #contenedor{
+    position: relative;
+    padding-bottom: 410px;
+  }
+
+
+
+.headernav{
+  margin-top: -20px;
+}
