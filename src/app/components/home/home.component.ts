@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router ) { }
 
   async ngOnInit() {
+    
     this.proyectoService.getProjects()
     .subscribe(res =>{
       this.data = res;
