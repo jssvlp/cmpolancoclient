@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Forum :: Topic</title>
+    </head>
+    <body class="topic">
+
+        <div class="container-fluid">
+
+            <!-- Slider -->
+  
+            <!-- //Slider -->
+
+
+            <div class="headernav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.html"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
+                        <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
+                            <div class="wrap">
+                                <form action="#" method="post" class="form">
+          
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+                            <div class="stnt pull-left">                            
+                                <form action="03_new_topic.html" method="post" class="form">
+                                    <a routerLink="/foro/{{temaID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
+                                    <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()">Eliminar post</button>
+                                    <button *ngIf="usuarioID == userpostID" class="btn btn-danger" (click) = "changeNo()">Editar post</button>
+                                </form>
+                            </div>
+     
+
+                            <div class="avatar pull-left dropdown">
+                                <a data-toggle="dropdown" href="#"> </a> <b class="caret"></b>
+                    
+                                <ul class="dropdown-menu" role="menu">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <section class="content"  id="contenedor">
+ 
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+
+                            <!-- POST -->
+                            <div *ngIf="idpost != ID" class="post beforepagination">
+                                <div class="topwrap">
+                                    <div class="userinfo pull-left">
+ 
+
+                              
+                                    </div>
+                                    <div class="posttext pull-left">
+                                        <h2>{{titulo}}</h2>
+                                        <p>{{post}}</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                              
+                                <div class="postinfobot">
+
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{fecha | date:"dd/MM/yyyy HH:mm aa"}}  <i class=""></i>Publicado por:{{autor}}</div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <!-- POST -->    
+                            </div><!-- POST -->
+
+                            <div *ngIf = "idpost == ID" class="post">
+                                <form [formGroup]="postForm" (ngSubmit)="onEditP()" class="form" method="post">
+                                    <div class="topwrap">
+                                        <div class="userinfo pull-left">
+ 
+
+                                            <div class="icons">
+                                                <!-- <img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
+                                            </div>
+                                        </div>
+                                        <div class="posttext pull-left">
+                                            <div class="textwraper">
+                                                <div class="postreply">Editar post</div>
+                                                <textarea formControlName="textoPublicacion" name="reply" id="reply" placeholder="Escribe el mensaje aqui"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>                              
+                                    <div class="postinfobot">
+
+                                        <!-- <div class="notechbox pull-left">
+                                            <input type="checkbox" name="note" id="note" class="form-control" />
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <label for="note"> Email me when some one post a reply</label>
+                                        </div> -->
+
+                                        <div class="pull-right postreply">
+                                
+                                            <div class="pull-left"><button type="submit" [disabled]="postForm.invalid" class="btn btn-primary">Enviar publicación</button></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                            </div><!-- POST -->
+
+<!-- 
+                            <div class="paginationf">
+                                <div class="pull-left"><a href="#" class="prevnext"><i class="fa fa-angle-left"></i></a></div>
+                                <div class="pull-left">
+                                    <ul class="paginationforum">
+                                        <li class="hidden-xs"><a href="#">1</a></li>
+                                        <li class="hidden-xs"><a href="#">2</a></li>
+                                        <li class="hidden-xs"><a href="#">3</a></li>
+                                        <li class="hidden-xs"><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#" class="active">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                        <li class="hidden-xs"><a href="#">9</a></li>
+                                        <li class="hidden-xs"><a href="#">10</a></li>
+                                        <li class="hidden-xs hidden-md"><a href="#">11</a></li>
+                                        <li class="hidden-xs hidden-md"><a href="#">12</a></li>
+                                        <li class="hidden-xs hidden-sm hidden-md"><a href="#">13</a></li>
+                                        <li><a href="#">1586</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pull-left"><a href="#" class="prevnext last"><i class="fa fa-angle-right"></i></a></div>
+                                <div class="clearfix"></div>
+                            </div> -->
+
+                            <!-- POST -->
+                            <div *ngFor ="let c of comentarios" class="post" id="foro">
+                                <div *ngIf= "idcomentario != c.comentarioID">
+                                <div class="topwrap">
+                                    <div class="userinfo pull-left">
+ 
+
+                                        <div class="icons">
+                                            <!--<img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
+                                        </div>
+                                    </div>
+                                    <div class="posttext pull-left">
+                                        <p>{{c?.textoComentario}}</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                              
+                                <div class="postinfobot">
+
+                                    <button *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</button>
+                                    <button *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</button>
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+ 
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                             <!-- Edit comentario -->
+                            <div *ngIf="idcomentario == c.comentarioID" class="post">
+                                    <form [formGroup]="addForm" (ngSubmit)="onEdit()" class="form" method="post">
+                                        <div class="topwrap">
+                                            <div class="userinfo pull-left">
+     
+    
+                                                <div class="icons">
+                                                </div>
+                                            </div>
+                                            <div class="posttext pull-left">
+                                                <div class="textwraper">
+                                                    <div class="postreply">Editar el Comentario</div>
+                                                    <textarea formControlName="textoComentario"  >{{c?.textoComentario}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>                              
+                                        <div class="postinfobot">
+    
+                                            <div class="pull-right postreply">
+                                    
+                                                <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+    
+    
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div><!-- POST -->
+
+                            <!-- POST -->
+                            <div *ngIf = "usuarioID > 0" class="post">
+                                <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
+                                    <div class="topwrap">
+                            
+                                        <div class="posttext pull-left" id="pull-left">
+                                            <div class="textwraper">
+                                                <div class="postreply">Post a Reply</div>
+                                                <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Type your message here"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>                              
+                                    <div class="postinfobot">
+
+                                        <!-- <div class="notechbox pull-left">
+                                            <input type="checkbox" name="note" id="note" class="form-control" />
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <label for="note"> Email me when some one post a reply</label>
+                                        </div> -->
+
+                                        <div class="pull-right postreply">
+                                
+                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                            </div><!-- POST -->
+                            <div *ngIf = "usuarioID < 0"> Debe estar registrado para poder realizar un comentario.</div>
+
+
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+ 
+
+                            <!-- -->
+                            <!--<div class="sidebarblock">
+                                <h3>My Active Threads</h3>
+                                <div class="divline"></div>
+                                <div class="blocktxt">
+                                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                                </div>
+                                <div class="divline"></div>
+                                <div class="blocktxt">
+                                    <a href="#">Who Wins in the Battle for Power on the Internet?</a>
+                                </div>
+                                <div class="divline"></div>
+                                <div class="blocktxt">
+                                    <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
+                                </div>
+                                <div class="divline"></div>
+                                <div class="blocktxt">
+                                    <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
+                                </div>
+                                <div class="divline"></div>
+                                <div class="blocktxt">
+                                    <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
+                                </div>
+                            </div>-->
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+ 
+            </section>
+
+      <footer>
+            <div class="container" id="footforo">
+                <div class="row">
+                    <div class="col-lg-1 col-xs-3 col-sm-2 logo " id="logofooter"><a href="#"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
+                    <div class="col-lg-8 col-xs-9 col-sm-5 " id="correofooter">Copyrights 2019, constructoramejiapolanco.com</div>
+                    <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent" id="socialfooter">
+                        <ul class="socialicons">
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cloud"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+
+        <!-- get jQuery from the google apis -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+
+        <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+        <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+
+        <!-- LOOK THE DOCUMENTATION FOR MORE INFORMATIONS -->
+        <script type="text/javascript">
+
+            var revapi;
+
+            jQuery(document).ready(function() {
+                "use strict";
+                revapi = jQuery('.tp-banner').revolution(
+                        {
+                            delay: 15000,
+                            startwidth: 1200,
+                            startheight: 278,
+                            hideThumbs: 10,
+                            fullWidth: "on"
+                        });
+
+            });	//ready
+
+        </script>
+
+        <!-- END REVOLUTION SLIDER -->
+    </body>
+</html>

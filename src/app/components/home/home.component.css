@@ -537,3 +537,46 @@ ul, ol {
   margin-left: 1340px;
   margin-top: -199px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#call-to-action {
+  background:linear-gradient(rgb(44, 42, 34) 0%, rgb(44, 42, 34) 100%);
+}
+#call-to-action .container {
+  padding: 42px 0px 36px 0px!important;
+}
+ 
+
+#call-to-action span {
+  color: #ffffff!important;
+}
+
+#call-to-action span {
+  font-family: 'Open Sans';
+  font-weight: 600;
+}
+
+
+#call-to-action {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  position: relative;
+  z-index: 10;
+  background-color: #eeedec;
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 22px;
+}

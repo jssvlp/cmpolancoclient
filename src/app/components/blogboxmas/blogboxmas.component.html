@@ -21,7 +21,7 @@
         <li class="dropdown drop"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li class="post"><a *ngIf="user?.roleId === 1" (click) = "editar(post.blogID)" >Editar</a> </li>
-                    <li class="post"> <a *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" >Eliminar</a></li>
+                    <li class="post"><a *ngIf="user?.roleId === 1" (click) = "eliminar(post.blogID)" href="blog" >Eliminar</a></li>
                 </ul>
         </li>
         <br>

@@ -89,7 +89,7 @@
                     </div>
                   <div *ngIf ="data?.inmuebles.length > 0" id="inmuebles">
                     <br>
-                    <h5>Inmuebles</h5>
+                    <h5>Inmuebles:</h5>
                     <div *ngFor = "let d of data?.inmuebles">
                       <label>{{d.nombreInmueble}}</label>
                       <br>
@@ -102,11 +102,13 @@
                       <h5>Características del inmueble</h5>
                       <label><strong>Cantidad de habitaciones:</strong> {{d.cantidadHabitaciones}}</label>
                       <br>
-                      <label><strong>Cantidad de baños:</strong>{{d.cantidadBanos}}</label>
+                      <label><strong>Cantidad de baños:</strong> {{d.cantidadBanos}}</label>
                       <br>
-                      <label>Cantidad de parqueos: {{d.cantidadParqueos}}</label>
+                      <label><strong>Cantidad de parqueos:</strong> {{d.cantidadParqueos}}</label>
                       <br>
-                      <label>Cantidad de metros cuadrados: {{d.mts}}</label>
+                      <label><strong>Cantidad de metros cuadrados:</strong> {{d.mts}} Mts2</label>
+                      <br>
+                      <br>
                     </div>
                   </div>
                 <div *ngIf ="data?.inmuebles.length == 0 ">

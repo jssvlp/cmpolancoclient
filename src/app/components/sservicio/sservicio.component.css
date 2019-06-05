@@ -150,9 +150,9 @@ div.validation-error{
 
 header {
   background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
-  padding: 20px;
+  padding: 26px;
 }
 body {
-  margin-top: -10px;
+  margin-top: -20px;
   padding-bottom: 0px;
 }

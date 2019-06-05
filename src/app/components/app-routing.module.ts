@@ -18,6 +18,7 @@ import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.co
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
+import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -29,13 +30,15 @@ const routes: Routes = [
   {path: 'addpost', component: AddpostComponent},
   {path: 'blogInfo', component: BlogboxmasComponent},
   {path: 'foro', component: ForoComponent},
-  {path: 'newtopic', component: TopicForoComponent},
+  {path: 'foro/: id', component: ForoComponent},
+  {path: 'newtopic', component: TopicForoComponent,canActivate:[AuthGuard]},
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
   {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
+  {path: 'topic/: id', component: DetalleForoComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

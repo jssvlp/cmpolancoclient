@@ -52,6 +52,11 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ChatbComponent } from './chatb/chatb.component';
 import { PostForoComponent } from './post-foro/post-foro.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
+import {NgxMaskModule} from 'ngx-mask';
+
+
+import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
+import { FiltroFPipe } from './pipes/filtro-f.pipe';
 
 const routes=[
   {
@@ -84,7 +89,9 @@ const routes=[
     CalculadoraComponent,
     ChatbComponent,
     PostForoComponent,
-    TopicForoComponent
+    TopicForoComponent,
+    DetalleForoComponent,
+    FiltroFPipe
   ],
   imports: [
     BrowserModule,
@@ -92,6 +99,7 @@ const routes=[
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxMaskModule.forRoot(),
     FlatpickrModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',

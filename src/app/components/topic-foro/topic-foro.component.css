@@ -3506,3 +3506,34 @@ website:   	http://www.themepunch.com
 #butforo{
   color:white;
 }
+
+
+
+
+footer {
+ 
+  margin-top: 0px;
+  padding-bottom: 0px;
+  
+}
+
+#logofooter{
+
+  padding-bottom: -1000px;
+
+}
+
+#correofooter{
+
+  padding-bottom: -1000px;
+}
+
+#socialfooter{
+
+  padding-bottom: -1000px;
+}
+
+#contenedor{
+  position: relative;
+  padding-bottom: 100px;
+}
