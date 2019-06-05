@@ -5,6 +5,8 @@ import { ProyectoService} from '../../services/proyecto.service';
 import { ServicioModel } from 'src/app/model/Servicio.model';
 import { ServiciosService } from 'src/app/services/servicios.service';
 import { Router } from '@angular/router';
+import { GenericdataService } from 'src/app/services/genericdata.service';
+import { GenericData } from 'src/app/model/GenericData.model';
 declare var $:any;
 
 @Component({
@@ -16,8 +18,9 @@ export class HomeComponent implements OnInit {
   user: any
   data : ProyectoModel[]=[]
   servicio : ServicioModel[]=[]
+  genericData: GenericData[] = [];
 
-  constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router ) { }
+  constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router,private GenericDataService:GenericdataService ) { }
 
   async ngOnInit() {
     this.proyectoService.getProjects()
@@ -53,6 +56,15 @@ export class HomeComponent implements OnInit {
     window.localStorage.removeItem("SID");
     window.localStorage.setItem("SID", String(s.servicioID));
     this.router.navigate(['solicitud']);
+  }
+  getGenericDataByKey(key){
+    let value;
+    for(let i = 0; i < this.genericData.length; i++){
+      if(this.genericData[i]['key'] == key){
+          value = this.genericData[i]['value']
+      }
+    }
+    return value;
   }
 
 }
