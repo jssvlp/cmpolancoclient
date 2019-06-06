@@ -31,6 +31,7 @@
                                     <a routerLink="/foro/{{temaID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
                                     <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()">Eliminar post</button>
                                     <button *ngIf="usuarioID == userpostID" class="btn btn-danger" (click) = "changeNo()">Editar post</button>
+                                    <button *ngIf="userRole == 1 && archivado == false" class="btn btn-danger" (click) = "finalizar()">Finalizar discución</button>
                                 </form>
                             </div>
      
@@ -212,7 +213,7 @@
                             </div><!-- POST -->
 
                             <!-- POST -->
-                            <div *ngIf = "usuarioID > 0" class="post">
+                            <div *ngIf = "usuarioID > 0 && archivado == false" class="post">
                                 <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
                                     <div class="topwrap">
                             
@@ -246,6 +247,7 @@
                                 </form>
                             </div><!-- POST -->
                             <div *ngIf = "usuarioID < 0"> Debe estar registrado para poder realizar un comentario.</div>
+                            <div *ngIf = "archivado == true">Este foro es solo de lectura.</div>
 
 
                         </div>

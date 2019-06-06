@@ -34,6 +34,7 @@ export class DetalleForoComponent implements OnInit {
   postForm: FormGroup;
   usuarioID: number;
   userRole: number;
+  archivado: Boolean;
 
   constructor(private actvRoute: ActivatedRoute, private foroApi: ForoService, private formBuilder: FormBuilder, private authApi: AuthService,private toastr: ToastrService,
     private commentApi: ComentarioService, private router: Router) { }
@@ -58,6 +59,7 @@ export class DetalleForoComponent implements OnInit {
         this.comentarios = res.cometariosForos;
         this.userpostID = res.usuarioID;
         this.temaID = res.temaID;
+        this.archivado = res.archivado;
       })
     }
   
@@ -136,6 +138,7 @@ export class DetalleForoComponent implements OnInit {
       this.comentarios = res.cometariosForos;
       this.userpostID = res.usuarioID;
       this.temaID = res.temaID;
+      this.archivado = res.archivado;
     })
   }
 
@@ -170,6 +173,18 @@ onEditP(){
 changeNo(){
   this.idpost = this.ID;
   this.postForm.controls["textoPublicacion"].setValue(this.post);
+}
+
+finalizar(){
+  this.postForm.controls["tituloPublicacion"].setValue(this.titulo);
+  this.postForm.controls["usuarioID"].setValue(this.usuarioID);
+  this.postForm.controls["temaID"].setValue(this.temaID);
+  this.postForm.controls["textoPublicacion"].setValue(this.post);
+  this.postForm.controls["timeStampForo"].setValue(this.fecha);
+  this.postForm.controls["archivado"].setValue(true);
+ this.foroApi.updatePost(this.postForm.value).subscribe(res => {
+  this.refrescar();
+ })
 }
 
 }

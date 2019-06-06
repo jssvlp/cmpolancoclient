@@ -113,3 +113,12 @@ body{
 
   top: -80px;
 }
+
+header {
+  background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  padding: 20px;
+}
+body {
+  margin-top: -10px;
+  padding-bottom: 0px;
+}
