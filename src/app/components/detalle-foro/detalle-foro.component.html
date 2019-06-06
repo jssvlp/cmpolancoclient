@@ -165,10 +165,13 @@
                                     <div class="clearfix"></div>
                                 </div>                              
                                 <div class="postinfobot">
-
-                                    <button *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</button>
-                                    <button *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</button>
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                    <li class="dropdown drop"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</li>
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</li>
+                                        </ul>
+                                    </li>
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
  
 
                                     <div class="clearfix"></div>

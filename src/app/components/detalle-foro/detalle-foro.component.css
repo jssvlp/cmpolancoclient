@@ -420,6 +420,28 @@ body {
     vertical-align: top;
   }
   
+  /*--- Comments --*/
+  
+  ul{
+    width: 20px;
+  }
+  
+  .drop{
+    display: inline-block;
+  }
+
+ 
+
+  .com{
+    cursor: pointer;
+    font-size: 13px;
+    padding-left: 50px;
+  }
+  
+  .com:hover{
+    text-decoration: underline;
+    color: blue;
+  }
   
   /*--- Post --*/
   .post {
