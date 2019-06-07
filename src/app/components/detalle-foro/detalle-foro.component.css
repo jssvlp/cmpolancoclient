@@ -155,14 +155,13 @@ body {
   }
   
   .avt button {
-    height: 38px;
+    display: inline;
     border: none;
     box-shadow: none;
     color: #ffffff;
     font-size: 14px;
     font-family: 'Open Sans Bold', sans-serif;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 5px;
     background-color: #1abc9c;
   }
   
@@ -419,6 +418,14 @@ body {
   td.chbox {
     vertical-align: top;
   }
+
+
+.form{
+  width: 700px;
+
+}
+
+
   
   /*--- Comments --*/
   
@@ -439,8 +446,8 @@ body {
   }
   
   .com:hover{
-    text-decoration: underline;
-    color: blue;
+    background: #000;
+    color: #fff;
   }
   
   /*--- Post --*/

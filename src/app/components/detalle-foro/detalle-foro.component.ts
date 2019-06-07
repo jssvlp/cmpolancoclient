@@ -97,9 +97,9 @@ export class DetalleForoComponent implements OnInit {
   }
 
   eliminar(){
-    if(confirm('¿Esta seguro que desea eliminar este post?, tambien se borraran los comentarios existentes en este post.')){
+    if(confirm('¿Esta seguro que desea eliminar este post? Tambien se borraran los comentarios existentes en este post.')){
       this.foroApi.deletePost(this.ID).subscribe(res =>{
-        this.toastr.error('El post ha sido editada','Post.Eliminado');
+        this.toastr.error('El post ha sido eliminado','Post.Eliminado');
         this.router.navigate(['foro']);
       });
     }
