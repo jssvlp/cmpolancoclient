@@ -28,9 +28,10 @@
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
                                 <form action="03_new_topic.html" method="post" class="form">
-                                    <a routerLink="/foro/{{temaID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
-                                    <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()">Eliminar post</button>
-                                    <button *ngIf="usuarioID == userpostID" class="btn btn-danger" (click) = "changeNo()">Editar post</button>
+                                    <a routerLink="/foro/{{temaID}}" class="btn btn-success" id="butforo"   role="button">Regresar al Foro</a>
+                                    <button *ngIf="usuarioID == userpostID" class="btn btn-info" (click) = "changeNo()"> Editar Post </button>
+                                    <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()"> Eliminar Post</button>
+                                    <button *ngIf="userRole == 1 && archivado == false" class="btn btn-warning fin" (click) = "finalizar()">Finalizar Discusión</button>
                                 </form>
                             </div>
      
@@ -165,10 +166,13 @@
                                     <div class="clearfix"></div>
                                 </div>                              
                                 <div class="postinfobot">
-
-                                    <button *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</button>
-                                    <button *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</button>
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                    <li class="dropdown drop"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</li>
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</li>
+                                        </ul>
+                                    </li>
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
  
 
                                     <div class="clearfix"></div>
@@ -209,7 +213,7 @@
                             </div><!-- POST -->
 
                             <!-- POST -->
-                            <div *ngIf = "usuarioID > 0" class="post">
+                            <div *ngIf = "usuarioID > 0 && archivado == false" class="post">
                                 <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
                                     <div class="topwrap">
                             
@@ -243,6 +247,7 @@
                                 </form>
                             </div><!-- POST -->
                             <div *ngIf = "usuarioID < 0"> Debe estar registrado para poder realizar un comentario.</div>
+                            <div *ngIf = "archivado == true">Este foro es solo de lectura.</div>
 
 
                         </div>
