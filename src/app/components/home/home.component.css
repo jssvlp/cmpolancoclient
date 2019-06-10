@@ -336,12 +336,12 @@ ul, ol {
 
 
 
-#wa{
+/* #wa{
   display: none;
-}
+} */
 
 .float{
-	position:fixed;
+	position: fixed;
 	width:200px;
 	height:33px;
 	bottom:40px;
