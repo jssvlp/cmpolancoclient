@@ -115,7 +115,7 @@
                                  </select>
      
                            <label>Monto del Préstamo</label>
-                           <input [(ngModel)]="monto" mask="comma_separator.2" type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
+                           <input [(ngModel)]="monto" mask="comma_separator" type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
                           
      
      
@@ -178,8 +178,14 @@
              <div class="calculo">
                  <div > <p class="cuota"> Su Cuota Mensual a pagar es de:</p> <p class="resultado">{{result}}</p></div>
              </div>
+             <br>
 
-                 <!-- <p>Result2 : {{result2}}</p>          -->
+            <div class="comentario">
+              <p> <b>Importante</b> Estos cálculos son proyecciones estimadas y pueden variar dependiendo el banco por el cual solicite el préstamo. Para una información mas acertada puede dar click en uno de los siguientes links según el banco de su preferencia: <br><br>
+              <a  target="blank" href="https://www.popularenlinea.com/Personas/Paginas/nosotros/pistas-financieras.aspx"> Popular </a>  <br>
+              <a  target="blank" href="https://www.banreservas.com/calculators/hipotecarios"> Ban Reservas </a>
+            </p>
+            </div>
      
 
                 </div>
