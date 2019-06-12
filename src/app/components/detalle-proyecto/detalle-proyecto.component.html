@@ -6,7 +6,7 @@
       <div class="container">
           <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
-              <div class="card card-solicitud flex-row my-5">
+              <div class="card card-solicitud flex-row my-5" id="cardsolicitud">
                 <div class="card-body" id="card">
                   <h5 class="card-title text-center" id="titulo">{{data?.nombreProyecto}}</h5>
                   <br>
@@ -26,12 +26,8 @@
 
                   <br>
                   <label> {{data?.direccion}}</label>
-                  <div id="ecar">
-                      <br>
-                      <strong id="ecar">Ubicación</strong>   
-                  </div>
                   <br>
-                  <app-map    [latitude]="latitude" [longitude]="longitude"></app-map>
+ 
     
                   <div *ngIf = "distribucion?.length > 0" id="distribucion">
                       <br>
@@ -117,6 +113,13 @@
                   </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div class="card" style="width: 31rem;" id="card-map">
+              <div class="card-body" id="card-m">
+                  <h1>Ubicación del Proyecto</h1>
+                  <app-map [latitude]="latitude" [longitude]="longitude"></app-map>
               </div>
             </div>
   </body>

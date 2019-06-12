@@ -155,10 +155,7 @@
                                 <div class="topwrap">
                                     <div class="userinfo pull-left">
  
-
-                                        <div class="icons">
-                                            <!--<img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
-                                        </div>
+ 
                                     </div>
                                     <div class="posttext pull-left">
                                         <p>{{c?.textoComentario}}</p>
@@ -219,7 +216,7 @@
                             
                                         <div class="posttext pull-left" id="pull-left">
                                             <div class="textwraper">
-                                                <div class="postreply">Post a Reply</div>
+                                                <!-- <div class="postreply">Post a Reply</div> -->
                                                 <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Escribe tu comentario aquí."></textarea>
                                             </div>
                                         </div>
@@ -237,7 +234,7 @@
 
                                         <div class="pull-right postreply">
                                 
-                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
+                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Publicar</button></div>
                                             <div class="clearfix"></div>
                                         </div>
 
@@ -340,5 +337,6 @@
         </script>
 
         <!-- END REVOLUTION SLIDER -->
+        
     </body>
 </html>

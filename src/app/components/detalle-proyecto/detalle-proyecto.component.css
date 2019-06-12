@@ -8,15 +8,19 @@ header {
   }
 
   #card{
-    border: 0;
-    border-radius: 2rem;
+    border: 0; 
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
 
+  #cardsolicitud{
+   width: 900px;
+   margin-left: -280px;
+  }
+
   body {
-    background: #007bff;
-    background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196));
+    /* background: #007bff; */
+    /* background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196)); */
     margin-top: -24px;
   }
 
@@ -65,3 +69,10 @@ label{
 #inmuebles h5{
   padding-top: 20px;
 }
+
+#card-map{
+  margin-left: 1000px;
+  margin-top:-1740px;
+ 
+}
+ 
