@@ -57,6 +57,7 @@ import {NgxMaskModule} from 'ngx-mask';
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
+import { CarouselProductComponent } from './carousel-product/carousel-product.component';
 
 const routes=[
   {
@@ -91,7 +92,8 @@ const routes=[
     PostForoComponent,
     TopicForoComponent,
     DetalleForoComponent,
-    FiltroFPipe
+    FiltroFPipe,
+    CarouselProductComponent
   ],
   imports: [
     BrowserModule,
