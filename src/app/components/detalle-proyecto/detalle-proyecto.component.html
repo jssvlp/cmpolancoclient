@@ -8,38 +8,41 @@
         <h5 class="card-title text-center" id="titulo">{{data?.nombreProyecto}}</h5>
         <img height="550" weight="550" src="../../../../assets/Recursos/{{data?.imgURL}}"  class="d-block w-100" alt="projects">
         <div id="contenido">
-  
+
+            <div id="iconofecha"><img src="assets/calendar.png"></div>
             <label id="subtitulo">Fecha de Termino</label>
             <br>
-            <label>» {{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</label>
+            <label id="box">» {{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</label>
             <br>
+            <div id="iconodireccion"><img src="assets/home.png"></div>
             <label id="subtitulo">Dirección</label>
             <br>
-            <label>» {{data?.direccion}}</label>
+            <label id="box">» {{data?.direccion}}</label>
             
         </div>
 
         <div *ngIf = "distribucion?.length > 0" id="distribucion">
+          <div id="iconodireccion"><img src="assets/ruler.png"></div>
           <label id="subtitulo" >Distribución</label>
           <div *ngFor = "let d of distribucion">
             <!-- <label>{{d.caracteristica?.carNombre}}</label> -->
  
-            <label>» {{d.caracteristica?.carDescripcion}}</label>
+            <label id="box">» {{d.caracteristica?.carDescripcion}}</label>
           </div>
         </div>
 
         <div *ngIf = "otros?.length > 0" id="otros">
-      
+            <div id="iconodireccion"><img src="assets/aparment.png"></div>
             <label id="subtitulo" >Características</label>
             <div *ngFor = "let o of otros" id="caracteristicas">
               <!-- <label id="titulo">{{o.caracteristica?.carNombre}}</label> -->
  
-              <label>» {{o.caracteristica?.carDescripcion}}</label>
+              <label id="box">» {{o.caracteristica?.carDescripcion}}</label>
             </div>
         </div>
 
         <div *ngIf = "seguridad?.length > 0" id="seguridad">
-           
+            <div id="iconodireccion"><img src="assets/locked.png"></div>
             <label id="subtitulo" >Seguridad</label>
             <div *ngFor = "let s of seguridad">
               <!-- <label>{{s.caracteristica?.carNombre}}</label> -->
@@ -51,7 +54,7 @@
         <br>
 
         <div *ngIf = "amenidades?.length > 0" id="amenidades">
- 
+            <div id="iconodireccion"><img src="assets/bbq.png"></div>
             <label id="subtitulo" >Amenidades</label>
             <div *ngFor = "let a of amenidades">
               <!-- <label>{{a.caracteristica?.carNombre}}</label> -->
@@ -61,22 +64,22 @@
         </div>
 
         <div *ngIf = "descripcionG?.length > 0" id="general">
-          <br>
+          <div id="iconodireccion"><img src="assets/home1.png"></div>
           <label id="subtitulo">Descripción General</label>
           <div *ngFor = "let dg of descripcionG ">
-          <label>{{dg.caracteristica?.carNombre}}</label>
+          <!-- <label>{{dg.caracteristica?.carNombre}}</label> -->
           <br>
-          <label>{{dg.caracteristica?.carDescripcion}}</label>
+          <label id="box">{{dg.caracteristica?.carDescripcion}}</label>
           </div>
         </div>
 
         <div *ngIf = "descripcionA?.length > 0" id="desapart">
-          <br>
+            <div id="iconodireccion"><img src="assets/building-with-big-windows.png"></div>
           <label id="subtitulo" >Descripción de Apartamentos</label>
           <div *ngFor = "let da of descripcionA ">
-          <label>{{da.caracteristica?.carNombre}}</label>
+          <!-- <label>{{da.caracteristica?.carNombre}}</label> -->
           <br>
-          <label>{{da.caracteristica?.carDescripcion}}</label>
+          <label id="box">{{da.caracteristica?.carDescripcion}}</label>
           </div>
         </div>
 
