@@ -3,11 +3,31 @@ header {
     padding: 20px;
   }
 
-  #titulo{
+  #titulo{ 
+    text-transform:uppercase;
+    font-size: bold;    
     font-size: 70px;
+    color: #17a2b8;
+    font-family: BebasNeue;
   }
 
+#subtitulo{
+ 
+    font-size: bold;    
+    font-family: MontserratRegular;
+    font-size: 22px;
+    color: #17a2b8;
+    text-transform:uppercase;
+  
+}
+
+
+
+
+
   #card{
+    margin-top: 20px;
+    margin-left: 290px;
     border: 0; 
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -72,7 +92,30 @@ label{
 
 #card-map{
   margin-left: 1000px;
-  margin-top:-1740px;
- 
+  margin-top:-8600px;
+  display:inline;
+}
+
+#tituloubi{
+text-align: center;
+text-transform:uppercase;
+font-size: bold;
+color: #6c757d;
+}
+#tituloubi span{
+  color: #17a2b8;
+  /* color: #edbb00; */
+
+}
+
+#proyectos{
+  padding-bottom: 60px;
+}
+
+#box {
+  display: inline-block;
+  
+  
+   
 }
  

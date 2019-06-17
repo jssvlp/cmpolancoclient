@@ -3,123 +3,112 @@
   </header>
   <br>
   <body>
-      <div class="container">
-          <div class="row">
-            <div class="col-lg-10 col-xl-9 mx-auto">
-              <div class="card card-solicitud flex-row my-5" id="cardsolicitud">
-                <div class="card-body" id="card">
-                  <h5 class="card-title text-center" id="titulo">{{data?.nombreProyecto}}</h5>
-                  <br>
-                  <img height="550" weight="550" src="../../../../assets/Recursos/{{data?.imgURL}}"  class="d-block w-100" alt="projects">
-                  <div id="ecar">
-                      <br>
-                      <strong>Fecha de Termino</strong> 
-                  </div>
-      
-                  <br>
-                  <label>{{data?.fechaTerminacion | date:'dd/MM/yyyy'}} </label>
-
-                  <div id="ecar">
-                      <br>
-                  <strong >Dirección </strong> 
-                  </div>
-
-                  <br>
-                  <label> {{data?.direccion}}</label>
-                  <br>
- 
     
-                  <div *ngIf = "distribucion?.length > 0" id="distribucion">
-                      <br>
-                    <label id="titulo">Distribución</label>
-                    <div *ngFor = "let d of distribucion">
-                      <label>{{d.caracteristica?.carNombre}}</label>
-                      <br>
-                      <label>{{d.caracteristica?.carDescripcion}}</label>
-                    </div>
-                  </div>
-                  <div *ngIf = "otros?.length > 0" id="otros">
-                      <br>
-                      <label id="titulo">Características</label>
-                      <div *ngFor = "let o of otros" id="caracteristicas">
-                        <label id="titulo">{{o.caracteristica?.carNombre}}</label>
-                        <br>
-                        <label>{{o.caracteristica?.carDescripcion}}</label>
-                      </div>
-                    </div>
-                    <div *ngIf = "seguridad?.length > 0" id="seguridad">
-                        <br>
-                        <label id="titulo">Seguridad</label>
-                        <div *ngFor = "let s of seguridad">
-                          <label>{{s.caracteristica?.carNombre}}</label>
-                          <br>
-                          <label>{{s.caracteristica?.carDescripcion}}</label>
-                        </div>
-                    </div>
-                    <div *ngIf = "amenidades?.length > 0" id="amenidades">
-                        <br>
-                        <label id="ame">Amenidades</label>
-                        <div *ngFor = "let a of amenidades">
-                          <label>{{a.caracteristica?.carNombre}}</label>
-                          <br>
-                          <label>{{a.caracteristica?.carDescripcion}}</label>
-                        </div>
-                    </div>
-                    <div *ngIf = "descripcionG?.length > 0" id="general">
-                      <br>
-                      <label id="titulo">Descripción General</label>
-                      <div *ngFor = "let dg of descripcionG ">
-                      <label>{{dg.caracteristica?.carNombre}}</label>
-                      <br>
-                      <label>{{dg.caracteristica?.carDescripcion}}</label>
-                      </div>
-                    </div>
-                    <div *ngIf = "descripcionA?.length > 0" id="desapart">
-                      <br>
-                      <label id="titulo">Descripción de Apartamentos</label>
-                      <div *ngFor = "let da of descripcionA ">
-                      <label>{{da.caracteristica?.carNombre}}</label>
-                      <br>
-                      <label>{{da.caracteristica?.carDescripcion}}</label>
-                      </div>
-                    </div>
-                  <div *ngIf ="data?.inmuebles.length > 0" id="inmuebles">
-                    <br>
-                    <h5>Inmuebles:</h5>
-                    <div *ngFor = "let d of data?.inmuebles">
-                      <label>{{d.nombreInmueble}}</label>
-                      <br>
-                      <label>Precio</label>
-                      <br>
-                      <label>{{d.precio | currency: d.moneda :true:'1.2-2'}}</label>       
-                      <br>
-                      <label>{{d.descripcionInmueble}}</label>
-                      <br>
-                      <h5>Características del inmueble</h5>
-                      <label><strong>Cantidad de habitaciones:</strong> {{d.cantidadHabitaciones}}</label>
-                      <br>
-                      <label><strong>Cantidad de baños:</strong> {{d.cantidadBanos}}</label>
-                      <br>
-                      <label><strong>Cantidad de parqueos:</strong> {{d.cantidadParqueos}}</label>
-                      <br>
-                      <label><strong>Cantidad de metros cuadrados:</strong> {{d.mts}} Mts2</label>
-                      <br>
-                      <br>
-                    </div>
-                  </div>
-                <div *ngIf ="data?.inmuebles.length == 0 ">
-                  <h5>Este proyecto no tiene ningun inmueble registrado.</h5>
-                </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
+    <section id="proyectos">
+        <h5 class="card-title text-center" id="titulo">{{data?.nombreProyecto}}</h5>
+        <img height="550" weight="550" src="../../../../assets/Recursos/{{data?.imgURL}}"  class="d-block w-100" alt="projects">
+        <div id="contenido">
+  
+            <label id="subtitulo">Fecha de Termino</label>
+            <br>
+            <label>» {{data?.fechaTerminacion | date:'dd/MM/yyyy'}}</label>
+            <br>
+            <label id="subtitulo">Dirección</label>
+            <br>
+            <label>» {{data?.direccion}}</label>
+            
+        </div>
+
+        <div *ngIf = "distribucion?.length > 0" id="distribucion">
+          <label id="subtitulo" >Distribución</label>
+          <div *ngFor = "let d of distribucion">
+            <!-- <label>{{d.caracteristica?.carNombre}}</label> -->
+ 
+            <label>» {{d.caracteristica?.carDescripcion}}</label>
+          </div>
+        </div>
+
+        <div *ngIf = "otros?.length > 0" id="otros">
+      
+            <label id="subtitulo" >Características</label>
+            <div *ngFor = "let o of otros" id="caracteristicas">
+              <!-- <label id="titulo">{{o.caracteristica?.carNombre}}</label> -->
+ 
+              <label>» {{o.caracteristica?.carDescripcion}}</label>
             </div>
+        </div>
+
+        <div *ngIf = "seguridad?.length > 0" id="seguridad">
+           
+            <label id="subtitulo" >Seguridad</label>
+            <div *ngFor = "let s of seguridad">
+              <!-- <label>{{s.caracteristica?.carNombre}}</label> -->
+        
+              <label id="box">» {{s.caracteristica?.carDescripcion}}</label>
+            </div>
+        </div>
+
+        <br>
+
+        <div *ngIf = "amenidades?.length > 0" id="amenidades">
+ 
+            <label id="subtitulo" >Amenidades</label>
+            <div *ngFor = "let a of amenidades">
+              <!-- <label>{{a.caracteristica?.carNombre}}</label> -->
+ 
+              <label id="box">» {{a.caracteristica?.carDescripcion}}</label>
+            </div>
+        </div>
+
+        <div *ngIf = "descripcionG?.length > 0" id="general">
+          <br>
+          <label id="subtitulo">Descripción General</label>
+          <div *ngFor = "let dg of descripcionG ">
+          <label>{{dg.caracteristica?.carNombre}}</label>
+          <br>
+          <label>{{dg.caracteristica?.carDescripcion}}</label>
+          </div>
+        </div>
+
+        <div *ngIf = "descripcionA?.length > 0" id="desapart">
+          <br>
+          <label id="subtitulo" >Descripción de Apartamentos</label>
+          <div *ngFor = "let da of descripcionA ">
+          <label>{{da.caracteristica?.carNombre}}</label>
+          <br>
+          <label>{{da.caracteristica?.carDescripcion}}</label>
+          </div>
+        </div>
+
+
+    </section>
+
+    <div *ngIf ="data?.inmuebles.length > 0" > 
+    <div *ngFor = "let d of data?.inmuebles">
+    <div class="card" style="width: 40rem;" id="card">
+      <div class="card-body">
+        <h5 class="card-title" id="subtitulo" >Inmueble {{d.nombreInmueble}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{d.descripcionInmueble}}</h6>
+        <p class="card-text">El precio del inmueble es {{d.precio | currency: d.moneda :true:'1.2-2'}}.</p>
+        <p class="card-text">{{d.cantidadHabitaciones}} habitaciones.</p>
+        <p class="card-text">{{d.cantidadBanos}} baños.</p>
+        <p class="card-text">{{d.cantidadParqueos}} parqueos.</p>
+        <p class="card-text">Cantidad de metros cuadrados  {{d.mts}} Mts2</p>
+      </div>
+    </div>
+  </div>
+</div>    
+       
+<div *ngIf ="data?.inmuebles.length == 0 ">
+  <h5>Este proyecto no tiene ningun inmueble registrado.</h5>
+</div>
+            
 
             <div class="card" style="width: 31rem;" id="card-map">
               <div class="card-body" id="card-m">
-                  <h1>Ubicación del Proyecto</h1>
+                  <h1 id="tituloubi">Ubicación del <span>Proyecto</span></h1>
                   <app-map [latitude]="latitude" [longitude]="longitude"></app-map>
               </div>
             </div>
   </body>
+ 
