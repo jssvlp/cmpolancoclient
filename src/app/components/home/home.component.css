@@ -387,10 +387,83 @@ ul, ol {
   color: #edbb00;
 }
 
+#btca2{
+  display: none;
+  
+  
+}
+#contenidoconoce2{
+  display: none;
+
+}
+
+#contenidoconoce3{
+  display: none;
+  
+}
+
+
 /* Media queries */
 
 @media screen and (max-width:800px){
 
+  #contenidoconoce3{
+    color: white;
+    margin-left: 14px;
+    margin-top: -100px;
+    display: block;
+    height: 100px;
+    position: relative;
+    
+    white-space: nowrap;
+    font-size: 27px;
+  }
+
+  #contenidoconoce2{
+    color: #edbb00;
+    margin-left: 102px;
+    margin-top: -115px;
+    position: relative;
+    display: block;
+
+  }
+
+  #wa{
+    position: relative;
+    margin-left: 100px !important;
+    margin-top: 300px!important;
+  }
+
+  #btca2{
+    display: block;
+    margin-left: 130px;
+    margin-top: -152px;
+    position: relative;
+  }
+
+  #carouselExampleControls{
+    overflow-x: hidden;
+    overflow-y: hidden;
+ 
+  }
+
+  #arrow{
+    visibility: hidden;
+  }
+ 
+  #primerafoto{
+    width: 400px;
+    height: 350px;  
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  #imaca{
+    width: 400px;
+    height: 350px;  
+    overflow-x: hidden;
+    overflow-y: hidden; 
+  }
 
   .main .Contenedor .foto{
     width: 100%;
@@ -479,12 +552,14 @@ ul, ol {
       /* Esilos del carousel */
 
 #tituloscar{
-  padding-bottom: 50px;
+  padding-bottom: 390px;
+  margin-right: -1100px;
+ 
   /* font-family: poppins; */
 }
 
 #tituloscar h2{
-  font-size: 30px;
+  font-size: 26px;
   text-transform: uppercase;
   font-weight: bold;
   animation-name: bounceInLeft;
@@ -493,11 +568,32 @@ ul, ol {
 }
 
 #tituloscar h3{
-  font-size: 20px;
+  font-size: 26px;
 }
 
 #tituloscar h2 span{
   color: #edbb00;
+}
+
+
+#direccionca{
+  padding-bottom: 90px;
+  margin-left: 550px;
+ 
+}
+
+#direccionca h3 {
+  font-size: 500005px;
+  font-weight: bold;
+}
+
+
+#direccionca h3 span {
+  color:#edbb00;
+}
+
+#contenidoconoce{
+  margin-top: 100px;
 }
 
 }
@@ -537,9 +633,9 @@ ul, ol {
 #fotoca {
   -webkit-filter: brightness(20%);
    filter:brightness(80%);
-
+  
 }
-
+ 
 #icono{
   margin-right: 600px;
   position: fixed;

@@ -3518,3 +3518,8 @@ body {
     margin-left: 50px;
   }
   
+  @media screen and (max-width:800px){
+    #imagen{
+      width: 200px;
+    }
+  }

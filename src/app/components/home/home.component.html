@@ -30,9 +30,9 @@
   <!-- Wrapper for slides -->
 
 
-    <div class="carousel-inner" id="''" >
+    <div class="carousel-inner" id="image-caru" >
       <div class="carousel-item active" id="fotoca">
-          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
+          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects" id="primerafoto">
           <div class="carousel-caption d-md-block" id="tituloscar">
             <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
             <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
@@ -43,14 +43,17 @@
         <img height="775" src="../../../../assets/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
         <div class="carousel-caption d-none d-md-block" id="direccionca">
           <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
-          <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+          <h1 id="contenidoconoce" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
           <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d?.direccion}}</p></h2>
           <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
         </div>
-        <div class="carousel-caption d-md-block">
-        </div>
+        
+        <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-info" id="btca2">Acceder</button>
+        <h1 id="contenidoconoce2" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+        <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3>
       </div>
-
+ 
+      
       
 <div id="wa">  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -74,6 +77,7 @@
 </a>
 
 <section class="main">
+  
 
   <!----------------------------------------------------------------------------------->
                               <!--    SOBRE NOSOTROS     -->

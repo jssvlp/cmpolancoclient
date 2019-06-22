@@ -188,12 +188,12 @@ h1{
       .card-inmueble .card-body {
           padding: 2rem;
           width:400px ;
-          height:600px ;
+          height:850px ;
         }
   
         label{
           position: relative;
-          left: -40px;
+          left: 0px;
           width: 200px;
   
         }
@@ -203,6 +203,21 @@ h1{
           width: 200px;
           left: -40px;
         }
+        .form-control { 
+          width: 225px;
+  
+      }
+
+      .card-inmueble  .card-title{
+        margin-bottom: 25px;
+        font-weight: 300;
+        font-size: 25px;
+        margin-left: -10px;
+    }
+
+    .btn-primary  {
+      margin-left: -10px;
+  }
   
         
       

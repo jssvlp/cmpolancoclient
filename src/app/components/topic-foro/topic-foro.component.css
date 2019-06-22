@@ -3537,3 +3537,12 @@ footer {
   position: relative;
   padding-bottom: 100px;
 }
+
+
+@media screen and (max-width:800px){
+  .postinfobot  .posted  {
+    width: 220px;
+    margin: 0;
+}
+   
+}

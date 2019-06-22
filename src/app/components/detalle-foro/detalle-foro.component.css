@@ -3602,3 +3602,28 @@ body {
 #postinfobot{
   margin-left: 250px;
 }
+
+@media screen and (max-width:800px){
+  #pull-left  {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: 270px;
+}
+.post  h2 {
+  color: #363838;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: -40px;
+}
+
+p {
+  margin-left: -40px;
+}
+
+.postinfobot  .posted  {
+  width: 220px;
+  margin: 0;
+}
+}

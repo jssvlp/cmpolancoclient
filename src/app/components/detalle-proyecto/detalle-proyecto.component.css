@@ -20,11 +20,7 @@ header {
     text-transform:uppercase;
   
 }
-
-
-
-
-
+  
   #card{
     margin-top: 20px;
     margin-left: 300px;
@@ -66,7 +62,7 @@ label{
 }
 
 #seguridad #titulo{
-  padding-top: 20px;
+  padding-top: -20px;
 }
 #distribucion #titulo{
   padding-top: 20px;
@@ -137,4 +133,52 @@ color: #6c757d;
     top: 60px;
     left: 260px;
     position: relative;
+  }
+
+  @media screen and (max-width:800px){
+    body{
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    #imagenproyecto{
+      width: 100%;
+      height: 100%;
+     
+    }
+
+    #iconofecha  {
+      top: 58px;
+      left: 60px;
+      position: relative;
+  }
+
+  #subtitulo  {
+    font-size: bold;
+    font-family: MontserratRegular;
+    font-size: 22px;
+    color: #17a2b8;
+    text-transform: uppercase;
+    margin-left: 100px;
+}
+
+#iconodireccion  {
+  top: 60px;
+  left: 60px;
+  position: relative;
+}
+
+#box {
+  margin: 0;
+  padding: 0;
+  margin-left: 90px;
+}
+
+#card{
+  margin-left: 20px;
+ 
+}
+  
+  
+
+
   }
