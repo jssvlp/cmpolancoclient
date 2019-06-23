@@ -8,7 +8,7 @@ header {
     font-size: bold;    
     font-size: 70px;
     color: #17a2b8;
-    font-family: BebasNeue;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
 #subtitulo{
@@ -136,6 +136,13 @@ color: #6c757d;
   }
 
   @media screen and (max-width:800px){
+    #titulo{ 
+      text-transform:uppercase;
+      font-size: bold;    
+      font-size: 45px;
+      color: #17a2b8;
+      font-family: Arial, Helvetica, sans-serif;
+    } 
     body{
       overflow-x: hidden;
       overflow-y: hidden;
