@@ -11,7 +11,9 @@ import { Observable, of } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
-
+const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 @Injectable({
     providedIn: 'root' 
 })
@@ -56,10 +58,7 @@ export  class  AuthService {
         let accesToken = this.cookieService.get("tkn")
         const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
         this.cookieService.deleteAll();
-        //sessionStorage.removeItem("tkn");
-        //sessionStorage.removeItem("currentUser");
-        //localStorage.removeItem("currentUser");
-        //localStorage.removeItem("tkn");
+
         return this.Http.post(
             url_api,{headers : this.Headers}
         ).pipe(data => data);
@@ -100,15 +99,6 @@ export  class  AuthService {
             return null;
         }
         
-        /*let user_string = sessionStorage.getItem("currentUser");
-        if(!isNullOrUndefined(user_string)){
-            let user_string = sessionStorage.getItem("currentUser");
-            let user = JSON.parse(user_string);
-            return user;
-        }
-        else{
-            return null;
-        }*/
     }
 
     getToken(){
@@ -135,8 +125,8 @@ export  class  AuthService {
         localStorage.removeItem("tkn");
     }*/
 
-    RegisterOnApi(userInfo: any){
-        const url_api = "http://localhost:61756/api/usuarios";
+    RegisterClientOnApi(userInfo: any){
+        const url_api = "http://localhost:61756/api/clientes";
         //Insert in ApI
         return this.Http.post(url_api,userInfo,{headers : this.Headers}
         ).pipe(map(data => data));
@@ -155,23 +145,46 @@ export  class  AuthService {
             userInfo.FireBaseCode = userUpdate.uid;
             //console.log(userInfo);
             
-            this.RegisterOnApi(userInfo)
-             .subscribe(user => {
+            this.RegisterClientOnApi(userInfo)
+            .subscribe(user => {
                 //console.log(user);
                 if(user == null){
                     this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
                 }
                 else {
+                    //CREATE 
+                    this.createUserOnApi(user);
                     this.router.navigate(['/home'])
                 }
-              });;
-         } catch (e) {
-             alert("Error al crear el usuario:"  +  e);
-             console.log(e);
-         }
+            });;
+        } catch (e) {
+            alert("Error al crear el usuario:"  +  e);
+            console.log(e);
+        }
     }
 
-    
+    createUserOnApi(user:any)
+    {
+        const urlApi = "http://localhost:61756/api/Auth/Create";
+
+        let promise = new Promise((resolve,reject) =>{
+            this.Http.post<User>(urlApi,user,httpOptions)
+              .toPromise()
+              .then(
+                res => {
+                  //console.log(res,'*****');
+                  this.setUser(res);
+                 
+                  resolve();
+                },
+                msg => {
+                  reject(msg)
+                }
+              );
+          });
+        
+          return promise;
+    }
 
     getUser(id: number){
     const url = `${"http://localhost:61756/api/usuarios"}/${id}`;
@@ -196,4 +209,8 @@ export  class  AuthService {
 
 
 
+}
+export interface User {
+    email: string;
+    password: string;
 }
