@@ -60,7 +60,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
-import { ExampleComponentComponent } from './example-component/example-component.component';
+import { CarouselProductComponent } from './carousel-product/carousel-product.component';
+import { AuthInterceptor } from '../services/jwt.interceptor';
 
 const routes=[
   {
@@ -96,7 +97,7 @@ const routes=[
     TopicForoComponent,
     DetalleForoComponent,
     FiltroFPipe,
-    ExampleComponentComponent
+    CarouselProductComponent
   ],
   imports: [
     BrowserModule,
@@ -139,7 +140,7 @@ const routes=[
     CaracteristicaService,
     AuthService,{
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthService,
+      useClass: AuthInterceptor,
       multi: true
     }
   ],

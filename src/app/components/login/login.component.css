@@ -152,3 +152,33 @@
 #menu{
   width: 100px;
 }
+
+@media screen and (max-width:800px){
+  .card-login .card-title {
+    margin-left:-30px;
+    
+  }
+
+  .form-row{
+    margin-left: -50px;
+  }
+
+  .form-row .form-control{
+    width: 250px;
+  }
+   
+  .form-login  .btn  {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin-left: 5px;
+    margin-top: 40px;
+    transition: all 0.2s;
+    width: 250px;
+    top: 20px;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+}
+}
+

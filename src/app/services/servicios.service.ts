@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-
 import { Observable, of } from 'rxjs';
 import { ServicioModel } from '../model/Servicio.model';
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/Servicios";
+const apiUrl = config.api+"/Servicios";
 @Injectable({
   providedIn: 'root'
 })

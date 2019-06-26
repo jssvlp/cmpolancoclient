@@ -19,7 +19,7 @@
                     <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
                         <div class="wrap">
                             <form action="#" method="post" class="form">
-                                <div class="pull-left txt"><input type="text" class="form-control" name="filterPost" placeholder="Search Topics" [(ngModel)] = "filterPost"></div>
+                                <div class="pull-left txt"><input type="text" class="form-control" name="filterPost" placeholder="Busca" [(ngModel)] = "filterPost"></div>
                                 <div class="pull-right"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></div>
                                 <div class="clearfix"></div>
                             </form>
@@ -70,7 +70,7 @@
                                
                                 <div class="posttext pull-left" id="pull-left">
                                     <h2><a routerLink="/topic/{{p.publicacionID}}" id="tituloPublicacion" >{{p?.tituloPublicacion}}</a></h2>
-                                    <p>Decirle a Raymond que haga lo mismo que hizo con el blog</p>
+                                    <p id="postnowrap">Decirle a Raymond que haga lo mismo que hizo con el blog  Decirle a Raymond que haga lo mismo que hizo con el blog </p>
                                 </div>
                                 <div class="clearfix" id="fechapost">{{p?.timeStampForo | date:"dd/MM/yyyy HH:mm aa"}}</div>
                             </div>

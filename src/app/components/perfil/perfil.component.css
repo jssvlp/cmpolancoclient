@@ -1,6 +1,12 @@
 *{
   background: '\assets\white-waves.png';
 }
+
+header {
+  background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  padding: 20px;
+}
+
 body{
   padding: 120px;
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);

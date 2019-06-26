@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BlogService } from 'src/app/services/blog.service';
 import { ToastrService } from 'ngx-toastr';
 import { UserModel } from 'src/app/model/User.model';
-
+import config from '../../../config.js';
 @Component({
   selector: 'app-addpost',
   templateUrl: './addpost.component.html',
@@ -31,6 +31,6 @@ export class AddpostComponent implements OnInit {
 
  add(){
     //this.authService.change();
-    window.location.href="http://localhost:4500/Agregar Post"
+    window.location.href=config.admin+"/Agregar Post"
   }
 }

@@ -3521,18 +3521,18 @@ body {
 
   #logofooter{
  
-    padding-bottom: -1000px;
+    padding-bottom: -1500px;
 
   }
 
   #correofooter{
  
-    padding-bottom: -1000px;
+    padding-bottom: -1500px;
   }
 
   #socialfooter{
  
-    padding-bottom: -1000px;
+    padding-bottom: -1500px;
   }
 
   #contenedor{
@@ -3575,9 +3575,7 @@ body {
   top: 92px;
   right: -110px;
   font-weight: bold; 
-  color: #000;
-
-}
+ }
 
 #tituloPublicacion{
   font-size: 25px;
@@ -3585,9 +3583,43 @@ body {
   color: #000;
 }
 
+
+#postnowrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #titulocategoria{
   font-size: 18px;
   font-weight: bold; 
   color: #000;
   
+}
+
+
+@media screen and (max-width:800px){
+
+  #fechapost {
+    position: relative;
+    top: 30px;
+    right: -20px;
+    font-weight: bold;
+}
+
+  #npost  {
+    position: relative;
+    top: -19px;
+    right: -20px;
+    font-weight: bold;
+    color: #000;
+}
+
+#nombrepost  {
+  position: relative;
+  top: -39px;
+  right: -117px;
+  font-weight: bold;
+  color: #000;
+}
 }

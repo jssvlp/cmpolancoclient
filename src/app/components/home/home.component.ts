@@ -49,6 +49,19 @@ export class HomeComponent implements OnInit {
         }
       })
     })
+
+    // $(document).ready(function(){
+    //   $(window).scroll(function(){
+    //     var scroll = $(window).scrollTop();
+    //     if (scroll >230) {
+    //       $("#wa").css("display" , "block");
+    //     }
+    //     else{
+    //       $("#wa").css("display" , "none");
+
+    //     }
+    //   })
+    // })
     
   
   }

@@ -128,3 +128,23 @@ header {
   background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
   padding: 20px;
 }
+
+@media screen and (max-width:800px){
+  .card-signin .card-title {
+    margin-left:-30px;
+     
+  }
+  .form-row{
+     
+  }
+
+  .form-row .form-control{
+    width: 250px;
+  }
+
+  .form-signin  .btn  {
+    margin-left: -15px;
+  }
+
+  
+}

@@ -3,20 +3,40 @@ header {
     padding: 20px;
   }
 
-  #titulo{
+  #titulo{ 
+    text-transform:uppercase;
+    font-size: bold;    
     font-size: 70px;
+    color: #17a2b8;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
+#subtitulo{
+ 
+    font-size: bold;    
+    font-family: MontserratRegular;
+    font-size: 22px;
+    color: #17a2b8;
+    text-transform:uppercase;
+  
+}
+  
   #card{
-    border: 0;
-    border-radius: 2rem;
+    margin-top: 20px;
+    margin-left: 300px;
+    border: 0; 
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
 
+  #cardsolicitud{
+   width: 900px;
+   margin-left: -280px;
+  }
+
   body {
-    background: #007bff;
-    background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196));
+    /* background: #007bff; */
+    /* background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196)); */
     margin-top: -24px;
   }
 
@@ -42,7 +62,7 @@ label{
 }
 
 #seguridad #titulo{
-  padding-top: 20px;
+  padding-top: -20px;
 }
 #distribucion #titulo{
   padding-top: 20px;
@@ -65,3 +85,107 @@ label{
 #inmuebles h5{
   padding-top: 20px;
 }
+
+#card-map{
+  margin-left: 1000px;
+  margin-top:-8600px;
+  display:inline;
+}
+
+#tituloubi{
+text-align: center;
+text-transform:uppercase;
+font-size: bold;
+color: #6c757d;
+}
+#tituloubi span{
+  color: #17a2b8;
+  /* color: #edbb00; */
+
+}
+
+#proyectos{
+  padding-bottom: 30px;
+}
+
+/* #box {
+  float: left;
+  margin-left: 300px;
+   
+}
+  */
+
+  #box{
+    margin:0;
+    padding:0;
+    margin-left: 300px;
+  }
+
+
+
+  #iconofecha{
+    top: 58px;
+    left: 260px;
+    position: relative;
+  }
+
+  #iconodireccion{
+    top: 60px;
+    left: 260px;
+    position: relative;
+  }
+
+  @media screen and (max-width:800px){
+    #titulo{ 
+      text-transform:uppercase;
+      font-size: bold;    
+      font-size: 45px;
+      color: #17a2b8;
+      font-family: Arial, Helvetica, sans-serif;
+    } 
+    body{
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    #imagenproyecto{
+      width: 100%;
+      height: 100%;
+     
+    }
+
+    #iconofecha  {
+      top: 58px;
+      left: 60px;
+      position: relative;
+  }
+
+  #subtitulo  {
+    font-size: bold;
+    font-family: MontserratRegular;
+    font-size: 22px;
+    color: #17a2b8;
+    text-transform: uppercase;
+    margin-left: 100px;
+}
+
+#iconodireccion  {
+  top: 60px;
+  left: 60px;
+  position: relative;
+}
+
+#box {
+  margin: 0;
+  padding: 0;
+  margin-left: 90px;
+}
+
+#card{
+  margin-left: 20px;
+ 
+}
+  
+  
+
+
+  }

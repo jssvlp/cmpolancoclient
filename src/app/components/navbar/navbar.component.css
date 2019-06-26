@@ -3,12 +3,17 @@
 
 .navbar-nav li a {
     color: white;
-    font-size: 19px;
+    font-size: 16px;
   }
   
   .dropdown-menu {
     background-color: #17a2b8;
   }
+
+  #logotitulo{
+    color: #edbb00;
+    font-weight: bold; 
+    }
 
   .dropdown-menu  li a {
     
@@ -29,7 +34,7 @@ nav {
     }
 
   .navbar-light .navbar-nav .nav-link:hover {
-  color:#17a2b8;
+  color:#edbb00;
   }
 
   .contenedorh{
@@ -56,6 +61,12 @@ header{
     background: black;
 
 
+  }
+
+  #menu{
+    padding-right:-1200px;
+    margin-right: -1200px;
+    
   }
 }
         

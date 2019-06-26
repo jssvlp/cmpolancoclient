@@ -39,7 +39,7 @@ const routes: Routes = [
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
   {path: 'topic/: id', component: DetalleForoComponent},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'pagenotfound', component: PageNotFoundComponent}
 ];
 
 @NgModule({

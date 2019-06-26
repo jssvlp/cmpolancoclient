@@ -9,6 +9,7 @@
   <app-navbar></app-navbar>
 </header>
 
+
 <!----------------------------------------------------------------------------------->
                     <!--       BODY OF THE HOME-PAGE       -->
 <!----------------------------------------------------------------------------------->
@@ -18,7 +19,8 @@
 
 
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -27,9 +29,10 @@
   </ol>
   <!-- Wrapper for slides -->
 
-    <div class="carousel-inner" id="''" >
+
+    <div class="carousel-inner" id="image-caru" >
       <div class="carousel-item active" id="fotoca">
-          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects">
+          <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects" id="primerafoto">
           <div class="carousel-caption d-md-block" id="tituloscar">
             <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
             <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
@@ -40,28 +43,41 @@
         <img height="775" src="../../../../assets/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
         <div class="carousel-caption d-none d-md-block" id="direccionca">
           <h3><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
-          <h1 class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+          <h1 id="contenidoconoce" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
           <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d?.direccion}}</p></h2>
           <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
         </div>
-        <div class="carousel-caption d-md-block">
-        </div>
+        
+        <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-info" id="btca2">Acceder</button>
+        <h1 id="contenidoconoce2" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+        <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3>
       </div>
+ 
+      
+      
+<div id="wa">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202."  target="_blank">
+      <i class="fa fa-whatsapp wa"> <p>Whatsapp Mejía Polanco</p></i> 
+    </a>
+    </div> 
+    
 
     </div>
     <img class="animated bounce infinite" src="assets/back.png" id="arrow" alt="Generic placeholder image" alt="Generic placeholder image" > 
 </div>
   <!-- Controls -->
-<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="sr-only">Previous</span>
 </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
 <span class="carousel-control-next-icon" aria-hidden="true"></span>
 <span class="sr-only">Next</span>
 </a>
 
 <section class="main">
+  
 
   <!----------------------------------------------------------------------------------->
                               <!--    SOBRE NOSOTROS     -->
@@ -102,7 +118,7 @@
     <div id="call-to-action">
 			<div class="container">
 				
-				<span> Haz tu Cita para conocer tu #PróximoHogar </span>
+				<span> Solicita tu servicio para conocer tu #PróximoHogar. </span>
 
 			</div>
 		</div>
@@ -174,9 +190,13 @@
 
     </footer>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
-<i class="fa fa-whatsapp my-float"></i>
+<!-- <div id="wa">  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+  <i class="fa fa-whatsapp"> <p class="wa">Whatsapp Mejía Polanco</p></i> 
 </a>
+</div>  -->
+
+
 
  

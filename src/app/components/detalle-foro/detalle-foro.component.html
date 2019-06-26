@@ -28,9 +28,10 @@
                         <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
                             <div class="stnt pull-left">                            
                                 <form action="03_new_topic.html" method="post" class="form">
-                                    <a routerLink="/foro/{{temaID}}" class="btn btn-warning" id="butforo"   role="button">Foro</a>
-                                    <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()">Eliminar post</button>
-                                    <button *ngIf="usuarioID == userpostID" class="btn btn-danger" (click) = "changeNo()">Editar post</button>
+                                    <a routerLink="/foro/{{temaID}}" class="btn btn-success" id="butforo"   role="button">Regresar al Foro</a>
+                                    <button *ngIf="usuarioID == userpostID" class="btn btn-info" (click) = "changeNo()"> Editar Post </button>
+                                    <button *ngIf="usuarioID == userpostID || userRole == 1" class="btn btn-danger" (click) = "eliminar()"> Eliminar Post</button>
+                                    <button *ngIf="userRole == 1 && archivado == false" class="btn btn-warning fin" (click) = "finalizar()">Finalizar Discusión</button>
                                 </form>
                             </div>
      
@@ -154,10 +155,7 @@
                                 <div class="topwrap">
                                     <div class="userinfo pull-left">
  
-
-                                        <div class="icons">
-                                            <!--<img src="images/icon3.jpg" alt="" /><img src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg" alt="" /><img src="images/icon6.jpg" alt="" />-->
-                                        </div>
+ 
                                     </div>
                                     <div class="posttext pull-left">
                                         <p>{{c?.textoComentario}}</p>
@@ -165,10 +163,13 @@
                                     <div class="clearfix"></div>
                                 </div>                              
                                 <div class="postinfobot">
-
-                                    <button *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</button>
-                                    <button *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</button>
-                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                    <li class="dropdown drop"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID" (click)="editar(c)" >Editar</li>
+                                            <li class="com" *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</li>
+                                        </ul>
+                                    </li>
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
  
 
                                     <div class="clearfix"></div>
@@ -209,14 +210,14 @@
                             </div><!-- POST -->
 
                             <!-- POST -->
-                            <div *ngIf = "usuarioID > 0" class="post">
+                            <div *ngIf = "usuarioID > 0 && archivado == false" class="post">
                                 <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form" method="post">
                                     <div class="topwrap">
                             
                                         <div class="posttext pull-left" id="pull-left">
                                             <div class="textwraper">
-                                                <div class="postreply">Post a Reply</div>
-                                                <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Type your message here"></textarea>
+                                                <!-- <div class="postreply">Post a Reply</div> -->
+                                                <textarea formControlName="textoComentario" name="reply" id="reply" placeholder="Escribe tu comentario aquí."></textarea>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -233,7 +234,7 @@
 
                                         <div class="pull-right postreply">
                                 
-                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Post Reply</button></div>
+                                            <div class="pull-left"><button type="submit" [disabled]="addForm.invalid" class="btn btn-primary">Publicar</button></div>
                                             <div class="clearfix"></div>
                                         </div>
 
@@ -243,6 +244,7 @@
                                 </form>
                             </div><!-- POST -->
                             <div *ngIf = "usuarioID < 0"> Debe estar registrado para poder realizar un comentario.</div>
+                            <div *ngIf = "archivado == true">Este foro es solo de lectura.</div>
 
 
                         </div>
@@ -282,25 +284,24 @@
 
  
             </section>
-
-      <footer>
-            <div class="container" id="footforo">
-                <div class="row">
-                    <div class="col-lg-1 col-xs-3 col-sm-2 logo " id="logofooter"><a href="#"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
-                    <div class="col-lg-8 col-xs-9 col-sm-5 " id="correofooter">Copyrights 2019, constructoramejiapolanco.com</div>
-                    <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent" id="socialfooter">
-                        <ul class="socialicons">
-                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cloud"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        </ul>
+            <!-- <footer>
+                <div class="container" id="footforo">
+                    <div class="row">
+                        <div class="col-lg-1 col-xs-3 col-sm-2 logo " id="logofooter"><a href="#"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
+                        <div class="col-lg-8 col-xs-9 col-sm-5 " id="correofooter">Copyrights 2019, constructoramejiapolanco.com</div>
+                        <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent" id="socialfooter">
+                            <ul class="socialicons">
+                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cloud"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer> -->
         </div>
 
         <!-- get jQuery from the google apis -->
@@ -336,5 +337,6 @@
         </script>
 
         <!-- END REVOLUTION SLIDER -->
+        
     </body>
 </html>

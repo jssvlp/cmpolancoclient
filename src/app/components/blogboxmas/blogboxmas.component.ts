@@ -4,7 +4,7 @@ import { BlogService } from 'src/app/services/blog.service';
 import { BlogModel } from 'src/app/model/Blog.model';
 import { UserModel } from 'src/app/model/User.model';
 import { AuthService } from 'src/app/services/auth.service';
-
+import config from '../../../config.js';
 @Component({
   selector: 'app-blogboxmas',
   templateUrl: './blogboxmas.component.html',
@@ -38,7 +38,7 @@ export class BlogboxmasComponent implements OnInit {
 }
 
 editar(id: number){
-  window.location.href="http://localhost:4500/editar-post/"+id;
+  window.location.href=config.admin+"/editar-post/"+id;
 }
 
 }

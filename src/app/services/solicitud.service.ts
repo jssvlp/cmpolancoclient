@@ -5,12 +5,12 @@ import { Observable, of } from 'rxjs';
 import { SolicitudModel } from '../model/Solicitud.model';
 import { ServicioSolicitudModel } from '../model/ServicioSolicitud.model';
 import { EntidadModel } from '../model/Entidad.model';
-
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/Solicitud";
+const apiUrl = config.api+"/Solicitud";
 
 @Injectable({
   providedIn: 'root'

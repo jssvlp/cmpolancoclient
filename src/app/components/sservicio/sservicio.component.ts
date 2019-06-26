@@ -29,6 +29,7 @@ export class SservicioComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getCurrentUser();
+    console.log(this.user,'solicitud de servicio******');
     this.requestForm = this.formBuilder.group({
       fechaServSol:formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en'),
       fechaSol: [''],
