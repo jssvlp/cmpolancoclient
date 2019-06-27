@@ -10,7 +10,7 @@ import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -53,11 +53,15 @@ import { ChatbComponent } from './chatb/chatb.component';
 import { PostForoComponent } from './post-foro/post-foro.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
 import {NgxMaskModule} from 'ngx-mask';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
+
 
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
 import { CarouselProductComponent } from './carousel-product/carousel-product.component';
+import { AuthInterceptor } from '../services/jwt.interceptor';
 
 const routes=[
   {
@@ -119,9 +123,27 @@ const routes=[
 // tslint:disable-next-line: deprecation
     NgbModule.forRoot(),
     ToastrModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    SlickCarouselModule
   ],
-  providers: [AuthService, UserModel, ProyectoModel, ProyectoService, SolicitudModel, SolicitudService, ServicioModel, ServiciosService, PeticionService, CookieService, CaracteristicaService],
+  providers: [
+    AuthService, 
+    UserModel, 
+    ProyectoModel, 
+    ProyectoService,
+    SolicitudModel, 
+    SolicitudService,
+    ServicioModel, 
+    ServiciosService, 
+    PeticionService, 
+    CookieService, 
+    CaracteristicaService,
+    AuthService,{
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

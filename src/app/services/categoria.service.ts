@@ -3,11 +3,12 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { CategoriaModel } from '../model/categoria.model';
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/TemasForo";
+const apiUrl = config.api+"/TemasForo";
 
 
 @Injectable({

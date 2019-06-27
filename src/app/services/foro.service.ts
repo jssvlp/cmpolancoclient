@@ -3,12 +3,12 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ForoModel } from '../model/foro.model';
-
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/PublicacionForo";
+const apiUrl = config.api+"/PublicacionForo";
 
 @Injectable({
   providedIn: 'root'

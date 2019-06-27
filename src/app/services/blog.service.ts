@@ -3,11 +3,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { BlogModel } from './../model/Blog.model';
 import { Observable, of } from 'rxjs';
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/blog";
+const apiUrl = config.api+"/blog";
 
 @Injectable({
   providedIn: 'root'

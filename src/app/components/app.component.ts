@@ -17,9 +17,7 @@ export class AppComponent {
   }
 
   beforeUnloadHander() {
-    this.autApi.logout().subscribe(res =>{
-
-    })
+    this.autApi.logout();
   }
 
 }
