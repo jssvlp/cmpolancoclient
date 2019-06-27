@@ -135,6 +135,19 @@ color: #6c757d;
     position: relative;
   }
 
+  #noexisteproyecto{
+ 
+ 
+    font-size: bold;    
+    font-family: MontserratRegular;
+    font-size: 22px;
+    color: #17a2b8;
+    text-transform:uppercase;
+    left: 260px;
+    position: relative;
+
+  }
+
   @media screen and (max-width:800px){
     #titulo{ 
       text-transform:uppercase;
@@ -181,8 +194,16 @@ color: #6c757d;
 }
 
 #card{
-  margin-left: 20px;
+  margin-left: -20px;
  
+}
+#noexisteproyecto{
+ 
+  
+  left: 20px;
+  position: relative;
+  font-size: 20px;
+
 }
   
   
