@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ImagenesModel } from 'src/app/model/imagenes.model';
 declare var $:any;
 
 @Component({
@@ -7,6 +8,7 @@ declare var $:any;
   styleUrls: ['./carousel-product.component.css']
 })
 export class CarouselProductComponent implements OnInit {
+  @Input('imagenes') data: ImagenesModel[];
 
   constructor() { }
 

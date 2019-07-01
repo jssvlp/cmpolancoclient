@@ -3,7 +3,7 @@ function env(env) {
         case 'api-netcore':
             return 'http://localhost:61756/api';
         case 'front-admin':
-            return 'http://localhost:4200';
+            return 'http://localhost:4500';
     }
 }
 
