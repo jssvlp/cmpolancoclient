@@ -148,6 +148,12 @@ color: #6c757d;
 
   }
 
+  #pdfproyecto{
+    margin-left: 300px;
+    margin-top: 60px;
+  }
+
+
   @media screen and (max-width:800px){
     #titulo{ 
       text-transform:uppercase;
@@ -204,6 +210,11 @@ color: #6c757d;
   position: relative;
   font-size: 20px;
 
+}
+
+#pdfproyecto{
+  margin-left: 50px;
+  margin-top: 60px;
 }
   
   

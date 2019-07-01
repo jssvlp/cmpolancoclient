@@ -4,12 +4,14 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/model/User.model';
 import { ToastrService } from 'ngx-toastr';
+declare var $:any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 
   requestForm: FormGroup;
 
