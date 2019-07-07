@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
                     response => {
                      let _user = response['user_info'];
 
+                    console.log(response);
                     if(_user != null){
                       this.authService.setUser(_user);
                       this.authService.setToken(response["token"]);
