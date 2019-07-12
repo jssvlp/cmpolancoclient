@@ -7,7 +7,8 @@ declare var $:any;
   styleUrls: ['./chatb.component.css']
 })
 export class ChatbComponent implements OnInit {
-
+  latitude:any;
+  longitude:any;
   constructor() { }
 
   ngOnInit() {

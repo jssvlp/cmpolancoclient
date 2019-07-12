@@ -10,4 +10,5 @@ export class ProyectoModel {
     latitude: number;
     longitude: number;
     documentoResumenPdf:string;
+    inmuebles:any;
   }

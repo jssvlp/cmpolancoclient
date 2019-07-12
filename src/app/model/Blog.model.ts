@@ -7,5 +7,7 @@ export class BlogModel {
   imgUrl: string
   usuario: UserModel
   usuarioID: number
-  timestampBlog: Date
+  timeStampBlog: Date
+  imgURL: string;
+
 }

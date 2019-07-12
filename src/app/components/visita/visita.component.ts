@@ -35,7 +35,7 @@ export class VisitaComponent implements OnInit {
     //});
   }
 
-  select(event: any){
+  Select(event: any){
     this.value = event.target.value;
     if(this.value == "solicitud"){
      this.authService.getUser(this.authService.getCurrentUser().usuarioID).subscribe(res =>{

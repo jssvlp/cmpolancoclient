@@ -7,4 +7,5 @@ export class SolicitudModel {
     usuarioID:number
     comentario:string
     Visitas: VisitaModel
+    usuario:any;
   }

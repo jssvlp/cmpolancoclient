@@ -17,6 +17,7 @@ export class BlogComponent implements OnInit {
   addForm: FormGroup;
   post: BlogModel[] =[]
   filterPost = "";
+  p:any;
   constructor(private modalService: NgbModal, private FormBuilder: FormBuilder, private apiBlog: BlogService, private router: Router) { }
 
   ngOnInit() {

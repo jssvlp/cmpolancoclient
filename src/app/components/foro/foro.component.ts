@@ -16,6 +16,7 @@ export class ForoComponent implements OnInit {
   ID: any;
   post: ForoModel[] = [];
   filterPost = "";
+  p: any;
   constructor(public ctgApi:CategoriaService, private actvRoute: ActivatedRoute, private foroApi: ForoService) { }
 
   ngOnInit() {
