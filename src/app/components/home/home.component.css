@@ -15,6 +15,10 @@ font-family: 'Open Sans', sans-serif;
 
 }
 
+body{
+  width: 100%;
+}
+
 
 .p {
 text-align: center;
@@ -671,14 +675,14 @@ ul, ol {
 
 #arrow{
   position: relative;
-  margin-left: 1340px;
-  margin-top: -325px;
+  margin-left: 87%;
+  padding-bottom: 30px;
 }
 
 #wa{
   position: relative;
-  margin-left: 1300px; 
-  margin-top: 580px;
+  margin-left: 85%; 
+  margin-top: 47%;
   /* position: fixed;
   margin-top: 700px;
   margin-left: 1300px; */ 
