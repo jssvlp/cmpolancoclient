@@ -39,7 +39,9 @@ const routes: Routes = [
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
   {path: 'topic/: id', component: DetalleForoComponent},
-  {path: 'pagenotfound', component: PageNotFoundComponent}
+  {path: 'pagenotfound', component: PageNotFoundComponent},
+  {path: '**', redirectTo: 'pagenotfound'}
+
 ];
 
 @NgModule({
