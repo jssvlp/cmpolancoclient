@@ -62,6 +62,7 @@ import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
 import { CarouselProductComponent } from './carousel-product/carousel-product.component';
 import { AuthInterceptor } from '../services/jwt.interceptor';
+import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
 
 const routes=[
   {
@@ -97,7 +98,8 @@ const routes=[
     TopicForoComponent,
     DetalleForoComponent,
     FiltroFPipe,
-    CarouselProductComponent
+    CarouselProductComponent,
+    OlvidarcontrasenaComponent
   ],
   imports: [
     BrowserModule,

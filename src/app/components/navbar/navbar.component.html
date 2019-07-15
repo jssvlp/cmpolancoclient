@@ -46,7 +46,7 @@
               <li *ngIf="logged" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
-                    <li><a href="assets/Manual de Usuario.pdf"><i class="  "></i> Soporte</a></li>
+                    <li><a href="assets/ManualdeUsuario.pdf" download><i class="  "></i> Soporte</a></li>
                     <li class="divider"></li>
                     <li *ngIf = "roleID == 1"><a href="{{urlAdmin}}">Administrar</a></li>
                     <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>

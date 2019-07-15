@@ -1,4 +1,5 @@
 import { InmuebleModel } from "./Inmueble.model";
+import { ImagenesMultiples } from "./imagenesMultiple.model";
 
 export class ProyectoModel {
     proyectoID: number;
@@ -10,6 +11,5 @@ export class ProyectoModel {
     latitude: number;
     longitude: number;
     documentoResumenPdf:string;
-    inmuebles:any;
-    imagenes: any;
+    imagenes: ImagenesMultiples;
   }

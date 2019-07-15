@@ -18,10 +18,15 @@ export class LoginComponent implements OnInit {
   constructor(private  authService:  AuthService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
-    this.requestForm = this.formBuilder.group({
-      CorreoUsuario:['', Validators.required],
-      Contraseña:['',Validators.required]
-    })
+    if(this.authService.getCurrentUser()){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.requestForm = this.formBuilder.group({
+        CorreoUsuario:['', Validators.required],
+        Contraseña:['',Validators.required]
+      })
+    }
   }
   
   onLogin(){
@@ -42,7 +47,7 @@ export class LoginComponent implements OnInit {
                     
                   },
                   error =>{
-                    console.log(error,'****');
+                    this.toastr.error('Ha ocurrido un error:' + error);
                   }
                 );
   }

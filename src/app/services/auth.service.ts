@@ -127,7 +127,6 @@ export  class  AuthService {
                 else 
                 {
                     this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
-                    console.log(res);
                 }
             });
 

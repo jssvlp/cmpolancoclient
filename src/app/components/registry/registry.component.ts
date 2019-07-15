@@ -5,6 +5,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 
 import { UserModel } from "../../model/User.model";
 import { AuthService } from  '../../services/auth.service';
+import { Router } from '@angular/router';
 declare var $:any;
 @Component({
   selector: 'app-registry',
@@ -14,9 +15,12 @@ declare var $:any;
 export class RegistryComponent implements OnInit {
   form: FormGroup;
  
-  constructor(private  authService:  AuthService,  private user: UserModel, private formBuilder: FormBuilder){ }
+  constructor(private  authService:  AuthService,  private user: UserModel, private formBuilder: FormBuilder, private router: Router){ }
 
   ngOnInit() {
+    if(this.authService.getCurrentUser()){
+      this.router.navigate(['/']);
+    }
     this.form = this.formBuilder.group({
       NombreUsuario:["",[Validators.required]],
       ApellidosUsuario: ["",[Validators.required]],
@@ -42,7 +46,6 @@ export class RegistryComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value)
     this.authService.Register(this.form.value);
   } 
 
