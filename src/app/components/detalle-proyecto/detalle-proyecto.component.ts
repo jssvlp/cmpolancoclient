@@ -24,12 +24,14 @@ export class DetalleProyectoComponent implements OnInit {
   longitude:number;
 
 
+
   constructor(private proApi: ProyectoService, private actvRoute: ActivatedRoute, private carApi: CaracteristicaService ) { }
 
   ngOnInit() {
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
 
       this.proApi.getProject(this.ID).subscribe(res =>{
+        console.log(res);
       this.data = res;  
       this.latitude = res.latitude;
       this.longitude = res.longitude;

@@ -103,11 +103,19 @@
 </div>    
        
 <div *ngIf ="data?.inmuebles.length == 0 ">
-  <h5>Este proyecto no tiene ningun inmueble registrado.</h5>
+  <h5 id="noexisteproyecto">Este proyecto no tiene ningun inmueble registrado.</h5>
 </div>
 
-<a download href ="../../../assets/PDF/{{data.documentoResumenPdf}}">Descargar PDF informativo del proyecto</a>
-            
+<div *ngIf = "data?.documentoResumenPdf" id="pdfproyecto">
+  <a download href ="../../../assets/PDF/{{data.documentoResumenPdf}}">Descargar PDF informativo del proyecto</a>
+</div>
+
+<div *ngIf = "data?.imagenes.length != 0">
+  <app-carousel-product
+  [imagenes] = data.imagenes>
+</app-carousel-product>
+</div>
+
 
             <div class="card" style="width: 31rem;" id="card-map">
               <div class="card-body" id="card-m">

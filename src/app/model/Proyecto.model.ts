@@ -11,4 +11,5 @@ export class ProyectoModel {
     longitude: number;
     documentoResumenPdf:string;
     inmuebles:any;
+    imagenes: any;
   }
