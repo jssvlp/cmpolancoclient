@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./olvidarcontrasena.component.css']
 })
 export class OlvidarcontrasenaComponent implements OnInit {
+  form:any;
 
   constructor() { }
 
   ngOnInit() {
   }
+  onSubmit(){
+
+  }
+
 
 }
