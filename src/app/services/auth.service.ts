@@ -113,7 +113,26 @@ export  class  AuthService {
             email : userInfo.CorreoUsuario
             };
 
-            this.createUserOnApi(cliente).subscribe(res =>{
+            this.RegisterClientOnApi(userInfo)
+                .subscribe(response => {
+                    if(response['status'] == 'success'){
+                        this.createUserOnApi(cliente)
+                            .subscribe(res => {
+                                this.cookieService.set('tkn',res['token']);
+                                let cliente = JSON.stringify(res['user_info']);
+                                console.log('******',cliente);
+                                
+                                this.cookieService.set("currentUser",cliente);  
+                                this.router.navigate(['/home']);
+                            });
+                           
+                        
+                    }
+                    else{
+                        this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
+                    }
+                });
+           /*  this.createUserOnApi(cliente).subscribe(res =>{
                 if(res['status'] == "success"){
                     this.cookieService.set('tkn',res['token']);
 
@@ -128,7 +147,7 @@ export  class  AuthService {
                 {
                     this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
                 }
-            });
+            }); */
 
             
         
@@ -142,7 +161,7 @@ export  class  AuthService {
     }
 
     getUser(id: number){
-    const url = `${config.api+"clientes"}/${id}`;
+    const url = `${config.api+"/clientes"}/${id}`;
     return this.Http.get<UserModel>(url).pipe(
       tap(_ => catchError(this.handleError<UserModel>(`getClient id=${id}`))
     ));

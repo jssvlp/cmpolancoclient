@@ -20,8 +20,11 @@ export class PerfilComponent implements OnInit {
   constructor(private authSer: AuthService) { }
 
   ngOnInit() {
+    console.log('------- :')
     this.authSer.getUser(this.authSer.getCurrentUser().usuarioID).subscribe(res => {
       this.data = res;
+      console.log(res);
+      
       this.solicitud = this.data.solicitud;
     });
     
