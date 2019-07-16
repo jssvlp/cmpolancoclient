@@ -54,7 +54,6 @@ export class PostForoComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
-      console.log(this.addForm.value);
       this.foroApi.addPost(this.addForm.value).subscribe(res=> {
 
         if(this.fileTo != null){
