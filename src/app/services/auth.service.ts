@@ -121,7 +121,7 @@ export  class  AuthService {
                                 this.cookieService.set('tkn',res['token']);
                                 let cliente = JSON.stringify(res['user_info']);
                                 console.log('******',cliente);
-                                
+                                this.toastr.success('Usuario creado correctamente');
                                 this.cookieService.set("currentUser",cliente);  
                                 this.router.navigate(['/home']);
                             });

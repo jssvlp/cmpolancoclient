@@ -97,7 +97,7 @@
                 <div class="form-row">
                     <div class="form-group"> 
                   <label for="inputPassword">Contraseña</label>
-                    <input formControlName = "Contraseña" type="password" id="inputPassword" name="Contraseña"  class="form-control"  minlength="10" maxlength="45"  required>
+                    <input formControlName = "Contraseña" type="password" id="inputPassword" name="Contraseña"  class="form-control"  minlength="8" maxlength="45"  required>
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
                   <div *ngIf="form.controls['Contraseña'].errors && form.controls['Contraseña'].touched" class="validation-error" class="validation-error">
@@ -105,7 +105,7 @@
                       El campo es requerido
                     </div>
                     <div [hidden] = "!form.controls['Contraseña'].errors.minlength">
-                      El campo requiere mas de 10 caracteres  
+                      El campo requiere almenos de 8 caracteres  
                     </div>
                     <div [hidden] = "!form.controls['Contraseña'].errors.maxlength">
                       El nombre debe tener menos de 45 caracteres  
