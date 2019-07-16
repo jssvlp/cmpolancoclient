@@ -26,7 +26,7 @@
     
   }
 nav {
-    color:Black !important; 
+    color:linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
     margin: 0;
     padding: 0;
     
@@ -55,10 +55,10 @@ header{
 
 @media screen and (max-width:800px){
   nav{
-    background: black;
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
   }
   #navbarSupportedContent{
-    background: black;
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
 
 
   }

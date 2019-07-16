@@ -78,6 +78,21 @@
                     </div>
                   </div>
                 </div> 
+
+                <div class="form-row">
+                  <div class="form-group"> 
+                <label for="inputEmail">Numero de telefono</label>
+                  <input formControlName = "numeroTelefono" type="number" id="inputTelefono" name="numeroTelefono"  class="form-control" minlength="10" required>
+                </div>
+                <div *ngIf="form.controls['numeroTelefono'].errors && form.controls['numeroTelefono'].touched" class="validation-error" class="validation-error">
+                  <div [hidden] = "!form.controls['numeroTelefono'].errors.required">
+                    El campo es requerido
+                  </div>
+                  <div [hidden] = "!form.controls['numeroTelefono'].errors.minlength">
+                    El campo requiere mas de 10 caracteres  
+                  </div>
+                </div>
+              </div> 
                   
                 <div class="form-row">
                     <div class="form-group"> 
@@ -132,7 +147,7 @@
                 </div>
 
 
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="form.invalid" type="submit" >Register</button>
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="form.invalid" type="submit" >Registrar</button>
                   <!-- <a class="d-block text-center mt-2 small" href="#">Sign In</a> -->
                   
                 </form>
