@@ -47,6 +47,7 @@ z-index: 0;
 
 #sobrenosotros p{
   text-align: justify;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #sobrenosotros .foto img{
@@ -90,13 +91,14 @@ box-shadow: 0px 0px 15px rgba(0, 0, 0, .35) */
 font-size: 40px;
 font-weight: 300;
 margin-bottom: 40px;
-
+font-family: 'Times New Roman', Times, serif;
 
 }
 
 .main .Contenedor article p{
 line-height: 28px;
 margin-bottom: 30px;
+font-family: 'Times New Roman', Times, serif;
 }
 /* 
 .navbar-light .navbar-nav .nav-link{
@@ -137,11 +139,13 @@ display: inline-block;
   color:#000;
   margin-bottom: 70px;
   position: relative;
+  font-family: 'Times New Roman', Times, serif;
 } 
 
 #serb p{
   text-align: center;
   font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #herramientas .herramientas{
@@ -207,11 +211,13 @@ display: inline-block;
       }
       #foro p{
         text-align: justify;
+        font-family: 'Times New Roman', Times, serif;
       }
       .main .Contenedor2 article h3{
         font-size: 40px;
         font-weight: 300;
         margin-bottom: 40px;
+        font-family: 'Times New Roman', Times, serif;
         }
         
         .main .Contenedor2 article p{
@@ -235,6 +241,7 @@ display: inline-block;
 
         #blog p{
           text-align: justify;
+          font-family: 'Times New Roman', Times, serif;
         }
       
         .main .Contenedor3 .foto{
@@ -279,6 +286,7 @@ display: inline-block;
               font-size: 40px;
               font-weight: 300;
               margin-bottom: 40px;
+              font-family: 'Times New Roman', Times, serif;
               }
               
               .main .Contenedor3 article p{

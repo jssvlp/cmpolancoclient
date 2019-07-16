@@ -105,7 +105,7 @@
 <div *ngIf ="data?.inmuebles.length == 0 ">
   <h5 id="noexisteproyecto">Este proyecto no tiene ningun inmueble registrado.</h5>
 </div>
-<div *ngIf = "data?.documentoResumenPdf != null">
+<div id="pdfproyecto" *ngIf = "data?.documentoResumenPdf != null">
   <a download href ="../../../assets/PDF/{{data.documentoResumenPdf}}">Descargar PDF informativo del proyecto</a>
 </div>
 
