@@ -8,13 +8,13 @@ header {
     font-size: bold;    
     font-size: 70px;
     color: #17a2b8;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
   }
 
 #subtitulo{
  
     font-size: bold;    
-    font-family: MontserratRegular;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
     color: #17a2b8;
     text-transform:uppercase;
@@ -139,7 +139,7 @@ color: #6c757d;
  
  
     font-size: bold;    
-    font-family: MontserratRegular;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
     color: #17a2b8;
     text-transform:uppercase;
@@ -160,7 +160,7 @@ color: #6c757d;
       font-size: bold;    
       font-size: 45px;
       color: #17a2b8;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
     } 
     body{
       overflow-x: hidden;
@@ -180,7 +180,7 @@ color: #6c757d;
 
   #subtitulo  {
     font-size: bold;
-    font-family: MontserratRegular;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
     color: #17a2b8;
     text-transform: uppercase;
