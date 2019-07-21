@@ -1,9 +1,9 @@
 function env(env) {
     switch (env) {
         case 'api-netcore':
-            return 'https://api-brick.azurewebsites.net/api';
+            return 'https://api-constructoramp.azurewebsites.net/api';
         case 'front-admin':
-            return 'https://admin-brick.azurewebsites.net/';
+            return 'https://admin-constructoramejiapolanco.azurewebsites.net/';
     }
 }
 
