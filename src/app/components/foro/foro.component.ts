@@ -4,6 +4,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 import { ActivatedRoute } from '@angular/router';
 import { ForoService } from 'src/app/services/foro.service';
 import { ForoModel } from 'src/app/model/foro.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-foro',
@@ -17,7 +18,8 @@ export class ForoComponent implements OnInit {
   post: ForoModel[] = [];
   filterPost = "";
   p: any;
-  constructor(public ctgApi:CategoriaService, private actvRoute: ActivatedRoute, private foroApi: ForoService) { }
+  user:any;
+  constructor(public ctgApi:CategoriaService, private actvRoute: ActivatedRoute, private foroApi: ForoService, private authService: AuthService) { }
 
   ngOnInit() {
     this.ctgApi.getTemas().subscribe(res =>{
@@ -31,6 +33,10 @@ export class ForoComponent implements OnInit {
         this.post = res;
       })
     }
+
+    let currentUser = this.authService.getCurrentUser();
+    
+    this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
 
   }
 

@@ -26,7 +26,6 @@ export class DetalleForoComponent implements OnInit {
   userpostID:number;
   comentarios: ComentarioModel[] = [];
   addForm: FormGroup;
-  user: UserModel;
   temaID: number;
   editcomment: ComentarioModel = new ComentarioModel();
   idcomentario: number;
@@ -35,27 +34,30 @@ export class DetalleForoComponent implements OnInit {
   usuarioID: number;
   userRole: number;
   archivado: Boolean;
+  user:any;
 
   constructor(private actvRoute: ActivatedRoute, private foroApi: ForoService, private formBuilder: FormBuilder, private authApi: AuthService,private toastr: ToastrService,
-    private commentApi: ComentarioService, private router: Router) { }
+    private commentApi: ComentarioService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.user = this.authApi.getCurrentUser();
-    if(this.user == null){
+    let currentUser = this.authService.getCurrentUser();
+    if(currentUser == null){
       this.usuarioID = -1
       this.userRole = 0
     }
     else{
-      this.usuarioID = this.user.usuarioID;
-      this.userRole = this.user.roleId;
+      this.usuarioID = currentUser.usuarioID;
+      this.userRole = currentUser.roleId;
+      this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
     }
+
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
     if(this.ID != null){
       this.foroApi.getPost(this.ID).subscribe(res => {
         this.titulo = res.tituloPublicacion;
         this.post = res.textoPublicacion;
         this.fecha = res.timeStampForo;
-        this.autor = res.usuario.nombreUsuario + " " + res.usuario.apellidosUsuario
+        this.autor = res.usuario.nombre + " " + res.usuario.apellidos;
         this.comentarios = res.cometariosForos;
         this.userpostID = res.usuarioID;
         this.temaID = res.temaID;

@@ -169,7 +169,7 @@
                                             <li class="com" *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</li>
                                         </ul>
                                     </li>
-                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por: {{user}} </div>
  
 
                                     <div class="clearfix"></div>

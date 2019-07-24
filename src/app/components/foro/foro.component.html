@@ -31,18 +31,6 @@
                                 <a class="btn btn-warning" id="butforo" routerLink="/newtopic" role="button">Nuevo tópico</a>
                             </form>
                         </div>
-            
-
-                        <!-- <div class="avatar pull-left dropdown">
-                            <a data-toggle="dropdown" href="#"><img src="assets/Forum/avatar.jpg" alt="" /></a> <b class="caret"></b>
-                            <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
-                            </ul>
-                        </div> -->
-
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -70,12 +58,12 @@
                                
                                 <div class="posttext pull-left" id="pull-left">
                                     <h2><a routerLink="/topic/{{p.publicacionID}}" id="tituloPublicacion" >{{p?.tituloPublicacion}}</a></h2>
-                                    <p id="postnowrap">Decirle a Raymond que haga lo mismo que hizo con el blog  Decirle a Raymond que haga lo mismo que hizo con el blog </p>
+                                    <p id="postnowrap">{{p?.textoPublicacion}}</p>
                                 </div>
                                 <div class="clearfix" id="fechapost">{{p?.timeStampForo | date:"dd/MM/yyyy HH:mm aa"}}</div>
                             </div>
                             <div id="npost"> Publicado por </div>
-                            <div class="clearfix" id="nombrepost"> {{p?.usuario.nombreUsuario}} {{p?.usuario.apellidosUsuario}}</div>
+                            <div class="clearfix" id="nombrepost"> {{user}}</div>
                         </div><!-- POST -->
                         <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
