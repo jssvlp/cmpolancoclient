@@ -28,6 +28,13 @@
 /*-----------------------------------------------------------------*/
 /*--- General ---*/
 
+#logotitulo{
+  margin-top: 20px;
+  font-size: 15px;
+  color: #edbb00;
+  font-weight: bold; 
+  }
+
 body {
     font-family: 'Open Sans Light', sans-serif;
     font-size: 14px;
@@ -60,6 +67,7 @@ body {
     list-style: none;
     font-size: 18px;
     color:#bdc3c7;
+    margin-top: 20px;
     margin-left: 15px;
   }
   
