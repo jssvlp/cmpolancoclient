@@ -41,7 +41,7 @@ export  class  AuthService {
             email : userInfo.CorreoUsuario,
             password : userInfo.Contraseña
         }
-        let url_api = config.api+"/Auth/Login";
+        let url_api = config.local+"/Auth/Login";
 
         return this.Http.post(url_api,user,httpOptions).pipe(map(data => data));    
     }
@@ -98,7 +98,7 @@ export  class  AuthService {
             Email : userInfo.CorreoUsuario,
             FechaNacimiento : userInfo.fechaNacimiento
         }
-        const url_api = config.api+"/clientes";
+        const url_api = config.local+"/clientes";
         //Insert in ApI
         return this.Http.post(url_api,cliente,httpOptions
         ).pipe(map(data => data));
@@ -153,13 +153,13 @@ export  class  AuthService {
 
     createUserOnApi(user:any)
     {
-        const urlApi = config.api+"/Auth/Create";
+        const urlApi = config.local+"/Auth/Create";
 
         return this.Http.post(urlApi,user,httpOptions).pipe(map(data => data));
     }
 
     getUser(id: number){
-    const url = `${config.api+"/clientes"}/${id}`;
+    const url = `${config.local+"/clientes"}/${id}`;
     return this.Http.get<UserModel>(url).pipe(
       tap(_ => catchError(this.handleError<UserModel>(`getClient id=${id}`))
     ));
