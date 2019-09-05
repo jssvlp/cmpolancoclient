@@ -110,7 +110,7 @@ const routes=[
     NgxMaskModule.forRoot(),
     FlatpickrModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
+      apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8',
       libraries: ['places']
     }),
     RouterModule.forRoot(routes, {
