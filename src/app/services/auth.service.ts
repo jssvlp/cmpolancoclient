@@ -28,7 +28,7 @@ export  class  AuthService {
         user.sendEmailVerification().then(function() {
             this.router.navigate(['/home'])
           }).catch(function(error) {
-            console.log(error);
+            this.toastr.error("Ha ocurrido un error: " + error);
           });
     
     }
@@ -41,7 +41,7 @@ export  class  AuthService {
             email : userInfo.CorreoUsuario,
             password : userInfo.Contraseña
         }
-        let url_api = config.api+"/Auth/Login";
+        let url_api = config.local+"/Auth/Login";
 
         return this.Http.post(url_api,user,httpOptions).pipe(map(data => data));    
     }
@@ -92,14 +92,13 @@ export  class  AuthService {
     }
 
     RegisterClientOnApi(userInfo: any){
-        console.log(userInfo);
         let cliente = {
             Nombre :userInfo.NombreUsuario,
             Apellidos : userInfo.ApellidosUsuario,
             Email : userInfo.CorreoUsuario,
             FechaNacimiento : userInfo.fechaNacimiento
         }
-        const url_api = config.api+"/clientes";
+        const url_api = config.local+"/clientes";
         //Insert in ApI
         return this.Http.post(url_api,cliente,httpOptions
         ).pipe(map(data => data));
@@ -120,7 +119,6 @@ export  class  AuthService {
                             .subscribe(res => {
                                 this.cookieService.set('tkn',res['token']);
                                 let cliente = JSON.stringify(res['user_info']);
-                                console.log('******',cliente);
                                 this.toastr.success('Usuario creado correctamente');
                                 this.cookieService.set("currentUser",cliente);  
                                 this.router.navigate(['/home']);
@@ -155,13 +153,13 @@ export  class  AuthService {
 
     createUserOnApi(user:any)
     {
-        const urlApi = config.api+"/Auth/Create";
+        const urlApi = config.local+"/Auth/Create";
 
         return this.Http.post(urlApi,user,httpOptions).pipe(map(data => data));
     }
 
     getUser(id: number){
-    const url = `${config.api+"/clientes"}/${id}`;
+    const url = `${config.local+"/clientes"}/${id}`;
     return this.Http.get<UserModel>(url).pipe(
       tap(_ => catchError(this.handleError<UserModel>(`getClient id=${id}`))
     ));

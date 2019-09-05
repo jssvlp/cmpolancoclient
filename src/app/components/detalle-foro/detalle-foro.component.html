@@ -17,7 +17,7 @@
             <div class="headernav">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-1 col-xs-3 col-sm-2 col-md-2 logo "><a href="index.html"><img width="70px" height="68px" src="assets/Forum/LogoForo.png" alt=""  /></a></div>
+                        <a class="nav-link" id="logotitulo" href="index.html">CONSTRUCTORA MEJIA POLANCO </a>  
                         <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
                             <div class="wrap">
                                 <form action="#" method="post" class="form">
@@ -169,7 +169,7 @@
                                             <li class="com" *ngIf="usuarioID == c.usuarioID || userRole == 1" (click)="eliminarC(c.comentarioID)">Eliminar</li>
                                         </ul>
                                     </li>
-                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por:{{c?.usuario?.nombreUsuario}} {{c?.usuario?.apellidosUsuario}}</div>
+                                <div class="posted pull-left"><i class="fa fa-clock-o"></i> Posted on : {{c?.timeStampComment | date:"dd/MM/yyyy HH:mm aa"}} <i class=""></i>Publicado por: {{user}} </div>
  
 
                                     <div class="clearfix"></div>

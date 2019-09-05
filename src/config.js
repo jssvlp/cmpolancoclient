@@ -11,6 +11,7 @@ try{
     module.exports ={
         api: env('api-netcore'),
         admin: env('front-admin'),
+        local: env('local-api')
     }
 }catch(e){
     console.log(e);

@@ -239,6 +239,13 @@ element.style {
   margin-left: 20px;
 }
 
+#logotitulo{
+  margin-top: 20px;
+  font-size: 15px;
+  color: #edbb00;
+  font-weight: bold; 
+  }
+
 .paginationforum li a {
   min-width: 24px;
   height: 24px;

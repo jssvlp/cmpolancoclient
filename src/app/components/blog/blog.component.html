@@ -42,7 +42,7 @@
               </div>
               <div class="card-footer text-muted">
                 Publicado en {{p?.timeStampBlog | date: 'yyyy/MM/dd HH:mm aa'}} por
-                <a routerLink="/home">{{p?.usuario?.nombreUsuario}} {{p?.usuario?.apellidosUsuario}}</a>
+                <a routerLink="/home">{{p?.usuario?.nombre}} {{p?.usuario?.apellidos}}</a>
               </div>
             </div>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>

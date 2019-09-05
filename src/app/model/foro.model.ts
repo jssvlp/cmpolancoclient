@@ -10,7 +10,7 @@ export class ForoModel{
      archivado: Boolean
      urlImagen: string
      usuarioID: number
-     usuario: UserModel
+     usuario: any
      temaID: number
      cometariosForos: ComentarioModel[]
     }
