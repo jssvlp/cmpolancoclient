@@ -7,6 +7,7 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 import { Router } from '@angular/router';
 import { GenericdataService } from 'src/app/services/genericdata.service';
 import { GenericData } from 'src/app/model/GenericData.model';
+
 declare var $:any;
 
 @Component({
@@ -16,6 +17,7 @@ declare var $:any;
 })
 export class HomeComponent implements OnInit {
   user: any
+  whatsappUrl: any
   data : ProyectoModel[]=[]
   servicio : ServicioModel[]=[]
   genericData: GenericData[] = [];
@@ -23,7 +25,11 @@ export class HomeComponent implements OnInit {
   constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router,private GenericDataService:GenericdataService ) { }
 
   async ngOnInit() {
-    
+    this.GenericDataService.getAllGenericData().subscribe(res => {
+      this.genericData = res;
+      let numero  = this.getGenericDataByKey('telefono-whatsapp');
+      this.whatsappUrl = `https://web.whatsapp.com/send?phone=${numero}&text=Hola quisiera más información sobre uno de sus proyectos`;    }); 
+
     this.proyectoService.getProjects()
     .subscribe(res =>{
       this.data = res;
@@ -65,6 +71,8 @@ export class HomeComponent implements OnInit {
     
   
   }
+
+
 
   solicitud(s: ServicioModel){
     window.localStorage.removeItem("SID");
