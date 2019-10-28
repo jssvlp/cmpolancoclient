@@ -467,6 +467,7 @@ ul, ol {
     position: relative;
     margin-left: 130px !important;
     margin-top: 300px!important;
+    z-index: 100;
   }
 
   #btca2{
