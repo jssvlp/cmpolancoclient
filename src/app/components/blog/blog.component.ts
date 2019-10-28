@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
       this.post = res;
     })
 
-    $(document).ready(function(){
+   /*  $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll >10) {
@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
 
         }
       })
-    })
+    }) */
   }
 
   verMas(p: BlogModel){

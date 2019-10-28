@@ -27,7 +27,7 @@ export class PerfilComponent implements OnInit {
       this.solicitud = this.data.solicitud;
     });
     
-    $(document).ready(function(){
+  /*   $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll >0) {
@@ -38,6 +38,6 @@ export class PerfilComponent implements OnInit {
 
         }
       })
-    })
+    }) */
   }
 }

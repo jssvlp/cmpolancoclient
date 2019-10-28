@@ -25,12 +25,8 @@
     padding-right: 2px;
     
   }
-nav {
-    color:linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
-    margin: 0;
-    padding: 0;
-    
-
+#navwrap {
+    color:linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);  
     }
 
   .navbar-light .navbar-nav .nav-link:hover {
@@ -54,7 +50,7 @@ header{
 /* Media queries */
 
 @media screen and (max-width:800px){
-  nav{
+  #navwrap{
     background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
   }
   #navbarSupportedContent{

@@ -42,7 +42,7 @@ export class CalculadoraComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function(){
+    /* $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll >30) {
@@ -53,7 +53,7 @@ export class CalculadoraComponent implements OnInit {
 
         }
       })
-    })
+    }) */
     
   }
 

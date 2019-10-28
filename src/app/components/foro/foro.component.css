@@ -3591,6 +3591,9 @@ body {
   color: #000;
 }
 
+.margin-foro{
+  margin-top: 120px;
+}
 
 #postnowrap{
   white-space: nowrap;

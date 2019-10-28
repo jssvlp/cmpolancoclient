@@ -10,7 +10,7 @@ import { RegistryComponent } from './registry/registry.component';
 import { LoginComponent } from './login/login.component';
 import { BlogComponent } from './blog/blog.component';
 import { ReactiveFormsModule, FormControl, FormsModule, NgForm } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule,HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -56,13 +56,20 @@ import {NgxMaskModule} from 'ngx-mask';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
-
+//Translation
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
 import { CarouselProductComponent } from './carousel-product/carousel-product.component';
 import { AuthInterceptor } from '../services/jwt.interceptor';
 import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+ 
+}
 
 const routes=[
   {
@@ -112,6 +119,13 @@ const routes=[
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8',
       libraries: ['places']
+    }),
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient]
+        }
     }),
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',

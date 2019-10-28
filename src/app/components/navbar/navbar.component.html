@@ -1,38 +1,44 @@
 <div class="contenedorh">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navwrap">
+      <div class="container">
+      <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" id="logotitulo" href="#">Constructora Mejía Polanco</a>
+        
+        <a class="navbar-brand" id="logotitulo" (click)="changeRoute('home')" routerLink="/home">
+            <img src="/assets/logo-brand-white.png" width="150" alt="">
+        </a>
       
-        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-1">
+        <div class="collapse navbar-collapse justify-content-between menu" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-2">
                  <!--  <li class="nav-item active">
                     <a class="nav-link" id="logotitulo" href="#">CONSTRUCTORA MEJIA POLANCO </a>
                   </li> -->
                   <li class="nav-item " >
-                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">Sobre Nosotros</a>
+                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">{{ 'home.nosotros' | translate }}</a>
                   </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">Servicios</a>
+                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">{{'home.servicios' | translate}}</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" id="nav-solicitarservicios" routerLink="/calculadora">Calculadora</a>
+                  <a class="nav-link" id="nav-solicitarservicios" (click)="changeRoute('calculadora')" routerLink="/calculadora">{{'home.calculadora' | translate}}</a>
                 </li>
               <li class="nav-item ">
-                <a class="nav-link"id="nav-foro" href="home#foro">Foro</a>
+                <a class="nav-link"id="nav-foro" (click)="changeRoute('foro')" [routerLink]="['/foro']">{{'home.foro' | translate}}</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-blog" href="home#blog">Blog</a>
+                <a class="nav-link" id="nav-blog" (click)="changeRoute('blog')" [routerLink]="['/blog']">{{'home.blog' | translate}}</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-contacto" href="home#contacto">Contacto</a>
+                <a class="nav-link" id="nav-contacto" href="home#contacto">{{'home.contacto' | translate}}</a>
               </li>
             </ul>
             <ul class="navbar-nav" style="margin-right: 10px"   >
               <li *ngIf="!logged" class="nav-item">
-                <a class="btn btn-info ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive="">Inicia sesión</a>
+                <a class="btn btn-info ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive="">{{'home.iniciar-sesion' | translate}}</a>
               </li>
+              
              <!--  <li class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
                   <a class="btn btn-info" style="margin-left:5px"aria-expanded="false" (click)="onLogout()" routerLinkActive="#">Logout</a>
               </li> -->
@@ -47,11 +53,11 @@
             </li>
               <div class="nav-item" style="margin-left:10px"></div>
               <li *ngIf="!logged" class="nav-item"  >
-                <a class="btn btn-warning ml-1 mt-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active">Registrarse</a>
+                <a class="btn btn-warning ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active">{{'home.registro' | translate}}</a>
               </li>
             </ul>
           </div>
-        
+        </div>
       </nav>
   
   

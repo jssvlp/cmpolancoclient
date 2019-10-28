@@ -35,9 +35,10 @@ export class ForoComponent implements OnInit {
     }
 
     let currentUser = this.authService.getCurrentUser();
+    if(currentUser != null){
+      this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
+    }
     
-    this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
-
   }
 
   categoria(id: number){

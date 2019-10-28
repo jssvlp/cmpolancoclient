@@ -12,7 +12,7 @@ export class ChatbComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    $(document).ready(function(){
+   /*  $(document).ready(function(){
       $(window).scroll(function(){
         var scroll = $(window).scrollTop();
         if (scroll >10) {
@@ -23,7 +23,7 @@ export class ChatbComponent implements OnInit {
 
         }
       })
-    })
+    }) */
   }
 
 }

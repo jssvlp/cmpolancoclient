@@ -8,13 +8,13 @@ header {
     font-size: bold;    
     font-size: 70px;
     color: #17a2b8;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Open Sans;
   }
 
 #subtitulo{
  
     font-size: bold;    
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Open Sans;
     font-size: 22px;
     color: #17a2b8;
     text-transform:uppercase;
@@ -22,8 +22,7 @@ header {
 }
   
   #card{
-    margin-top: 20px;
-    margin-left: 300px;
+    margin:50px;
     border: 0; 
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -139,7 +138,7 @@ color: #6c757d;
  
  
     font-size: bold;    
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Open Sans;
     font-size: 22px;
     color: #17a2b8;
     text-transform:uppercase;
@@ -160,7 +159,7 @@ color: #6c757d;
       font-size: bold;    
       font-size: 45px;
       color: #17a2b8;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: Open Sans;
     } 
     body{
       overflow-x: hidden;
@@ -180,7 +179,7 @@ color: #6c757d;
 
   #subtitulo  {
     font-size: bold;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Open Sans;
     font-size: 22px;
     color: #17a2b8;
     text-transform: uppercase;
