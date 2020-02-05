@@ -22,16 +22,18 @@ export class DetalleProyectoComponent implements OnInit {
   otros:CaracteristicaModel[];
   latitude:number;
   longitude:number;
+  size: number;
 
 
 
   constructor(private proApi: ProyectoService, private actvRoute: ActivatedRoute, private carApi: CaracteristicaService ) { }
 
   ngOnInit() {
+    this.size = window.innerWidth;
+    console.log(this.size)
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
 
       this.proApi.getProject(this.ID).subscribe(res =>{
-        console.log(res);
       this.data = res;  
       this.latitude = res.latitude;
       this.longitude = res.longitude;
@@ -41,6 +43,9 @@ export class DetalleProyectoComponent implements OnInit {
         localStorage.setItem('longitude', this.longitude.toString());
       } 
      
+      $(document).ready(function() {
+        $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+    });
     })
 
 
@@ -55,18 +60,7 @@ export class DetalleProyectoComponent implements OnInit {
     })
 
 
-   /*  $(document).ready(function(){
-      $(window).scroll(function(){
-        var scroll = $(window).scrollTop();
-        if (scroll >10) {
-          $("#navbarSupportedContent").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-        }
-        else{
-          $("#navbarSupportedContent").css("background" , "transparent");
 
-        }
-      })
-    }) */
 
   }
 

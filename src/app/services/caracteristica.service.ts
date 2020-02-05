@@ -7,7 +7,7 @@ import config from '../../config.js';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = +"/caracteristicas";
+const apiUrl = config.api+"/caracteristicas";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,7 @@ export class CaracteristicaService {
   }
 
   getCarProyecto(id: number): Observable <any>{
+    
     const url = `${apiUrl}/${"GetByProyecto/" + id}`; 
     return this.http.get<any>(url).pipe(
       tap(_ => catchError(this.handleError<any>(`getProjectCar id=${id}`))

@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: 'solicitud', component:SservicioComponent,canActivate:[AuthGuard]},
   {path: 'perfil', component:PerfilComponent,canActivate:[AuthGuard]},
   {path: 'detalle-solicitud/: id', component: DetalleSolicitudComponent, canActivate:[AuthGuard]},
-  {path: 'descripcion-proyecto/: id', component: DetalleProyectoComponent},
+  {path: 'projects/: id/details', component: DetalleProyectoComponent},
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
   {path: 'topic/: id', component: DetalleForoComponent},

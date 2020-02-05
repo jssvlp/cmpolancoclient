@@ -13,7 +13,7 @@ declare var $:any;
 })
 export class AppComponent implements OnInit {
   title = 'Frontend';
-  selectedLanguage = 'en';
+  selectedLanguage = 'es';
 
   constructor(private autApi: AuthService, private router:Router, private translateService: TranslateService){
     this.translateService.setDefaultLang(this.selectedLanguage);

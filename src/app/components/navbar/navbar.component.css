@@ -1,6 +1,8 @@
 /* Cambiar el color de las letras */
 
-
+#navbar {
+  background-color: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+}
 .navbar-nav li a {
     color: white;
     font-size: 16px;

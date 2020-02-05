@@ -76,7 +76,7 @@ h1{
     
     .card-inmueble .card-body {
       width:1000px ;
-      height:800px ;
+      height:auto ;
     }
     
     .form-inmueble {
@@ -188,7 +188,7 @@ h1{
       .card-inmueble .card-body {
           padding: 2rem;
           width:400px ;
-          height:850px ;
+          height:auto ;
         }
   
         label{

@@ -345,31 +345,6 @@ ul, ol {
   visibility: hidden;
   transition: .22s ease;
 }
-
-
-
-/* #wa{
-  width: 200px;
-  display: inline-block;
-  background-color:#25d366;
-  color:#FFF;
-  height:33px;
-  
-} */
-
-/* .float{
-  position: fixed;
-	width:200px;
-	height:33px;
-	bottom:40px;
-	right:40px;
-	background-color:#25d366;
-	color:#FFF;
-	border-radius:20px;
-	text-align:center;
-  font-size:20px;
-} */
-
 .my-float{
   margin-top:5px;
   margin-left: 2px;
@@ -422,228 +397,6 @@ ul, ol {
   
 }
 
-
-
-/* Media queries */
-
-@media screen and (max-width:800px){
-
-  #carousel{
-    overflow-x: hidden;
-  }
- 
-
-  #contenidoconoce5{
-    
-    margin-left: 14px;
-    margin-bottom: -100px;
-    position: relative;
-  }
-
- 
-
-  #contenidoconoce3{
-    color: white;
-    margin-left: 44px;
-    margin-top: -100px;
-    display: block;
-    height: 100px;
-    position: relative;
-    
-    white-space: nowrap;
-    font-size: 27px;
-  }
-
-  #contenidoconoce2{
-    color: #edbb00;
-    margin-left: 122px;
-    margin-top: -115px;
-    position: relative;
-    display: block;
-
-  }
-
-  #wa{
-    position: relative;
-    margin-left: 130px !important;
-    margin-top: 300px!important;
-    z-index: 100;
-  }
-
-  #btca2{
-    display: block;
-    margin-left: 150px;
-    margin-top: -152px;
-    position: relative;
-  }
-
-  #carouselExampleControls{
-    overflow-x: hidden;
-    overflow-y: hidden;
- 
-  }
-
-  #conocenuestros{
-    margin-right: -60px;
-  }
-
-  #arrow{
-    visibility: hidden;
-  }
- 
-  #primerafoto{
-    width: 400px;
-    height: 350px;  
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }
-
-  #imaca{
-    width: 400px;
-    height: 350px;  
-    overflow-x: hidden;
-    overflow-y: hidden; 
-  }
-
-  .main .Contenedor .foto{
-    width: 100%;
-    position: relative;
-    }
-    .main .Contenedor article{
-      position: relative;
-      width: 100%;
-      top:-50px;
-      transform: translate(0px,0);
-      left: 2px;
-
-    }
-
-    #sobrenosotros{
-      margin-bottom: -150px;
-      padding-bottom: -150px;
-
-    }
-
-
-    .main .Contenedor2 .foto{
-      width: 100%;
-      position: relative;
-     }
-
-     .main .Contenedor2 article{
-      position: relative;
-      width: 100%;
-      top:-50px;
-      transform: translate(0px,0);
-      left: 2px;
-      
-
-    }
-
-    #foro{
-      margin-bottom: 100px;
-      padding-bottom: 100px;
-
-    }
-      
-    .main .Contenedor3 .foto{
-      width: 100%;
-      position: relative;
-      }
-
-      .main .Contenedor3 article{
-        position: relative;
-        width: 100%;
-        top:-50px;
-        transform: translate(0px,0);
-        left: 2px;
-  
-      }
-
-      #blog{
-        margin-bottom: 100px;
-        padding-bottom: 100px;
-  
-      }
-
-      #foro{
-        padding: 30px;
-      }
-      
-
-      #sobrenosotros{
-        padding: 30px;
-      }
-      #herramientas{
-        padding: 30px;
-      }
-
-      #blog{
-        padding: 30px;
-      }
-
-
-      #carouselExampleIndicators img{
-        
-        height: 24rem;
-
-      }
-
-      /* Esilos del carousel */
-
-#tituloscar{
-  margin-right: 70px;
-  margin-top: -250px;
-  margin-bottom: -1000px;
-  position: relative; 
-  /* font-family: poppins; */
-}
-
-#tituloscar h2{
-  font-size: 26px;
-  text-transform: uppercase;
-  font-weight: bold;
-  animation-name: bounceInLeft;
-  animation-delay: 1s;
-  
-}
-
-#tituloscar h3{
-  font-size: 26px;
-}
-
-#tituloscar h2 span{
-  color: #edbb00;
-}
-
-
-#direccionca{
-  padding-bottom: 90px;
-  margin-left: 550px;
- 
-}
-
-#direccionca h3 {
-  font-size: 500005px;
-  font-weight: bold;
-}
-
-
-#direccionca h3 span {
-  color:#edbb00;
-}
-
-#contenidoconoce{
-  margin-top: 100px;
-}
-
-}
-
-/* 
-#imaca{
-  filter: blur(6px);
-} */
-
 /* Carousel imagenes */
 #direccionca{
   margin-bottom: 150px;
@@ -695,8 +448,8 @@ ul, ol {
   /* position: fixed;
   margin-top: 700px;
   margin-left: 1300px; */ 
-  width:210px;
-	height:33px;
+  width:212px;
+	height:36px;
 	bottom:40px;
 	right:40px;
   background-color:#25d366;
@@ -704,6 +457,8 @@ ul, ol {
   border-radius: 20px;
   font-size: 20px;
   text-align: center;
+  z-index: 100;
+  
 }
 
 #wa p{
@@ -711,28 +466,10 @@ ul, ol {
   font-size:15px;
   color: #fff;
   display: inline-block;
+  margin-top:10px;
+  font-family: Arial, Helvetica, sans-serif;
   
 }
-
-.wa{
-  color: #FFF;
-  display: inline-block;
-  padding-top: 5px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #call-to-action {
   background:linear-gradient(rgb(44, 42, 34) 0%, rgb(44, 42, 34) 100%);

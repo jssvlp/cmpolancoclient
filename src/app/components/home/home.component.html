@@ -1,19 +1,6 @@
 <style>.yellowtext {color: yellow;}</style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<!----------------------------------------------------------------------------------->
-                    <!--       HEADER OF THE HOME-PAGE       -->
-<!----------------------------------------------------------------------------------->
-<!-- This is a navbar component, now you can user navbar on any other component :) -->
-
-<!----------------------------------------------------------------------------------->
-                    <!--       BODY OF THE HOME-PAGE       -->
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-                            <!--       CAROUSEL       -->
-<!----------------------------------------------------------------------------------->
-
-<body>
   <div id="carousel" class="carousel slide" data-ride="carousel">
     
     <!-- Indicators -->
@@ -37,29 +24,29 @@
         
         <div *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}} text-center" id="fotoca">
           <img height="775" src="assets/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
-          <div class="carousel-caption d-none d-md-block" id="direccionca">
+          <div class="carousel-caption" id="direccionca">
             <h3 ><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
             <h1 id="contenidoconoce" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
             <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d?.direccion}}</p></h2>
-            <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
+            <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
           </div>
           
-          <button routerLink="/descripcion-proyecto/{{d.proyectoID}}" type="button" class="btn btn-info text" id="btca2">Acceder</button>
+         <!--  <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-info text" id="btca2">Acceder</button>
           <h1 id="contenidoconoce2" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
-          <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3>
+          <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3> -->
         </div>
    
         
         
-  <div id="wa">  
+<!--   <div id="wa">  
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <a href="{{whatsappUrl}}" target="_blank">
         <i class="fa fa-whatsapp wa"> <p>Whatsapp Mejía Polanco</p></i> 
       </a>
-      </div> 
+  </div>  -->
       
   
-      </div>
+  </div>
       <!-- <img class="animated bounce infinite" src="assets/back.png" id="arrow" alt="Generic placeholder image" alt="Generic placeholder image" >  -->
   </div>
     <!-- Controls -->
@@ -126,7 +113,7 @@
               <p>{{s.descripcionServicio}}</p>
               <p><button class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</button ></p>
           </div>
-           </div>
+      </div>
   
   </div> 
   </section>
@@ -175,7 +162,6 @@
       </section>
     
     </section>
-</body>
 
 
   
@@ -186,15 +172,8 @@
   
   <footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;" id="contacto">
     <app-footer></app-footer>
+  </footer>
 
-    </footer>
-
-<!-- <div id="wa">  
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send?phone=18096604823&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
-  <i class="fa fa-whatsapp"> <p class="wa">Whatsapp Mejía Polanco</p></i> 
-</a>
-</div>  -->
 
 
 

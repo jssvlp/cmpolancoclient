@@ -1,5 +1,3 @@
-
-  
   <div class="container" style="margin-top: 50px">
           <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
@@ -9,100 +7,6 @@
                 </div>
                 <div class="card-body">
                        <h5 class="card-title text-center"> Calculadora Hipotecaria</h5>
-                       
-       
-                           
-                                   <!-- <label for="tentacles">Edad del Solicitante</label>
-                                   <select [(ngModel)]="edad" class="form-control" class="form-control" aria-placeholder="Seleccione su edad">
-                                      <option value="18">18</option>
-                                      <option value="19">19</option>
-                                      <option value="20">20</option>
-                                      <option value="21">21</option>
-                                      <option value="22">22</option>
-                                      <option value="23">23</option>
-                                      <option value="24">24</option>
-                                      <option value="25">25</option>
-                                      <option value="26">26</option>
-                                      <option value="27">27</option>
-                                      <option value="28">28</option>
-                                      <option value="29">29</option>
-                                      <option value="30">30</option>
-                                      <option value="31">31</option>
-                                      <option value="32">32</option>
-                                      <option value="33">33</option>
-                                      <option value="34">34</option>
-                                      <option value="35">35</option>
-                                      <option value="36">36</option>
-                                      <option value="37">37</option>
-                                      <option value="38">38</option>
-                                      <option value="39">39</option>
-                                      <option value="40">40</option>
-                                      <option value="41">41</option>
-                                      <option value="42">42</option>
-                                      <option value="43">43</option>
-                                      <option value="44">44</option>
-                                      <option value="45">45</option>
-                                      <option value="46">46</option>
-                                      <option value="47">47</option>
-                                      <option value="48">48</option>
-                                      <option value="49">49</option>
-                                      <option value="50">50</option>
-                                      <option value="51">51</option>
-                                      <option value="52">52</option>
-                                      <option value="53">53</option>
-                                      <option value="54">54</option>
-                                      <option value="55">55</option>
-                                      <option value="56">56</option>
-                                      <option value="57">57</option>
-                                      <option value="58">58</option>
-                                      <option value="59">59</option>
-                                      <option value="60">60</option>
-                                      <option value="61">61</option>
-                                      <option value="62">62</option>
-                                      <option value="63">63</option>
-                                      <option value="64">64</option>
-                                      <option value="65">65</option>
-                                      <option value="66">66</option>
-                                      <option value="67">67</option>
-                                      <option value="68">68</option>
-                                      <option value="69">69</option>
-                                      <option value="70">70</option>
-                                      <option value="71">71</option>
-                                      <option value="72">72</option>
-                                      <option value="73">73</option>
-                                   </select> 
-                                   <hr> -->
-                               
-     
-                          
-                                 <!-- <label>Tipo de Propiedad  </label>
-                                 <select  class="form-control" aria-placeholder="Seleccione una opcion" required>
-                                   <option value="" selected="selected"></option>
-                                   <option value="1">Casa</option>
-                                   <option value="2">Apartamento</option>
-                                   <option value="3">Solar </option>
-                                   <option value="4">Local Comercial</option>
-                               </select> -->
-                               
-     
-<!--                       
-                               <label>Destino del Préstamo</label>
-                               <select  class="form-control" aria-placeholder="Seleccione una opcion" required>
-                                 <option value="" selected="selected"></option>
-                                 <option value="1">Adquisición Primera Vivienda</option>
-                                 <option value="2">Adquisición Segunda Vivienda</option>
-                                 <option value="3">Remodelación</option>
-                                 <option value="4">Remodelación Primera Vivienda</option>
-                                 <option value="5">Remodelación Segunda Vivienda</option>
-                                 <option value="6">Desafiche Primera Vivivenda</option>
-                                 <option value="7">Desafiche segunda Vivivenda</option>
-                             </select>
-                              -->
-     
-                       
-                             <!-- <label>Valor de la Propieadad</label>
-                             <input  id="valor" type="text" class="form-control" minlength="5" maxlength="11"  required/> -->
-                            
                              <label>Moneda</label>
                                  <select [(ngModel)]="moneda" class="form-control" required>
                                      <option value="DOP"> $ DOP</option>
@@ -177,12 +81,19 @@
 
             <div class="comentario">
               <p> <b>Importante</b> Estos cálculos son proyecciones estimadas y pueden variar dependiendo el banco por el cual solicite el préstamo. Para una información mas acertada puede dar click en uno de los siguientes links según el banco de su preferencia: <br><br>
-              <a  target="blank" href="https://www.popularenlinea.com/Personas/Paginas/nosotros/pistas-financieras.aspx"> Popular </a>  <br>
+              </p>
+
+              <ng-container *ngFor="let bank of banks">
+                <a target="blank"   href="{{bank.url}}"> {{bank.name}}</a>
+                <br>
+              </ng-container>
+
+             <!--  <a  target="blank" href="https://www.popularenlinea.com/Personas/Paginas/nosotros/pistas-financieras.aspx"> Popular </a>  <br>
               <a  target="blank" href="https://www.banreservas.com/calculators/hipotecarios"> Ban Reservas </a> <br>
               <a  target="blank" href="https://www.bhdleon.com.do/wps/portal/BHD/Inicio/bancapersona/Prestamos/!ut/p/z0/fY3LCsIwEEV_xU3WEyUKXRbFNwgVoZ2NTNNgx0cmTYL4-Xbpyt09cDgXEGpAT2--UWbx9By5wcXVFCu9M2Z62GzXWpez47w4V6dqeTGwB_wvjAW-DwOWgFZ8dp8Mddt3SrNny6J0S97SJLiYxkelQ3Qp00vSz-w5SHaWIkuC8MDmCyVwSnk!/"> BHD León </a> <br>
               <a  target="blank" href="https://www.progreso.com.do/personas/herramientas/calculadora-de-prestamos/"> Banco del Progreso </a> <br>
-              <a  target="blank" href="https://www.bancocaribe.com.do/prestamo/personas/prestamos-hipotecarios"> Banco Caribe </a> <br>
-            </p>
+              <a  target="blank" href="https://www.bancocaribe.com.do/prestamo/personas/prestamos-hipotecarios"> Banco Caribe </a> <br> -->
+            
             </div>
      
 

@@ -30,9 +30,11 @@ export class NavbarComponent implements OnInit {
     }    
 
     let route = this.router.url;
-    if(route == '/home')
+   if(route == '/home')
     {
       $(document).ready(function() {
+        $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+
         $(window).scroll(function() {
            if($(this).scrollTop() > 80) { 
             $("#navwrap").css("background" , "transparent");
@@ -42,24 +44,26 @@ export class NavbarComponent implements OnInit {
         });
     });
     }  
-      $(document).ready(function(){
-        $(window).scroll(function(){
-          var scroll = $(window).scrollTop();
-          let path = window.location.pathname 
-          if(  path== '/home' || path == '/blog' )
-          {
-            console.log(route)
-            if (scroll >60)  {
-              console.log('scrolling..',)
-              $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-            }
-            else{
-              $("#navwrap").css("background" , "transparent");
-            }
+    
+    $(document).ready(function(){
+      //$("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
+
+      $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        let path = window.location.pathname 
+        if(  path== '/home' || path == '/blog' )
+        {
+          console.log(route)
+          if (scroll >60)  {
+            $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
           }
-          
-        })
-      });
+          else{
+            $("#navwrap").css("background" , "transparent");
+          }
+        }
+        
+      })
+    });
     
       
 
@@ -70,11 +74,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/home'])
 
   }
-
-  /*administrar(){
-    this.authService.change();
-    return "http://localhost:4500/"
-  }*/
   onLogin(){
 
   }

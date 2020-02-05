@@ -56,6 +56,7 @@ import {NgxMaskModule} from 'ngx-mask';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
+
 //Translation
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -65,6 +66,7 @@ import { FiltroFPipe } from './pipes/filtro-f.pipe';
 import { CarouselProductComponent } from './carousel-product/carousel-product.component';
 import { AuthInterceptor } from '../services/jwt.interceptor';
 import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,7 +108,8 @@ const routes=[
     DetalleForoComponent,
     FiltroFPipe,
     CarouselProductComponent,
-    OlvidarcontrasenaComponent
+    OlvidarcontrasenaComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

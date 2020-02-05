@@ -4,10 +4,10 @@ header {
   }
 
   #titulo{ 
-    text-transform:uppercase;
+
     font-size: bold;    
     font-size: 70px;
-    color: #17a2b8;
+    color:black;
     font-family: Open Sans;
   }
 
@@ -16,34 +16,41 @@ header {
     font-size: bold;    
     font-family: Open Sans;
     font-size: 22px;
-    color: #17a2b8;
-    text-transform:uppercase;
+    color:black;
+
   
 }
-  
-  #card{
-    margin:50px;
-    border: 0; 
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
+.text-value-item  {
+  font-size: bold;
+  font-family: Open Sans;
+  font-size: 22px;
+  color:black;
+}
 
   #cardsolicitud{
    width: 900px;
    margin-left: -280px;
   }
 
+  .strong {
+    font-weight: bold;
+  }
+
   body {
     /* background: #007bff; */
     /* background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196)); */
-    margin-top: -24px;
-  }
 
-label{
-    margin-left: 300px;
-    margin-top: 30px;
   }
-
+.top-label{
+  top: -15px;
+  margin-top: -15px;
+  padding-top: -15px;
+}
+.top{
+  top: -5px;
+  margin-top: -5px;
+  padding-top: -5px;
+}
 #ame{
   margin-left: 0;
   font-size: 20px;
@@ -85,24 +92,24 @@ label{
   padding-top: 20px;
 }
 
-#card-map{
-  margin-left: 1000px;
-  margin-top:-8600px;
-  display:inline;
-}
+
+
 
 #tituloubi{
 text-align: center;
-text-transform:uppercase;
+
 font-size: bold;
 color: #6c757d;
 }
 #tituloubi span{
-  color: #17a2b8;
+  color:black;
   /* color: #edbb00; */
 
 }
 
+#contenido{
+  height: auto;
+}
 #proyectos{
   padding-bottom: 30px;
 }
@@ -117,7 +124,7 @@ color: #6c757d;
   #box{
     margin:0;
     padding:0;
-    margin-left: 300px;
+    margin-left: 30px;
   }
 
 
@@ -128,10 +135,8 @@ color: #6c757d;
     position: relative;
   }
 
-  #iconodireccion{
-    top: 60px;
-    left: 260px;
-    position: relative;
+  .iconcar{
+    align-content: center;
   }
 
   #noexisteproyecto{
@@ -140,7 +145,7 @@ color: #6c757d;
     font-size: bold;    
     font-family: Open Sans;
     font-size: 22px;
-    color: #17a2b8;
+    color: black;
     text-transform:uppercase;
     left: 260px;
     position: relative;
@@ -152,13 +157,20 @@ color: #6c757d;
     margin-top: 60px;
   }
 
+  @media only screen and (max-width: 768px) {
+    #detail {
+      margin-top: 100px;
+    }
+  }
+
 
   @media screen and (max-width:800px){
+    
     #titulo{ 
-      text-transform:uppercase;
+      margin-top:50%;
       font-size: bold;    
       font-size: 45px;
-      color: #17a2b8;
+      color:black;
       font-family: Open Sans;
     } 
     body{
@@ -177,14 +189,12 @@ color: #6c757d;
       position: relative;
   }
 
-  #subtitulo  {
+  .text-value-item  {
     font-size: bold;
     font-family: Open Sans;
     font-size: 22px;
-    color: #17a2b8;
-    text-transform: uppercase;
-    margin-left: 100px;
-}
+    color:black;
+  }
 
 #iconodireccion  {
   top: 60px;
@@ -195,13 +205,10 @@ color: #6c757d;
 #box {
   margin: 0;
   padding: 0;
-  margin-left: 90px;
+
 }
 
-#card{
-  margin-left: -20px;
- 
-}
+
 #noexisteproyecto{
  
   
