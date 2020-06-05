@@ -1,0 +1,229 @@
+header {
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+    padding: 20px;
+  }
+
+  #titulo{ 
+
+    font-size: bold;    
+    font-size: 70px;
+    color:black;
+    font-family: Open Sans;
+  }
+
+#subtitulo{
+ 
+    font-size: bold;    
+    font-family: Open Sans;
+    font-size: 22px;
+    color:black;
+
+  
+}
+.text-value-item  {
+  font-size: bold;
+  font-family: Open Sans;
+  font-size: 22px;
+  color:black;
+}
+
+  #cardsolicitud{
+   width: 900px;
+   margin-left: -280px;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  body {
+    /* background: #007bff; */
+    /* background: linear-gradient(to right, rgb(237, 229, 116), rgb(225, 245, 196)); */
+
+  }
+.top-label{
+  top: -15px;
+  margin-top: -15px;
+  padding-top: -15px;
+}
+.top{
+  top: -5px;
+  margin-top: -5px;
+  padding-top: -5px;
+}
+#ame{
+  margin-left: 0;
+  font-size: 20px;
+  font-weight: bold; 
+
+}
+
+#ecar{
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+#caracteristicas #titulo{
+  padding-top: 20px;
+}
+
+#seguridad #titulo{
+  padding-top: -20px;
+}
+#distribucion #titulo{
+  padding-top: 20px;
+}
+
+#otros #titulo{
+  padding-top: 20px;
+}
+
+
+
+#general #titulo{
+  padding-top: 20px;
+}
+
+#desapart #titulo{
+  padding-top: 20px;
+}
+
+#inmuebles h5{
+  padding-top: 20px;
+}
+
+
+
+
+#tituloubi{
+text-align: center;
+
+font-size: bold;
+color: #6c757d;
+}
+#tituloubi span{
+  color:black;
+  /* color: #edbb00; */
+
+}
+
+#contenido{
+  height: auto;
+}
+#proyectos{
+  padding-bottom: 30px;
+}
+
+/* #box {
+  float: left;
+  margin-left: 300px;
+   
+}
+  */
+
+  #box{
+    margin:0;
+    padding:0;
+    margin-left: 30px;
+  }
+
+
+
+  #iconofecha{
+    top: 58px;
+    left: 260px;
+    position: relative;
+  }
+
+  .iconcar{
+    align-content: center;
+  }
+
+  #noexisteproyecto{
+ 
+ 
+    font-size: bold;    
+    font-family: Open Sans;
+    font-size: 22px;
+    color: black;
+    text-transform:uppercase;
+    left: 260px;
+    position: relative;
+
+  }
+
+  #pdfproyecto{
+    margin-left: 300px;
+    margin-top: 60px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    #detail {
+      margin-top: 100px;
+    }
+  }
+
+
+  @media screen and (max-width:800px){
+    
+    #titulo{ 
+      margin-top:50%;
+      font-size: bold;    
+      font-size: 45px;
+      color:black;
+      font-family: Open Sans;
+    } 
+    body{
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    #imagenproyecto{
+      width: 100%;
+      height: 100%;
+     
+    }
+
+    #iconofecha  {
+      top: 58px;
+      left: 60px;
+      position: relative;
+  }
+
+  .text-value-item  {
+    font-size: bold;
+    font-family: Open Sans;
+    font-size: 22px;
+    color:black;
+  }
+
+#iconodireccion  {
+  top: 60px;
+  left: 60px;
+  position: relative;
+}
+
+#box {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+#noexisteproyecto{
+ 
+  
+  left: 20px;
+  position: relative;
+  font-size: 20px;
+
+}
+
+#pdfproyecto{
+  margin-left: 50px;
+  margin-top: 60px;
+}
+  
+  
+
+
+  }

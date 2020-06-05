@@ -3,12 +3,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { ProyectoModel } from '../model/Proyecto.model';
 import { Observable, of } from 'rxjs';
-
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/proyectos";
+const apiUrl = config.api+"/proyectos";
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class ProyectoService {
     };
   }
 
-  getProjects (): Observable<ProyectoModel[]> {
+  getProjects(): Observable<ProyectoModel[]> {
     return this.http.get<ProyectoModel[]>(apiUrl)
       .pipe(
         tap(heroes => catchError(this.handleError('getProjects', []))
@@ -37,6 +37,7 @@ export class ProyectoService {
   }
 
   getProject(id: number): Observable<ProyectoModel> {
+   /*  console.log(apiUrl,'***************'); */
     const url = `${apiUrl}/${id}`;
     return this.http.get<ProyectoModel>(url).pipe(
       tap(_ => catchError(this.handleError<ProyectoModel>(`getProject id=${id}`))

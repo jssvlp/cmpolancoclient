@@ -1,0 +1,13 @@
+{
+    "home": {
+        "nosotros": "Sobre nosotros",
+        "servicios": "Servicios",
+        "calculadora" : "Calculadora",
+        "foro" : "Foro",
+        "blog" : "Blog",
+        "iniciar-sesion": "Iniciar sesión",
+        "registro" : "Registrarse",
+        "contacto" : "Contacto"
+
+    }
+}

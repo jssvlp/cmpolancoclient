@@ -1,60 +1,64 @@
 <div class="contenedorh">
-  <nav id="menu" class="navbar navbar-expand-lg navbar-light fixed-top" style=" font-family: Georgia, 'Times New Roman', serif;" style="background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%); ">
-      <div class="container-fluid">
-          <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navwrap">
+      <div class="container">
+      <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <a class="navbar-brand" id="logotitulo" (click)="changeRoute('home')" routerLink="/home">
+            <img src="/assets/logo-brand-white.png" width="150" alt="">
+        </a>
+      
+        <div class="collapse navbar-collapse justify-content-between menu" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-2">
+                 <!--  <li class="nav-item active">
+                    <a class="nav-link" id="logotitulo" href="#">CONSTRUCTORA MEJIA POLANCO </a>
+                  </li> -->
+                  <li class="nav-item " >
+                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">{{ 'home.nosotros' | translate }}</a>
+                  </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" href="#solicitarservicios">Solicitar servicios</a>
+                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">{{'home.servicios' | translate}}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="nav-solicitarservicios" (click)="changeRoute('calculadora')" routerLink="/calculadora">{{'home.calculadora' | translate}}</a>
+                </li>
+              <li class="nav-item ">
+                <a class="nav-link"id="nav-foro" (click)="changeRoute('foro')" [routerLink]="['/foro']">{{'home.foro' | translate}}</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-herramientas" href="#">Herramientas</a>
-              </li>
-              <li class="nav-item " >
-                <a class="nav-link" id="nav-sobrenosotros" href="#sobrenosotros">Sobre Nosotros</a>
+                <a class="nav-link" id="nav-blog" (click)="changeRoute('blog')" [routerLink]="['/blog']">{{'home.blog' | translate}}</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link"id="nav-foro" href="foro">Foro</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" id="nav-blog" href="#blog">Blog</a>
-              </li>
-              <li class="nav-item ">
-                <a class="nav-link" id="nav-contacto" href="#contacto">Contacto</a>
+                <a class="nav-link" id="nav-contacto" href="home#contacto">{{'home.contacto' | translate}}</a>
               </li>
             </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
-                <a class="btn btn-info" aria-expanded="false" routerLink="/login" routerLinkActive="">Inicia sesión</a>
+            <ul class="navbar-nav" style="margin-right: 10px"   >
+              <li *ngIf="!logged" class="nav-item">
+                <a class="btn btn-info ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive="">{{'home.iniciar-sesion' | translate}}</a>
               </li>
-              <li *ngIf="" class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
+              
+             <!--  <li class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
                   <a class="btn btn-info" style="margin-left:5px"aria-expanded="false" (click)="onLogout()" routerLinkActive="#">Logout</a>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
-                    <div class="img-rounded profile-img"></div>
-                    User Name <span class="caret"></span>
-                </a>
+              </li> -->
+              <li *ngIf="logged" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="#">Settings</a>
-                    </li>
-                    <li role="separator" class="divider"></li>
-                    <li>
-                        <a href="#">Log out</a>
-                    </li>
+                    <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
+                    <li><a href="assets/ManualdeUsuario.pdf" download><i class="  "></i> Soporte</a></li>
+                    <li class="divider"></li>
+                    <li *ngIf = "roleID == 1"><a href="{{urlAdmin}}">Administrar</a></li>
+                    <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
                 </ul>
             </li>
-              <div class="nav-item" style="margin-left:15px"></div>
-              <li class="nav-item" style="margin-top:5px" style="margin-bottom:5px">
-                <a class="btn btn-warning" aria-expanded="false" routerLink="/registry" routerLinkActive="active">Registrarse</a>
+              <div class="nav-item" style="margin-left:10px"></div>
+              <li *ngIf="!logged" class="nav-item"  >
+                <a class="btn btn-warning ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active">{{'home.registro' | translate}}</a>
               </li>
             </ul>
           </div>
-          <div class="row" style="margin-left:3px">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          </div>
-      </div>
-    </nav>
+        </div>
+      </nav>
+  
+  
 
 </div>

@@ -1,0 +1,114 @@
+    
+<div class="container mtc" id="detail" >
+  <h5 class="card-title text-center" id="titulo" style="margin-top: 12%;">{{data?.nombreProyecto}}</h5>
+  <img height="550" weight="550" id="imagenproyecto" src="../../../../assets/Recursos/{{data?.imgURL}}"  class="d-block w-100" alt="projects">
+  <div class="card">
+    <div class="card-body">
+      <!-- first row -->
+      <div class="d-flex flex-wrap justify-content-start">
+        <div class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/calendar.png"></div>
+            <div class="d-flex flex-column mb-3" >
+              <label class="d-flex align-items-start top strong"> Fecha de Término</label>
+              <label class="d-flex align-items-start top-label text-value-item" > {{data?.fechaTerminacion  | date:'dd/MM/yyyy'}}</label>
+            </div>
+        </div>
+        <div class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/home.png"></div>
+            <div class="d-flex flex-column mb-3 ">
+              <label class="d-flex align-items-start top strong"> Dirección</label>
+              <label class="d-flex align-items-start top-label text-value-item" > {{data?.direccion }}</label>
+            </div>
+        </div>
+        <div *ngIf = "distribucion?.length > 0" class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/ruler.png"></div>
+            <div class="d-flex flex-column mb-3 ">
+              <label class="d-flex align-items-start top strong"> Distribución</label>
+              <label *ngFor = "let d of distribucion" class="text-value-item">
+                {{d.caracteristica?.carDescripcion}}
+              </label>
+            </div>
+        </div>
+      </div>  
+
+      <div class="d-flex justify-content-around">
+        <p class="strong text-value-item">Caracteristicas</p>
+      </div>
+      <div class="d-flex flex-wrap justify-content-start" >
+        <div *ngIf = "seguridad?.length > 0" class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/ruler.png"></div>
+            <div class="d-flex flex-column mb-3 ">
+              <label class="d-flex align-items-start top strong"> Seguridad</label>
+              <label *ngFor = "let  s of seguridad" >
+                - {{s.caracteristica?.carDescripcion}}
+              </label>
+            </div>
+        </div>
+        <div *ngIf = "descripcionG?.length > 0" class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/home1.png"></div>
+            <div class="d-flex flex-column mb-3 ">
+              <label class="d-flex align-items-start top strong"> Descripción General</label>
+              <label *ngFor = "let dg of descripcionG">
+                - {{dg.caracteristica?.carDescripcion}}
+              </label>
+            </div>
+        </div>
+        <div *ngIf = "distribucion?.length > 0" class="d-flex justify-content-start" style=" width: 350px !important;max-width: 350px !important;">
+          <div class="d-flex align-items-start"><img src="assets/bbq.png"></div>
+            <div class="d-flex flex-column mb-3 ">
+              <label class="d-flex align-items-start top strong"> Amenidades</label>
+              <label *ngFor = "let  a of amenidades">
+                - {{a.caracteristica?.carDescripcion}}
+              </label>
+            </div>
+        </div>
+      </div>  
+
+      
+   
+
+  </div>
+  
+<div class="row">
+    <div class="col-md-6"></div>
+  </div>
+  <div class="row" *ngIf ="data?.inmuebles.length > 0" > 
+    <div *ngFor = "let d of data?.inmuebles" class="col-md-4">
+      <div class="card" style="width: 30rem;" id="card">
+        <div class="card-body">
+          <h5 class="card-title" id="subtitulo" >Inmueble {{d.nombreInmueble}}</h5>
+          <p class="card-text">El precio del inmueble es {{d.precio | currency: d.moneda :true:'1.2-2'}}.</p>
+          <p class="card-text">{{d.cantidadHabitaciones}} habitaciones.</p>
+          <p class="card-text">{{d.cantidadBanos}} baños.</p>
+          <p class="card-text">{{d.cantidadParqueos}} parqueos.</p>
+          <p class="card-text">Cantidad de metros cuadrados  {{d.mts}} Mts2</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+<!--   <div *ngIf ="data?.inmuebles.length == 0 ">
+    <h5 id="noexisteproyecto">Este proyecto no tiene ningun inmueble registrado.</h5>
+  </div> -->
+  <div id="pdfproyecto" *ngIf = "data?.documentoResumenPdf != null && data?.documentoResumenPdf != ''">
+    <a download href ="../../../assets/PDF/{{data.documentoResumenPdf}}">Descargar PDF informativo del proyecto</a>
+  </div>
+
+<div *ngIf= "data?.latitude != 'NULL'" class="card" id="card-map">
+    <div class="card-body" id="card-m">
+        <h1 id="tituloubi">Ubicación del <span>Proyecto</span></h1>
+        <app-map [latitude]="latitude" [longitude]="longitude"></app-map>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div *ngIf = "data?.imagenes.length != 0">
+  <app-carousel-product>
+  [imagenes] = data.imagenes>
+</app-carousel-product>
+</div> -->
+
+
+ 

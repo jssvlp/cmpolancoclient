@@ -1,15 +1,44 @@
 /* Cambiar el color de las letras */
+
+#navbar {
+  background-color: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+}
 .navbar-nav li a {
     color: white;
+    font-size: 16px;
   }
   
+  .dropdown-menu {
+    background-color: #17a2b8;
+  }
+
+  #logotitulo{
+    color: #edbb00;
+    font-weight: bold; 
+    }
+
+  .dropdown-menu  li a {
+    
+    margin-left: 25px;
+  }
+
+  .container-fluid{
+    margin: 0;
+    padding-right: 2px;
+    
+  }
+#navwrap {
+    color:linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);  
+    }
+
   .navbar-light .navbar-nav .nav-link:hover {
-  color:#17a2b8;
+  color:#edbb00;
   }
 
   .contenedorh{
-    position: relative;
+    position: relative; 
     }
+  
 
     
 header{
@@ -19,4 +48,23 @@ header{
     .contenedorh .navbar-light .navbar-nav .nav-link{
         position: relative;
         }
+
+/* Media queries */
+
+@media screen and (max-width:800px){
+  #navwrap{
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  }
+  #navbarSupportedContent{
+    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+
+
+  }
+
+  #menu{
+    padding-right:-1200px;
+    margin-right: -1200px;
+    
+  }
+}
         

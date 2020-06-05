@@ -1,0 +1,123 @@
+<body>
+
+    <div class="container-fluid">
+
+        <!-- Slider -->
+ 
+        <!-- //Slider -->
+
+        <div class="headernav">
+            <div class="container">
+                <div class="row">
+                    <a class="nav-link" id="logotitulo" href="index.html">CONSTRUCTORA MEJIA POLANCO </a>  
+                    <div class="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
+                        
+                    </div>
+                    <div class="col-lg-4 search hidden-xs hidden-sm col-md-3">
+                        <div class="wrap">
+                    
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
+                        <div class="stnt pull-left">                            
+                            <form action="03_new_topic.html" method="post" class="form">
+                            </form>
+                        </div>
+                    
+
+                        <div class="avatar pull-left dropdown">
+                            <a data-toggle="dropdown" href="#"></a> <b class="caret"></b>
+                      
+                            <ul class="dropdown-menu" role="menu" >
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">My Profile</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-2" href="#">Inbox</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-3" href="#">Log Out</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-4" href="04_new_account.html">Create account</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <section class="content" id="contenedor">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 breadcrumbf">
+                        <label> </label>
+                        <!-- <a href="#"> </a> <span class="diviver">&gt;</span> <a href="#">General Discussion</a> <span class="diviver">&gt;</span> <a href="#">New Topic</a> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+
+
+
+                        <!-- POST -->
+                        <app-post-foro></app-post-foro>
+                        <!-- POST -->
+
+                        <div class="row similarposts">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+
+                        <!-- -->
+                        <div class="sidebarblock">
+                            <h3>Categories</h3>
+                            <div class="divline"></div>
+                            <div class="blocktxt">
+                                <ul  *ngFor = "let d of data" class="cats">
+                                    <li><a href="#">{{d?.nombreTema}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- -->
+                     
+
+                  
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-xs-12">
+                       
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+      <footer>
+            <div class="container" id="footforo">
+                <div class="row">
+                    <div class="col-lg-1 col-xs-3 col-sm-2 logo " id="logofooter"> </div>
+                    <div class="col-lg-8 col-xs-9 col-sm-5 " id="correofooter">Copyrights 2019, constructoramejiapolanco.com </div>
+                    <div class="col-lg-3 col-xs-12 col-sm-5 sociconcent" id="socialfooter">
+                        <ul class="socialicons">
+                            <li><a href="https://www.facebook.com/profile.php?id=100008462149450"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="https://twitter.com/FranklynAMP"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.instagram.com/constructoramejiapolanco/?hl=es-la"><i class="fa fa-instagram"></i></a></li>
+ 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>

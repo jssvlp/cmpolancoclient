@@ -8,7 +8,12 @@
   <title>Solicitud de Servicio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<header>
+    <!-- This is a navbar component, now you can user navbar on any other component :) -->
+    <app-navbar></app-navbar>
+  </header>
 <body>
+  <br><br>
 <div class="container">
         <div class="row">
           <div class="col-lg-10 col-xl-9 mx-auto">
@@ -18,27 +23,40 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Solicitar Servicios</h5>
-                <form [formGroup]="requestForm" class="form-servicio">
+                <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="form-servicio">
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                          <label for="inputServicios">Servicios</label>
-                          <select formControlName="servicioID" id="inputServicios" class="form-control">
-                            <option *ngFor="let s of servicios" value="{{s.servicioID}}">{{s.nombreServicio}}</option>
-                          </select>
+                          <label for="inputServicios">Servicio</label>
+                          <input formControlName="nombreServicio" id="inputServicios" class="form-control" disabled/>
                         </div>
                       </div>
 
               
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Comentario</label>
-                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3"></textarea>
+                        <textarea formControlName="comentario" class="form-control" id="comentario" rows="3" minlength="5" maxlength="500"></textarea>
+                        <div *ngIf="requestForm.controls['comentario'].errors && requestForm.controls['comentario'].touched" class="validation-error">
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.required">
+                              El campo es requerido
+                          </div>
+                          <div [hidden] = "!requestForm.controls['comentario'].errors.minlength">
+                              El campo requiere mas de 5 caracteres  
+                          </div>
+                      </div>
                     </div>
 
                     <div class="form-group">
                       <label>Fecha deseada para la reunion</label>
-                      <div class="info">Nota: Es posible que esta no sea la fecha de reunion, pero sera tomada en cuenta la hora de pautar la cita.</div>
-                      <input formControlName="fechaSolicitada" type="date" class="form-control">
+                      <div class="info">Nota: Es posible que esta no sea la fecha de reunion, y sera tomada en cuenta la hora de pautar la cita.</div>
+                      <input formControlName="fechaSol" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                      [convertModelValue]="true"
+                      [enableTime]="true"
+                      dateFormat="Y-m-dTH:i"
+                      altFormat="F j, Y H:i"
+                      placeholder="Seleccione una fecha" 
+                      minDate = "today" 
+                      required>
                     </div>
               
                   <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Solicitar servicio</button>

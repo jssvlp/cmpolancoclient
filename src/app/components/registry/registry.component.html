@@ -16,44 +16,130 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">Registro</h5>
-                <form  #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-signin">
-                  <label for="inputUserame">Nombres</label>
-                  <div class="form-label-group">
-                    <input type="text" id="NombreUsuario"  name="NombreUsuario"  class="form-control" placeholder="Username" ngModel required autofocus>
-                  </div>
+                <form  [formGroup]="form" (ngSubmit)="onSubmit()" class="form-signin">
 
-                  <label for="inputUserame">Apellidos</label>
-                  <div class="form-label-group">
-                    <input type="text" id="inputLastnames" name="ApellidosUsuario"  class="form-control" placeholder="Apellidos" ngModel required autofocus>
+                  <div class="form-row">
+                      <div class="form-group">
+                  <label for="inputUserame">Nombres</label>
+                    <input formControlName = "NombreUsuario" type="text" id="nombreUsuario"  name="nombreUsuario"  class="form-control" minlength="3" maxlength="30"  required autofocus>
                   </div>
+                  <div *ngIf="form.controls['NombreUsuario'].errors && form.controls['NombreUsuario'].touched" class="validation-error">
+                    <div [hidden] = "!form.controls['NombreUsuario'].errors.required">
+                      El campo es requerido
+                    </div>
+                    <div [hidden] = "!form.controls['NombreUsuario'].errors.minlength">
+                      El campo requiere mas de 3 caracteres  
+                    </div>
+                    <div [hidden] = "!form.controls['NombreUsuario'].errors.maxlength">
+                      El nombre debe tener menos de 30 caracteres  
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">                
+                  <label for="inputUserame">Apellidos</label>
+                    <input formControlName = "ApellidosUsuario" type="text" id="inputLastnames" name="apellidosUsuario"  class="form-control"  minlength="3" maxlength="45"  required autofocus>
+                  </div>
+                  <div *ngIf="form.controls['ApellidosUsuario'].errors && form.controls['ApellidosUsuario'].touched" class="validation-error">
+                      <div [hidden] = "!form.controls['ApellidosUsuario'].errors.required">
+                        El campo es requerido
+                      </div>
+                      <div [hidden] = "!form.controls['ApellidosUsuario'].errors.minlength">
+                        El campo requiere mas de 3 caracteres  
+                      </div>
+                      <div [hidden] = "!form.controls['ApellidosUsuario'].errors.maxlength">
+                        El nombre debe tener menos de 45 caracteres  
+                      </div>
+                </div> 
+                </div>
 
                   
-
+                <div class="form-row">
+                    <div class="form-group"> 
                   <label for="inputEmail">Email</label>
-                  <div class="form-label-group">
-                    <input type="email" id="inputEmail" name="CorreoUsuario"  class="form-control"  placeholder="Correo electrónico" ngModel required>
+                    <input formControlName = "CorreoUsuario" type="email" id="inputEmail" name="correoUsuario"  class="form-control" minlength="10" required>
                     <!-- <label for="inputEmail">Email address</label> -->
                   </div>
-  
+                  <div *ngIf="form.controls['CorreoUsuario'].errors && form.controls['CorreoUsuario'].touched" class="validation-error" class="validation-error">
+                    <div [hidden] = "!form.controls['CorreoUsuario'].errors.required">
+                      El campo es requerido
+                    </div>
+                    <div [hidden] = "!form.controls['CorreoUsuario'].errors.minlength">
+                      El campo requiere mas de 10 caracteres  
+                    </div>
+                  </div>
+                </div> 
+
+                <div class="form-row">
+                  <div class="form-group"> 
+                <label for="inputEmail">Numero de telefono</label>
+                  <input formControlName = "numeroTelefono" type="number" id="inputTelefono" name="numeroTelefono"  class="form-control" minlength="10" required>
+                </div>
+                <div *ngIf="form.controls['numeroTelefono'].errors && form.controls['numeroTelefono'].touched" class="validation-error" class="validation-error">
+                  <div [hidden] = "!form.controls['numeroTelefono'].errors.required">
+                    El campo es requerido
+                  </div>
+                  <div [hidden] = "!form.controls['numeroTelefono'].errors.minlength">
+                    El campo requiere mas de 10 caracteres  
+                  </div>
+                </div>
+              </div> 
+                  
+                <div class="form-row">
+                    <div class="form-group"> 
                   <label for="inputPassword">Contraseña</label>
-                  <div class="form-label-group">
-                    <input type="password" id="inputPassword" name="Contraseña"  class="form-control" placeholder="Password" ngModel required>
+                    <input formControlName = "Contraseña" type="password" id="inputPassword" name="Contraseña"  class="form-control"  minlength="8" maxlength="45"  required>
                     <!-- <label for="inputPassword">Password</label> -->
                   </div>
-
+                  <div *ngIf="form.controls['Contraseña'].errors && form.controls['Contraseña'].touched" class="validation-error" class="validation-error">
+                    <div [hidden] = "!form.controls['Contraseña'].errors.required">
+                      El campo es requerido
+                    </div>
+                    <div [hidden] = "!form.controls['Contraseña'].errors.minlength">
+                      El campo requiere almenos de 8 caracteres  
+                    </div>
+                    <div [hidden] = "!form.controls['Contraseña'].errors.maxlength">
+                      El nombre debe tener menos de 45 caracteres  
+                    </div>
+                  </div>
+                </div>
+ 
+                <div class="form-row">
+                    <div class="form-group"> 
                   <label for="inputConfirmPassword">Confirmar contraseña</label>
-                  <div class="form-label-group">
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password"  required>
+                    <input formControlName = "confirmPassword"  type="password" id="inputConfirmPassword" name="confirmPassword" class="form-control" minlength="10" maxlength="45" required>
                     <!-- <label for="inputConfirmPassword">Confirm password</label> -->
                   </div>
-
+                  <div *ngIf="form.controls['confirmPassword'].errors && form.controls['confirmPassword'].touched" class="validation-error">
+                    <div [hidden] = "!form.controls['confirmPassword'].errors.required">
+                      El campo es requerido
+                    </div>
+                    <div [hidden] = "!form.controls['confirmPassword'].errors.minlength">
+                      El campo requiere mas de 10 caracteres  
+                    </div>
+                    <div [hidden] = "!form.controls['confirmPassword'].errors.maxlength">
+                      El nombre debe tener menos de 45 caracteres  
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group"> 
                   <label for="inputFechaDeNacimiento">Fecha de Nacimiento</label>
-                  <div class="form-label-group">
-                    <input type="date" id="FechaNacimiento" name="FechaNacimiento" class="form-control"ngModel required>
+                    <input formControlName = "fechaNacimiento" id="FechaNacimiento" name="FechaNacimiento" class="form-control"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                    [convertModelValue]="true"
+                    [enableTime]="false"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
+                    placeholder="Seleccione una fecha" 
+                    required>
                     <!-- <label for="inputConfirmPassword">Confirm password</label> -->
                   </div>
-    
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" >Register</button>
+                </div>
+
+
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" [disabled]="form.invalid" type="submit" >Registrar</button>
                   <!-- <a class="d-block text-center mt-2 small" href="#">Sign In</a> -->
                   
                 </form>

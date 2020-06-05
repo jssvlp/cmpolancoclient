@@ -1,0 +1,104 @@
+  <div class="container" style="margin-top: 50px">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-inmueble flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                   <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                       <h5 class="card-title text-center"> Calculadora Hipotecaria</h5>
+                             <label>Moneda</label>
+                                 <select [(ngModel)]="moneda" class="form-control" required>
+                                     <option value="DOP"> $ DOP</option>
+                                     <option value="USD"> $ US</option>
+                                 </select>
+     
+                           <label>Monto del Préstamo</label>
+                           <input [(ngModel)]="monto" mask="comma_separator" type="text" id="prestamo" class="form-control" minlength="5" maxlength="11"  required/>
+                          
+     
+     
+     
+                         <label>Tasa</label>
+                         <input [(ngModel)]="tasa" type="text" mask="percent" sufix="%" class="form-control" minlength="1" maxlength="5"  required/>
+     
+     
+     
+                       <label for="tentacles">Plazo en años</label>
+                       <select  [(ngModel)]="tiempo" aria-placeholder="Seleccione el plazo" class="form-control"> 
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                          <option value="15">15</option>
+                          <option value="16">16</option>
+                          <option value="17">17</option>
+                          <option value="18">18</option>
+                          <option value="19">19</option>
+                          <option value="20">20</option>
+                          <option value="21">21</option>
+                          <option value="22">22</option>
+                          <option value="23">23</option>
+                          <option value="24">24</option>
+                          <option value="25">25</option>
+                          <option value="26">26</option>
+                          <option value="27">27</option>
+                          <option value="28">28</option>
+                          <option value="29">29</option>
+                          <option value="30">30</option>
+
+                       </select>
+     
+     
+                                 
+                      
+                           
+     
+                     
+                             
+                         
+                         
+     
+     
+                     <button (click)="add()" class="btn btn-lg btn-primary btn-block text-uppercase">
+                         Calcular
+                     </button>
+                     <hr>
+             <div class="calculo">
+                 <div > <p class="cuota"> Su Cuota Mensual a pagar es de:</p> <p class="resultado">{{result}}</p></div>
+             </div>
+             <br>
+
+            <div class="comentario">
+              <p> <b>Importante</b> Estos cálculos son proyecciones estimadas y pueden variar dependiendo el banco por el cual solicite el préstamo. Para una información mas acertada puede dar click en uno de los siguientes links según el banco de su preferencia: <br><br>
+              </p>
+
+              <ng-container *ngFor="let bank of banks">
+                <a target="blank"   href="{{bank.url}}"> {{bank.name}}</a>
+                <br>
+              </ng-container>
+
+             <!--  <a  target="blank" href="https://www.popularenlinea.com/Personas/Paginas/nosotros/pistas-financieras.aspx"> Popular </a>  <br>
+              <a  target="blank" href="https://www.banreservas.com/calculators/hipotecarios"> Ban Reservas </a> <br>
+              <a  target="blank" href="https://www.bhdleon.com.do/wps/portal/BHD/Inicio/bancapersona/Prestamos/!ut/p/z0/fY3LCsIwEEV_xU3WEyUKXRbFNwgVoZ2NTNNgx0cmTYL4-Xbpyt09cDgXEGpAT2--UWbx9By5wcXVFCu9M2Z62GzXWpez47w4V6dqeTGwB_wvjAW-DwOWgFZ8dp8Mddt3SrNny6J0S97SJLiYxkelQ3Qp00vSz-w5SHaWIkuC8MDmCyVwSnk!/"> BHD León </a> <br>
+              <a  target="blank" href="https://www.progreso.com.do/personas/herramientas/calculadora-de-prestamos/"> Banco del Progreso </a> <br>
+              <a  target="blank" href="https://www.bancocaribe.com.do/prestamo/personas/prestamos-hipotecarios"> Banco Caribe </a> <br> -->
+            
+            </div>
+     
+
+                </div>
+              </div>
+            </div>
+          </div>
+</div>

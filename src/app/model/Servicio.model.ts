@@ -1,5 +1,6 @@
 export class ServicioModel {
     servicioID: number
     nombreServicio: string
-    descricipcionServicio: string
+    descripcionServicio: string
+    imgURL: string
   }

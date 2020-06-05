@@ -1,202 +1,180 @@
 <style>.yellowtext {color: yellow;}</style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<!----------------------------------------------------------------------------------->
-                    <!--       HEADER OF THE HOME-PAGE       -->
-<!----------------------------------------------------------------------------------->
-
-<header>
-  <!-- This is a navbar component, now you can user navbar on any other component :) -->
-  <app-navbar></app-navbar>
-</header>
-
-<!----------------------------------------------------------------------------------->
-                    <!--       BODY OF THE HOME-PAGE       -->
-<!----------------------------------------------------------------------------------->
-<!----------------------------------------------------------------------------------->
-                            <!--       CAROUSEL       -->
-<!----------------------------------------------------------------------------------->
-
-
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div *ngFor="let d of data; let i = index" class="carousel-item {{ i == 0 && 'active'}}">
-      <img height="800" src="../../../../assets/Recursos/{{d.imgURL}}"  class="d-block w-100" alt="projects">
-      <div class="carousel-caption d-none d-md-block">
-          <h1 class="withetext">{{d.nombreProyecto}}</h1>
-          <h2><p class="withetext">{{d.direccion}}</p></h2>
-        </div>
-      <div class="carousel-caption d-md-block">
-      </div>
-    </div>
-    </div>
-  </div>
-  <!-- Controls -->
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-
-<section class="main">
-
-<!----------------------------------------------------------------------------------->
-                            <!--    SOBRE NOSOTROS     -->
-<!----------------------------------------------------------------------------------->
-
-<section id="sobrenosotros" class="row featurette"  id="sobrenosotros">
-<div class="Contenedor">
-    <div class="foto">
-      <img src="assets/obras.jpg" alt="projects">
-    </div>
-    <article>
-    <h3>Sobre Nosotros</h3>
-    <p>Nuestra empresa se inicia en el año 2005, proporcionándole diversos servicios de la construcción a la comunidad local, como edificaciones de viviendas de uno y dos niveles. Años más tarde la empresa crece y entra a la competencia de hacer residenciales, construyendo edificios de 4 y 5 niveles. Fue fundada por el Ing. </p>
-    <p> Franklyn Mejía, actual Presidente de la misma, quien se esfuerza por seguir creciendo y servir en el mercado de la construcción a la República Dominicana.</p>
-    <div class="col-lg-4 text-center">
-      <p><a class="btn btn-info" href="#" role="button">Acceder</a></p>
-    </div>
-    </article>
-
+  <div id="carousel" class="carousel slide" data-ride="carousel">
     
-  </div>
-  </section>
-
-<!----------------------------------------------------------------------------------->
-                            <!--       herramientas      -->
-<!----------------------------------------------------------------------------------->
-
-<section class="herramientas" id="herramientas">
-  <div class="containermarketing" style="margin-top: 50px;">
-  <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <div class="col-md-12">
-        <h2 class="Titulo">Servicios</h2>
-    </div>
-  </div>
-
-  <div class='row'>
-      <div class="col-md-4 herramientas">
-          <img src="assets/helmet.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-          <h3 class="Primera_linea">Supervisión</h3>
-          <p>Mantente informado de cada detalle de la obra y sus avances con nuestro equipo altamente profesional en el ámbito de supervición de proyectos de construcción civil.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver más »</a></p>
-      </div>  
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+  
+  
+      <div class="carousel-inner" id="image-caru" >
+        <div class="carousel-item active" id="fotoca">
+            <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects" id="primerafoto">
+            <div class="carousel-caption d-md-block" id="tituloscar">
+              <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
+              <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
+          </div>
+        </div>
+   
+        
+        <div *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}} text-center" id="fotoca">
+          <img height="775" src="assets/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
+          <div class="carousel-caption" id="direccionca">
+            <h3 ><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
+            <h1 id="contenidoconoce" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+            <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d?.direccion}}</p></h2>
+            <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
+          </div>
+          
+         <!--  <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-info text" id="btca2">Acceder</button>
+          <h1 id="contenidoconoce2" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
+          <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3> -->
+        </div>
+   
+        
+        
+<!--   <div id="wa">  
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="{{whatsappUrl}}" target="_blank">
+        <i class="fa fa-whatsapp wa"> <p>Whatsapp Mejía Polanco</p></i> 
+      </a>
+  </div>  -->
       
-      <div class="col-md-4 herramientas">
-          <img src="assets/buildings.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-          <h3 class="Primera_linea">Ejecución</h3>
-          <p>Siéntete conforme y confiado con nosotros a la hora de ejecutar tú proyecto de construcción civil y haz realidad tú sueño.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver más »</a></p>
-      </div>    
-
-      <div class="col-md-4 herramientas">
-          <img src="assets/buildings.png" alt="Generic placeholder image" alt="Generic placeholder image" >
-          <h3 class="Primera_linea">Diseño</h3>
-          <p>Ven y forma parte de nuestro equipo altamente profesional para el diseño de tu proyecto de construccón civil.</p>
-          <p><a class="btn btn-secondary" href="#" role="button">Ver más »</a></p>
-      </div>    
+  
   </div>
-
-
-</div> 
-</section>
-
-  <section class="otros" id="otros">
-<!-- -------------------------------------------------------------------------------
-                               <--  OTROS    -->
-<!----------------------------------------------------------------------------------->
-
-
-  <hr class="featurette-divider">
-
-  <div class="row featurette">
-    <div id= "foro" name="foro" class="row featurette">
-      <h2 class="featurette-heading">Nuestro foro. <span class="text-muted">Ven y mantente actualizado sobre los últimos temas del sector construcción en RD.</span></h2>
-      <p class="lead">Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD.</p>
-      <div class="col-lg-4 text-center">
-      <p><a class="btn btn-secondary" href="#" role="button">Acceder »</a></p>
+      <!-- <img class="animated bounce infinite" src="assets/back.png" id="arrow" alt="Generic placeholder image" alt="Generic placeholder image" >  -->
+  </div>
+    <!-- Controls -->
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+  </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+  </a>
+  
+  <section class="main">
+    
+  
+    <!----------------------------------------------------------------------------------->
+                                <!--    SOBRE NOSOTROS     -->
+    <!----------------------------------------------------------------------------------->
+    
+    <section  class="row featurette"  id="sobrenosotros">
+    <div class="Contenedor">
+        <div class="foto">
+          <img src="assets/obras.jpg" alt="projects">
+        </div>
+        <article>
+        <h3>Sobre Nosotros</h3>
+        <p>Nuestra empresa se inicia en el año 2005, proporcionándole diversos servicios de la construcción a la comunidad local, como edificaciones de viviendas de uno y dos niveles. Años más tarde la empresa crece y entra a la competencia de hacer residenciales, construyendo edificios de 4 y 5 niveles. Fue fundada por el Ing. Franklyn Mejía.</p>
+        <p> Franklyn Mejía, actual Presidente de la misma, quien se esfuerza por seguir creciendo y servir en el mercado de la construcción en la República Dominicana.</p>
+        <p><a class="btn btn-info" routerLink="/nosotros" role="button">Leer más</a></p>
+        <div class="col-lg-4 text-center">
+        </div>
+        </article>
+    
+        
       </div>
-    </div>
-    <div class="col-md-5 order-md-1">
-      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="assets/foro-3.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
-    </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div id="blog" name="blog" class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">Nuesto blog. <span class="text-muted">Mantente informado.</span></h2>
-      <p class="lead">Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana.</p>
-      <div class="col-lg-4 text-center">
-      <p><a class="btn btn-secondary" href="#" role="button">Acceder »</a></p>
+      </section>
+    
+      
+    
+    <!----------------------------------------------------------------------------------->
+                                <!--       servicios      -->
+    <!----------------------------------------------------------------------------------->
+    
+    <section class="row featurette" id="herramientas">
+      <div class="containermarketing" style="margin-top: 50px;">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-md-12">
+            <h2 class="Titulo">Servicios</h2>
+        </div>
       </div>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="assets/customer-experience-blog-500x500.jpg" data-holder-rendered="true" style="width: 500px; height: 500px;">
-    </div>
-  </div>
-
+      <!-- <div id="call-to-action">
+        <div class="container">
+          
+          <span> Solicite su servicio ahora. </span>
+  
+        </div>
+      </div> -->
+      
+      <div class='row'>
+          <div *ngFor="let s of servicio"  class="col-md-4 herramientas text-center" id="serb">
+              <img src="assets/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
+              <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
+              <p>{{s.descripcionServicio}}</p>
+              <p><button class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</button ></p>
+          </div>
+      </div>
+  
+  </div> 
   </section>
-  <section class="blog" id="blog"></section>
-  <section class="contacto" id="contacto"></section>
-</section>
-
-
-  <hr class="featurette-divider"> 
-
-
-<!----------------------------------------------------------------------------------->
-                            <!--       CONTACTO       -->
-<!----------------------------------------------------------------------------------->
-
-<div class="container-fluid">
-  <div id="contacto" name="contacto" class="container-fluid bg-light">
-  <h2 class="text-center">CONTACTO</h2>
-    <div class="row">
-      <div class="col-sm-5">
-        <p>Contáctenos y le responderemos dentro de las 24 horas.</p>
-        <p><i class="material-icons">location_on</i> Santo Domingo, RD</p>
-        <p><i class="material-icons">phone</i> (809) 530-7149</p>
-        <p><i class="material-icons">email</i> constructoramejiapolanco@hotmail.com</p>
+  
+  <!-- -------------------------------------------------------------------------------
+                                 <--  FORO   -->
+  <!----------------------------------------------------------------------------------->
+  
+  <section class="row featurette" id="foro">
+    <div class="Contenedor2">
+        <div class="foto">
+          <img src="assets/escribiendo-computadora.jpg" alt="projects">
+        </div>
+        <article>
+        <h3>Nuestro Foro</h3>
+        <p>Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD. </p>
+        <div class="col-lg-4 text-center">
+          <p><a class="btn btn-info" routerLink="/foro" role="button">Acceder</a></p>
+        </div>
+        </article>
       </div>
-      <!--<div class="col-sm-7 slideanim">
-        <div class="row">
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
-          </div>
-          <div class="col-sm-6 form-group">
-            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-          </div>
-        </div>
-        <textarea class="form-control" id="comments" name="comments" placeholder="Comentar" rows="5"></textarea><br>
-        <div class="row">
-          <div class="col-sm-12 form-group">
-            <button class="btn btn-success pull-right" type="submit">Enviar</button>
-          </div>
-        </div>
-      </div>-->
-    </div>
-  </div>
-</div>
+      
+    </section>
+  
+  
+  
+    
+    <!-- -------------------------------------------------------------------------------
+                                   <--  BLOG   -->
+    <!----------------------------------------------------------------------------------->
+      
+      <section class="row featurette" id="blog">
+          <div class="Contenedor3">
+              <div class="foto">
+                <img src="assets/blog.jpg" alt="projects">
+              </div>
+              <article>
+              <h3>Nuesto Blog</h3>
+              <p>Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana. </p>
+              <div class="col-lg-4 text-center">
+                <p><a class="btn btn-info" routerLink="/blog" role="button">Acceder</a></p>
+              </div>
+              </article>
+            </div>
+    
+      </section>
+    
+    </section>
 
-<!----------------------------------------------------------------------------------->
-                    <!--       FOOTER OF THE HOME-PAGE       -->
-<!----------------------------------------------------------------------------------->
 
-<footer class="container">
-  <p class="float-right"><a href="#">Back to top</a></p>
-  <p>© 2019 Constructora Mejia Polanco, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-</footer>
+  
+  <!----------------------------------------------------------------------------------->
+                              <!--       FOOTER       -->
+  <!----------------------------------------------------------------------------------->
+  
+  
+  <footer class="section footer-classic context-dark bg-image" style="background: #2c2a22;" id="contacto">
+    <app-footer></app-footer>
+  </footer>
+
+
+
+
+ 

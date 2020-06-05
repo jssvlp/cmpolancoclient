@@ -1,0 +1,18 @@
+.card-text h1 {color: #fff; font-size: 85px; font-weight: bold; text-transform: capitalize;}
+.card-text li{font-size:20px; color: #fff;}
+.card-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.inner{
+  overflow: hidden;
+}
+
+.inner img{
+  transition: all 1.0s ease;
+}
+
+.inner:hover img{
+  transform: scale(2.0);
+}

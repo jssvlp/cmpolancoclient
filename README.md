@@ -1,27 +1,45 @@
-# Frontend
+# Website para Constructora MP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Este sitio web será el punto de contacto directo entre los cliente y la Constructora Mejía Polanco. A través de él, los clientes podrán acceder a los servicios brindados por la empresa, así como a un blog donde podrá leer interesantes articulos sobre el mundo de la construcción.
 
-## Development server
+## Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Debe descargarse el repositorio en el directorio que desee instalarse.
 
-## Code scaffolding
+```bash
+git clone https://github.com/RaymondRowland/UserBRICKFrontend.git
+cd BRICK-FrontEnd
+npm install
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Sobre el proyecto
+Este proyecto se ha desarrollado bajo la arquitectura MVC con las tecnologías **Angular** para el desarrollo Front End, **.net Core 2.2** para el desarrollo backend bajo la arquitectura API REST y **MySql** como motor de base de datos.
 
-## Build
+Otro sitio ADMIN ha sido desarrollado con el propósito de administrar los contenidos dinámicos del sitio web principal. Ambos sitios consumen de la API.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Dependencias
+- [Nodejs](https://nodejs.org/es/) 
+- [.Net Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (para la API)
+- [MySql](https://www.mysql.com/downloads/) (para la API)
+---
+### Repositorios adicionales
 
-## Running unit tests
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+https://github.com/Pjms28/Front-Administrativo.git #Sitio web Administrativo#
+https://github.com/jssvlp/api-brick.git #API REST
+```
 
-## Running end-to-end tests
+## Contribuidores
+- Pedro Martines <https://github.com/Pjms28>
+- Jossias Velazquez <https://github.com/jssvlp>
+- Manuel González <https://github.com/manuel1109>
+- Raymond Rowland <https://github.com/RaymondRowland>
+- Caonabo Javier <caonabo.javier@gmail.com>
+- Kevin Reyes <https://github.com/kfreyes>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Licencia
+© **Grupo Brick**, Instituto Tecnológico de Santo Domingo

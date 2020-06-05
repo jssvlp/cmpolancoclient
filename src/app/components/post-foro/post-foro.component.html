@@ -1,0 +1,67 @@
+
+<!-- POST -->
+ <div class="post">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()"  class="form newtopic" method="post">
+        <div class="topwrap" id="topwrap">
+            <div class="posttext pull-left">
+
+                <div>
+                    <input formControlName = "tituloPublicacion" type="text" placeholder="Título del topic" class="form-control" minlength="5" maxlength="100"/>
+                    <div *ngIf="addForm.controls['tituloPublicacion'].errors && addForm.controls['tituloPublicacion'].touched" class="validation-error">
+                        <div [hidden] = "!addForm.controls['tituloPublicacion'].errors.required">
+                            El campo es requerido
+                        </div>
+                        <div [hidden] = "!addForm.controls['tituloPublicacion'].errors.minlength">
+                            El campo requiere mas de 5 caracteres  
+                        </div>
+                        <div [hidden] = "!addForm.controls['tituloPublicacion'].errors.maxlength">
+                            El nombre debe tener menos de 100 caracteres  
+                        </div>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <select formControlName = "temaID" name="category" id="Categorías"  class="form-control" >
+                            <option value="" disabled selected>Seleccione categoría</option>
+                            <option *ngFor="let d of data" [ngValue]="d.temaID">{{d.nombreTema}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="addForm.controls['temaID'].errors && addForm.controls['temaID'].touched" class="validation-error">Este campo es requerido</div>
+                    <div class="col-lg-6 col-md-6">
+                        <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" accept="image/*" id="imagen">
+                        <img width="40px" height="40px" src="assets/Forum/camara-de-fotos.png" alt=""  />
+                    </div>
+                </div>
+
+                <div>
+                    <textarea formControlName = "textoPublicacion" name="desc" id="desc" placeholder="Descripción"  class="form-control" minlength="10" ></textarea>
+                    <div *ngIf="addForm.controls['textoPublicacion'].errors && addForm.controls['textoPublicacion'].touched" class="validation-error">
+                        <div [hidden] = "!addForm.controls['textoPublicacion'].errors.required">
+                            El campo es requerido
+                        </div>
+                        <div [hidden] = "!addForm.controls['textoPublicacion'].errors.minlength">
+                            El campo requiere mas de 10 caracteres  
+                        </div>
+                    </div>
+                </div>
+                <div class="row newtopcheckbox">
+       
+                     
+                </div>
+
+
+            </div>
+            <div class="clearfix"></div>
+        </div>                              
+        <div class="postinfobot">
+            <div class="pull-right postreply">
+                <div class="pull-left"><button type="submit" class="btn btn-primary">Post</button></div>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</div>

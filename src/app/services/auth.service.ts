@@ -5,125 +5,184 @@ import { UserModel } from '../model/User.model';
 import { ToastrService } from 'ngx-toastr';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 import {isNullOrUndefined} from 'util';
+import { Observable, of } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import config from '../../config.js';
 
 
-
+const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 @Injectable({
     providedIn: 'root' 
 })
 export  class  AuthService {
-    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel) {}
-    Headers: HttpHeaders = new HttpHeaders({
-        "Content-Type" : "application/json"
-    });
+
+
+    constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel,private cookieService: CookieService) {}
+
 
     sendActivationCode(user: any ){
         user.sendEmailVerification().then(function() {
             this.router.navigate(['/home'])
           }).catch(function(error) {
-            console.log(error);
+            this.toastr.error("Ha ocurrido un error: " + error);
           });
     
     }
     isLogged(){
         return this.afAuth.auth.currentUser;    
     }
-     Login(userInfo: any){
-         try {          
-            const userFirebase =    this.afAuth.auth.signInWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña)
-            const url_api= "http://localhost:61756/api/usuarios/login"
-            return this.Http
-                       .post(url_api,userInfo, {headers: this.Headers})
-                       .pipe(data => data);
 
-         } catch (e) {
-             alert("Error al crear el usuario:"  +  e);
-             console.log(e);
+    Login(userInfo: any){
+        let user = {
+            email : userInfo.CorreoUsuario,
+            password : userInfo.Contraseña
         }
-    
+        let url_api = config.api+"/Auth/Login";
+
+        return this.Http.post(url_api,user,httpOptions).pipe(map(data => data));    
     }
 
     
      logout(){
-        this.afAuth.auth.signOut();
-        let accesToken = localStorage.getItem("tkn");
-        const url_api= `http://localhost:61756/api/usuarios/logout/${accesToken}`;
-        console.log('*******URL:',url_api);
-        localStorage.removeItem("tkn");
-        localStorage.removeItem("currentUser");
-
-        return this.Http.post(
-            url_api,{headers : this.Headers}
-        ).pipe(data => data);
+        this.cookieService.deleteAll();
        
-        //this.router.navigate(['/home'])
-        //this.router.navigate(['admin/login']);
     }
 
-    setUser(user): void{
-      
-        let user_string = JSON.stringify(user);
-        localStorage.setItem("currentUser", user_string);
+    setUser(user:any): void{
+        let user_string = JSON.stringify(user);  
+
+        this.cookieService.set('currentUser', user_string);
+
         this.setToken(user.authToken);
     }
 
     setToken(token): void{
-        localStorage.setItem("tkn", token);
+        //Con cookies
+        
+        this.cookieService.set('tkn', token);
+        
+        //sessionStorage.setItem('tkn', token);
     }
 
     getCurrentUser()
     {
-        let user_string = localStorage.getItem("currentUser");
-        if(!isNullOrUndefined(user_string)){
+        //Con cookies
+        
+            let user_string = this.cookieService.get("currentUser");
+            if(!isNullOrUndefined(user_string) && user_string != ""){
             let user = JSON.parse(user_string);
             return user;
         }
         else{
             return null;
         }
+        
     }
 
     getToken(){
-        return localStorage.getItem("tkn").toString();
+        //Con cookies
+        
+        return this.cookieService.get("tkn").toString();
+        
+        //return sessionStorage.getItem("tkn").toString();
     }
 
-    RegisterOnApi(userInfo: any){
-        const url_api = "http://localhost:61756/api/usuarios";
+    RegisterClientOnApi(userInfo: any){
+        let cliente = {
+            Nombre :userInfo.NombreUsuario,
+            Apellidos : userInfo.ApellidosUsuario,
+            Email : userInfo.CorreoUsuario,
+            FechaNacimiento : userInfo.fechaNacimiento
+        }
+        const url_api = config.api+"/clientes";
         //Insert in ApI
-        return this.Http.post(url_api,userInfo,{headers : this.Headers}
+        return this.Http.post(url_api,cliente,httpOptions
         ).pipe(map(data => data));
     }
 
     async Register(userInfo: any){
-        try {
-            //Insert user in Firebase
-            const user =  await  this.afAuth.auth.createUserWithEmailAndPassword(userInfo.CorreoUsuario, userInfo.Contraseña)
-            let userUpdate = await  this.afAuth.auth.currentUser
-            userUpdate.updateProfile({
-                displayName: userInfo.NombreUsuario + ' '+ userInfo.ApellidosUsuario
-            })
+            let cliente = {
+            username : userInfo.CorreoUsuario,
+            password : userInfo.Contraseña,
+            type : "cliente",
+            email : userInfo.CorreoUsuario
+            };
+
+            this.RegisterClientOnApi(userInfo)
+                .subscribe(response => {
+                    if(response['status'] == 'success'){
+                        this.createUserOnApi(cliente)
+                            .subscribe(res => {
+                                this.cookieService.set('tkn',res['token']);
+                                let cliente = JSON.stringify(res['user_info']);
+                                this.toastr.success('Usuario creado correctamente');
+                                this.cookieService.set("currentUser",cliente);  
+                                this.router.navigate(['/home']);
+                            });
+                           
+                        
+                    }
+                    else{
+                        this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
+                    }
+                });
+           /*  this.createUserOnApi(cliente).subscribe(res =>{
+                if(res['status'] == "success"){
+                    this.cookieService.set('tkn',res['token']);
+
+                    this.RegisterClientOnApi(userInfo)
+                    .subscribe(response => {
+                        let cliente = JSON.stringify(response['cliente']);
+                        this.cookieService.set("currentUser",cliente);  
+                    });
+                    this.router.navigate(['/home']);
+                }
+                else 
+                {
+                    this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
+                }
+            }); */
+
             
-            this.sendActivationCode(this.afAuth.auth.currentUser);
-            userInfo.FireBaseCode = userUpdate.uid;
-            console.log(userInfo);
-            
-            this.RegisterOnApi(userInfo)
-             .subscribe(user => {
-                console.log(user);
-              });;
-            this.router.navigate(['/home'])
-         } catch (e) {
-             alert("Error al crear el usuario:"  +  e);
-             console.log(e);
-         }
+        
+    }
+
+    createUserOnApi(user:any)
+    {
+        const urlApi = config.api+"/Auth/Create";
+
+        return this.Http.post(urlApi,user,httpOptions).pipe(map(data => data));
+    }
+
+    getUser(id: number){
+    const url = `${config.api+"/clientes"}/${id}`;
+    return this.Http.get<UserModel>(url).pipe(
+      tap(_ => catchError(this.handleError<UserModel>(`getClient id=${id}`))
+    ));
+
     }
 
    
-
+    private handleError<T> (operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+      
+          // TODO: send the error to remote logging infrastructure
+          console.error(error); // log to console instead
+      
+          // Let the app keep running by returning an empty result.
+          return of(result as T);
+        };
     
 }
 
 
 
+}
+export interface User {
+    email: string;
+    password: string;
+}
