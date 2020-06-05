@@ -47,7 +47,7 @@
     "ngx-pagination": "^3.2.1",
     "ngx-slick-carousel": "^0.4.4",
     "ngx-toastr": "^9.2.0",
-    "npm": "^6.10.2",
+    "npm": "^6.13.4",
     "rxjs": "~6.3.3",
     "slick-carousel": "^1.8.1",
     "webpack-icons-installer": "^2.0.0",
