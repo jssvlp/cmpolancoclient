@@ -13,16 +13,19 @@ declare var $:any;
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { 
-
-    this.isLoggedIn = this.authService.isLoggedIn();
-  }
   NombreUsuario: string;
   logged: boolean;
   roleID: number;
   urlAdmin: string;
   isLoggedIn : Observable<boolean>;
   fileserver: string;
+
+  constructor(private authService: AuthService, private router: Router) { 
+
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
+  
+
   ngOnInit() {
     this.fileserver = config.fileserver;
     let currentUser = this.authService.getCurrentUser();

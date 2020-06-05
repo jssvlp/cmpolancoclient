@@ -3,6 +3,7 @@ import { GenericdataService } from 'src/app/services/genericdata.service';
 import { GenericData } from 'src/app/model/GenericData.model';
 import { forEach } from '@angular/router/src/utils/collection';
 import { element } from '@angular/core/src/render3';
+import config from '../../../config.js';
 
 @Component({
   selector: 'app-footer',
@@ -14,10 +15,11 @@ export class FooterComponent implements OnInit {
   longitude:string;
   year:number;
   genericData: GenericData[] = [];
-
+  fileserver: string;
   constructor(private GenericDataService:GenericdataService) { }
 
   ngOnInit() {
+    this.fileserver = config.fileserver
     this.getYear();
     this.GenericDataService.getAllGenericData().subscribe(res => {
       this.genericData = res;
