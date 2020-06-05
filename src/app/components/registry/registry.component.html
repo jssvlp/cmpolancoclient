@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 10rem;">
           <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card card-signin flex-row my-5">
               <div class="card-img-left d-none d-md-flex">
@@ -126,16 +126,16 @@
                 
                 <div class="form-row">
                     <div class="form-group"> 
-                  <label for="inputFechaDeNacimiento">Fecha de Nacimiento</label>
-                    <input formControlName = "fechaNacimiento" id="FechaNacimiento" name="FechaNacimiento" class="form-control"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
-                    [convertModelValue]="true"
-                    [enableTime]="false"
-                    dateFormat="Y-m-dTH:i"
-                    altFormat="F j, Y H:i"
-                    placeholder="Seleccione una fecha" 
-                    required>
-                    <!-- <label for="inputConfirmPassword">Confirm password</label> -->
-                  </div>
+                      <label for="inputFechaDeNacimiento">Fecha de Nacimiento</label>
+                      <input formControlName = "fechaNacimiento" id="FechaNacimiento" name="FechaNacimiento" class="form-control"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                      [convertModelValue]="true"
+                      [enableTime]="false"
+                      dateFormat="Y-m-d"
+                      altFormat="F j, Y"
+                      placeholder="Seleccione una fecha" 
+                      required>
+                      <!-- <label for="inputConfirmPassword">Confirm password</label> -->
+                    </div>
                 </div>
 
 

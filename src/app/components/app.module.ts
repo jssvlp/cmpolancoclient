@@ -54,6 +54,7 @@ import { PostForoComponent } from './post-foro/post-foro.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
 import {NgxMaskModule} from 'ngx-mask';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 
 
@@ -67,6 +68,9 @@ import { CarouselProductComponent } from './carousel-product/carousel-product.co
 import { AuthInterceptor } from '../services/jwt.interceptor';
 import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -109,10 +113,14 @@ const routes=[
     FiltroFPipe,
     CarouselProductComponent,
     OlvidarcontrasenaComponent,
-    CarouselComponent
+    CarouselComponent,
+    ResetPasswordComponent,
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
+    ValidateEqualModule,
 // tslint:disable-next-line: deprecation
     HttpModule,
     HttpClientModule,
@@ -120,7 +128,7 @@ const routes=[
     NgxMaskModule.forRoot(),
     FlatpickrModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8',
+      apiKey: 'AIzaSyAkzIviy8CwC_p0GQWspWEXQeGszjdDvfs',
       libraries: ['places']
     }),
     TranslateModule.forRoot({

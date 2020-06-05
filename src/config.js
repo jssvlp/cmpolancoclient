@@ -7,9 +7,11 @@ function env(env) {
         case 'client-app':
             return 'https://constructoramejiapolanco.com';
         case 'chat-app':
-            return 'https://dashboard.tawk.to/'
+            return 'https://dashboard.tawk.to/';
         case 'local-api':
-            return 'http://localhost:61756/api'
+            return 'http://localhost:61756/api';
+        case 'file-server':
+            return 'https://files.constructoramejiapolanco.com';
     }
 }
 
@@ -19,7 +21,8 @@ try{
         admin: env('front-admi'),
         client: env('client-app'),
         chat: env('chat-app'),
-        local: env('local-api')
+        local: env('local-api'),
+        fileserver: env('file-server')
     }
 }catch(e){
     console.log(e);

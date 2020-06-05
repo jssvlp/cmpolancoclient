@@ -7,6 +7,8 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 import { Router } from '@angular/router';
 import { GenericdataService } from 'src/app/services/genericdata.service';
 import { GenericData } from 'src/app/model/GenericData.model';
+import config from '../../../config.js';
+
 
 declare var $:any;
 
@@ -18,6 +20,7 @@ declare var $:any;
 export class HomeComponent implements OnInit {
   user: any
   whatsappUrl: any
+  fileserver: string;
   data : ProyectoModel[]=[]
   servicio : ServicioModel[]=[]
   genericData: GenericData[] = [];
@@ -25,11 +28,12 @@ export class HomeComponent implements OnInit {
   constructor(private  authService:  AuthService, private proyectoService:ProyectoService, private apiSer: ServiciosService,private router: Router,private GenericDataService:GenericdataService ) { }
 
    ngOnInit() {
-    this.GenericDataService.getAllGenericData().subscribe(res => {
+      this.fileserver = config.fileserver;
+      this.GenericDataService.getAllGenericData().subscribe(res => {
       this.genericData = res;
       let numero  = this.getGenericDataByKey('telefono-whatsapp');
-      this.whatsappUrl = `https://web.whatsapp.com/send?phone=${numero}&text=Hola quisiera más información sobre uno de sus proyectos`;    }); 
-
+      this.whatsappUrl = `https://web.whatsapp.com/send?phone=${numero}&text=Chat desde el Web Site Constructora Mejía Polanco`;    }); 
+                          
     this.proyectoService.getProjects()
     .subscribe(res =>{
       this.data = res;

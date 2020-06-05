@@ -15,6 +15,8 @@ font-family: 'Open Sans', sans-serif;
 
 }
 
+
+
 body{
   width: 100%;
 }
@@ -47,7 +49,7 @@ z-index: 0;
 
 #sobrenosotros p{
   text-align: justify;
-  font-family: 'Open Sans', Times, serif;
+  font-family: 'Century Gothic', Times, serif;
 }
 
 #sobrenosotros .foto img{
@@ -91,14 +93,14 @@ box-shadow: 0px 0px 15px rgba(0, 0, 0, .35) */
 font-size: 40px;
 font-weight: 300;
 margin-bottom: 40px;
-font-family: 'Open Sans', Times, serif;
+font-family: 'Century Gothic', Times, serif;
 
 }
 
 .main .Contenedor article p{
 line-height: 28px;
 margin-bottom: 30px;
-font-family: 'Open Sans', Times, serif;
+font-family: 'Century Gothic', Times, serif;
 }
 /* 
 .navbar-light .navbar-nav .nav-link{
@@ -139,13 +141,13 @@ display: inline-block;
   color:#000;
   margin-bottom: 70px;
   position: relative;
-  font-family: 'Open Sans', Times, serif;
+  font-family: 'Century Gothic', Times, serif;
 } 
 
 #serb p{
   text-align: center;
   font-size: 15px;
-  font-family: 'Open Sans', Times, serif;
+  font-family: 'Century Gothic', Times, serif;
 }
 
 #herramientas .herramientas{
@@ -211,13 +213,13 @@ display: inline-block;
       }
       #foro p{
         text-align: justify;
-        font-family: 'Open Sans'
+        font-family: 'Century Gothic'
       }
       .main .Contenedor2 article h3{
         font-size: 40px;
         font-weight: 300;
         margin-bottom: 40px;
-        font-family: 'Open Sans'
+        font-family: 'Century Gothic'
         }
         
         .main .Contenedor2 article p{
@@ -241,7 +243,7 @@ display: inline-block;
 
         #blog p{
           text-align: justify;
-          font-family: 'Open Sans'
+          font-family: 'Century Gothic'
         }
       
         .main .Contenedor3 .foto{
@@ -286,7 +288,7 @@ display: inline-block;
               font-size: 40px;
               font-weight: 300;
               margin-bottom: 40px;
-              font-family: 'Open Sans'
+              font-family: 'Century Gothic'
               }
               
               .main .Contenedor3 article p{
@@ -370,7 +372,12 @@ ul, ol {
 }
 
 #tituloscar h2 span{
-  color: #edbb00;
+  color: #1201CC;
+}
+
+.showMore-btn{
+  background-color: #1201CC;
+  color: white;
 }
 
 #btca2{
@@ -407,16 +414,27 @@ ul, ol {
   font-weight: bold;
 }
 
+.btn-blue{
+  background-color: #1201CC;
+}
+
+.perfect-card{
+  margin-left: 3rem;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow:  8px 8px 16px #d9d9d9, 
+              -8px -8px 16px #ffffff;
+}
+
+.perfect-card {
+
+}
 
 #direccionca h3 span {
-  color:#edbb00;
+  color:#1201CC;
 }
 
-#btca {
 
-  background-color: #edbb00;
-  border-color: #edbb00;
-}
 
 #imaca {
   -webkit-filter: brightness(20%);
@@ -484,13 +502,13 @@ ul, ol {
 }
 
 #call-to-action span {
-  font-family: 'Open Sans';
+  font-family: 'Century Gothic';
   font-weight: 600;
 }
 
 
 #call-to-action {
-  font-family: 'Open Sans';
+  font-family: 'Century Gothic';
   font-weight: 300;
   position: relative;
   z-index: 10;

@@ -10,7 +10,7 @@
 <body>
     <div class="container-no-gutter" style="height: 380px">
         <div class="card">
-            <img class="card-img" src="assets/sky.jpg" alt="Card image" style="height: 380px">
+            <img class="card-img" src="{{fileserver}}/sky.jpg" alt="Card image" style="height: 380px">
             <div class="card-img-overlay d-flex flex-row-reverse">
                 <div class="searchbar" style="position: absolute">
                   <input class="search_input" type="text" name="filterPost" placeholder="Buscar..." 
@@ -18,7 +18,7 @@
                   <a class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="my-auto mx-auto text-center">
-                    <h4 id="tituloblog" class="card-title" style="color: white; font-size: 85px; font-weight: bold; text-transform: capitalize">Nuestro   <span >Blog</span></h4>
+                    <h4 id="tituloblog" class="card-title" style="font-size: 85px; font-weight: bold; text-transform: capitalize">Nuestro   Blog</h4>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
       <div class="col-md-8">
           <div *ngFor="let p of post | filtro:filterPost | paginate: { itemsPerPage: 4, currentPage: p } " class="card mb-4 shadow">
               <div class="inner">
-                <img class="card-img-top" height="450px" width="450px" src="../../../../assets/Blog/{{p.imgURL}}" alt="Card image cap">
+                <img class="card-img-top" height="450px" width="450px" src="{{fileserver}}/Blog/{{p.imgURL}}" alt="Card image cap">
               </div>
               <div class="card-body text-center">
                 <h2 class="card-title">{{p?.tituloEntrada}}</h2>

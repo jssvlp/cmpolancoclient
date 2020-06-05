@@ -12,11 +12,13 @@ import { element } from '@angular/core/src/render3';
 export class FooterComponent implements OnInit {
   latitude:string;
   longitude:string;
+  year:number;
   genericData: GenericData[] = [];
 
   constructor(private GenericDataService:GenericdataService) { }
 
   ngOnInit() {
+    this.getYear();
     this.GenericDataService.getAllGenericData().subscribe(res => {
       this.genericData = res;
       
@@ -40,6 +42,11 @@ export class FooterComponent implements OnInit {
       }
     }
     return value;
+  }
+
+  getYear(){
+    var d = new Date();
+    this.year = d.getFullYear();
   }
 
 }

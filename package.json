@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -40,6 +40,7 @@
     "jquery": "^3.4.1",
     "material-design-icons": "^3.0.1",
     "material-design-kit": "^1.0.2",
+    "ng-validate-equal": "^1.0.4",
     "ngx-cookie-service": "^2.1.0",
     "ngx-editor": "^4.1.0",
     "ngx-mask": "^7.9.9",

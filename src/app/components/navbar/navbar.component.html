@@ -5,54 +5,58 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         
-        <a class="navbar-brand" id="logotitulo" (click)="changeRoute('home')" routerLink="/home">
-            <img src="/assets/logo-brand-white.png" width="150" alt="">
+        <a class="navbar-brand" id="logotitulo" routerLink="/home">
+            <img src="{{fileserver}}/logo.jpeg" width="130" height="120" alt="">
         </a>
       
         <div class="collapse navbar-collapse justify-content-between menu" id="navbarSupportedContent">
             <ul class="navbar-nav ml-2">
-                 <!--  <li class="nav-item active">
-                    <a class="nav-link" id="logotitulo" href="#">CONSTRUCTORA MEJIA POLANCO </a>
-                  </li> -->
-                  <li class="nav-item " >
-                    <a class="nav-link" id="nav-sobrenosotros" href="home#sobrenosotros">{{ 'home.nosotros' | translate }}</a>
-                  </li>
-              <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" href="home#herramientas">{{'home.servicios' | translate}}</a>
+              <!-- <li class="nav-item ">
+                <a class="nav-link"id="nav-foro"  [routerLink]="['/proyectos']">Proyectos</a>
+              </li> -->
+                  
+              <li class="nav-item " >
+                <a class="nav-link" id="nav-sobrenosotros" [routerLink]="['/home']" fragment="sobrenosotros" >{{ 'home.nosotros' | translate }}</a>
               </li>
+              
               <li class="nav-item">
-                  <a class="nav-link" id="nav-solicitarservicios" (click)="changeRoute('calculadora')" routerLink="/calculadora">{{'home.calculadora' | translate}}</a>
+                <a class="nav-link" id="nav-solicitarservicios" [routerLink]="['/home']" fragment="herramientas" >{{'home.servicios' | translate}}</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" id="nav-solicitarservicios"  routerLink="/calculadora">{{'home.calculadora' | translate}}</a>
                 </li>
               <li class="nav-item ">
-                <a class="nav-link"id="nav-foro" (click)="changeRoute('foro')" [routerLink]="['/foro']">{{'home.foro' | translate}}</a>
+                <a class="nav-link"id="nav-foro"  [routerLink]="['/foro']">{{'home.foro' | translate}}</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-blog" (click)="changeRoute('blog')" [routerLink]="['/blog']">{{'home.blog' | translate}}</a>
+                <a class="nav-link" id="nav-blog"  [routerLink]="['/blog']">{{'home.blog' | translate}}</a>
               </li>
+              
               <li class="nav-item ">
-                <a class="nav-link" id="nav-contacto" href="home#contacto">{{'home.contacto' | translate}}</a>
+                <a class="nav-link" id="nav-contacto" [routerLink]="['/home']" fragment="contacto" >{{'home.contacto' | translate}}</a>
               </li>
             </ul>
             <ul class="navbar-nav" style="margin-right: 10px"   >
-              <li *ngIf="!logged" class="nav-item">
-                <a class="btn btn-info ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive="">{{'home.iniciar-sesion' | translate}}</a>
+              <li *ngIf="!(isLoggedIn | async)" class="nav-item">
+                <a class="btn login-btn text-white ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive=""> {{'home.iniciar-sesion' | translate}}</a>
               </li>
               
-             <!--  <li class="nav-item" style="margin-left:5px" style="margin-bottom:5px">
-                  <a class="btn btn-info" style="margin-left:5px"aria-expanded="false" (click)="onLogout()" routerLinkActive="#">Logout</a>
-              </li> -->
-              <li *ngIf="logged" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/perfil"><i class=""></i> Perfil</a></li>
-                    <li><a href="assets/ManualdeUsuario.pdf" download><i class="  "></i> Soporte</a></li>
+              <li *ngIf="(isLoggedIn | async)" id="user-options" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
+                <ul class="dropdown-menu text-white">
+                    <li class="text-white"><a routerLink="/perfil"><i class="fa fa-user"></i> Perfil</a></li>
+                    <li><a href="assets/ManualdeUsuario.pdf" download><i class="fa fa-question"></i> Manual</a></li>
                     <li class="divider"></li>
-                    <li *ngIf = "roleID == 1"><a href="{{urlAdmin}}">Administrar</a></li>
-                    <li><a routerLink="" (click)="onLogout()" ><i class="icon-off"></i> Cerrar sesión</a></li>
+                    <li *ngIf = "roleID == 1"><a href="{{urlAdmin}}"><i class="fa fa-cog"></i> Administrar</a></li>
+                    <div class="dropdown-divider"></div>
+                    <li><a routerLink="" (click)="onLogout()" ><i class="fa fa-sign-out-alt"></i> Cerrar sesión</a></li>
                 </ul>
-            </li>
+              </li>
+              
               <div class="nav-item" style="margin-left:10px"></div>
-              <li *ngIf="!logged" class="nav-item"  >
-                <a class="btn btn-warning ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active">{{'home.registro' | translate}}</a>
+
+              <li *ngIf="!(isLoggedIn | async)" class="nav-item "  >
+                <a class="btn register-btn text-white ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active"> {{'home.registro' | translate}}</a>
               </li>
             </ul>
           </div>

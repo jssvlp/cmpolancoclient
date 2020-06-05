@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { map, tap, catchError } from 'rxjs/operators';
 import {isNullOrUndefined} from 'util';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import config from '../../config.js';
 
@@ -21,9 +21,11 @@ const httpOptions = {
 export  class  AuthService {
 
 
+    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     constructor(public Http: HttpClient, public  afAuth:  AngularFireAuth, private router: Router, private toastr: ToastrService, user: UserModel,private cookieService: CookieService) {}
 
 
+    isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
     sendActivationCode(user: any ){
         user.sendEmailVerification().then(function() {
             this.router.navigate(['/home'])
@@ -32,9 +34,32 @@ export  class  AuthService {
           });
     
     }
-    isLogged(){
-        return this.afAuth.auth.currentUser;    
+    
+
+    /**
+    *
+    * @returns {Observable<T>}
+    */
+    isLoggedIn() : Observable<boolean> {
+        return this.isLoginSubject.asObservable();
     }
+
+
+    /**
+     * if we have token the user is loggedIn
+     * @returns {boolean}
+     */
+    private hasToken() : boolean {
+        let user = this.getCurrentUser();
+
+        if(user == null){
+            return false;
+        }
+        return true;
+    }
+
+    
+
 
     Login(userInfo: any){
         let user = {
@@ -47,9 +72,12 @@ export  class  AuthService {
     }
 
     
-     logout(){
-        this.cookieService.deleteAll();
-       
+    /**
+    * Log out the user then tell all the subscribers about the new status
+    */
+    logout() : void {
+        this.cookieService.delete('currentUser', '/');
+        this.isLoginSubject.next(false);
     }
 
     setUser(user:any): void{
@@ -62,7 +90,9 @@ export  class  AuthService {
 
     setToken(token): void{
         //Con cookies
-        
+        if(token){
+            this.isLoginSubject.next(true);
+        }
         this.cookieService.set('tkn', token);
         
         //sessionStorage.setItem('tkn', token);
@@ -130,22 +160,7 @@ export  class  AuthService {
                         this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
                     }
                 });
-           /*  this.createUserOnApi(cliente).subscribe(res =>{
-                if(res['status'] == "success"){
-                    this.cookieService.set('tkn',res['token']);
-
-                    this.RegisterClientOnApi(userInfo)
-                    .subscribe(response => {
-                        let cliente = JSON.stringify(response['cliente']);
-                        this.cookieService.set("currentUser",cliente);  
-                    });
-                    this.router.navigate(['/home']);
-                }
-                else 
-                {
-                    this.toastr.error("El correo especificado ya esta en uso", "Usuario.Registro");
-                }
-            }); */
+           
 
             
         

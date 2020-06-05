@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProyectoModel } from 'src/app/model/Proyecto.model';
 import { CaracteristicaModel } from 'src/app/model/Caracteristica.model';
 import { CaracteristicaService } from 'src/app/services/caracteristica.service';
+import config from '../../../config.js';
 declare var $:any;
 @Component({
   selector: 'app-detalle-proyecto',
@@ -23,12 +24,14 @@ export class DetalleProyectoComponent implements OnInit {
   latitude:number;
   longitude:number;
   size: number;
+  fileserver: string;
 
 
 
   constructor(private proApi: ProyectoService, private actvRoute: ActivatedRoute, private carApi: CaracteristicaService ) { }
 
   ngOnInit() {
+    this.fileserver = config.fileserver;
     this.size = window.innerWidth;
     console.log(this.size)
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
@@ -43,9 +46,7 @@ export class DetalleProyectoComponent implements OnInit {
         localStorage.setItem('longitude', this.longitude.toString());
       } 
      
-      $(document).ready(function() {
-        $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-    });
+     
     })
 
 
