@@ -3,6 +3,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { logging } from 'protractor';
 import { Router } from '@angular/router';
 import config from '../../../config.js';
+import { Observable } from 'rxjs';
+
 declare var $:any;
 @Component({
   selector: 'app-navbar',
@@ -11,66 +13,36 @@ declare var $:any;
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { 
+
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
   NombreUsuario: string;
   logged: boolean;
   roleID: number;
   urlAdmin: string;
+  isLoggedIn : Observable<boolean>;
+  fileserver: string;
   ngOnInit() {
+    this.fileserver = config.fileserver;
     let currentUser = this.authService.getCurrentUser();
+    this.isLoggedIn = this.authService.isLoggedIn();
+    console.log(currentUser);
+
     this.urlAdmin = config.admin;
+
     if(currentUser === null){
       this.logged = false;
-     
     }
     else{
       this.logged = true;
       this.NombreUsuario = currentUser['nombreUsuario'];
       this.roleID = currentUser['roleId'];  
     }    
-
-    let route = this.router.url;
-   if(route == '/home')
-    {
-      $(document).ready(function() {
-        $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-
-        $(window).scroll(function() {
-           if($(this).scrollTop() > 80) { 
-            $("#navwrap").css("background" , "transparent");
-           } else {
-            $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-           }
-        });
-    });
-    }  
-    
-    $(document).ready(function(){
-      //$("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-
-      $(window).scroll(function(){
-        var scroll = $(window).scrollTop();
-        let path = window.location.pathname 
-        if(  path== '/home' || path == '/blog' )
-        {
-          console.log(route)
-          if (scroll >60)  {
-            $("#navwrap").css("background" , "linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%)");
-          }
-          else{
-            $("#navwrap").css("background" , "transparent");
-          }
-        }
-        
-      })
-    });
-    
-      
-
   }
+
   onLogout(): void{
     this.authService.logout();
-    this.logged = false;
     this.router.navigate(['/home'])
 
   }

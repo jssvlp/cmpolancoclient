@@ -1,6 +1,7 @@
 <style>.yellowtext {color: yellow;}</style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
   <div id="carousel" class="carousel slide" data-ride="carousel">
     
     <!-- Indicators -->
@@ -14,36 +15,31 @@
   
       <div class="carousel-inner" id="image-caru" >
         <div class="carousel-item active" id="fotoca">
-            <img height="775" src="assets/cityphoto.jpg" class="d-block w-100" alt="projects" id="primerafoto">
+            <img height="775" src="{{fileserver}}/cityphoto.jpg" class="d-block w-100" alt="projects" id="primerafoto">
             <div class="carousel-caption d-md-block" id="tituloscar">
-              <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo <span>su futuro</span></h2>
+              <h2 class="animated bounceInLeft" style="animation-duration: 2s;">Construyendo su futuro</h2>
               <h3 class="animated bounceInRight" style="animation-duration: 1s;">Diseño y Construcción</h3>
           </div>
         </div>
    
         
         <div *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}} text-center" id="fotoca">
-          <img height="775" src="assets/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
+          <img height="775" src="{{fileserver}}/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
           <div class="carousel-caption" id="direccionca">
-            <h3 ><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS <span>PROYECTOS</span></p></h3>
+            <h3 ><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS PROYECTOS</p></h3>
             <h1 id="contenidoconoce" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
             <h2><p class="animated bounceInLeft" style="animation-duration: 4s;">{{d?.direccion}}</p></h2>
-            <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-primary btn-lg" id="btca">Acceder</button>
+            <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn showMore-btn btn-lg" id="btca">Acceder</button>
           </div>
           
-         <!--  <button routerLink="/projects/{{d.proyectoID}}/details" type="button" class="btn btn-info text" id="btca2">Acceder</button>
-          <h1 id="contenidoconoce2" class="animated bounceInRight" style="animation-duration: 3s;">{{d?.nombreProyecto}}</h1>
-          <h3 id="contenidoconoce3"><p class="animated bounceInLeft" style="animation-duration: 2s;">NUESTROS PROYECTOS</p></h3> -->
         </div>
    
-        
-        
-<!--   <div id="wa">  
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <a href="{{whatsappUrl}}" target="_blank">
-        <i class="fa fa-whatsapp wa"> <p>Whatsapp Mejía Polanco</p></i> 
-      </a>
-  </div>  -->
+    <div id="wa">  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+          <a href="{{whatsappUrl}}" target="_blank">
+          <i class="fa fa-whatsapp wa text-white"> <p>Whatsapp Mejía Polanco</p></i> 
+        </a>
+    </div> 
       
   
   </div>
@@ -69,13 +65,13 @@
     <section  class="row featurette"  id="sobrenosotros">
     <div class="Contenedor">
         <div class="foto">
-          <img src="assets/obras.jpg" alt="projects">
+          <img src="{{fileserver}}/obras.jpg" alt="projects">
         </div>
         <article>
         <h3>Sobre Nosotros</h3>
         <p>Nuestra empresa se inicia en el año 2005, proporcionándole diversos servicios de la construcción a la comunidad local, como edificaciones de viviendas de uno y dos niveles. Años más tarde la empresa crece y entra a la competencia de hacer residenciales, construyendo edificios de 4 y 5 niveles. Fue fundada por el Ing. Franklyn Mejía.</p>
-        <p> Franklyn Mejía, actual Presidente de la misma, quien se esfuerza por seguir creciendo y servir en el mercado de la construcción en la República Dominicana.</p>
-        <p><a class="btn btn-info" routerLink="/nosotros" role="button">Leer más</a></p>
+        <p> Franklyn Mejía, actual CEO de la misma, quien se esfuerza por seguir creciendo y servir en el mercado de la construcción en la República Dominicana.</p>
+        <p><a class="btn btn-blue text-white" routerLink="/nosotros" role="button">Leer más</a></p>
         <div class="col-lg-4 text-center">
         </div>
         </article>
@@ -107,11 +103,11 @@
       </div> -->
       
       <div class='row'>
-          <div *ngFor="let s of servicio"  class="col-md-4 herramientas text-center" id="serb">
-              <img src="assets/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
+          <div *ngFor="let s of servicio"  class="col-md-4  herramientas text-center perfect-car" id="serb">
+              <img src="{{fileserver}}/Servicio/{{s.imgURL}}" id="imageher" alt="Generic placeholder image" alt="Generic placeholder image" >
               <h3 class="Primera_linea">{{s.nombreServicio}}</h3>
               <p>{{s.descripcionServicio}}</p>
-              <p><button class="btn btn-info" (click)="solicitud(s)" style="width:100px;" role="button">Ver más</button ></p>
+              <p><button class="btn btn-blue text-white" (click)="solicitud(s)" style="width:100px;" role="button">Solicitar</button ></p>
           </div>
       </div>
   
@@ -125,13 +121,13 @@
   <section class="row featurette" id="foro">
     <div class="Contenedor2">
         <div class="foto">
-          <img src="assets/escribiendo-computadora.jpg" alt="projects">
+          <img src="{{fileserver}}/escribiendo-computadora.jpg" alt="projects">
         </div>
         <article>
         <h3>Nuestro Foro</h3>
         <p>Ven y forma parte de nuestro sitio de discusión en línea asincrónico donde las personas como tú publican mensajes alrededor de un tema del sector construcción en RD. </p>
         <div class="col-lg-4 text-center">
-          <p><a class="btn btn-info" routerLink="/foro" role="button">Acceder</a></p>
+          <p><a class="btn btn-blue text-white" routerLink="/foro" role="button">Acceder</a></p>
         </div>
         </article>
       </div>
@@ -148,13 +144,13 @@
       <section class="row featurette" id="blog">
           <div class="Contenedor3">
               <div class="foto">
-                <img src="assets/blog.jpg" alt="projects">
+                <img src="{{fileserver}}/blog.jpg" alt="projects">
               </div>
               <article>
               <h3>Nuesto Blog</h3>
               <p>Ven, explora y mantente actualizado de las últimas novedades existentes en el sector construcción de la República Dominicana. </p>
               <div class="col-lg-4 text-center">
-                <p><a class="btn btn-info" routerLink="/blog" role="button">Acceder</a></p>
+                <p><a class="btn btn-blue text-white" routerLink="/blog" role="button">Acceder</a></p>
               </div>
               </article>
             </div>

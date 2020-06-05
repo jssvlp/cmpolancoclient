@@ -263,7 +263,10 @@ div.validation-error{
   border: 1px solid #dee2e6;
 }
 
-#tituloblog span{
-  color: #edbb00;
+#tituloblog {
+
+    color: white;
+    text-shadow: 0px 0px 24px #000000;
+
 }
 

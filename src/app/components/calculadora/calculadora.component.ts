@@ -27,6 +27,7 @@ export class CalculadoraComponent implements OnInit {
     this.tasa2 = (this.tasa / 12) / 100
     this.numerador = (Math.pow(1 + this.tasa2, this.tiempo2)) * this.tasa2 
     this.denominador = (Math.pow(1 + this.tasa2, this.tiempo2)) - 1
+    
     if (this.moneda=="DOP") {  
     this.result = ('RD$ ') + new Intl.NumberFormat().format(Math.round(((this.numerador/ this.denominador) * this.monto) * 100)/100);
     }

@@ -1,19 +1,42 @@
 /* Cambiar el color de las letras */
 
 #navbar {
-  background-color: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+  background-color: #FFFF
 }
+
 .navbar-nav li a {
-    color: white;
-    font-size: 16px;
+    color: #2c2a22;
+    font-size: 18px;
+    font-family: Century Gothic;
   }
   
-  .dropdown-menu {
-    background-color: #17a2b8;
+  .register-btn{
+    background-color: #1201CC;
+    color: white;
+    font-weight: bold;
+  }
+
+  #user-options{
+
+  }
+
+  .login-btn{
+    background-color: #BD2F01 ;
+    color: white;
+    font-weight: bold;
+  }
+ 
+
+  a:link, a:visited, a:active {
+    text-decoration:none;
+  }
+
+  .dropdown-menu li {
+    color: white;
   }
 
   #logotitulo{
-    color: #edbb00;
+    color: #BD2F01;
     font-weight: bold; 
     }
 
@@ -28,11 +51,13 @@
     
   }
 #navwrap {
-    color:linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);  
-    }
+background:white;
+box-shadow: 0 5px 3px -3px rgba(0,0,0,.3);
+
+}
 
   .navbar-light .navbar-nav .nav-link:hover {
-  color:#edbb00;
+  color:#BD2F01;
   }
 
   .contenedorh{
@@ -53,11 +78,10 @@ header{
 
 @media screen and (max-width:800px){
   #navwrap{
-    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
+    background: white
   }
   #navbarSupportedContent{
-    background: linear-gradient(to bottom, #2c2a22  0%, #2c2a22 100%);
-
+    background: white
 
   }
 
@@ -66,5 +90,6 @@ header{
     margin-right: -1200px;
     
   }
+  
 }
         

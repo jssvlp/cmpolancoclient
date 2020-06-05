@@ -19,6 +19,9 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { TopicForoComponent } from './topic-foro/topic-foro.component';
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
+import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -39,6 +42,8 @@ const routes: Routes = [
   {path: 'nosotros', component: NosotrosComponent},
   {path: 'calculadora', component: CalculadoraComponent},
   {path: 'topic/: id', component: DetalleForoComponent},
+  {path: 'recuperar', component: ForgotPasswordComponent},
+  {path: 'resetpassword/:id', component: ResetPasswordComponent},
   {path: 'pagenotfound', component: PageNotFoundComponent},
   {path: '**', redirectTo: 'pagenotfound'}
 

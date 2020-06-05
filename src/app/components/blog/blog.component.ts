@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlogService } from 'src/app/services/blog.service';
 import { BlogModel } from 'src/app/model/Blog.model';
 import { Router } from '@angular/router';
+import config from '../../../config.js';
 declare var $:any;
 
 
@@ -18,9 +19,11 @@ export class BlogComponent implements OnInit {
   post: BlogModel[] =[]
   filterPost = "";
   p:any;
+  fileserver:string;
   constructor(private modalService: NgbModal, private FormBuilder: FormBuilder, private apiBlog: BlogService, private router: Router) { }
 
   ngOnInit() {
+    this.fileserver = config.fileserver;
     this.apiBlog.getBlogs().subscribe(res => {
       this.post = res;
     })

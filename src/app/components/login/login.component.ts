@@ -4,6 +4,7 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/model/User.model';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 declare var $:any;
 @Component({
   selector: 'app-login',
@@ -14,11 +15,22 @@ export class LoginComponent implements OnInit {
 
 
   requestForm: FormGroup;
+  isLoggedIn : Observable<boolean>;
 
-  constructor(private  authService:  AuthService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder ) { }
+  constructor(private  authService:  AuthService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder ) 
+  {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
   ngOnInit() {
-    if(this.authService.getCurrentUser()){
+
+    let loged;
+    this.isLoggedIn.subscribe((val) =>{
+      loged = val;
+    });
+    
+    
+    if(loged){
       this.router.navigate(['/']);
     }
     else{
@@ -50,10 +62,6 @@ export class LoginComponent implements OnInit {
                     this.toastr.error('Ha ocurrido un error:' + error);
                   }
                 );
-  }
-
-  onLogout(){
-
   }
 
 
