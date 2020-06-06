@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
                           
     this.proyectoService.getProjects()
     .subscribe(res =>{
-      this.data = res;
+      this.data = this.filterProjectByImgUrl(res);
     }, err => {
       console.log(err);
     });
@@ -54,6 +54,15 @@ export class HomeComponent implements OnInit {
   }
 
 
+  filterProjectByImgUrl(proyectos: ProyectoModel[]): ProyectoModel[]
+  {
+    let filtered: ProyectoModel[];
+    filtered =     proyectos.filter( function (proyecto) {
+      return proyecto.imgURL != null;
+    })
+
+    return filtered;
+  }
 
   solicitud(s: ServicioModel){
     window.localStorage.removeItem("SID");
