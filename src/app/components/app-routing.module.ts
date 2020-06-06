@@ -22,6 +22,7 @@ import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasena.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProyectosComponent } from './proyectos/proyectos.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'recuperar', component: ForgotPasswordComponent},
   {path: 'resetpassword/:id', component: ResetPasswordComponent},
   {path: 'pagenotfound', component: PageNotFoundComponent},
+  {path: 'proyectos', component: ProyectosComponent},
   {path: '**', redirectTo: 'pagenotfound'}
 
 ];

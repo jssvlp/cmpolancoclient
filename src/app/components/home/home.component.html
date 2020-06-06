@@ -23,7 +23,7 @@
         </div>
    
         
-        <div *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}} text-center" id="fotoca">
+        <div  *ngFor="let d of data.slice().reverse(); let i = index" class="carousel-item {{ i == data.length && 'active'}} text-center" id="fotoca">
           <img height="775" src="{{fileserver}}/Recursos/{{d?.imgURL}}"  class="d-block w-100" alt="projects" id="imaca" style="object-fit: cover;">
           <div class="carousel-caption" id="direccionca">
             <h3 ><p class="animated bounceInLeft" style="animation-duration: 2s;">CONOCE NUESTROS PROYECTOS</p></h3>

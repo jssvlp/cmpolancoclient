@@ -1,6 +1,6 @@
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, HostListener } from '@angular/core';
+import { NgModule, HostListener,LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from '../guards/auth.guard';
@@ -56,11 +56,14 @@ import {NgxMaskModule} from 'ngx-mask';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ValidateEqualModule } from 'ng-validate-equal';
 
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(es);
 
 
-//Translation
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
 
 import { DetalleForoComponent } from './detalle-foro/detalle-foro.component';
 import { FiltroFPipe } from './pipes/filtro-f.pipe';
@@ -70,12 +73,8 @@ import { OlvidarcontrasenaComponent } from './olvidarcontrasena/olvidarcontrasen
 import { CarouselComponent } from './carousel/carousel.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProyectosComponent } from './proyectos/proyectos.component';
 
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
- 
-}
 
 const routes=[
   {
@@ -116,6 +115,7 @@ const routes=[
     CarouselComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
+    ProyectosComponent,
 
   ],
   imports: [
@@ -131,13 +131,7 @@ const routes=[
       apiKey: 'AIzaSyAkzIviy8CwC_p0GQWspWEXQeGszjdDvfs',
       libraries: ['places']
     }),
-    TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: createTranslateLoader,
-            deps: [HttpClient]
-        }
-    }),
+    
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
     }),
@@ -169,7 +163,8 @@ const routes=[
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    { provide: LOCALE_ID, useValue: 'es-*' }
   ],
   bootstrap: [AppComponent]
 })

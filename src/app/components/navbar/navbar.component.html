@@ -11,35 +11,35 @@
       
         <div class="collapse navbar-collapse justify-content-between menu" id="navbarSupportedContent">
             <ul class="navbar-nav ml-2">
-              <!-- <li class="nav-item ">
-                <a class="nav-link"id="nav-foro"  [routerLink]="['/proyectos']">Proyectos</a>
-              </li> -->
                   
               <li class="nav-item " >
-                <a class="nav-link" id="nav-sobrenosotros" [routerLink]="['/home']" fragment="sobrenosotros" >{{ 'home.nosotros' | translate }}</a>
+                <a class="nav-link" id="nav-sobrenosotros" [routerLink]="['/home']" fragment="sobrenosotros" >Nosotros</a>
               </li>
               
+              <li class="nav-item ">
+                <a class="nav-link"id="nav-foro"  [routerLink]="['/proyectos']">Proyectos</a>
+              </li>
               <li class="nav-item">
-                <a class="nav-link" id="nav-solicitarservicios" [routerLink]="['/home']" fragment="herramientas" >{{'home.servicios' | translate}}</a>
+                <a class="nav-link" id="nav-solicitarservicios" [routerLink]="['/home']" fragment="herramientas" >Servicios</a>
               </li>
 
               <li class="nav-item">
-                  <a class="nav-link" id="nav-solicitarservicios"  routerLink="/calculadora">{{'home.calculadora' | translate}}</a>
+                  <a class="nav-link" id="nav-solicitarservicios"  routerLink="/calculadora">Calculadora</a>
                 </li>
               <li class="nav-item ">
-                <a class="nav-link"id="nav-foro"  [routerLink]="['/foro']">{{'home.foro' | translate}}</a>
+                <a class="nav-link"id="nav-foro"  [routerLink]="['/foro']">Foro</a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link" id="nav-blog"  [routerLink]="['/blog']">{{'home.blog' | translate}}</a>
+                <a class="nav-link" id="nav-blog"  [routerLink]="['/blog']">Blog</a>
               </li>
               
               <li class="nav-item ">
-                <a class="nav-link" id="nav-contacto" [routerLink]="['/home']" fragment="contacto" >{{'home.contacto' | translate}}</a>
+                <a class="nav-link" id="nav-contacto" [routerLink]="['/home']" fragment="contacto" >Contacto</a>
               </li>
             </ul>
             <ul class="navbar-nav" style="margin-right: 10px"   >
               <li *ngIf="!(isLoggedIn | async)" class="nav-item">
-                <a class="btn login-btn text-white ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive=""> {{'home.iniciar-sesion' | translate}}</a>
+                <a class="btn login-btn text-white ml-1" id="iniciarsesion" aria-expanded="false" routerLink="/login" routerLinkActive=""> Iniciar sesión</a>
               </li>
               
               <li *ngIf="(isLoggedIn | async)" id="user-options" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido, {{NombreUsuario}} <b class="caret"></b></a>
@@ -56,7 +56,7 @@
               <div class="nav-item" style="margin-left:10px"></div>
 
               <li *ngIf="!(isLoggedIn | async)" class="nav-item "  >
-                <a class="btn register-btn text-white ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active"> {{'home.registro' | translate}}</a>
+                <a class="btn register-btn text-white ml-1" aria-expanded="false" routerLink="/registry" routerLinkActive="active">Registrarse</a>
               </li>
             </ul>
           </div>

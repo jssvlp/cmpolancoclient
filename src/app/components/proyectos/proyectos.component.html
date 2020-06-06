@@ -1,0 +1,38 @@
+<div class="container">
+  <h3 class="title text-center">Nuestros proyectos</h3>
+  <div class="row  justify-content-md-center">
+
+      <div *ngFor="let proyecto of proyectos; index as i;" class="card card-pro" style="width: 18rem;"  routerLink="/projects/{{proyecto.proyectoID}}/details">
+        <img *ngIf="proyecto.imgURL == null; else elseBlock" class="card-img-top" src="{{fileserver}}/error.jpg" alt="Card image cap">
+        <ng-template #elseBlock>
+            <img class="card-img-top" src="{{fileserver}}/Recursos/{{proyecto.imgURL}}">
+          </ng-template>
+        <div class="card-body">
+          <h5 class="card-title">{{proyecto.nombreProyecto}}</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum sapiente cupiditate suscipit ab. Iste voluptas corporis quaerat numquam dolorem, rem.</p>
+          <a href="#" class="btn btn-primary" routerLink="/projects/{{proyecto.proyectoID}}/details">Ver más</a>
+        </div>
+      </div>
+
+  </div>
+  
+
+  <!-- <div class="row">
+    <div  *ngFor="let proyecto of proyectos; index as i;" class="card proyect-card col-md-4 col-ls-2">
+
+      <img  class="card-img-top" *ngIf="proyecto.imgURL == null; else elseBlock" src="{{fileserver}}/error.jpg">
+      <ng-template #elseBlock>
+        <img class="card-img-top" src="{{fileserver}}/Recursos/{{proyecto.imgURL}}" (error)="this.src='error.jpg'" >
+      </ng-template>
+      
+      <div class="card-body">
+        <h5 class="card-title">{{proyecto.nombreProyecto}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Mostrar</a>
+      </div>
+    </div>
+  </div> -->
+
+   
+</div>
+
